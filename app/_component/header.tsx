@@ -59,7 +59,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">CookieCons</span>
@@ -73,7 +73,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">ProjectPress</span>
@@ -87,7 +87,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">S PHP Engine</span>
@@ -101,7 +101,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">S Template Engine</span>
@@ -115,7 +115,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">S Database Explorer</span>
@@ -129,7 +129,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">S Number Manager</span>
@@ -143,7 +143,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">PyWeb</span>
@@ -157,7 +157,7 @@ export default function Header(): JSX.Element {
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-										       src="/img/app.svg" alt="App" height={ 100 } width={ 100 }/>
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">ViewMD</span>
