@@ -36,7 +36,7 @@ export default function Header(): JSX.Element {
 				</div>
 				<div className="hidden lg:flex lg:gap-x-12">
 					<a
-						className="text-sky-500 text sm font-semibold leading-6"
+						className="text-indigo-500 text sm font-semibold leading-6"
 						href="https://www.stechbd.net">Home</a>
 					<div className="relative">
 						<button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
