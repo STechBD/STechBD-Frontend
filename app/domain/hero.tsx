@@ -67,12 +67,13 @@ export default function Hero(): JSX.Element {
 					className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 			</div>
-			<div className="w-full flex flex-col justify-center items-center px-10 mt-40 lg:mt-52">
+			<div className="w-full flex flex-col items-center px-10">
 				<h1 className="text-4xl font-bold text-center tracking-tight text-gray-900 sm:text-6xl">
 					Domain Registration
 				</h1>
 				<p className="mt-4 text-center text-2xl text-gray-500">
-					C<Typewriter content="hoose your domain name for your personal or business website." speed={ 10 }/>
+					C
+					<Typewriter content="hoose your domain name for your personal or business website." speed={ 10 }/>
 				</p>
 				<div className="mt-10 w-full max-w-xl">
 					<span>
@@ -96,7 +97,8 @@ export default function Hero(): JSX.Element {
 									{ extension }
 									<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
 									     xmlns="http://www.w3.org/2000/svg">
-										<path d="M12,16a2.5,2.5,0,0,1-1.768-.731L4.939,9.975,7.061,7.854,12,12.793l4.939-4.939,2.122,2.121-5.293,5.293A2.5,2.5,0,0,1,12,16Z"/>
+										<path
+											d="M12,16a2.5,2.5,0,0,1-1.768-.731L4.939,9.975,7.061,7.854,12,12.793l4.939-4.939,2.122,2.121-5.293,5.293A2.5,2.5,0,0,1,12,16Z"/>
 									</svg>
 								</div>
 								{ showDomainDropdown && (
@@ -132,58 +134,71 @@ export default function Hero(): JSX.Element {
 					       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 					       value="Search"/>
 				</div>
-				{/* Grid to list domain names with price */ }
-				<div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-					<div className="bg-white shadow overflow-hidden sm:rounded-lg">
-						<div className="px-4 py-5 sm:px-6">
-							<h3 className="text-lg leading-6 font-medium text-gray-900">.com</h3>
-							<p className="mt-1 max-w-2xl text-sm text-gray-500">For personal websites</p>
-						</div>
-						<div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-							<dl className="sm:divide-y sm:divide-gray-200">
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Price</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Transfer</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-							</dl>
+				<div className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.com</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
 						</div>
 					</div>
-					<div className="bg-white shadow overflow-hidden sm:rounded-lg">
-						<div className="px-4 py-5 sm:px-6">
-							<h3 className="text-lg leading-6 font-medium text-gray-900">.com</h3>
-						</div>
-						<div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-							<dl className="sm:divide-y sm:divide-gray-200">
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Price</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Transfer</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-							</dl>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.net</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
 						</div>
 					</div>
-					<div className="bg-white shadow overflow-hidden sm:rounded-lg">
-						<div className="px-4 py-5 sm:px-6">
-							<h3 className="text-lg leading-6 font-medium text-gray-900">.net</h3>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.org</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
 						</div>
-						<div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-							<dl className="sm:divide-y sm:divide-gray-200">
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Price</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-								<div className="py-3 flex justify-between text-sm font-medium">
-									<dt className="text-gray-500">Transfer</dt>
-									<dd className="text-gray-900">$10</dd>
-								</div>
-							</dl>
+					</div>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.info</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
+						</div>
+					</div>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.biz</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
+						</div>
+					</div>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6">
+						<h2 className="text-2xl font-bold text-center text-gray-900">.me</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
+						<p className="mt-4 text-center text-gray-500">Per Year</p>
+						<div className="mt-6">
+							<a href="#"
+							   className="block w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+								Buy Now
+							</a>
 						</div>
 					</div>
 				</div>
