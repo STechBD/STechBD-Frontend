@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import Hero from '@/app/_component/domain/hero'
+import Hero from '@/app/domain/hero'
 
 
 const title: string = 'Domain Registration'
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Page(): JSX.Element {
 
 	return (
-		<main>
+		<>
 			<Hero/>
 			<div className="relative isolate px-6 lg:px-8">
 				<div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -78,6 +78,6 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="px-20 py-10"></div>
 			</div>
-		</main>
+		</>
 	)
 }
