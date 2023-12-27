@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import '@/app/_css/globals.css'
+import '@/app/_css/basic.scss'
 import Header from '@/app/header'
 
 
