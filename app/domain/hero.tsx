@@ -67,7 +67,7 @@ export default function Hero(): JSX.Element {
 					className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 			</div>
-			<div className="screen-height w-full flex flex-col items-center justify-center px-10">
+			<div className="relative screen-height w-full flex flex-col items-center justify-center px-10 z-10">
 				<h1 className="text-4xl font-bold text-center tracking-tight text-gray-900 sm:text-6xl">
 					Domain Registration
 				</h1>
@@ -103,7 +103,7 @@ export default function Hero(): JSX.Element {
 								</div>
 								{ showDomainDropdown && (
 									<div
-										className="absolute top-full left-0 w-full max-h-48 overflow-y-auto bg-white border border-black border-opacity-10 rounded mt-2 py-2">
+										className="absolute top-full left-0 w-full max-h-48 overflow-y-auto bg-white border border-black border-opacity-10 rounded py-2">
 										<ul className="list-none">
 											{ domain.map((type: any, index: number) => (
 												<>
@@ -135,71 +135,119 @@ export default function Hero(): JSX.Element {
 					       value="Search"/>
 				</div>
 				<div className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
-					{/* Note: Overlay layers block Select buttons */}
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.com</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					{/* Note: Overlay layers block Select buttons */ }
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.com
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<div onClick={ (): void => { setExtension('.com') } }
-							   className="block w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.com')
+							} }
+							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
 								Select
 							</div>
 						</div>
 					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.net</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.net
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register" target="_blank"
-							   className="block w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.net')
+							} }
+							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
 								Select
-							</a>
+							</div>
 						</div>
 					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.org</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.org
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register" target="_blank"
-							   className="block w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.org')
+							} }
+							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
 								Select
-							</a>
+							</div>
 						</div>
 					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.info</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.info
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register" target="_blank"
-							   className="block w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.info')
+							} }
+							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
 								Select
-							</a>
+							</div>
 						</div>
 					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.biz</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.biz
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register" target="_blank"
-							   className="block w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.biz')
+							} }
+							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
 								Select
-							</a>
+							</div>
 						</div>
 					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6">
-						<h2 className="text-2xl font-bold text-center text-gray-900">.me</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">৳ 1,000</p>
-						<p className="mt-4 text-center text-gray-500">Per Year</p>
+					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<h2 className="text-2xl font-bold text-center text-gray-900">
+							.me
+						</h2>
+						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+							৳ 1,000
+						</p>
+						<p className="mt-4 text-center text-gray-500">
+							Per Year
+						</p>
 						<div className="mt-6">
-							<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register" target="_blank"
-							   className="block w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+							<div onClick={ (): void => {
+								setExtension('.me')
+							} }
+							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
 								Select
-							</a>
+							</div>
 						</div>
 					</div>
 				</div>
