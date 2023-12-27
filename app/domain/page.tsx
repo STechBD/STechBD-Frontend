@@ -1,10 +1,8 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import { Metadata } from 'next'
 import data from '@/app/_data/domain'
 import Hero from '@/app/domain/hero'
-import Link from 'next/link'
 
 
 /**
@@ -22,7 +20,7 @@ const description: string = 'We will help you to choose a domain name for your w
  * @since 1.0.0
  */
 export default function Page(): JSX.Element {
-const [ sortDomain, setSortDomain ] = useState({ key: 'none', direction: 'asc' })
+	const [ sortDomain, setSortDomain ] = useState({ key: 'none', direction: 'asc' })
 	const sortData = (data: any): any => {
 		if (sortDomain.key !== 'none') {
 			return data.sort((a: any, b: any): number => {
@@ -52,7 +50,7 @@ const [ sortDomain, setSortDomain ] = useState({ key: 'none', direction: 'asc' }
 	}
 
 	const sortedDomain = sortData(data)
-	
+
 	return (
 		<>
 			<Hero/>
@@ -86,134 +84,35 @@ const [ sortDomain, setSortDomain ] = useState({ key: 'none', direction: 'asc' }
 					</p>
 					{/* Map data and show domain price */ }
 					<div className="mt-10">
-						<div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-24">
-							<table className="text-center w-full text-sm text-gray-500 dark:text-gray-400">
-								<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-								<tr>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											#
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('id')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
+						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
+							{
+								sortedDomain.map((domain: any, i: number = 0) => {
+									i++
+
+									let textClass: string = 'text-2xl font-bold text-center'
+									textClass += (i % 2 == 0) ? ' text-purple-600' : ' text-indigo-600'
+									let buttonClass: string = 'block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none'
+									buttonClass += (i % 2 == 0) ? ' bg-purple-600 hover:bg-indigo-700 focus:bg-indigo-700' : ' bg-indigo-600 hover:bg-indigo-700 focus:bg-indigo-700'
+									return (
+										<div key={ i } className="bg-white shadow-md rounded-lg px-10 py-6">
+											<h2 className={ textClass }>
+												{ domain.extension }
+											</h2>
+											<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+												{ domain.registration.bdt }
+											</p>
+											<p className="mt-4 text-center text-gray-500">Per Year</p>
+											<div className="mt-6">
+												<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
+												   target="_blank"
+												   className={ buttonClass }>
+													Buy Now
+												</a>
+											</div>
 										</div>
-									</th>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											Domain
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('name')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
-										</div>
-									</th>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											Type
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('type')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
-										</div>
-									</th>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											Registration
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('registration')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
-										</div>
-									</th>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											Renewal
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('renewal')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
-										</div>
-									</th>
-									<th scope="col" className="px-6 py-3">
-										<div className="flex justify-center">
-											Transfer
-											<Link href="#" onClick={(event): void => {
-												event.preventDefault()
-												requestSort('transfer')
-											}}>
-												<svg className="w-3 h-3 ml-1.5" aria-hidden="true"
-												     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-													<path
-														d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-												</svg>
-											</Link>
-										</div>
-									</th>
-								</tr>
-								</thead>
-								<tbody>
-								{
-									sortedDomain.map((domain: any, i: number = 0) => {
-										i++
-										return (
-											<tr key={ i } className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-												<th scope="row"
-												    className="px-6 py-4">
-													{ i }
-												</th>
-												<td scope="row"
-												    className="px-6 py-4 font-medium bold text-gray-900 whitespace-nowrap dark:text-white">
-													{ domain.extension }
-												</td>
-												<td className="px-6 py-4">
-													{ domain.title }
-												</td>
-												<td className="px-6 py-4">
-													{ domain.registration.bdt }
-												</td>
-												<td className="px-6 py-4">
-													{ domain.renewal.bdt }
-												</td>
-												<td className="px-6 py-4">
-													{ domain.transfer.bdt }
-												</td>
-											</tr>
-										)
-									})
-								}
-								</tbody>
-							</table>
+									)
+								})
+							}
 						</div>
 					</div>
 				</div>

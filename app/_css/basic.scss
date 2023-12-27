@@ -21,3 +21,25 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #555555;
 }
+
+
+/**
+ * Default rule.
+ *
+ * @since 1.0.0
+ */
+a, input[type=submit], button {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
+/**
+ * Layout.
+ *
+ * @since 1.0.0
+ */
+.screen-height {
+	height: calc(100vh - 80px);
+}

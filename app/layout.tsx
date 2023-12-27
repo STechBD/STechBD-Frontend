@@ -7,19 +7,38 @@ import '@/app/_css/basic.scss'
 import Header from '@/app/header'
 
 
+/**
+ * Font family for the whole app.
+ *
+ * @see https://fonts.google.com/specimen/Inter
+ *
+ * @since 1.0.0
+ */
 const inter: NextFont = Inter({ subsets: [ 'latin' ] })
 
+
+/**
+ * Metadata setup for SEO.
+ *
+ * @since 1.0.0
+ */
 export const metadata: Metadata = {
-	title: 'Install Express - S Technologies',
-	description: 'Start your Express.js backend project in seconds using a simple CLI \'install-express\'',
+	title: 'S Technologies',
+	description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
 }
 
+
+/**
+ * Root layout.
+ *
+ * @since 1.0.0
+ */
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 		<body className={ inter.className }>
 		<Header/>
-		<main className="min-h-screen mt-[80px] lg:mt-[88px]">
+		<main className="min-h-screen">
 			{ children }
 		</main>
 		</body>
