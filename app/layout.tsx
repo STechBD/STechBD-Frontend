@@ -12,7 +12,7 @@ import Header from '@/app/header'
  *
  * @see https://fonts.google.com/specimen/Inter
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 const inter: NextFont = Inter({ subsets: [ 'latin' ] })
 
@@ -20,7 +20,7 @@ const inter: NextFont = Inter({ subsets: [ 'latin' ] })
 /**
  * Metadata setup for SEO.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 export const metadata: Metadata = {
 	title: 'S Technologies',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 /**
  * Root layout.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
 	return (

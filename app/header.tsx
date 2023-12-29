@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, useState } from 'react'
+import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -8,45 +8,46 @@ import Image from 'next/image'
 /**
  * Header component.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 export default function Header(): JSX.Element {
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
 	const [ showProject, setShowProject ] = useState<boolean>(false)
-	const [ showHosting, setShowHosting ] = useState<boolean>(false)
+	const [ showServer, setShowServer ] = useState<boolean>(false)
 	const [ showService, setShowService ] = useState<boolean>(false)
+	const [ scrolled, setScrolled ] = useState<boolean>(false)
 	let closeProjectTimeout: any = null
 	let closeHostingTimeout: any = null
 	let closeServiceTimeout: any = null
 
 	const openProject = (): void => {
 		clearInterval(closeProjectTimeout)
-		
+
 		if (!showProject) {
 			setShowProject(true)
-			setShowHosting(false)
+			setShowServer(false)
 			setShowService(false)
 		}
 	}
 	const closeProject = (): void => {
 		closeProjectTimeout = setTimeout((): void => {
 			setShowProject(false)
-		}, 1000)
+		}, 500)
 	}
 
-	const openHosting = (): void => {
+	const openServer = (): void => {
 		clearInterval(closeHostingTimeout)
 
-		if (!showHosting) {
-			setShowHosting(true)
+		if (!showServer) {
+			setShowServer(true)
 			setShowProject(false)
 			setShowService(false)
 		}
 	}
-	const closeHosting = (): void => {
+	const closeServer = (): void => {
 		closeHostingTimeout = setTimeout((): void => {
-			setShowHosting(false)
-		}, 1000)
+			setShowServer(false)
+		}, 500)
 	}
 
 	const openService = (): void => {
@@ -54,19 +55,32 @@ export default function Header(): JSX.Element {
 
 		if (!showService) {
 			setShowService(true)
-			setShowHosting(false)
+			setShowServer(false)
 			setShowProject(false)
 		}
 	}
 	const closeService = (): void => {
 		closeServiceTimeout = setTimeout((): void => {
 			setShowService(false)
-		}, 1000)
+		}, 500)
 	}
 
+	useEffect((): void => {
+		const handleScroll = (): void => {
+			if (window.scrollY > 0) {
+				setScrolled(true)
+			} else {
+				setScrolled(false)
+			}
+		}
+
+		window.addEventListener('scroll', handleScroll)
+	}, [])
+
 	return (
-		<header className="bg-white sticky top-0 z-50 border-b border-gray-200 bg-opacity-90">
-			<nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+		<header
+			className={ `sticky top-0 z-50 ${ scrolled ? 'bg-white border-b border-gray-200 shadow bg-opacity-90' : '' }` }>
+			<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 				<div className="flex lg:flex-1">
 					<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
 						<span className="sr-only">
@@ -99,7 +113,8 @@ export default function Header(): JSX.Element {
 					</Link>
 					<div className="relative">
 						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
-						        type="button" aria-expanded="false" onMouseEnter={ openProject } onMouseLeave={ closeProject }>
+						        type="button" aria-expanded="false" onMouseEnter={ openProject }
+						        onMouseLeave={ closeProject }>
 							Project
 							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
@@ -112,8 +127,8 @@ export default function Header(): JSX.Element {
 						<div onMouseEnter={ openProject } onMouseLeave={ closeProject }
 						     className={ showProject ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="grid grid-cols-2 px-4 py-0">
-								<Link href="/project/CookieCons"
-									className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/CookieCons"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -126,8 +141,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/ProjectPress"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/ProjectPress"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -140,8 +155,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/S-PHP-Engine"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/S-PHP-Engine"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -154,8 +169,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/S-Template-Engine"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/S-Template-Engine"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -168,8 +183,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/S-Database-Explorer"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/S-Database-Explorer"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -182,8 +197,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/S-Number-Manager"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/S-Number-Manager"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -196,8 +211,8 @@ export default function Header(): JSX.Element {
 											languages</p>
 									</div>
 								</Link>
-								<Link href="/project/PyWeb"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/PyWeb"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -210,8 +225,8 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/project/ViewMD"
-								   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/product/ViewMD"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
 										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -225,7 +240,8 @@ export default function Header(): JSX.Element {
 									</div>
 								</Link>
 							</div>
-							<Link href="/project" className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+							<Link href="/project"
+							      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 								View all projects →
 							</Link>
 						</div>
@@ -235,7 +251,8 @@ export default function Header(): JSX.Element {
 					</Link>
 					<div className="relative">
 						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
-						        type="button" aria-expanded="false" onMouseEnter={ openHosting } onMouseLeave={ closeHosting }>
+						        type="button" aria-expanded="false" onMouseEnter={ openServer }
+						        onMouseLeave={ closeServer }>
 							Server
 							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
@@ -245,8 +262,8 @@ export default function Header(): JSX.Element {
 								</path>
 							</svg>
 						</button>
-						<div onMouseEnter={ openHosting } onMouseLeave={ closeHosting }
-						     className={ showHosting ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						<div onMouseEnter={ openServer } onMouseLeave={ closeServer }
+						     className={ showServer ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="grid grid-cols-2 px-4 py-0">
 								<Link href="/shared-hosting"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -345,13 +362,165 @@ export default function Header(): JSX.Element {
 									</div>
 								</Link>
 							</div>
-							<Link href="/server" className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+							<Link href="/server"
+							      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 								View all server plan →
 							</Link>
 						</div>
 					</div>
-					<Link href="/project/CookieCons/about"
-					   className="font-semibold leading-6 text-gray-900">
+					<div className="relative">
+						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
+						        type="button" aria-expanded="false" onMouseEnter={ openService }
+						        onMouseLeave={ closeService }>
+							Service
+							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+							     aria-hidden="true">
+								<path fillRule="evenodd"
+								      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+								      clipRule="evenodd">
+								</path>
+							</svg>
+						</button>
+						<div onMouseEnter={ openService } onMouseLeave={ closeService }
+						     className={ showService ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+							<div className="grid grid-cols-2 px-4 py-0">
+								<Link href="/ai-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											AI App Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Artificial Intelligence (AI) app development for web and native device
+										</p>
+									</div>
+								</Link>
+								<Link href="/web-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											Wep App Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Custom frontend and backend web app development
+										</p>
+									</div>
+								</Link>
+								<Link href="/readymade-web-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											Ready-made Web Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Pre-developed cheap frontend and backend web app
+										</p>
+									</div>
+								</Link>
+								<Link href="/android-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											Android App Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Custom Android app development
+										</p>
+									</div>
+								</Link>
+								<Link href="/ios-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											iOS App Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Custom iOS app development
+										</p>
+									</div>
+								</Link>
+								<Link href="/windows-development"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											Windows App Development
+										</span>
+										<p className="mt-1 text-gray-600">
+											Custom Windows app development
+										</p>
+									</div>
+								</Link>
+								<Link href="/ui-ux-design"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											UI/UX Design
+										</span>
+										<p className="mt-1 text-gray-600">
+											Custom UI/UX design for web and native device
+										</p>
+									</div>
+								</Link>
+								<Link href="/seo"
+								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									<div
+										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+										<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
+									</div>
+									<div className="flex-auto">
+										<span className="block font-semibold text-gray-900">
+											Search Engine Optimization (SEO)
+										</span>
+										<p className="mt-1 text-gray-600">
+											Search engine optimization for your website
+										</p>
+									</div>
+								</Link>
+							</div>
+							<Link href="/service"
+							      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+								View all service plan →
+							</Link>
+						</div>
+					</div>
+					<Link href="/product/CookieCons/about"
+					      className="font-semibold leading-6 text-gray-900">
 						About
 					</Link>
 					<a href="https://github.com/STechBD/Install-Express" target="_blank"
@@ -359,9 +528,13 @@ export default function Header(): JSX.Element {
 						GitHub
 					</a>
 					<Link href="/blog"
-					   className="font-semibold leading-6 text-gray-900">
+					      className="font-semibold leading-6 text-gray-900">
 						Blog
 					</Link>
+					<a href="https://cpanel.stechbd.net/login" target="_blank"
+					   className="font-semibold leading-6 text-gray-900">
+						Login
+					</a>
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
 					<a className="flex gap-5 -m-1.5 p-1.5" href="" target="_blank">
@@ -427,34 +600,34 @@ export default function Header(): JSX.Element {
 										{/* 'Project' submenu, show/hide based on menu state. */ }
 									</button>
 									<div className="mt-2 space-y-2" id="mobileProject">
-										<a href="/project/CookieCons" target="_blank"
+										<a href="/product/CookieCons" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 										>CookieCons</a>
-										<a href="/project/ProjectPress" target="_blank"
+										<a href="/product/ProjectPress" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											ProjectPress
 										</a>
-										<a href="/project/S-PHP-Engine" target="_blank"
+										<a href="/product/S-PHP-Engine" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											S PHP Engine
 										</a>
-										<a href="/project/S-Template-Engine" target="_blank"
+										<a href="/product/S-Template-Engine" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											S Template Engine
 										</a>
-										<a href="/project/S-Database-Explorer" target="_blank"
+										<a href="/product/S-Database-Explorer" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											S Database Explorer
 										</a>
-										<a href="/project/S-Number-Manager" target="_blank"
+										<a href="/product/S-Number-Manager" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											S Number Manager
 										</a>
-										<a href="/project/PyWeb" target="_blank"
+										<a href="/product/PyWeb" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											PyWeb
 										</a>
-										<a href="/project/ViwMD" target="_blank"
+										<a href="/product/ViwMD" target="_blank"
 										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 											ViewMD
 										</a>
@@ -466,7 +639,7 @@ export default function Header(): JSX.Element {
 								</div>
 							</div>
 							<div className="py-3">
-								<a href="/project/CookieCons" target="_blank"
+								<a href="/product/CookieCons" target="_blank"
 								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 									About
 								</a>
@@ -481,6 +654,12 @@ export default function Header(): JSX.Element {
 								<a href="/blog" target="_blank"
 								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 									Blog
+								</a>
+							</div>
+							<div className="py-3">
+								<a href="https://cpanel.stechbd.net/login" target="_blank"
+								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+									Login
 								</a>
 							</div>
 						</div>

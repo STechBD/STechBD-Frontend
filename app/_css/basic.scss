@@ -1,7 +1,7 @@
 /**
  * Custom scrollbar.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 ::-webkit-scrollbar {
 	width: 10px;
@@ -26,7 +26,7 @@
 /**
  * Default rule.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 a, input[type=submit], button, .button {
 	&:hover {
@@ -38,7 +38,7 @@ a, input[type=submit], button, .button {
 /**
  * Layout.
  *
- * @since 1.0.0
+ * @since 3.0.0
  */
 .screen-height {
 	height: calc(100vh - 80px);

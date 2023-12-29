@@ -1,12 +1,18 @@
 'use client'
 
-import { JSX, useState, useEffect } from 'react'
+import { JSX, useEffect, useState } from 'react'
 
 
-export default function Typewriter({ content, speed }: any): JSX.Element {
-	const [text, setText] = useState('')
-	const [index, setIndex] = useState(0)
-	speed = speed || 100 // Adjust typing speed (in milliseconds)
+/**
+ * Typewriter component.
+ *
+ * @param content
+ * @param speed
+ * @constructor
+ */
+export default function Typewriter({ content, speed = 100 }: any): JSX.Element {
+	const [ text, setText ] = useState<string>('')
+	const [ index, setIndex ] = useState<number>(0)
 
 	useEffect(() => {
 		const timer = setTimeout((): void => {
@@ -17,11 +23,11 @@ export default function Typewriter({ content, speed }: any): JSX.Element {
 		}, speed)
 
 		return () => clearTimeout(timer)
-	}, [index, content])
+	}, [ index, content ])
 
 	return (
 		<>
-			{text}
+			{ text }
 		</>
 	)
 }
