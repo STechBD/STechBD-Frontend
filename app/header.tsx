@@ -4,6 +4,7 @@ import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { isPath } from '@/app/_function/utility'
 
 
 /**
@@ -14,29 +15,29 @@ import { usePathname } from 'next/navigation'
 export default function Header(): JSX.Element {
 	const path: string | undefined = usePathname()
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
-	const [ showProject, setShowProject ] = useState<boolean>(false)
+	const [ showProduct, setShowProduct ] = useState<boolean>(false)
 	const [ showServer, setShowServer ] = useState<boolean>(false)
 	const [ showService, setShowService ] = useState<boolean>(false)
-	const [ showCompany, setShowCompany ] = useState<boolean>(false)
+	const [ showMore, setShowMore ] = useState<boolean>(false)
 	const [ scrolled, setScrolled ] = useState<boolean>(false)
-	let closeProjectTimeout: any = null
+	let closeProductTimeout: any = null
 	let closeHostingTimeout: any = null
 	let closeServiceTimeout: any = null
-	let closeCompanyTimeout: any = null
+	let closeMoreTimeout: any = null
 
-	const openProject = (): void => {
-		clearInterval(closeProjectTimeout)
+	const openProduct = (): void => {
+		clearInterval(closeProductTimeout)
 
-		if (!showProject) {
-			setShowProject(true)
+		if (!showProduct) {
+			setShowProduct(true)
 			setShowServer(false)
 			setShowService(false)
-			setShowCompany(false)
+			setShowMore(false)
 		}
 	}
-	const closeProject = (): void => {
-		closeProjectTimeout = setTimeout((): void => {
-			setShowProject(false)
+	const closeProduct = (): void => {
+		closeProductTimeout = setTimeout((): void => {
+			setShowProduct(false)
 		}, 500)
 	}
 
@@ -45,9 +46,9 @@ export default function Header(): JSX.Element {
 
 		if (!showServer) {
 			setShowServer(true)
-			setShowProject(false)
+			setShowProduct(false)
 			setShowService(false)
-			setShowCompany(false)
+			setShowMore(false)
 		}
 	}
 	const closeServer = (): void => {
@@ -62,8 +63,8 @@ export default function Header(): JSX.Element {
 		if (!showService) {
 			setShowService(true)
 			setShowServer(false)
-			setShowProject(false)
-			setShowCompany(false)
+			setShowProduct(false)
+			setShowMore(false)
 		}
 	}
 	const closeService = (): void => {
@@ -72,22 +73,30 @@ export default function Header(): JSX.Element {
 		}, 500)
 	}
 
-	const openCompany = (): void => {
-		clearInterval(closeCompanyTimeout)
+	const openMore = (): void => {
+		clearInterval(closeMoreTimeout)
 
-		if (!showCompany) {
-			setShowCompany(true)
+		if (!showMore) {
+			setShowMore(true)
 			setShowService(false)
 			setShowServer(false)
-			setShowProject(false)
+			setShowProduct(false)
 		}
 	}
 
-	const closeCompany = (): void => {
-		closeCompanyTimeout = setTimeout((): void => {
-			setShowCompany(false)
+	const closeMore = (): void => {
+		closeMoreTimeout = setTimeout((): void => {
+			setShowMore(false)
 		}, 500)
 	}
+
+	const toggleMenu = (): void => {
+		setShowMenu(true)
+	}
+
+	useEffect((): void => {
+		setShowMenu(false)
+	}, [ path ])
 
 	useEffect((): void => {
 		const handleScroll = (): void => {
@@ -103,7 +112,7 @@ export default function Header(): JSX.Element {
 
 	return (
 		<header
-			className={ `sticky top-0 z-50 ${ scrolled ? 'bg-white border-b border-gray-200 shadow bg-opacity-90' : '' }` }>
+			className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 ' : '') + 'sticky top-0 z-50' }>
 			<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 				<div className="flex lg:flex-1">
 					<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
@@ -118,8 +127,8 @@ export default function Header(): JSX.Element {
 					</Link>
 				</div>
 				<div className="flex lg:hidden">
-					<button className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-					        type="button" id="menuButton">
+					<button type="button" onClick={ toggleMenu }
+					        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
 						<span className="sr-only">
 							Open main menu
 						</span>
@@ -131,15 +140,17 @@ export default function Header(): JSX.Element {
 						</svg>
 					</button>
 				</div>
-				<div className={ showMenu ? 'lg:flex lg:gap-x-12' : 'hidden lg:flex lg:gap-x-12' }>
-					<Link href="/" className={ (path === '/' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+				<div className="hidden lg:flex lg:gap-x-12">
+					<Link href="/"
+					      className={ (path === '/' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Home
 					</Link>
 					<div className="relative">
-						<button className={ (path === '/product' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-						        type="button" aria-expanded="false" onMouseEnter={ openProject }
-						        onMouseLeave={ closeProject }>
-							Project
+						<button
+							className={ (path === '/product' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+							type="button" aria-expanded="false" onMouseEnter={ openProduct }
+							onMouseLeave={ closeProduct }>
+							Product
 							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
 								<path fillRule="evenodd"
@@ -148,8 +159,8 @@ export default function Header(): JSX.Element {
 								</path>
 							</svg>
 						</button>
-						<div onMouseEnter={ openProject } onMouseLeave={ closeProject }
-						     className={ showProject ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						<div onMouseEnter={ openProduct } onMouseLeave={ closeProduct }
+						     className={ showProduct ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="grid grid-cols-2 px-4 py-0">
 								<Link href="/product/CookieCons"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -167,7 +178,7 @@ export default function Header(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/product/ProjectPress"
+								<Link href="/product/ProductPress"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -176,7 +187,7 @@ export default function Header(): JSX.Element {
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">
-											ProjectPress
+											ProductPress
 										</span>
 										<p className="mt-1 text-gray-600">
 											WordPress plugin for showing projects as a portfolio
@@ -282,17 +293,19 @@ export default function Header(): JSX.Element {
 							</div>
 							<Link href="/project"
 							      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-								View all projects →
+								View all product →
 							</Link>
 						</div>
 					</div>
-					<Link href="/domain" className={ (path === '/domain' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+					<Link href="/domain"
+					      className={ (path === '/domain' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Domain
 					</Link>
 					<div className="relative">
-						<button className={ (path === '/server' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-						        type="button" aria-expanded="false" onMouseEnter={ openServer }
-						        onMouseLeave={ closeServer }>
+						<button
+							className={ (path === '/server' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+							type="button" aria-expanded="false" onMouseEnter={ openServer }
+							onMouseLeave={ closeServer }>
 							Server
 							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
@@ -409,9 +422,10 @@ export default function Header(): JSX.Element {
 						</div>
 					</div>
 					<div className="relative">
-						<button className={ (path === '/service' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-						        type="button" aria-expanded="false" onMouseEnter={ openService }
-						        onMouseLeave={ closeService }>
+						<button
+							className={ (path === '/service' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+							type="button" aria-expanded="false" onMouseEnter={ openService }
+							onMouseLeave={ closeService }>
 							Service
 							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
@@ -572,10 +586,18 @@ export default function Header(): JSX.Element {
 						Blog
 					</Link>
 					<div className="relative">
-						<button className={ (path.startsWith('/about') || path.startsWith('/contact') ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-						        type="button" aria-expanded="false" onMouseEnter={ openCompany }
-						        onMouseLeave={ closeCompany }>
-							Company
+						<button className={ (isPath([
+							'/about',
+							'/contact',
+							'/support',
+							'/faq',
+							'/privacy',
+							'/term',
+							'/disclaimer',
+						]) ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+						        type="button" aria-expanded="false" onMouseEnter={ openMore }
+						        onMouseLeave={ closeMore }>
+							More
 							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
 								<path fillRule="evenodd"
@@ -584,28 +606,35 @@ export default function Header(): JSX.Element {
 								</path>
 							</svg>
 						</button>
-						<div onMouseEnter={ openCompany } onMouseLeave={ closeCompany }
-						     className={ showCompany ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						<div onMouseEnter={ openMore } onMouseLeave={ closeMore }
+						     className={ showMore ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="px-4 py-0">
-								<Link href="/about" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/about"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									About S Technologies
 								</Link>
-								<Link href="/contact" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/contact"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Contact
 								</Link>
-								<Link href="/support" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/support"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Support
 								</Link>
-								<Link href="/faq" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/faq"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Frequently Asked Questions (FAQ)
 								</Link>
-								<Link href="/privacy" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/privacy"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Privacy Policy
 								</Link>
-								<Link href="/term" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/term"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Terms of Service
 								</Link>
-								<Link href="/disclaimer" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+								<Link href="/disclaimer"
+								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Disclaimer
 								</Link>
 							</div>
@@ -617,7 +646,7 @@ export default function Header(): JSX.Element {
 					</a>
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					<a className="flex gap-5 -m-1.5 p-1.5" href="" target="_blank">
+					<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
 						<span className="sr-only">
 							S Technologies
 						</span>
@@ -626,103 +655,203 @@ export default function Header(): JSX.Element {
 						</div>
 						<Image className="h-8 w-auto sm:h-10" src="/img/S-Technologies-Icon.svg"
 						       alt="S Technologies Logo" height={ 100 } width={ 100 }/>
-					</a>
+					</Link>
 				</div>
 			</nav>
-			{/* Mobile menu, show/hide based on menu open state. */ }
-			<div className="hidden" id="menu" role="dialog" aria-modal="true">
-				{/* Background backdrop, show/hide based on slide-over state. */ }
-				<div className="fixed inset-0 z-10">
-				</div>
+			{ /** Mobile Menu **/ }
+			<div onClick={ () => setShowMenu(false) } aria-modal="true" className={ showMenu ? 'block -mt-20 -mb-40 h-screen w-screen bg-black bg-opacity-70 overflow-hidden z-100' : 'hidden' } role="dialog">
+				{ /* Background water-drop effect for the menu */ }
 				<div
-					className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+					className="fixed h-screen inset-y-0 right-0 z-100 w-[90%] overflow-x-hidden overflow-y-auto bg-white bg-opacity-100 px-6 pt-6 pb-20">
 					<div className="flex items-center justify-between">
-						<a className="flex items-center gap-5 -m-1.5 p-1.5" href=""
-						   target="_blank">
+						<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
 							<span className="sr-only">
 								S Technologies
 							</span>
-							<Image className="h-8 w-auto" src="/img/S-Technologies-Icon.svg" alt="S Technologies Logo"
+							<Image className="h-8 w-auto" src="/img/S-Technologies-Icon.svg"
+							       alt="S Technologies Logo"
 							       height={ 100 } width={ 100 }/>
 							<span className="text-lg font-semibold leading-6 text-gray-900">
 								S Technologies
 							</span>
-						</a>
-						<button className="-m-2.5 rounded-md p-2.5 text-gray-700" type="button">
-							<span className="sr-only">Close menu</span>
+						</Link>
+						<button onClick={ () => toggleMenu() } type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
+							<span className="sr-only">
+								Close menu
+							</span>
 							<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
 							     stroke="currentColor" aria-hidden="true">
-								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12">
-								</path>
+								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
 							</svg>
 						</button>
 					</div>
 					<div className="mt-6 flow-root">
 						<div className="-my-6 divide-y divide-gray-500/10">
 							<div className="pt-6 pb-3">
-								<a href="/" target="_blank"
-								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-sky-500 hover:bg-gray-50">
+								<Link href="/"
+								      className={ (path === '/' ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 									Home
-								</a>
+								</Link>
 							</div>
 							<div className="space-y-2 py-6">
 								<div className="-mx-3">
-									<button type="button" id="mobileProjectButton" aria-controls="disclosure-1"
+									<button type="button" aria-controls="disclosure-1"
 									        aria-expanded="false"
-									        className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base text-sky-500 font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-										Project
-										{/* Expand/collapse icon, toggle classes based on menu open state. */ }
+									        className={ (path.startsWith('/product') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										Product
 										<svg className="h-5 w-5 flex-none">
 											<path fillRule="evenodd" clipRule="evenodd"
 											      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
 											</path>
 										</svg>
-										{/* 'Project' submenu, show/hide based on menu state. */ }
 									</button>
-									<div className="mt-2 space-y-2" id="mobileProject">
-										<a href="/product/CookieCons" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-										>CookieCons</a>
-										<a href="/product/ProjectPress" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-											ProjectPress
-										</a>
-										<a href="/product/S-PHP-Engine" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+									<div className="mt-2 space-y-2" id="mobileProduct">
+										<Link href="/product/CookieCons"
+										      className={ (path === '/product/CookieCons' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											CookieCons
+										</Link>
+										<Link href="/product/ProductPress"
+										      className={ (path === '/product/ProductPress' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											ProductPress
+										</Link>
+										<Link href="/product/S-PHP-Engine"
+										      className={ (path === '/product/S-PHP-Engine' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											S PHP Engine
-										</a>
-										<a href="/product/S-Template-Engine" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										</Link>
+										<Link href="/product/S-Template-Engine"
+										      className={ (path === '/product/S-Template-Engine' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											S Template Engine
-										</a>
-										<a href="/product/S-Database-Explorer" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										</Link>
+										<Link href="/product/S-Database-Explorer"
+										      className={ (path === '/product/S-Database-Explorer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											S Database Explorer
-										</a>
-										<a href="/product/S-Number-Manager" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										</Link>
+										<Link href="/product/S-Number-Manager"
+										      className={ (path === '/product/S-Number-Manager' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											S Number Manager
-										</a>
-										<a href="/product/PyWeb" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										</Link>
+										<Link href="/product/PyWeb"
+										      className={ (path === '/product/PyWeb' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											PyWeb
-										</a>
-										<a href="/product/ViwMD" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										</Link>
+										<Link href="/product/ViewMD"
+										      className={ (path === '/product/ViewMD' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											ViewMD
-										</a>
-										<a href="/project" target="_blank"
-										   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-											View all projects →
-										</a>
+										</Link>
+										<Link href="/project"
+										      className={ (path === '/product' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											View all product →
+										</Link>
 									</div>
 								</div>
 							</div>
 							<div className="py-3">
-								<a href="/product/CookieCons" target="_blank"
-								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+								<Link href="/domain"
+								      className={ (path === '/domain' ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+									Domain
+								</Link>
+							</div>
+							<div className="space-y-2 py-6">
+								<div className="-mx-3">
+									<button type="button" aria-controls="disclosure-1"
+									        aria-expanded="false"
+									        className={ (path.startsWith('/server') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										Server
+										<svg className="h-5 w-5 flex-none">
+											<path fillRule="evenodd" clipRule="evenodd"
+											      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
+											</path>
+										</svg>
+									</button>
+									<div className="mt-2 space-y-2">
+										<Link href="/shared-hosting"
+										      className={ (path === '/shared-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Shared Hosting
+										</Link>
+										<Link href="/reseller-hosting"
+										      className={ (path === '/reseller-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Reseller Hosting
+										</Link>
+										<Link href="/master-reseller-hosting"
+										      className={ (path === '/master-reseller-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Master Reseller Hosting
+										</Link>
+										<Link href="/managed-vps"
+										      className={ (path === '/managed-vps' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Managed VPS
+										</Link>
+										<Link href="/unmanaged-vps"
+										      className={ (path === '/unmanaged-vps' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Unmanaged VPS
+										</Link>
+										<Link href="/dedicated-server"
+										      className={ (path === '/dedicated-server' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Dedicated Server
+										</Link>
+										<Link href="/server"
+										      className={ (path === '/server' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											View all server plan →
+										</Link>
+									</div>
+								</div>
+							</div>
+							<div className="space-y-2 py-6">
+								<div className="-mx-3">
+									<button type="button" aria-controls="disclosure-1"
+									        aria-expanded="false"
+									        className={ (path.startsWith('/service') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										Service
+										<svg className="h-5 w-5 flex-none">
+											<path fillRule="evenodd" clipRule="evenodd"
+											      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
+											</path>
+										</svg>
+									</button>
+									<div className="mt-2 space-y-2">
+										<Link href="/ai-development"
+										      className={ (path === '/ai-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											AI App Development
+										</Link>
+										<Link href="/web-development"
+										      className={ (path === '/web-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Wep App Development
+										</Link>
+										<Link href="/readymade-web-development"
+										      className={ (path === '/readymade-web-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Ready-made Web Development
+										</Link>
+										<Link href="/android-development"
+										      className={ (path === '/android-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											Android App Development
+										</Link>
+										<Link href="/ios-development"
+										      className={ (path === '/ios-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											iOS App Development
+										</Link>
+										<Link href="/windows-development"
+										      className={ (path === '/windows-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											Windows App Development
+										</Link>
+										<Link href="/ui-ux-design"
+										      className={ (path === '/ui-ux-design' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											UI/UX Design
+										</Link>
+										<Link href="/seo"
+										      className={ (path === '/seo' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											Search Engine Optimization (SEO)
+										</Link>
+										<Link href="/service"
+										      className={ (path === '/service' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											View all service plan →
+										</Link>
+									</div>
+								</div>
+							</div>
+							<div className="py-3">
+								<Link href="/product/CookieCons/about"
+								      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 									About
-								</a>
+								</Link>
 							</div>
 							<div className="py-3">
 								<a href="https://github.com/STechBD/Install-Express" target="_blank"
@@ -731,10 +860,62 @@ export default function Header(): JSX.Element {
 								</a>
 							</div>
 							<div className="py-3">
-								<a href="/blog" target="_blank"
-								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+								<Link href="/blog"
+								      className={ (path.startsWith('/blog') ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 									Blog
-								</a>
+								</Link>
+							</div>
+							<div className="space-y-2 py-6">
+								<div className="-mx-3">
+									<button type="button" aria-controls="disclosure-1"
+									        aria-expanded="false"
+									        className={ (isPath([
+										        '/about',
+										        '/contact',
+										        '/support',
+										        '/faq',
+										        '/privacy',
+										        '/term',
+										        '/disclaimer',
+									        ]) ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										More
+										<svg className="h-5 w-5 flex-none">
+											<path fillRule="evenodd" clipRule="evenodd"
+											      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
+											</path>
+										</svg>
+									</button>
+									<div className="mt-2 space-y-2">
+										<Link href="/about"
+										      className={ (path === '/about' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											About S Technologies
+										</Link>
+										<Link href="/contact"
+										      className={ (path === '/contact' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Contact
+										</Link>
+										<Link href="/support"
+										      className={ (path === '/support' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Support
+										</Link>
+										<Link href="/faq"
+										      className={ (path === '/faq' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Frequently Asked Questions (FAQ)
+										</Link>
+										<Link href="/privacy"
+										      className={ (path === '/privacy' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											Privacy Policy
+										</Link>
+										<Link href="/term"
+										      className={ (path === '/term' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											Terms of Service
+										</Link>
+										<Link href="/disclaimer"
+										      className={ (path === '/disclaimer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											Disclaimer
+										</Link>
+									</div>
+								</div>
 							</div>
 							<div className="py-3">
 								<a href="https://cpanel.stechbd.net/login" target="_blank"
