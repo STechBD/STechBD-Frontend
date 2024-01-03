@@ -1,8 +1,9 @@
 'use client'
 
-import { JSX, useEffect, useState } from 'react'
+import { JSX, useState } from 'react'
 import Link from 'next/link'
-import Typewriter from '@/app/_component/typewriter'
+import ParticleAnimation from '@/app/_component/particleAnimation'
+import { RandomTypewriter } from '@/app/_component/typewriter'
 
 
 /**
@@ -12,30 +13,15 @@ import Typewriter from '@/app/_component/typewriter'
  * @since 3.0.0
  */
 export default function Hero(): JSX.Element {
-	const [ heroText, setHeroText ] = useState<any>(<>
-		S<Typewriter content="oftware"/>
-	</>)
 	const [ showDomainDropdown, setShowDomainDropdown ] = useState<boolean>(false)
 	const [ extension, setExtension ] = useState<string>('.com')
-	const listHeroText: JSX.Element[] = [
-		<>
-			<Typewriter content="Software" key={ 1 }/>
-		</>,
-		<>
-			<Typewriter content="Website" key={ 2 }/>
-		</>,
-		<>
-			<Typewriter content="AI" key={ 3 }/>
-		</>,
-		<>
-			<Typewriter content="Solution" key={ 4 }/>
-		</>,
-		<>
-			<Typewriter content="UI/UX" key={ 5 }/>
-		</>,
-		<>
-			<Typewriter content="Solution" key={ 6 }/>
-		</>,
+	const listHeroText: string[] = [
+		'Software',
+		'Server',
+		'Domain',
+		'AI',
+		'UI/UX',
+		'Solution',
 	]
 	const domain = [
 		{
@@ -66,19 +52,10 @@ export default function Hero(): JSX.Element {
 		setShowDomainDropdown(!showDomainDropdown)
 	}
 
-	// change hero text from listHeroText array after every 3 seconds
-	useEffect(() => {
-		const timer = setTimeout((): void => {
-			setHeroText(listHeroText[Math.floor(Math.random() * listHeroText.length)])
-		}, 4000)
-
-		return () => clearTimeout(timer)
-	}, [ heroText ])
-
 	return (
 		<div className="relative min-h-screen overflow-hidden -mt-24 py-24">
-			{/*<ParticleAnimation/>*/ }
-			{/* Background color effect */ }
+			{/*<ParticleAnimation/>*/}
+			{ /** Background color effect **/ }
 			<div
 				className="absolute inset-0 h-full w-full bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
 			</div>
@@ -103,9 +80,9 @@ export default function Hero(): JSX.Element {
 					className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 			</div>
-			{/* Background gradient effect */ }
+			{ /** Background gradient effect **/ }
 			<div
-				className="absolute inset-0 h-full min-h-screen w-full bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
+				className="absolute inset-0 h-full min-h-screen w-full -z-10 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
 				<svg className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice"
 				     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 678">
 					<path d="M0 0l1463 678L0 678V0z" fill="url(#heroicon-gradient)" fillOpacity=".4"
@@ -118,17 +95,17 @@ export default function Hero(): JSX.Element {
 					</defs>
 				</svg>
 			</div>
-			{/* Content */ }
+			{ /** Content **/ }
 			<div className="relative h-full min-h-screen">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6">
 					<div className="pt-32 pb-12 md:pt-40 md:pb-20">
 						<div className="max-w-4xl flex flex-col items-center mx-auto text-center">
 							<h1
 								className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
-								<span className="block text-gray-800 xl:inline">We build </span>
+								<span className="block text-gray-800 xl:inline">We provide </span>
 								<span
 									className="block md:inline sm:block bg-indigo-600 text-white h-12">
-									{ heroText }
+									<RandomTypewriter content={ listHeroText } speed={ 100 } change={ 3000 }/>
 								</span>
 								<span className="block text-gray-800 xl:inline"> for </span>
 								<div className="text-indigo-600">businesses</div>
@@ -146,7 +123,8 @@ export default function Hero(): JSX.Element {
 										Domain Name
 									</label>
 									<div className="relative">
-										<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+										<div
+											className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 											<span className="text-gray-500 pr-5 sm:text-sm">
 												@
 											</span>
@@ -160,7 +138,8 @@ export default function Hero(): JSX.Element {
 											<div onClick={ toggleDomainDropdown }
 											     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
 												{ extension }
-												<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+												<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"
+												     aria-hidden="true"
 												     xmlns="http://www.w3.org/2000/svg">
 													<path
 														d="M12,16a2.5,2.5,0,0,1-1.768-.731L4.939,9.975,7.061,7.854,12,12.793l4.939-4.939,2.122,2.121-5.293,5.293A2.5,2.5,0,0,1,12,16Z"/>
@@ -213,8 +192,8 @@ export default function Hero(): JSX.Element {
 							</div>
 						</div>
 					</div>
-					{/** Grid of Services Starts **/}
-					<div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+					{ /** Grid of Services Starts **/ }
+					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 						<div
 							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
 							<h2 className="text-2xl font-bold text-center text-gray-900">
@@ -276,7 +255,7 @@ export default function Hero(): JSX.Element {
 							</div>
 						</div>
 					</div>
-					{/** Grid of Services Ends **/}
+					{/** Grid of Services Ends **/ }
 				</div>
 			</div>
 		</div>

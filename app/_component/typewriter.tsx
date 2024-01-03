@@ -8,9 +8,12 @@ import { JSX, useEffect, useState } from 'react'
  *
  * @param content
  * @param speed
- * @constructor
+ *
+ * @return JSX.Element
+ *
+ * @since 3.0.0
  */
-export default function Typewriter({ content, speed = 100 }: any): JSX.Element {
+export function Typewriter({ content, speed = 100 }: any): JSX.Element {
 	const [ text, setText ] = useState<string>('')
 	const [ index, setIndex ] = useState<number>(0)
 
@@ -29,5 +32,54 @@ export default function Typewriter({ content, speed = 100 }: any): JSX.Element {
 		<>
 			{ text }
 		</>
+	)
+}
+
+
+/**
+ * Random Typewriter component.
+ * Randomly change the content of the typewriter.
+ * If loop is true, it will change the content randomly after every change millisecond.
+ * If loop is false, it will change the content randomly after every change millisecond only once.
+ *
+ * @param content
+ * @param speed
+ * @param change
+ *
+ * @param random
+ * @param loop
+ * @return JSX.Element
+ *
+ * @since 3.0.0
+ */
+export function RandomTypewriter({ content = [], speed = 100, change = 3000, random = true, loop = true }: any): JSX.Element {
+	const [ index, setIndex ] = useState<number>(random ? Math.floor(Math.random() * content.length) : 0)
+
+	useEffect(() => {
+		if (loop) {
+			const timer = setInterval((): void => {
+				if (random) {
+					setIndex(Math.floor(Math.random() * content.length))
+				} else {
+					setIndex((prevIndex: number) => prevIndex + 1)
+				}
+			}, change)
+
+			return () => clearInterval(timer)
+		} else {
+			const timer = setTimeout((): void => {
+				if (random) {
+					setIndex(Math.floor(Math.random() * content.length))
+				} else {
+					setIndex((prevIndex: number) => prevIndex + 1)
+				}
+			}, change)
+
+			return () => clearTimeout(timer)
+		}
+	}, [])
+
+	return (
+		<Typewriter content={ content[index] } speed={ speed } key={ index } />
 	)
 }

@@ -17,10 +17,12 @@ export default function Header(): JSX.Element {
 	const [ showProject, setShowProject ] = useState<boolean>(false)
 	const [ showServer, setShowServer ] = useState<boolean>(false)
 	const [ showService, setShowService ] = useState<boolean>(false)
+	const [ showCompany, setShowCompany ] = useState<boolean>(false)
 	const [ scrolled, setScrolled ] = useState<boolean>(false)
 	let closeProjectTimeout: any = null
 	let closeHostingTimeout: any = null
 	let closeServiceTimeout: any = null
+	let closeCompanyTimeout: any = null
 
 	const openProject = (): void => {
 		clearInterval(closeProjectTimeout)
@@ -29,6 +31,7 @@ export default function Header(): JSX.Element {
 			setShowProject(true)
 			setShowServer(false)
 			setShowService(false)
+			setShowCompany(false)
 		}
 	}
 	const closeProject = (): void => {
@@ -44,6 +47,7 @@ export default function Header(): JSX.Element {
 			setShowServer(true)
 			setShowProject(false)
 			setShowService(false)
+			setShowCompany(false)
 		}
 	}
 	const closeServer = (): void => {
@@ -59,11 +63,29 @@ export default function Header(): JSX.Element {
 			setShowService(true)
 			setShowServer(false)
 			setShowProject(false)
+			setShowCompany(false)
 		}
 	}
 	const closeService = (): void => {
 		closeServiceTimeout = setTimeout((): void => {
 			setShowService(false)
+		}, 500)
+	}
+
+	const openCompany = (): void => {
+		clearInterval(closeCompanyTimeout)
+
+		if (!showCompany) {
+			setShowCompany(true)
+			setShowService(false)
+			setShowServer(false)
+			setShowProject(false)
+		}
+	}
+
+	const closeCompany = (): void => {
+		closeCompanyTimeout = setTimeout((): void => {
+			setShowCompany(false)
 		}, 500)
 	}
 
@@ -137,7 +159,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">CookieCons</span>
+										<span className="block font-semibold text-gray-900">
+											CookieCons
+										</span>
 										<p className="mt-1 text-gray-600">
 											WordPress plugin for GDPR and ePrivacy Cookie Compliance
 										</p>
@@ -151,7 +175,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">ProjectPress</span>
+										<span className="block font-semibold text-gray-900">
+											ProjectPress
+										</span>
 										<p className="mt-1 text-gray-600">
 											WordPress plugin for showing projects as a portfolio
 										</p>
@@ -165,7 +191,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">S PHP Engine</span>
+										<span className="block font-semibold text-gray-900">
+											S PHP Engine
+										</span>
 										<p className="mt-1 text-gray-600">
 											Lightweight MVC-based PHP framework for building powerful web applications
 										</p>
@@ -179,7 +207,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">S Template Engine</span>
+										<span className="block font-semibold text-gray-900">
+											S Template Engine
+										</span>
 										<p className="mt-1 text-gray-600">
 											Lightweight template engine for PHP
 										</p>
@@ -193,7 +223,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">S Database Explorer</span>
+										<span className="block font-semibold text-gray-900">
+											S Database Explorer
+										</span>
 										<p className="mt-1 text-gray-600">
 											Simple and easy to use Database Explorer for MySQL with PDO
 										</p>
@@ -207,7 +239,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">S Number Manager</span>
+										<span className="block font-semibold text-gray-900">
+											S Number Manager
+										</span>
 										<p className="mt-1 text-gray-600">Simple library for converting numbers in
 											different
 											languages</p>
@@ -221,7 +255,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">PyWeb</span>
+										<span className="block font-semibold text-gray-900">
+											PyWeb
+										</span>
 										<p className="mt-1 text-gray-600">
 											Python-based lightweight web browser for Windows
 										</p>
@@ -235,7 +271,9 @@ export default function Header(): JSX.Element {
 										       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 									</div>
 									<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">ViewMD</span>
+										<span className="block font-semibold text-gray-900">
+											ViewMD
+										</span>
 										<p className="mt-1 text-gray-600">
 											Markdown viewer for Windows
 										</p>
@@ -530,9 +568,49 @@ export default function Header(): JSX.Element {
 						GitHub
 					</a>
 					<Link href="/blog"
-					      className={ (path === '/blog' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+					      className={ (path.startsWith('/blog') ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Blog
 					</Link>
+					<div className="relative">
+						<button className={ (path.startsWith('/about') || path.startsWith('/contact') ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+						        type="button" aria-expanded="false" onMouseEnter={ openCompany }
+						        onMouseLeave={ closeCompany }>
+							Company
+							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
+							     aria-hidden="true">
+								<path fillRule="evenodd"
+								      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+								      clipRule="evenodd">
+								</path>
+							</svg>
+						</button>
+						<div onMouseEnter={ openCompany } onMouseLeave={ closeCompany }
+						     className={ showCompany ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+							<div className="px-4 py-0">
+								<Link href="/about" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									About S Technologies
+								</Link>
+								<Link href="/contact" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Contact
+								</Link>
+								<Link href="/support" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Support
+								</Link>
+								<Link href="/faq" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Frequently Asked Questions (FAQ)
+								</Link>
+								<Link href="/privacy" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Privacy Policy
+								</Link>
+								<Link href="/term" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Terms of Service
+								</Link>
+								<Link href="/disclaimer" className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									Disclaimer
+								</Link>
+							</div>
+						</div>
+					</div>
 					<a href="https://cpanel.stechbd.net/login" target="_blank"
 					   className="font-semibold leading-6 text-gray-900">
 						Login

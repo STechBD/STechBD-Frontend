@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import Typewriter from '@/app/_component/typewriter'
+import { Typewriter } from '@/app/_component/typewriter'
 
 
 /**

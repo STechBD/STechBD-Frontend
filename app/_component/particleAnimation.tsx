@@ -56,10 +56,10 @@ export default function ParticleAnimation(): JSX.Element {
 			},
 			particles: {
 				color: {
-					value: '#000000',
+					value: '#9800E8',
 				},
 				links: {
-					color: '#000000',
+					color: '#4C2FE4',
 					distance: 150,
 					enable: true,
 					opacity: 0.5,
@@ -102,9 +102,9 @@ export default function ParticleAnimation(): JSX.Element {
 	if (init) {
 		return (
 			<Particles
-				id="tsparticles"
 				particlesLoaded={ particlesLoaded }
 				options={ options }
+				className="-z-10"
 			/>
 		)
 	}
