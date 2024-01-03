@@ -3,6 +3,7 @@
 import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 
 /**
@@ -11,6 +12,7 @@ import Image from 'next/image'
  * @since 3.0.0
  */
 export default function Header(): JSX.Element {
+	const path: string | undefined = usePathname()
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
 	const [ showProject, setShowProject ] = useState<boolean>(false)
 	const [ showServer, setShowServer ] = useState<boolean>(false)
@@ -108,15 +110,15 @@ export default function Header(): JSX.Element {
 					</button>
 				</div>
 				<div className={ showMenu ? 'lg:flex lg:gap-x-12' : 'hidden lg:flex lg:gap-x-12' }>
-					<Link href="/" className="text-indigo-500 font-semibold leading-6">
+					<Link href="/" className={ (path === '/' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Home
 					</Link>
 					<div className="relative">
-						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
+						<button className={ (path === '/product' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 						        type="button" aria-expanded="false" onMouseEnter={ openProject }
 						        onMouseLeave={ closeProject }>
 							Project
-							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
 								<path fillRule="evenodd"
 								      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -246,15 +248,15 @@ export default function Header(): JSX.Element {
 							</Link>
 						</div>
 					</div>
-					<Link href="/domain" className="font-semibold leading-6 text-gray-900">
+					<Link href="/domain" className={ (path === '/domain' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Domain
 					</Link>
 					<div className="relative">
-						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
+						<button className={ (path === '/server' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 						        type="button" aria-expanded="false" onMouseEnter={ openServer }
 						        onMouseLeave={ closeServer }>
 							Server
-							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
 								<path fillRule="evenodd"
 								      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -369,11 +371,11 @@ export default function Header(): JSX.Element {
 						</div>
 					</div>
 					<div className="relative">
-						<button className="flex items-center gap-x-1 font-semibold leading-6 text-gray-900"
+						<button className={ (path === '/service' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 						        type="button" aria-expanded="false" onMouseEnter={ openService }
 						        onMouseLeave={ closeService }>
 							Service
-							<svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
 								<path fillRule="evenodd"
 								      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -520,7 +522,7 @@ export default function Header(): JSX.Element {
 						</div>
 					</div>
 					<Link href="/product/CookieCons/about"
-					      className="font-semibold leading-6 text-gray-900">
+					      className={ (path === '/CookieCons/about' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						About
 					</Link>
 					<a href="https://github.com/STechBD/Install-Express" target="_blank"
@@ -528,7 +530,7 @@ export default function Header(): JSX.Element {
 						GitHub
 					</a>
 					<Link href="/blog"
-					      className="font-semibold leading-6 text-gray-900">
+					      className={ (path === '/blog' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Blog
 					</Link>
 					<a href="https://cpanel.stechbd.net/login" target="_blank"
