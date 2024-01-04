@@ -213,7 +213,7 @@ export default function ProductHeader(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/product/ProductPress"
+								<Link href="/product/ProjectPress"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -222,7 +222,7 @@ export default function ProductHeader(): JSX.Element {
 									</div>
 									<div className="flex-auto">
 										<span className="block font-semibold text-gray-900">
-											ProductPress
+											ProjectPress
 										</span>
 										<p className="mt-1 text-gray-600">
 											WordPress plugin for showing projects as a portfolio
@@ -326,7 +326,7 @@ export default function ProductHeader(): JSX.Element {
 									</div>
 								</Link>
 							</div>
-							<Link href="/project"
+							<Link href="/product"
 							      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 								View all product →
 							</Link>
@@ -504,7 +504,7 @@ export default function ProductHeader(): JSX.Element {
 										</p>
 									</div>
 								</Link>
-								<Link href="/readymade-web-development"
+								<Link href="/readymade-website"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									<div
 										className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -746,9 +746,9 @@ export default function ProductHeader(): JSX.Element {
 										      className={ (path === '/product/CookieCons' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											CookieCons
 										</Link>
-										<Link href="/product/ProductPress"
-										      className={ (path === '/product/ProductPress' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-											ProductPress
+										<Link href="/product/ProjectPress"
+										      className={ (path === '/product/ProjectPress' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											ProjectPress
 										</Link>
 										<Link href="/product/S-PHP-Engine"
 										      className={ (path === '/product/S-PHP-Engine' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
@@ -774,7 +774,7 @@ export default function ProductHeader(): JSX.Element {
 										      className={ (path === '/product/ViewMD' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											ViewMD
 										</Link>
-										<Link href="/project"
+										<Link href="/product"
 										      className={ (path === '/product' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 											View all product →
 										</Link>
@@ -852,8 +852,8 @@ export default function ProductHeader(): JSX.Element {
 										      className={ (path === '/web-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											Wep App Development
 										</Link>
-										<Link href="/readymade-web-development"
-										      className={ (path === '/readymade-web-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+										<Link href="/readymade-website"
+										      className={ (path === '/readymade-website' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											Ready-made Web Development
 										</Link>
 										<Link href="/android-development"

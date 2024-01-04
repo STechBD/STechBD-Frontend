@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { JSX } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import '@/app/_css/globals.css'
 import '@/app/_css/basic.scss'
-import Header from '@/app/_component/header'
+import HeaderLoader from '@/app/_component/headerLoader'
+import Footer from '@/app/_component/footer'
 
 
 /**
@@ -18,8 +19,9 @@ const inter: NextFont = Inter({ subsets: [ 'latin' ] })
 
 
 /**
- * Metadata setup for SEO.
+ * Metadata setup for the SEO.
  *
+ * @returns { Metadata } Metadata setup for the SEO.
  * @since 3.0.0
  */
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
 		default: 'S Technologies',
 		template: '%s | S Technologies',
 	},
-	description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
+	description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web server, software development, AI model development, software as a service (SasS), design solution, etc. S Technologies has been working in research of new technologies specially in artificial intelligence and developing new products for the people.',
 	keywords: [
 		'S Technologies',
 		'STechBD.Net',
@@ -234,18 +236,20 @@ export const metadata: Metadata = {
 
 
 /**
- * Root layout.
+ * Root layout for the whole website.
  *
+ * @returns { JSX.Element } Root layout for the whole website.
  * @since 3.0.0
  */
-export default function RootLayout({ children, }: { children: React.ReactNode }) {
+export default function RootLayout({ children, }: { children: React.ReactNode }): JSX.Element {
 	return (
 		<html lang="en">
 		<body className={ inter.className }>
-		<Header/>
+		<HeaderLoader/>
 		<main className="min-h-screen">
 			{ children }
 		</main>
+		<Footer/>
 		</body>
 		</html>
 	)

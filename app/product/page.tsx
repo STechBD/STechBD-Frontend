@@ -1,4 +1,5 @@
 import { JSX } from 'react'
+import Link from 'next/link';
 
 
 /**
@@ -10,6 +11,11 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			Hello
+			<div>
+				<Link href="/product/Install-Express">
+					<strong>Install Express</strong>
+				</Link>
+			</div>
 		</>
 	)
 }

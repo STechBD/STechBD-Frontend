@@ -9,7 +9,7 @@ import { JSX, useEffect, useState } from 'react'
  * @param content
  * @param speed
  *
- * @return JSX.Element
+ * @returns JSX.Element
  *
  * @since 3.0.0
  */
@@ -48,7 +48,7 @@ export function Typewriter({ content, speed = 100 }: any): JSX.Element {
  *
  * @param random
  * @param loop
- * @return JSX.Element
+ * @returns JSX.Element
  *
  * @since 3.0.0
  */
