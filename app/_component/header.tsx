@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { isPath } from '@/app/_function/utility'
+import ParticleAnimation from '@/app/_component/particleAnimation'
 
 
 /**
@@ -20,6 +21,10 @@ export default function Header(): JSX.Element {
 	const [ showService, setShowService ] = useState<boolean>(false)
 	const [ showMore, setShowMore ] = useState<boolean>(false)
 	const [ scrolled, setScrolled ] = useState<boolean>(false)
+	const [ showMobileProduct, setShowMobileProduct ] = useState<boolean>(false)
+	const [ showMobileServer, setShowMobileServer ] = useState<boolean>(false)
+	const [ showMobileService, setShowMobileService ] = useState<boolean>(false)
+	const [ showMobileMore, setShowMobileMore ] = useState<boolean>(false)
 	let closeProductTimeout: any = null
 	let closeHostingTimeout: any = null
 	let closeServiceTimeout: any = null
@@ -91,7 +96,35 @@ export default function Header(): JSX.Element {
 	}
 
 	const toggleMenu = (): void => {
-		setShowMenu(true)
+		setShowMenu(!showMenu)
+	}
+
+	const toggleMobileProduct = (): void => {
+		setShowMobileProduct(!showMobileProduct)
+		setShowMobileServer(false)
+		setShowMobileService(false)
+		setShowMobileMore(false)
+	}
+
+	const toggleMobileServer = (): void => {
+		setShowMobileServer(!showMobileServer)
+		setShowMobileProduct(false)
+		setShowMobileService(false)
+		setShowMobileMore(false)
+	}
+
+	const toggleMobileService = (): void => {
+		setShowMobileService(!showMobileService)
+		setShowMobileProduct(false)
+		setShowMobileServer(false)
+		setShowMobileMore(false)
+	}
+
+	const toggleMobileMore = (): void => {
+		setShowMobileMore(!showMobileMore)
+		setShowMobileProduct(false)
+		setShowMobileServer(false)
+		setShowMobileService(false)
 	}
 
 	useEffect((): void => {
@@ -111,18 +144,20 @@ export default function Header(): JSX.Element {
 	}, [])
 
 	return (
+		<>
+			{/*<ParticleAnimation/>*/}
 		<header
 			className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 ' : '') + 'sticky top-0 z-50' }>
 			<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 				<div className="flex lg:flex-1">
 					<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
 						<span className="sr-only">
-							Install Express
+							S Technologies
 						</span>
-						<Image className="h-8 w-auto sm:h-10" src="/img/Install-Express-Logo-Light.svg"
-						       alt="Install-Express Logo" height={ 100 } width={ 100 }/>
-						<div className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
-							Install Express
+						<Image className="h-8 w-auto sm:h-10" src="/img/S-Technologies-Icon-Light.svg"
+						       alt="S Technologies Logo" height={ 100 } width={ 100 }/>
+						<div className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900 whitespace-nowrap">
+							S Technologies
 						</div>
 					</Link>
 				</div>
@@ -316,7 +351,7 @@ export default function Header(): JSX.Element {
 							</svg>
 						</button>
 						<div onMouseEnter={ openServer } onMouseLeave={ closeServer }
-						     className={ showServer ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						     className={ showServer ? 'absolute -left-8 lg:-left-32 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="grid grid-cols-2 px-4 py-0">
 								<Link href="/shared-hosting"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -422,10 +457,9 @@ export default function Header(): JSX.Element {
 						</div>
 					</div>
 					<div className="relative">
-						<button
+						<button onMouseEnter={ openService } onMouseLeave={ closeService }
 							className={ (path === '/service' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-							type="button" aria-expanded="false" onMouseEnter={ openService }
-							onMouseLeave={ closeService }>
+							type="button" aria-expanded="false">
 							Service
 							<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
 							     aria-hidden="true">
@@ -436,7 +470,7 @@ export default function Header(): JSX.Element {
 							</svg>
 						</button>
 						<div onMouseEnter={ openService } onMouseLeave={ closeService }
-						     className={ showService ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						     className={ showService ? 'absolute -left-8 lg:-left-56 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="grid grid-cols-2 px-4 py-0">
 								<Link href="/ai-development"
 								      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -573,14 +607,6 @@ export default function Header(): JSX.Element {
 							</Link>
 						</div>
 					</div>
-					<Link href="/product/CookieCons/about"
-					      className={ (path === '/CookieCons/about' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
-						About
-					</Link>
-					<a href="https://github.com/STechBD/Install-Express" target="_blank"
-					   className="font-semibold leading-6 text-gray-900">
-						GitHub
-					</a>
 					<Link href="/blog"
 					      className={ (path.startsWith('/blog') ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
 						Blog
@@ -607,7 +633,7 @@ export default function Header(): JSX.Element {
 							</svg>
 						</button>
 						<div onMouseEnter={ openMore } onMouseLeave={ closeMore }
-						     className={ showMore ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
+						     className={ showMore ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
 							<div className="px-4 py-0">
 								<Link href="/about"
 								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -637,32 +663,27 @@ export default function Header(): JSX.Element {
 								      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 									Disclaimer
 								</Link>
+								<a href="https://github.com/STechBD" target="_blank"
+								   className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+									GitHub
+								</a>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="hidden xl:flex xl:flex-1 xl:justify-end">
 					<a href="https://cpanel.stechbd.net/login" target="_blank"
-					   className="font-semibold leading-6 text-gray-900">
+						className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 						Login
 					</a>
 				</div>
-				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
-						<span className="sr-only">
-							S Technologies
-						</span>
-						<div className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
-							S Technologies
-						</div>
-						<Image className="h-8 w-auto sm:h-10" src="/img/S-Technologies-Icon.svg"
-						       alt="S Technologies Logo" height={ 100 } width={ 100 }/>
-					</Link>
-				</div>
 			</nav>
 			{ /** Mobile Menu **/ }
-			<div onClick={ () => setShowMenu(false) } aria-modal="true" className={ showMenu ? 'block -mt-20 -mb-40 h-screen w-screen bg-black bg-opacity-70 overflow-hidden z-100' : 'hidden' } role="dialog">
+			<div onClick={ () => toggleMenu() } aria-modal="true" role="dialog"
+			     className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }>
 				{ /* Background water-drop effect for the menu */ }
-				<div
-					className="fixed h-screen inset-y-0 right-0 z-100 w-[90%] overflow-x-hidden overflow-y-auto bg-white bg-opacity-100 px-6 pt-6 pb-20">
+				<div onClick={ (event) => event.stopPropagation() }
+				     className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white bg-opacity-100 px-6 pt-6 pb-20">
 					<div className="flex items-center justify-between">
 						<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
 							<span className="sr-only">
@@ -675,7 +696,8 @@ export default function Header(): JSX.Element {
 								S Technologies
 							</span>
 						</Link>
-						<button onClick={ () => toggleMenu() } type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
+						<button onClick={ () => toggleMenu() } type="button"
+						        className="-m-2.5 rounded-md p-2.5 text-gray-700">
 							<span className="sr-only">
 								Close menu
 							</span>
@@ -695,7 +717,7 @@ export default function Header(): JSX.Element {
 							</div>
 							<div className="space-y-2 py-6">
 								<div className="-mx-3">
-									<button type="button" aria-controls="disclosure-1"
+									<button onClick={ toggleMobileProduct } type="button" aria-controls="disclosure-1"
 									        aria-expanded="false"
 									        className={ (path.startsWith('/product') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 										Product
@@ -705,7 +727,7 @@ export default function Header(): JSX.Element {
 											</path>
 										</svg>
 									</button>
-									<div className="mt-2 space-y-2" id="mobileProduct">
+									<div className={ showMobileProduct ? 'mt-2 space-y-2' : 'hidden' }>
 										<Link href="/product/CookieCons"
 										      className={ (path === '/product/CookieCons' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											CookieCons
@@ -753,7 +775,7 @@ export default function Header(): JSX.Element {
 							</div>
 							<div className="space-y-2 py-6">
 								<div className="-mx-3">
-									<button type="button" aria-controls="disclosure-1"
+									<button onClick={ toggleMobileServer } type="button" aria-controls="disclosure-1"
 									        aria-expanded="false"
 									        className={ (path.startsWith('/server') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 										Server
@@ -763,7 +785,7 @@ export default function Header(): JSX.Element {
 											</path>
 										</svg>
 									</button>
-									<div className="mt-2 space-y-2">
+									<div className={ showMobileServer ? 'mt-2 space-y-2' : 'hidden' }>
 										<Link href="/shared-hosting"
 										      className={ (path === '/shared-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											Shared Hosting
@@ -797,7 +819,7 @@ export default function Header(): JSX.Element {
 							</div>
 							<div className="space-y-2 py-6">
 								<div className="-mx-3">
-									<button type="button" aria-controls="disclosure-1"
+									<button onClick={ toggleMobileService } type="button" aria-controls="disclosure-1"
 									        aria-expanded="false"
 									        className={ (path.startsWith('/service') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 										Service
@@ -807,7 +829,7 @@ export default function Header(): JSX.Element {
 											</path>
 										</svg>
 									</button>
-									<div className="mt-2 space-y-2">
+									<div className={ showMobileService ? 'mt-2 space-y-2' : 'hidden' }>
 										<Link href="/ai-development"
 										      className={ (path === '/ai-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											AI App Development
@@ -848,18 +870,6 @@ export default function Header(): JSX.Element {
 								</div>
 							</div>
 							<div className="py-3">
-								<Link href="/product/CookieCons/about"
-								      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									About
-								</Link>
-							</div>
-							<div className="py-3">
-								<a href="https://github.com/STechBD/Install-Express" target="_blank"
-								   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									GitHub
-								</a>
-							</div>
-							<div className="py-3">
 								<Link href="/blog"
 								      className={ (path.startsWith('/blog') ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 									Blog
@@ -867,7 +877,7 @@ export default function Header(): JSX.Element {
 							</div>
 							<div className="space-y-2 py-6">
 								<div className="-mx-3">
-									<button type="button" aria-controls="disclosure-1"
+									<button onClick={ toggleMobileMore } type="button" aria-controls="disclosure-1"
 									        aria-expanded="false"
 									        className={ (isPath([
 										        '/about',
@@ -885,7 +895,7 @@ export default function Header(): JSX.Element {
 											</path>
 										</svg>
 									</button>
-									<div className="mt-2 space-y-2">
+									<div className={ showMobileMore ? 'mt-2 space-y-2' : 'hidden' }>
 										<Link href="/about"
 										      className={ (path === '/about' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 											About S Technologies
@@ -914,6 +924,10 @@ export default function Header(): JSX.Element {
 										      className={ (path === '/disclaimer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 											Disclaimer
 										</Link>
+										<a href="https://github.com/STechBD" target="_blank"
+										      className={ (path === '/disclaimer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											GitHub
+										</a>
 									</div>
 								</div>
 							</div>
@@ -928,5 +942,6 @@ export default function Header(): JSX.Element {
 				</div>
 			</div>
 		</header>
+			</>
 	)
 }

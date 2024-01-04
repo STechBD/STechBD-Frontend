@@ -1,14 +1,15 @@
 'use client'
 
 import { useEffect } from 'react'
+import Image from 'next/image'
 
-	
-const svgData = `
+
+const svgData: string = `
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000">
 	<defs>
 		<style>
-			.bf{fill:#4c5fab;}.yf{fill:#d69003;}.gb{fill:#005e00;}.tf{fill:#333;}.rf{fill:#eb2e40;}.gf{fill:#18b13d;}.rb{fill:#a10000;}.bb{fill:#00004d;}.yb{fill:#fdc609;}
+			.bf{fill:#4c5fab}.yf{fill:#d69003}.gb{fill:#005e00}.tf{fill:#333}.rf{fill:#eb2e40}.gf{fill:#18b13d}.rb{fill:#a10000}.bb{fill:#00004d}.yb{fill:#fdc609}
 		</style>
 	</defs>
 	<g>
@@ -45,28 +46,31 @@ const svgData = `
 </svg>
 `
 
-const classSequence = ['rf', 'bf', 'gf', 'yf', 'rb', 'bb', 'gb', 'yb'];
+const classSequence = [ 'rf', 'bf', 'gf', 'yf', 'rb', 'bb', 'gb', 'yb' ]
 
 export default function AnimatedSVG(): JSX.Element {
 	useEffect(() => {
 		const intervalId = setInterval(() => {
-			const paths = document.querySelectorAll('path');
+			const paths = document.querySelectorAll('path')
 
 			paths.forEach((path: Element) => {
-				const currentClass = path.getAttribute('class');
+				const currentClass = path.getAttribute('class')
 				if (currentClass && classSequence.includes(currentClass)) {
-					const currentIndex = classSequence.indexOf(currentClass);
-					const nextIndex = (currentIndex + 1) % classSequence.length;
-					const nextClass = classSequence[nextIndex];
-					path.setAttribute('class', nextClass);
+					const currentIndex = classSequence.indexOf(currentClass)
+					const nextIndex = (currentIndex + 1) % classSequence.length
+					const nextClass = classSequence[nextIndex]
+					path.setAttribute('class', nextClass)
 				}
-			});
-		}, 3000);
+			})
+		}, 3000)
 
-		return () => clearInterval(intervalId);
-	}, []);
+		return () => clearInterval(intervalId)
+	}, [])
 
 	return (
-		<div className="h-52 w-52" dangerouslySetInnerHTML={{ __html: svgData }} />
-	);
+		<>
+			<div className="h-52 w-52" dangerouslySetInnerHTML={ { __html: svgData } }/>
+			<Image src="/banner" height={ 600 } width={ 1200 } alt="Image"/>
+		</>
+	)
 }

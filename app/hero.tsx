@@ -2,7 +2,6 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
-import ParticleAnimation from '@/app/_component/particleAnimation'
 import { RandomTypewriter } from '@/app/_component/typewriter'
 
 
@@ -53,8 +52,7 @@ export default function Hero(): JSX.Element {
 	}
 
 	return (
-		<div className="relative min-h-screen overflow-hidden -mt-24 py-24">
-			{/*<ParticleAnimation/>*/}
+		<div className="relative min-h-screen overflow-hidden -mt-24 py-16 md:py-24">
 			{ /** Background color effect **/ }
 			<div
 				className="absolute inset-0 h-full w-full bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
@@ -192,7 +190,7 @@ export default function Hero(): JSX.Element {
 							</div>
 						</div>
 					</div>
-					{ /** Grid of Services Starts **/ }
+					{ /** Grid of Services **/ }
 					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 						<div
 							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
@@ -255,7 +253,6 @@ export default function Hero(): JSX.Element {
 							</div>
 						</div>
 					</div>
-					{/** Grid of Services Ends **/ }
 				</div>
 			</div>
 		</div>

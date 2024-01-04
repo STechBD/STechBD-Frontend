@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import '@/app/_css/globals.css'
 import '@/app/_css/basic.scss'
-import Header from '@/app/_component/header'
+import ProductHeader from '@/app/_component/productHeader'
 
 
 /**
@@ -28,55 +28,6 @@ export const metadata: Metadata = {
 		template: '%s | S Technologies',
 	},
 	description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
-	keywords: [
-		'S Technologies',
-		'STechBD.Net',
-		'S Technologies Bangladesh',
-		'S Technologies BD',
-		'S Technologies Dhaka',
-		'S Technologies Dhaka Bangladesh',
-		'S Technologies Dhaka BD',
-		'STech',
-		'STechBD',
-		'S Tech',
-		'S Tech BD',
-		'Bangladesh',
-		'Domain Name Registration',
-		'Dot BD Domain Name Registration',
-		'Web Hosting',
-		'Server Bangladesh',
-		'BDIX Server',
-		'Web Development',
-		'Web Design',
-		'Website Development',
-		'Artificial Intelligence',
-		'Britto AI',
-		'AI Application Development',
-		'Web Application Development',
-		'Android Application Development',
-		'iOS Application Development',
-		'Windows Application Development',
-		'Cross Platform Application Development',
-		'Hybrid Application Development',
-		'Native Application Development',
-		'WordPress Theme Development',
-		'WordPress Plugin Development',
-		'SEO',
-		'Search Engine Optimization',
-		'Social Media Marketing',
-		'UI Design',
-		'UX Design',
-		'Graphic Design',
-		'Logo Design',
-		'Banner Design',
-		'Poster Design',
-		'Flyer Design',
-		'Brochure Design',
-		'Business Card Design',
-		'Letterhead Design',
-		'Envelope Design',
-		'Presentation Design',
-	],
 	generator: 'S Technologies',
 	applicationName: 'Ashraful UI',
 	authors: [
@@ -242,7 +193,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
 	return (
 		<html lang="en">
 		<body className={ inter.className }>
-		<Header/>
+		<ProductHeader/>
 		<main className="min-h-screen">
 			{ children }
 		</main>
