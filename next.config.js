@@ -7,8 +7,12 @@ const nextConfig = {
 			{
 				hostname: 'tailwindui.com',
 			},
+			{
+				hostname: 'images.dmca.com',
+			}
 		],
 	},
 }
+
 
 module.exports = nextConfig

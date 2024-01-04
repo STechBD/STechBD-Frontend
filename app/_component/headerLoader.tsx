@@ -2,6 +2,7 @@
 
 import { JSX } from 'react'
 import { usePathname } from 'next/navigation'
+import { validatePath } from '@/app/_function/utility'
 import Header from '@/app/_component/header'
 import ProductHeader from '@/app/_component/productHeader'
 
@@ -15,5 +16,5 @@ import ProductHeader from '@/app/_component/productHeader'
 export default function HeaderLoader(): JSX.Element {
 	const path: string = usePathname()
 
-	return (path.startsWith('/product') && path !== '/product' ) ? <ProductHeader/> : <Header/>
+	return (path.startsWith('/product') && path !== '/product' && validatePath(path) ) ? <ProductHeader/> : <Header/>
 }

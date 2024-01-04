@@ -179,7 +179,7 @@ export default function Footer(): JSX.Element {
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
 							<li className="mb-2">
 								<Link href="/ai-development">
-									AI App Development
+									AI App Development 🎉
 								</Link>
 							</li>
 							<li className="mb-2">
@@ -280,6 +280,9 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 						</ul>
+						<Image
+							src="https://images.dmca.com/Badges/dmca-badge-w200-2x1-03.png?ID=2b2a9269-d99b-4199-ad70-2e00c8556201"
+							height="100" width="100" alt="DMCA.com Protection Status"/>
 					</div>
 				</div>
 				<hr className="dark:border-t-gray-300"/>
