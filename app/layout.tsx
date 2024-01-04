@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 		default: 'S Technologies',
 		template: '%s | S Technologies',
 	},
-	description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web server, software development, AI model development, software as a service (SasS), design solution, etc. S Technologies has been working in research of new technologies specially in artificial intelligence and developing new products for the people.',
+	description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SasS), UI/UX design, SEO, business solutions, etc. S Technologies has been working in research of new technologies especially in artificial intelligence, and developing new products.',
 	keywords: [
 		'S Technologies',
 		'STechBD.Net',

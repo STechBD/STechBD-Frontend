@@ -27,12 +27,12 @@ export default function Footer(): JSX.Element {
 								</strong>
 							</div>
 							<div className="mb-3 dark:text-gray-400">
-								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>) is a leading technology
-								company in Bangladesh. It was founded in 2013. It provides services like domain
-								registration, web hosting, web server, software development, AI model development,
-								software as a service (SasS), design solution, etc. <strong>S Technologies</strong> has
-								been working in research of new technologies specially in artificial intelligence and
-								developing new products for the people.
+								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>) is a research-based
+								technology company in Bangladesh. It was founded in 2013. It provides services like
+								domain registration, web hosting, web servers, software development, AI model
+								development, software as a service (SasS), UI/UX design, SEO, business solutions,
+								etc. <strong>S Technologies</strong> has been working in research of new technologies
+								especially in artificial intelligence, and developing new products.
 							</div>
 							<div className="text-green-700">
 								<div>
@@ -234,6 +234,11 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
+								<Link href="/rnd">
+									Research and Development Wing
+								</Link>
+							</li>
+							<li className="mb-2">
 								<a href="https://ai.stechbd.net" target="_blank">
 									S Technologies AI
 								</a>
@@ -287,7 +292,11 @@ export default function Footer(): JSX.Element {
 				<hr className="dark:border-t-gray-300"/>
 				<div className="px-4 py-6 md:flex md:items-center md:justify-between">
 			        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-				        © 2013-23 <Link href="https://www.stechbd.net"><strong>S Technologies</strong></Link>. All Rights Reserved.
+				        © 2013-24 <Link href="https://www.stechbd.net">
+					        <strong>
+						        S Technologies
+							</strong>
+						</Link>. All Rights Reserved.
 			        </span>
 					<div className="social flex justify-end mt-4 space-x-5 sm:justify-center md:mt-0">
 						<Link href="https://www.facebook.com/STechBD.Net" target="_blank"
@@ -343,20 +352,17 @@ export default function Footer(): JSX.Element {
 		</footer>
 		{
 			process.env.NODE_ENV === 'production' ? (<>
-				<Script src="https://www.googletagmanager.com/gtag/js?id=G-GEPQBTDX3D" async
+				<Script src="https://www.googletagmanager.com/gtag/js?id=G-XWQG24GEHS" async
 				        strategy="lazyOnload"></Script>
 				<Script id="google-analytics">
 					{
 						`window.dataLayer = window.dataLayer || [];
 						function gtag(){ dataLayer.push(arguments); }
 						gtag('js', new Date());
-		
-						gtag('config', 'G-GEPQBTDX3D');`
+
+						gtag('config', 'G-XWQG24GEHS');`
 					}
 				</Script>
-				<Script
-					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5862329522779743"
-					crossOrigin="anonymous" async strategy="lazyOnload"></Script>
 			</>) : <></>
 		}
 	</>)

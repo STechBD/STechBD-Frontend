@@ -157,7 +157,8 @@ export default function ProductHeader(): JSX.Element {
 						<span className="sr-only">
 							Install Express
 						</span>
-							<AnimatedLogo/>
+							<Image className="h-8 w-auto sm:h-10" src="/img/Install-Express-Logo-Light.svg"
+							       alt="Install-Express Logo" height={ 100 } width={ 100 }/>
 							<div
 								className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900 whitespace-nowrap">
 								Install Express

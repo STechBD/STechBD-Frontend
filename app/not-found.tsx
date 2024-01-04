@@ -242,7 +242,7 @@ export default function E404(): JSX.Element {
 								We provide AI development solution.
 							</p>
 							<div className="mt-6">
-								<Link href="/ai"
+								<Link href="/ai-development"
 								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
 									Artificial Intelligence
 								</Link>
