@@ -16,5 +16,5 @@ import ProductHeader from '@/app/_component/productHeader'
 export default function HeaderLoader(): JSX.Element {
 	const path: string = usePathname()
 
-	return (path.startsWith('/product') && path !== '/product' && validatePath(path) ) ? <ProductHeader/> : <Header/>
+	return (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? <ProductHeader/> : <Header/>
 }

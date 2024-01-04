@@ -52,7 +52,13 @@ export function Typewriter({ content, speed = 100 }: any): JSX.Element {
  *
  * @since 3.0.0
  */
-export function RandomTypewriter({ content = [], speed = 100, change = 3000, random = true, loop = true }: any): JSX.Element {
+export function RandomTypewriter({
+	                                 content = [],
+	                                 speed = 100,
+	                                 change = 3000,
+	                                 random = true,
+	                                 loop = true
+                                 }: any): JSX.Element {
 	const [ index, setIndex ] = useState<number>(random ? Math.floor(Math.random() * content.length) : 0)
 
 	useEffect(() => {
@@ -80,6 +86,6 @@ export function RandomTypewriter({ content = [], speed = 100, change = 3000, ran
 	}, [])
 
 	return (
-		<Typewriter content={ content[index] } speed={ speed } key={ index } />
+		<Typewriter content={ content[index] } speed={ speed } key={ index }/>
 	)
 }

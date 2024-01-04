@@ -42,12 +42,14 @@ export default function Page(): JSX.Element {
 						We are providing web hosting since 2015 with customer satisfaction.
 					</p>
 					<div className="mt-10">
-						{/* Pricing Table */}
-						<div className="bg-white rounded-lg shadow overflow-hidden divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px">
+						{/* Pricing Table */ }
+						<div
+							className="bg-white rounded-lg shadow overflow-hidden divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px">
 							<div
 								className="relative group bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
 								<div>
-									<span className="rounded-lg inline-flex p-3 bg-white text-[#ff80b5] ring-4 ring-white">
+									<span
+										className="rounded-lg inline-flex p-3 bg-white text-[#ff80b5] ring-4 ring-white">
 										{/* Heroicon name: globe-alt */ }
 										<svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
 										     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -87,7 +89,8 @@ export default function Page(): JSX.Element {
 									<span className="font-bold">1</span> SSL Certificate
 								</p>
 							</div>
-							<div className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+							<div
+								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
 								<div>
 									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
 										{/* Heroicon name: scale */ }
@@ -129,7 +132,8 @@ export default function Page(): JSX.Element {
 									<span className="font-bold">10</span> SSL Certificate
 								</p>
 							</div>
-							<div className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+							<div
+								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
 								<div>
 									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
 										{/* Heroicon name: lightning-bolt */ }

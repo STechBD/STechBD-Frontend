@@ -92,7 +92,7 @@ export default function Page(): JSX.Element {
 								Get started
 							</a>
 							<Link href="/about"
-							   className="inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-white/0 text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/25 hover:ring-slate-900/15">
+							      className="inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-white/0 text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/25 hover:ring-slate-900/15">
 								Learn more
 							</Link>
 						</div>
@@ -121,12 +121,14 @@ export default function Page(): JSX.Element {
 									TypeScript
 								</h3>
 								<p className="mt-4 text-base text-gray-500">
-									TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It is pure object-oriented with classes, interfaces, and statically typed like C# or Java.
+									TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It
+									is pure object-oriented with classes, interfaces, and statically typed like C# or
+									Java.
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.typescriptlang.org/" target="_blank"
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
 									Learn more
 								</a>
 							</div>
@@ -137,12 +139,13 @@ export default function Page(): JSX.Element {
 									Pug
 								</h3>
 								<p className="mt-4 text-base text-gray-500">
-									Pug is a high-performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.
+									Pug is a high-performance template engine heavily influenced by Haml and implemented
+									with JavaScript for Node.js and browsers.
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://pugjs.org/api/getting-started.html" target="_blank"
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
 									Learn more
 								</a>
 							</div>
@@ -153,7 +156,8 @@ export default function Page(): JSX.Element {
 									Sass
 								</h3>
 								<p className="mt-4 text-base text-gray-500">
-									Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+									Sass is the most mature, stable, and powerful professional grade CSS extension
+									language in the world.
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
@@ -275,7 +279,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/CookieCons" target="_blank"
-									className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
 									Learn more
 								</a>
 							</div>
@@ -291,9 +295,9 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/ProjectPress" target="_blank"
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500">
-								Learn more
-							</a>
+								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+									Learn more
+								</a>
 							</div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
@@ -307,7 +311,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/S-PHP-Engine" target="_blank"
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
 									Learn more
 								</a>
 							</div>

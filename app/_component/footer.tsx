@@ -12,8 +12,7 @@ import Script from 'next/script'
 export default function Footer(): JSX.Element {
 	return (<>
 		<footer className="relative bg-white dark:bg-gray-900">
-
-			<div className="relative mx-auto w-full max-w-screen-xl">
+			<div className="relative mx-auto w-full max-w-screen-2xl">
 				<div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 lg:grid-cols-6">
 					<div className="col-span-2 mb-6 grid grid-cols-3 justify-center">
 						<div className="flext justify-end">

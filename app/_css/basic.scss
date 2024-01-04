@@ -43,3 +43,61 @@ a, input[type=submit], button, .button {
 .screen-height {
 	height: calc(100vh - 80px);
 }
+
+
+/**
+ * S Technologies Animated Logo Icon.
+ *
+ * @since 3.0.0
+ */
+.STechBD_Animated_Icon {
+	.Green_Shadow, .Green_Main, .Blue_Shadow, .S_Shadow, .Yellow_Main, .S_Main, .Red_Shadow, .Yellow_Shadow, .Blue_Main, .Red_Main {
+		stroke-width: 0;
+		transition: fill 3s ease;
+	}
+
+	.Circle {
+		fill: #fff;
+	}
+
+	.Green_Main {
+		fill: #18b13d;
+	}
+
+	.Green_Shadow {
+		fill: #005e00;
+	}
+
+	.Blue_Main {
+		fill: #4c5fab;
+	}
+
+	.Blue_Shadow {
+		fill: #00004d;
+	}
+
+	.Yellow_Main {
+		fill: #fdc609;
+	}
+
+	.Yellow_Shadow {
+		fill: #d69003;
+	}
+
+	.Red_Main {
+		fill: #eb2e40;
+	}
+
+	.Red_Shadow {
+		fill: #a10000;
+	}
+
+	.S_Main {
+		fill: #333;
+	}
+
+	.S_Shadow {
+		fill: #000;
+	}
+
+}
