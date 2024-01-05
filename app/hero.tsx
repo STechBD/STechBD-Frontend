@@ -2,6 +2,7 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { RandomTypewriter } from '@/app/_component/typewriter'
 
 
@@ -14,6 +15,9 @@ import { RandomTypewriter } from '@/app/_component/typewriter'
 export default function Hero(): JSX.Element {
 	const [ showDomainDropdown, setShowDomainDropdown ] = useState<boolean>(false)
 	const [ extension, setExtension ] = useState<string>('.com')
+	const [ domainChecking, setDomainChecking ] = useState<boolean>(false)
+	const [ domainLoading, setDomainLoading ] = useState<boolean>(false)
+	const [ domainAvailable, setDomainAvailable ] = useState<boolean>(false)
 	const listHeroText: string[] = [
 		'Software',
 		'Server',
@@ -49,6 +53,16 @@ export default function Hero(): JSX.Element {
 
 	const toggleDomainDropdown = (): void => {
 		setShowDomainDropdown(!showDomainDropdown)
+	}
+
+	const checkDomain = (): void => {
+		setDomainChecking(true)
+		setDomainLoading(true)
+
+		setTimeout(() => {
+			setDomainLoading(false)
+			setDomainAvailable(true)
+		}, 2000)
 	}
 
 	return (
@@ -170,9 +184,25 @@ export default function Hero(): JSX.Element {
 												</div>
 											) }
 										</div>
+										<div className={ domainChecking ? 'block' : 'hidden' }>
+											<div className="mt-3 flex justify-center">
+												<div className="inline-flex rounded-md shadow">
+													<div className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 cursor-not-allowed">
+														{ domainLoading && (<svg className="animate-spin -mr-1 ml-3 h-5 w-5 text-white">
+															<circle cx="12" cy="12" r="10" stroke="currentColor"
+															        strokeWidth="4" className="opacity-25"
+															        fill="none"/>
+															<path
+																className="opacity-75"
+																d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+														</svg>) }
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</span>
-								<input type="submit" value="Search"
+								<input type="submit" value="Search" onClick={ checkDomain }
 								       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"/>
 							</div>
 							<div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
@@ -194,21 +224,47 @@ export default function Hero(): JSX.Element {
 					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 						<div
 							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-							<h2 className="text-2xl font-bold text-center text-gray-900">
-								Domain Name Registration
-							</h2>
-							<p className="mt-4 text-center text-gray-800">
-								We provide domain registration service.
-							</p>
-							<div className="mt-6">
-								<Link href="/domain"
-								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
-									Domain
-								</Link>
-							</div>
+							<motion.div
+								initial={ { opacity: 0, scale: 0.5 } }
+								animate={ { opacity: 1, scale: 1 } }
+								transition={ {
+									duration: 0.3,
+									ease: [ 0, 0.71, 0.2, 1.01 ],
+									scale: {
+										type: 'spring',
+										damping: 5,
+										stiffness: 100,
+										restDelta: 0.001
+									}
+								} }>
+								<h2 className="text-2xl font-bold text-center text-gray-900">
+									Domain Name Registration
+								</h2>
+								<p className="mt-4 text-center text-gray-800">
+									We provide domain registration service.
+								</p>
+								<div className="mt-6">
+									<Link href="/domain"
+									      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
+										Domain
+									</Link>
+								</div>
+							</motion.div>
 						</div>
-						<div
-							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<motion.div
+							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100"
+							initial={ { opacity: 0, scale: 0.5 } }
+							animate={ { opacity: 1, scale: 1 } }
+							transition={ {
+								duration: 0.3,
+								ease: [ 0, 0.71, 0.2, 1.01 ],
+								scale: {
+									type: 'spring',
+									damping: 5,
+									stiffness: 100,
+									restDelta: 0.001
+								}
+							} }>
 							<h2 className="text-2xl font-bold text-center text-gray-900">
 								Server and Hosting
 							</h2>
@@ -221,7 +277,7 @@ export default function Hero(): JSX.Element {
 									Server
 								</Link>
 							</div>
-						</div>
+						</motion.div>
 						<div
 							className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
 							<h2 className="text-2xl font-bold text-center text-gray-900">

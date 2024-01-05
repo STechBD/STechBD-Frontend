@@ -1,6 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
+import { motion } from 'framer-motion'
 
 
 /**
@@ -16,9 +19,24 @@ export default function Footer(): JSX.Element {
 				<div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 lg:grid-cols-6">
 					<div className="col-span-2 mb-6 grid grid-cols-3 justify-center">
 						<div className="flext justify-end">
+							<motion.div
+								initial={ { opacity: 0, scale: 0.5 } }
+								animate={ { opacity: 1, scale: 1 } }
+								transition={ {
+									duration: 0.3,
+									ease: [ 0, 0.71, 0.2, 1.01 ],
+									scale: {
+										type: 'spring',
+										damping: 5,
+										stiffness: 100,
+										restDelta: 0.001,
+									},
+								} }
+							>
 							<Image src="/img/S-Technologies-Icon-Light.svg" className="mr-3 text-right"
 							       alt="S Technologies Logo"
 							       height="100" width="100"/>
+							</motion.div>
 						</div>
 						<div className="col-span-2">
 							<div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mb-3">

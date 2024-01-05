@@ -1,7 +1,9 @@
 'use client'
 
 import { JSX, useState } from 'react'
+import { Bounce } from '@/app/_component/animation'
 import { Typewriter } from '@/app/_component/typewriter'
+import Domain from '@/app/_data/domain'
 
 
 /**
@@ -36,6 +38,14 @@ export default function Hero(): JSX.Element {
 			]
 		}
 	]
+	const domainPrice: string[] = [
+		'.com',
+		'.net',
+		'.org',
+		'.xyz',
+		'.com.bd',
+		'.edu.bd',
+		]
 
 	const toggleDomainDropdown = (): void => {
 		setShowDomainDropdown(!showDomainDropdown)
@@ -150,120 +160,31 @@ export default function Hero(): JSX.Element {
 					       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"/>
 				</div>
 				<div className="relative hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 z-10">
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.com
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.com')
-							} }
-							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
-								Select
+					{
+						domainPrice.map((item: string, index: number) => (
+							<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100" key={ index }>
+								<Bounce>
+									<h2 className="text-2xl font-bold text-center text-gray-900">
+										{ item }
+									</h2>
+									<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+										৳ { Domain.find((domain: { extension: string }): boolean => domain.extension === item).registration.bdt }
+									</p>
+									<p className="mt-4 text-center text-gray-500">
+										{ Domain.find((domain: { title: string }): boolean => domain.title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year' }
+									</p>
+									<div className="mt-6">
+										<div onClick={ (): void => {
+											setExtension(item)
+										} }
+										     className={ (index % 2 === 0 ? 'bg-purple-600 hover:bg-purple-700 focus:outline-none focus:bg-purple-700 ' : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 ') + 'block button w-full text-white text-center font-bold py-2 px-4 rounded' }>
+											Select
+										</div>
+									</div>
+								</Bounce>
 							</div>
-						</div>
-					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.net
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.net')
-							} }
-							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
-								Select
-							</div>
-						</div>
-					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.org
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.org')
-							} }
-							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
-								Select
-							</div>
-						</div>
-					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.info
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.info')
-							} }
-							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
-								Select
-							</div>
-						</div>
-					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.biz
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.biz')
-							} }
-							     className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
-								Select
-							</div>
-						</div>
-					</div>
-					<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
-						<h2 className="text-2xl font-bold text-center text-gray-900">
-							.me
-						</h2>
-						<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-							৳ 1,000
-						</p>
-						<p className="mt-4 text-center text-gray-500">
-							Per Year
-						</p>
-						<div className="mt-6">
-							<div onClick={ (): void => {
-								setExtension('.me')
-							} }
-							     className="block button w-full bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
-								Select
-							</div>
-						</div>
-					</div>
+						))
+					}
 				</div>
 			</div>
 		</div>
