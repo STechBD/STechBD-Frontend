@@ -15,8 +15,10 @@ import { RandomTypewriter } from '@/app/_component/typewriter'
 export default function Hero(): JSX.Element {
 	const [ showDomainDropdown, setShowDomainDropdown ] = useState<boolean>(false)
 	const [ extension, setExtension ] = useState<string>('.com')
+	const [ name, setName ] = useState<string>('')
 	const [ domainChecking, setDomainChecking ] = useState<boolean>(false)
 	const [ domainLoading, setDomainLoading ] = useState<boolean>(false)
+	const [ domainError, setDomainError ] = useState<string | false>(false)
 	const [ domainAvailable, setDomainAvailable ] = useState<boolean>(false)
 	const listHeroText: string[] = [
 		'Software',
@@ -55,14 +57,23 @@ export default function Hero(): JSX.Element {
 		setShowDomainDropdown(!showDomainDropdown)
 	}
 
-	const checkDomain = (): void => {
+	const checkDomain = async (): Promise<void> => {
 		setDomainChecking(true)
 		setDomainLoading(true)
 
-		setTimeout(() => {
+		const data = await fetch('/domain/check/' + name + extension, {
+			method: 'GET',
+		})
+
+		const res = await data.json()
+
+		if (res.status === 400) {
+			setDomainError(res.body.error)
 			setDomainLoading(false)
-			setDomainAvailable(true)
-		}, 2000)
+		} else {
+			setDomainAvailable(res.body.available)
+			setDomainLoading(false)
+		}
 	}
 
 	return (
@@ -142,6 +153,9 @@ export default function Hero(): JSX.Element {
 											</span>
 										</div>
 										<input type="text" name="domain" placeholder="Domain Name"
+										       onChange={ (event): void => {
+											       setName(event.target.value)
+										       } } value={ name }
 										       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
 										<div className="absolute inset-y-0 right-0 flex items-center">
 											<label htmlFor="extension" className="sr-only">
@@ -184,26 +198,89 @@ export default function Hero(): JSX.Element {
 												</div>
 											) }
 										</div>
-										<div className={ domainChecking ? 'block' : 'hidden' }>
-											<div className="mt-3 flex justify-center">
-												<div className="inline-flex rounded-md shadow">
-													<div className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 cursor-not-allowed">
-														{ domainLoading && (<svg className="animate-spin -mr-1 ml-3 h-5 w-5 text-white">
-															<circle cx="12" cy="12" r="10" stroke="currentColor"
-															        strokeWidth="4" className="opacity-25"
-															        fill="none"/>
-															<path
-																className="opacity-75"
-																d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-														</svg>) }
-													</div>
-												</div>
-											</div>
-										</div>
 									</div>
 								</span>
-								<input type="submit" value="Search" onClick={ checkDomain }
-								       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"/>
+								<button type="submit" onClick={ (): void => {
+									setDomainChecking(false)
+									setDomainError(false)
+									checkDomain()
+								} }
+								        className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+									{ domainLoading ? (
+										<div role="status" aria-label="loading"
+										     className="animate-spin inline-block w-6 h-6 border-[5px] border-current border-t-transparent text-blue-600 rounded-full dark:text-white"
+										>
+											<span className="sr-only">Loading ...</span>
+										</div>
+									) : (
+										<>Search</>
+									) }
+								</button>
+								<div className={ (domainChecking ? 'visible' : 'invisible') + ' block' }>
+									<div className="my-3">
+										<div className="px-4 py-2">
+											{
+												!domainLoading && domainError ? (
+													<div
+														className="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3"
+														role="alert">
+														<svg className="w-4 h-4 mr-2" fill="currentColor"
+														     viewBox="0 0 20 20">
+															<path
+																d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
+																c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
+																C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
+																s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
+																s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
+															<path
+																d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
+															<circle cx="10.553" cy="14.447" r="1"/>
+														</svg>
+														<p>{ domainError }</p>
+													</div>
+												) : (
+													!domainLoading && domainAvailable ? (
+														<div
+															className="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3"
+															role="alert">
+															<svg className="w-4 h-4 mr-2" fill="currentColor"
+															     viewBox="0 0 20 20">
+																<path
+																	d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
+																		c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
+																		C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
+																		s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
+																		s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
+																<path
+																	d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
+																<circle cx="10.553" cy="14.447" r="1"/>
+															</svg>
+															<p>Available</p>
+														</div>
+													) : (
+														<div
+															className="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3"
+															role="alert">
+															<svg className="w-4 h-4 mr-2" fill="currentColor"
+															     viewBox="0 0 20 20">
+																<path
+																	d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
+																		c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
+																		C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
+																		s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
+																		s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
+																<path
+																	d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
+																<circle cx="10.553" cy="14.447" r="1"/>
+															</svg>
+															<p>Not Available</p>
+														</div>
+													)
+												)
+											}
+										</div>
+									</div>
+								</div>
 							</div>
 							<div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div
