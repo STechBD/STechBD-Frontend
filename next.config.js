@@ -9,7 +9,16 @@ const nextConfig = {
 			},
 			{
 				hostname: 'images.dmca.com',
-			}
+			},
+			{
+				hostname: 'flowbite.s3.amazonaws.com',
+			},
+			{
+				hostname: 'flowbite.com',
+			},
+			{
+				hostname: 'github.com',
+			},
 		],
 	},
 }

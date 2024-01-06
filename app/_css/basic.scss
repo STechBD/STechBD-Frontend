@@ -201,3 +201,252 @@ html.dark {
 		}
 	}
 }
+
+.blog {
+	h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	h4 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	h5 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	h6 {
+		font-size: 1rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	ul {
+		margin-bottom: 1rem;
+	}
+
+	ol {
+		margin-bottom: 1rem;
+	}
+
+	li {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 0.5rem;
+	}
+
+	a {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+		color: #0c71c3;
+	}
+
+	img {
+		margin-bottom: 1rem;
+	}
+
+	blockquote {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	code {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	pre {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	table {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	thead {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	tbody {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	tfoot {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	tr {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	th {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	td {
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	hr {
+		margin-bottom: 1rem;
+	}
+
+	strong {
+		font-weight: 700;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	small {
+		font-size: 0.875rem;
+	}
+
+	sub {
+		font-size: 0.875rem;
+	}
+
+	sup {
+		font-size: 0.875rem;
+	}
+
+	del {
+		text-decoration: line-through;
+	}
+
+	ins {
+		text-decoration: underline;
+	}
+
+	mark {
+		background-color: #ff0;
+		color: #000;
+	}
+
+	abbr {
+		text-decoration: none;
+	}
+
+	address {
+		font-style: normal;
+	}
+
+	b {
+		font-weight: 700;
+	}
+
+	big {
+		font-size: 1.25rem;
+	}
+
+	s {
+		text-decoration: line-through;
+	}
+
+	small {
+		font-size: 0.875rem;
+	}
+
+	strong {
+		font-weight: 700;
+	}
+
+	i {
+		font-style: italic;
+	}
+
+	sub {
+		font-size: 0.875rem;
+	}
+
+	sup {
+		font-size: 0.875rem;
+	}
+
+	u {
+		text-decoration: underline;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	li {
+		list-style-type: disc;
+	}
+
+	dl {
+		margin-bottom: 1rem;
+	}
+
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-bottom: 0.5rem;
+		margin-left: 1.25rem;
+	}
+
+	figure {
+		margin-bottom: 1rem;
+	}
+
+	figcaption {
+		font-size: 0.875rem;
+		font-style: italic;
+	}
+
+	main {
+		display: block;
+	}
+
+	hr {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border: 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+	}
+}

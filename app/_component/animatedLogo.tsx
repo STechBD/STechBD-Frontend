@@ -56,7 +56,7 @@ const icon: string = `
  * @returns { JSX.Element } Animated SVG logo.
  * @since 3.0.0
  */
-export default function AnimatedLogo({ style = 'h-8 w-8 sm:h-10 sm:w-10' }: any): JSX.Element {
+export default function AnimatedLogo({ design = 'h-8 w-8 sm:h-10 sm:w-10' }: any): JSX.Element {
 	useEffect(() => {
 		let i: number = 0
 		const intervalId = setInterval((): void => {
@@ -157,7 +157,7 @@ export default function AnimatedLogo({ style = 'h-8 w-8 sm:h-10 sm:w-10' }: any)
 
 	return (
 		<>
-			<div className={ style } dangerouslySetInnerHTML={ { __html: icon } }/>
+			<div className={ design } dangerouslySetInnerHTML={ { __html: icon } }/>
 		</>
 	)
 }

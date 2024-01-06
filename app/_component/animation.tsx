@@ -48,8 +48,9 @@ export function useIntersectionObserver(ref: React.MutableRefObject<any>, thresh
  * @returns { JSX.Element } - The animated component.
  * @since 3.0.0
  */
-export function Bounce({ style, children, }: {
-	style?: string,
+export function Bounce({ design, hover = false, children, }: {
+	design?: string,
+	hover?: boolean,
 	children: React.ReactNode
 }): JSX.Element {
 	const componentRef: any = useRef<any>(null)
@@ -60,7 +61,8 @@ export function Bounce({ style, children, }: {
 		<span ref={ componentRef }>
 			{ isVisible && (
 				<motion.div
-					className={ style }
+					className={ design }
+					whileHover={ hover ? { scale: 1.1 } : {} }
 					key={ animationKey } // Use key to reset animation on each visibility change
 					initial={ { opacity: 0, scale: 0.5 } }
 					animate={ { opacity: 1, scale: 1 } }
