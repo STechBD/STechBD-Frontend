@@ -10,7 +10,7 @@ export const runtime = 'edge'
  * @returns { ImageResponse } The image response.
  * @since 3.0.0
  */
-export async function GET(): ImageResponse {
+export async function GET() {
 	return new ImageResponse(
 		(
 			<>
