@@ -219,7 +219,7 @@ export default function Hero(): JSX.Element {
 											{
 												!domainLoading && domainError ? (
 													<div
-														className="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3"
+														className="flex items-center bg-red-500 text-white font-bold px-4 py-3"
 														role="alert">
 														<svg className="w-4 h-4 mr-2" fill="currentColor"
 														     viewBox="0 0 20 20">
@@ -238,7 +238,7 @@ export default function Hero(): JSX.Element {
 												) : (
 													!domainLoading && domainAvailable ? (
 														<div
-															className="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3"
+															className="flex items-center bg-green-500 text-white font-bold px-4 py-3"
 															role="alert">
 															<svg className="w-4 h-4 mr-2" fill="currentColor"
 															     viewBox="0 0 20 20">
@@ -256,7 +256,7 @@ export default function Hero(): JSX.Element {
 														</div>
 													) : (
 														<div
-															className="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3"
+															className="flex items-center bg-red-500 text-white font-bold px-4 py-3"
 															role="alert">
 															<svg className="w-4 h-4 mr-2" fill="currentColor"
 															     viewBox="0 0 20 20">
