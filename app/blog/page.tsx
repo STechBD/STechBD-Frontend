@@ -189,7 +189,7 @@ export default function Page(): JSX.Element {
 											</span>
 										</div>
 										<h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-											<Link href={ '/author/' + item.author[0].user }>
+											<Link href={ item.slug }>
 												{ item.title }
 											</Link>
 										</h2>
@@ -200,12 +200,14 @@ export default function Page(): JSX.Element {
 											<div className="flex items-center space-x-4">
 												<Image className="w-7 h-7 rounded-full" height={ 7 } width={ 7 }
 												     src={ item.author[0].image } alt={ item.author[0].title }/>
+												<Link href={ '/author/' + item.author[0].user }>
 												<span className="font-medium dark:text-white">
 													{ item.author[0].name }
 												</span>
+												</Link>
 											</div>
 											<Link href={ '/' + item.slug }
-											   className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+											   className="inline-flex items-center font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
 												Read more
 												<svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
 												     xmlns="http://www.w3.org/2000/svg">

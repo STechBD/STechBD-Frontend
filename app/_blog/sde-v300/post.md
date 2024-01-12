@@ -15,8 +15,8 @@ author:
     url: https://www.stechbd.net
     image: https://github.com/STechBD.png
 description: S Database Explorer (SDE) v3.0.0 is released.
-category: [ Product, Announcement ]
-tags: [ SDE, S Database Explorer, PHP, MySQL, Database ]
+category: Product, Announcement
+topic: SDE, S Database Explorer, PHP, MySQL, Database
 image: https://i.imgur.com/mErPwqL.png
 hide_table_of_contents: false
 ---

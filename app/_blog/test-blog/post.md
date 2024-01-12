@@ -13,8 +13,8 @@ author:
     url: https://www.stechbd.net
     image: https://github.com/STechBD.png
 description: This is my first post on S Technologies.
-category: [ Uncategorized ]
-tag: [ hello, test ]
+category: Uncategorized
+topic: hello, test
 image: https://i.imgur.com/mErPwqL.png
 hide_table_of_contents: false
 ---

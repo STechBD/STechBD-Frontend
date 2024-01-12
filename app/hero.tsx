@@ -61,7 +61,7 @@ export default function Hero(): JSX.Element {
 		setDomainChecking(true)
 		setDomainLoading(true)
 
-		const data = await fetch('/domain/check/' + name + extension, {
+		const data: Response = await fetch('/domain/check/' + name + extension, {
 			method: 'GET',
 		})
 
@@ -69,9 +69,11 @@ export default function Hero(): JSX.Element {
 
 		if (res.status === 400) {
 			setDomainError(res.body.error)
+			setDomainChecking(false)
 			setDomainLoading(false)
 		} else {
 			setDomainAvailable(res.body.available)
+			setDomainChecking(false)
 			setDomainLoading(false)
 		}
 	}
@@ -205,78 +207,47 @@ export default function Hero(): JSX.Element {
 								        className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 									{ domainLoading ? (
 										<div role="status" aria-label="loading"
-										     className="animate-spin inline-block w-6 h-6 border-[5px] border-current border-t-transparent text-blue-600 rounded-full dark:text-white"
-										>
-											<span className="sr-only">Loading ...</span>
+										     className="animate-spin inline-block w-6 h-6 border-[5px] border-current border-t-transparent text-blue-600 rounded-full dark:text-white">
+											<span className="sr-only">
+												Loading ...
+											</span>
 										</div>
 									) : (
 										<>Search</>
 									) }
 								</button>
-								<div className={ domainChecking ? 'block' : 'hidden' }>
-									<div className="my-3">
-										<div className="px-4 py-2">
-											{
-												!domainLoading && domainError ? (
-													<div
-														className="flex items-center bg-red-500 text-white font-bold px-4 py-3"
-														role="alert">
-														<svg className="w-4 h-4 mr-2" fill="currentColor"
-														     viewBox="0 0 20 20">
-															<path
-																d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
-																c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
-																C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
-																s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
-																s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
-															<path
-																d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
-															<circle cx="10.553" cy="14.447" r="1"/>
-														</svg>
-														<p>{ domainError }</p>
-													</div>
-												) : (
-													!domainLoading && domainAvailable ? (
-														<div
-															className="flex items-center bg-green-500 text-white font-bold px-4 py-3"
-															role="alert">
-															<svg className="w-4 h-4 mr-2" fill="currentColor"
-															     viewBox="0 0 20 20">
-																<path
-																	d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
-																		c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
-																		C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
-																		s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
-																		s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
-																<path
-																	d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
-																<circle cx="10.553" cy="14.447" r="1"/>
-															</svg>
-															<p>Available</p>
-														</div>
-													) : (
-														<div
-															className="flex items-center bg-red-500 text-white font-bold px-4 py-3"
-															role="alert">
-															<svg className="w-4 h-4 mr-2" fill="currentColor"
-															     viewBox="0 0 20 20">
-																<path
-																	d="M10.553,0.447c-2.733,0-5.365,1.07-7.32,3.025C1.517,4.883,0.447,7.615,0.447,10.347s1.07,5.464,3.025,7.32
-																		c1.955,1.955,4.587,3.025,7.32,3.025s5.365-1.07,7.32-3.025c1.955-1.855,3.025-4.587,3.025-7.32s-1.07-5.464-3.025-7.32
-																		C15.918,1.517,13.286,0.447,10.553,0.447z M10.553,18.447c-2.412,0-4.735-0.94-6.475-2.68c-1.74-1.74-2.68-4.063-2.68-6.475
-																		s0.94-4.735,2.68-6.475c1.74-1.74,4.063-2.68,6.475-2.68s4.735,0.94,6.475,2.68c1.74,1.74,2.68,4.063,2.68,6.475
-																		s-0.94,4.735-2.68,6.475C15.288,17.507,12.965,18.447,10.553,18.447z"/>
-																<path
-																	d="M10.553,5.447c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1s1-0.448,1-1v-6C11.553,5.895,11.105,5.447,10.553,5.447z"/>
-																<circle cx="10.553" cy="14.447" r="1"/>
-															</svg>
-															<p>Not Available</p>
-														</div>
-													)
-												)
-											}
-										</div>
-									</div>
+								<div className={ domainChecking ? 'block my-3' : 'hidden' }>
+									{
+										!domainLoading && domainError ? (
+											<div role="alert"
+											     className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
+												<svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 16 16">
+													<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+													<circle cx="10.553" cy="14.447" r="1"/>
+												</svg>
+												<>{ domainError }</>
+											</div>
+										) : (
+											!domainLoading && domainAvailable ? (
+												<div role="alert"
+												     className="flex items-center bg-green-500 text-white font-bold px-4 py-3">
+													<svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 16 16">
+														<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+													</svg>
+													<>Available</>
+												</div>
+											) : (
+												<div role="alert"
+												     className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
+													<svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 16 16">
+														<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+														<circle cx="10.553" cy="14.447" r="1"/>
+													</svg>
+													<>Not Available</>
+												</div>
+											)
+										)
+									}
 								</div>
 							</div>
 							<div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
