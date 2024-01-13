@@ -12,6 +12,7 @@ import Markdown from 'react-markdown'
  */
 export default function Page({ params }: { params: { blog: string } }): JSX.Element {
 	const slug: string = params.blog
+	const currentPath: string = fs.realpathSync('.')
 
 	// up one directory from the current directory
 	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
@@ -22,7 +23,13 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	const blogExists: boolean = fs.pathExistsSync(blogPath)
 
 	if (!blogExists) {
-		return <>Blog not found ({ blogPath }).</>
+		return (
+			<>
+				<div>Blog not found.</div>
+				<div>Blog Path: { blogPath }</div>
+				<div>Current Path: { currentPath }</div>
+			</>
+		)
 	}
 
 	// check if post.md exists in the slug directory
@@ -30,7 +37,13 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	const postExists: boolean = fs.pathExistsSync(postPath)
 
 	if (!postExists) {
-		return <>Post not found ({ postPath }).</>
+		return (
+			<>
+				<div>Post not found.</div>
+				<div>Post Path: { blogPath }</div>
+				<div>Current Path: { currentPath }</div>
+			</>
+		)
 	}
 
 	// get post.md content
