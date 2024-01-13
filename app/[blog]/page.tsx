@@ -5,9 +5,9 @@ import Markdown from 'react-markdown'
 
 
 /**
- * Check if the domain name is available from API.
+ * Blog post page component.
  *
- * @returns { json } - Returns a JSON response with the domain name availability.
+ * @returns { JSX.Element } - Blog post page component.
  * @since 3.0.0
  */
 export default function Page({ params }: { params: { blog: string } }): JSX.Element {
@@ -17,6 +17,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	// up one directory from the current directory
 	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
 	const blogDir: string = fs.realpathSync('.') + dirSep + 'app' + dirSep + '_blog' + dirSep
+	const blogList: string[] = fs.readdirSync(blogDir)
 
 	// check if slug directory exists in the _blog directory
 	const blogPath: string = `${ blogDir + slug }`
@@ -28,6 +29,13 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 				<div>Blog not found.</div>
 				<div>Blog Path: { blogPath }</div>
 				<div>Current Path: { currentPath }</div>
+				{
+					blogList.map((item: string): JSX.Element => {
+						return (
+							<div key={ item }>{ item }</div>
+						)
+					})
+				}
 			</>
 		)
 	}
@@ -42,6 +50,13 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 				<div>Post not found.</div>
 				<div>Post Path: { blogPath }</div>
 				<div>Current Path: { currentPath }</div>
+				{
+					blogList.map((item: string): JSX.Element => {
+						return (
+							<div key={ item }>{ item }</div>
+						)
+					})
+				}
 			</>
 		)
 	}
