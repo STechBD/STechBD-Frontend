@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	const blogExists: boolean = fs.pathExistsSync(blogPath)
 
 	if (!blogExists) {
-		return <>Blog not found.</>
+		return <>Blog not found ({ blogPath }).</>
 	}
 
 	// check if post.md exists in the slug directory
@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	const postExists: boolean = fs.pathExistsSync(postPath)
 
 	if (!postExists) {
-		return <>Post not found.</>
+		return <>Post not found ({ postPath }).</>
 	}
 
 	// get post.md content
