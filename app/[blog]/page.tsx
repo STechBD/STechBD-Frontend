@@ -1,6 +1,8 @@
 import { JSX } from 'react'
 import Image from 'next/image'
+import getConfig from 'next/config'
 import fs from 'fs-extra'
+import path from 'path'
 import Markdown from 'react-markdown'
 
 
@@ -11,24 +13,25 @@ import Markdown from 'react-markdown'
  * @since 3.0.0
  */
 export default function Page({ params }: { params: { blog: string } }): JSX.Element {
+	const { publicRuntimeConfig } = getConfig()
+
 	const slug: string = params.blog
-	const currentPath: string = fs.realpathSync('.')
+	const currentDir: string = process.cwd()
 
 	// up one directory from the current directory
-	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
-	const blogDir: string = fs.realpathSync('.') + dirSep + 'app' + dirSep + '_blog' + dirSep
-	const blogList: string[] = fs.readdirSync(blogDir)
+	const blogRootDir: string = publicRuntimeConfig.BLOG_DIR
+	const blogList: string[] = fs.readdirSync(blogRootDir)
 
 	// check if slug directory exists in the _blog directory
-	const blogPath: string = `${ blogDir + slug }`
-	const blogExists: boolean = fs.pathExistsSync(blogPath)
+	const blogDir: string = path.join(blogRootDir, slug)
+	const blogExists: boolean = fs.pathExistsSync(blogDir)
 
 	if (!blogExists) {
 		return (
 			<>
 				<div>Blog not found.</div>
-				<div>Blog Path: { blogPath }</div>
-				<div>Current Path: { currentPath }</div>
+				<div>Blog Path: { blogDir }</div>
+				<div>Current Path: { currentDir }</div>
 				{
 					blogList.map((item: string): JSX.Element => {
 						return (
@@ -41,15 +44,15 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	}
 
 	// check if post.md exists in the slug directory
-	const postPath: string = `${ blogPath }/post.md`
-	const postExists: boolean = fs.pathExistsSync(postPath)
+	const postDir: string = path.join(blogDir, 'post.md')
+	const postExists: boolean = fs.pathExistsSync(postDir)
 
 	if (!postExists) {
 		return (
 			<>
 				<div>Post not found.</div>
-				<div>Post Path: { blogPath }</div>
-				<div>Current Path: { currentPath }</div>
+				<div>Post Path: { blogDir }</div>
+				<div>Current Path: { currentDir }</div>
 				{
 					blogList.map((item: string): JSX.Element => {
 						return (
@@ -62,7 +65,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 	}
 
 	// get post.md content
-	const postContent: string = fs.readFileSync(postPath, 'utf8')
+	const postContent: string = fs.readFileSync(postDir, 'utf8')
 
 	// get post.md meta data
 	const postMeta: string = postContent.split('---')[1]
@@ -97,7 +100,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 						<header className="mb-4 lg:mb-6 not-format">
 							<address className="flex items-center mb-6 not-italic">
 								<div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-									<Image className="mr-4 w-16 h-16 rounded-full" src="https://github.com/AAShemul"
+									<Image className="mr-4 w-16 h-16 rounded-full" src="https://github.com/AAShemul.png"
 									       alt="Jese Leos" height={ 100 } width={ 100 }/>
 									<div>
 										<a href="#" rel="author"

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 
 
 const nextConfig = {
@@ -20,6 +21,10 @@ const nextConfig = {
 				hostname: 'github.com',
 			},
 		],
+	},
+	publicRuntimeConfig: {
+		APP_DIR: process.env.APP_DIR || path.join('app'),
+		BLOG_DIR: process.env.BLOG_DIR || path.join('app', '_blog'),
 	},
 }
 

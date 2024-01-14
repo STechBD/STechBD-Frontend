@@ -1,9 +1,9 @@
 import { JSX } from 'react'
-import Image from 'next/image'
 import fs from 'fs-extra'
 import yaml from 'js-yaml'
 import Markdown from 'react-markdown'
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 
 interface Post {
@@ -46,7 +46,7 @@ export default function Page(): JSX.Element {
 	// loop through each directory
 	blogList.map((item: string): void => {
 		// check if post.md exists in the slug directory
-		const postPath: string = `${ blogDir + item }/post.md`
+		const postPath: string = `${ blogDir + item + dirSep }post.md`
 		const postExists: boolean = fs.pathExistsSync(postPath)
 
 		if (postExists) {
