@@ -24,6 +24,12 @@ interface Post {
 	content?: string
 }
 
+
+/**
+ * Get post.md meta data.
+ *
+ * @param postPath
+ */
 export function postInfo(postPath: string): object {
 	// get post.md content
 	const postFull: string = fs.readFileSync(postPath, 'utf8')
@@ -40,24 +46,54 @@ export function postInfo(postPath: string): object {
 	return postObject
 }
 
+
+/**
+ * Get the blog post author.
+ *
+ * @return { object }
+ * @since 1.0.0
+ */
 export function author(): object {
 	return {}
 }
 
+
+/**
+ * Get the blog post category.
+ *
+ * @return { object }
+ * @since 1.0.0
+ */
 export function category(): object {
 	return {}
 }
 
+
+/**
+ * Get the blog post tag.
+ *
+ * @return { object }
+ * @since 1.0.0
+ */
 export function tag(): object {
 	return {}
 }
 
+
+/**
+ * Get the blog post.
+ *
+ * @param slug
+ * @return { object | null }
+ * @since 1.0.0
+ */
 export function post(slug: string): object | null {
-	const { publicRuntimeConfig } = getConfig()
-	const blogRootDir: string = publicRuntimeConfig.BLOG_DIR
+	// up one directory from the current directory
+	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
+	const blogDir: string = fs.realpathSync('.') + dirSep + 'app' + dirSep + '_blog' + dirSep
 
 	// check if post.md exists in the slug directory
-	const postPath: string = path.join(blogRootDir, slug, 'post.md')
+	const postPath: string = path.join(blogDir, slug, 'post.md')
 	const postExists: boolean = fs.pathExistsSync(postPath)
 
 	if (postExists) {
@@ -67,19 +103,27 @@ export function post(slug: string): object | null {
 	return null
 }
 
-export function postList(): object {
-	const { publicRuntimeConfig } = getConfig()
+
+/**
+ * Get the list of blog posts.
+ * @return { Post[] }
+ * @since 1.0.0
+ */
+export function postList(): Post[] {
 	const post: Post[] = []
 	const postUnordered: Post[] = []
-	const blogRootDir: string = publicRuntimeConfig.BLOG_DIR
+
+	// up one directory from the current directory
+	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
+	const blogDir: string = fs.realpathSync('.') + dirSep + 'app' + dirSep + '_blog' + dirSep
 
 	// get the list of directories in the _blog directory
-	const blogList: string[] = fs.readdirSync(blogRootDir)
+	const blogList: string[] = fs.readdirSync(blogDir)
 
 	// loop through each directory
 	blogList.map((item: string): void => {
 		// check if post.md exists in the slug directory
-		const postPath: string = path.join(blogRootDir, item, 'post.md')
+		const postPath: string = path.join(blogDir, item, 'post.md')
 		const postExists: boolean = fs.pathExistsSync(postPath)
 
 		if (postExists) {
@@ -100,4 +144,3 @@ export function postList(): object {
 
 	return post
 }
-
