@@ -1,4 +1,3 @@
-import getConfig from 'next/config'
 import path from 'path'
 import fs from 'fs-extra'
 import yaml from 'js-yaml'
@@ -106,6 +105,7 @@ export function post(slug: string): object | null {
 
 /**
  * Get the list of blog posts.
+ *
  * @return { Post[] }
  * @since 1.0.0
  */
