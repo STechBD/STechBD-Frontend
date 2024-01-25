@@ -1,9 +1,30 @@
 import { JSX } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import getConfig from 'next/config'
-import fs from 'fs-extra'
-import path from 'path'
 import Markdown from 'react-markdown'
+import { post } from '@/app/_function/blog'
+
+
+interface Post {
+	id?: number
+	title?: string
+	slug?: string
+	date?: string
+	time?: string
+	author?: Array<{
+		user?: string
+		name?: string
+		title?: string
+		url?: string
+		image?: string
+	}>
+	image?: string
+	description?: string
+	category?: Array<string>
+	tag?: Array<string>
+	content?: string
+}
 
 
 /**
@@ -13,83 +34,19 @@ import Markdown from 'react-markdown'
  * @since 3.0.0
  */
 export default function Page({ params }: { params: { blog: string } }): JSX.Element {
-	const { publicRuntimeConfig } = getConfig()
-
 	const slug: string = params.blog
-	const currentDir: string = process.cwd()
+	const data: Post | null = post(slug)
 
-	// up one directory from the current directory
-	const blogRootDir: string = publicRuntimeConfig.BLOG_DIR
-	const blogList: string[] = fs.readdirSync(blogRootDir)
-
-	// check if slug directory exists in the _blog directory
-	const blogDir: string = path.join(blogRootDir, slug)
-	const blogExists: boolean = fs.pathExistsSync(blogDir)
-
-	if (!blogExists) {
+	if (!data) {
 		return (
 			<>
 				<div>Blog not found.</div>
-				<div>Blog Path: { blogDir }</div>
-				<div>Current Path: { currentDir }</div>
-				{
-					blogList.map((item: string): JSX.Element => {
-						return (
-							<div key={ item }>{ item }</div>
-						)
-					})
-				}
 			</>
 		)
 	}
 
-	// check if post.md exists in the slug directory
-	const postDir: string = path.join(blogDir, 'post.md')
-	const postExists: boolean = fs.pathExistsSync(postDir)
-
-	if (!postExists) {
-		return (
-			<>
-				<div>Post not found.</div>
-				<div>Post Path: { blogDir }</div>
-				<div>Current Path: { currentDir }</div>
-				{
-					blogList.map((item: string): JSX.Element => {
-						return (
-							<div key={ item }>{ item }</div>
-						)
-					})
-				}
-			</>
-		)
-	}
-
-	// get post.md content
-	const postContent: string = fs.readFileSync(postDir, 'utf8')
-
-	// get post.md meta data
-	const postMeta: string = postContent.split('---')[1]
-	const postMetaList: string[] = postMeta.split('\n')
-	const postMetaObject: any = {}
-
-	postMetaList.map((item: string): void => {
-		const key: string = item.split(': ')[0]
-		const value: string = item.split(': ')[1]
-
-		postMetaObject[key] = value
-	})
-
-	// get post.md content
-	const postContentList: string[] = postContent.split('---')
-	const postContentObject: any = {}
-
-	postContentObject['content'] = postContentList[2]
-
-	// merge postMetaObject and postContentObject
-	const postObject: any = {
-		...postMetaObject,
-		...postContentObject,
-	}
+	// @ts-ignore
+	const date: any = data.date instanceof Date ? data.date.toISOString() : data.date
 
 	return (
 		<>
@@ -104,27 +61,60 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 									       alt="Jese Leos" height={ 100 } width={ 100 }/>
 									<div>
 										<a href="#" rel="author"
-										   className="text-xl font-bold text-gray-900 dark:text-white">Jese Leos</a>
-										<p className="text-base text-gray-500 dark:text-gray-400">Graphic Designer,
-											educator & CEO Flowbite</p>
+										   className="text-xl font-bold text-gray-900 dark:text-white">
+											Md. Ashraful Alam Shemul
+										</a>
 										<p className="text-base text-gray-500 dark:text-gray-400">
-											<time dateTime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time>
+											CEO at S Technologies
+										</p>
+										{/*{
+											data.author?.map((item, index) => {
+													const user: string = item.user ? item.user : '#'
+													const name: string = item.name ? item.name : 'Jese Leos'
+													const title: string = item.title ? item.title : 'Graphic Designer'
+													const url: string = item.url ? item.url : '#'
+													const image: string = item.image ? item.image : 'https://github.com/STechBDWeb'
+
+													return (
+														<div key={ index }>
+															<Image className="mr-4 w-16 h-16 rounded-full" src={ image }
+															       alt="Jese Leos" height={ 100 } width={ 100 }/>
+															<div>
+															<Link href={ user } rel="author"
+															      className="text-xl font-bold text-gray-900 dark:text-white">
+																{ name }
+															</Link>
+															<p className="text-base text-gray-500 dark:text-gray-400">
+																{ title }
+															</p>
+															</div>
+														</div>
+													)
+												}
+											)
+										}*/}
+										<p className="text-base text-gray-500 dark:text-gray-400">
+											<time dateTime="2022-02-08" title="February 8th, 2022">
+												{ date }
+											</time>
 										</p>
 									</div>
 								</div>
 							</address>
-							<h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best
-								practices for successful prototypes</h1>
+							<h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+								{ data.title }
+							</h1>
 						</header>
 						<div className="mb-6 not-format dark:text-white">
 							<Markdown className="blog">
-								{ postContentObject['content'] }
+								{ data.content }
 							</Markdown>
 						</div>
 						<section className="not-format">
 							<div className="flex justify-between items-center mb-6">
-								<h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion
-									(20)</h2>
+								<h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+									Discussion (20)
+								</h2>
 							</div>
 							<form className="mb-6">
 								<div
