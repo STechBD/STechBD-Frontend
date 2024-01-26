@@ -1,8 +1,12 @@
 ---
 title: S Database Explorer (SDE) v3.0.0
 slug: sde-v300
-date: 2023-07-16
-time: 00:00:00
+created:
+  - date: 16-07-2023
+    time: 23:12:09
+updated:
+  - date: 16-07-2023
+    time: 23:12:09
 author:
   - user: AAShemul 
     name: Md. Ashraful Alam Shemul
@@ -15,10 +19,16 @@ author:
     url: https://www.stechbd.net
     image: https://github.com/STechBD.png
 description: S Database Explorer (SDE) v3.0.0 is released.
-category: Product, Announcement
-topic: SDE, S Database Explorer, PHP, MySQL, Database
+category:
+  - Product
+  - Announcement
+topic:
+  - SDE
+  - S Database Explorer
+  - PHP
+  - MySQL
+  - Database
 image: https://i.imgur.com/mErPwqL.png
-hide_table_of_contents: false
 ---
 
 We are excited to announce the release of S Database Explorer (SDE), a simple and lightweight MySQL database explorer library based on PHP and PDO. SDE is a free and open-source database management library that provides a user-friendly interface to manage your MySQL database efficiently. With its extensive features and easy-to-use methods, SDE simplifies the process of creating, updating, deleting, and selecting records in your MySQL database.

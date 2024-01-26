@@ -1,30 +1,19 @@
 import { JSX } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import Markdown from 'react-markdown'
-import { post } from '@/app/_function/blog'
 
 
-interface Post {
-	id?: number
-	title?: string
-	slug?: string
-	date?: string
-	time?: string
-	author?: Array<{
-		user?: string
-		name?: string
-		title?: string
-		url?: string
-		image?: string
-	}>
-	image?: string
-	description?: string
-	category?: Array<string>
-	tag?: Array<string>
-	content?: string
+/**
+ * Get the post data.
+ *
+ * @param { string } slug - The slug of the post.
+ * @returns { Promise<Post> } - The post data.
+ * @since 3.0.0
+ */
+async function getPost(slug: string): Promise<object> {
+	const fetchData: Response = await fetch(`/api?slug=${ slug }`)
+	return JSON.parse(fetchData.toString())
 }
-
 
 /**
  * Blog post page component.
@@ -34,12 +23,14 @@ interface Post {
  */
 export default function Page({ params }: { params: { blog: string } }): JSX.Element {
 	const slug: string = params.blog
-	const data: Post | null = post(slug)
+	const data = getPost(slug)
 
-	if (!data) {
+	// @ts-ignore
+	if (!data.status) {
 		return (
 			<>
 				<div>Blog not found.</div>
+				<div>Status: { data.status }</div>
 			</>
 		)
 	}

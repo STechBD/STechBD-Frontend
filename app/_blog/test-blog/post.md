@@ -1,8 +1,12 @@
 ---
 title: Test Blog
 slug: test-blog
-date: 2020-07-16
-time: 00:00:00
+created:
+  - date: 16-05-2020
+    time: 06:48:51
+updated:
+  - date: 16-05-2020
+    time: 06:48:51
 author:
   - name: Md. Ashraful Alam Shemul
     title: CEO of S Technologies
@@ -13,10 +17,12 @@ author:
     url: https://www.stechbd.net
     image: https://github.com/STechBD.png
 description: This is my first post on S Technologies.
-category: Uncategorized
-topic: hello, test
+category:
+  - Uncategorized
+topic:
+  - hello
+  - test
 image: https://i.imgur.com/mErPwqL.png
-hide_table_of_contents: false
 ---
 
 Welcome to this blog. This blog is created with [**S Technologies**](https://www.stechbd.net).

@@ -50,7 +50,7 @@ export function postInfo(postPath: string): object {
  * Get the blog post author.
  *
  * @return { object }
- * @since 1.0.0
+ * @since 3.0.0
  */
 export function author(): object {
 	return {}
@@ -61,7 +61,7 @@ export function author(): object {
  * Get the blog post category.
  *
  * @return { object }
- * @since 1.0.0
+ * @since 3.0.0
  */
 export function category(): object {
 	return {}
@@ -72,7 +72,7 @@ export function category(): object {
  * Get the blog post tag.
  *
  * @return { object }
- * @since 1.0.0
+ * @since 3.0.0
  */
 export function tag(): object {
 	return {}
@@ -80,11 +80,30 @@ export function tag(): object {
 
 
 /**
+ * Check if blog post exists.
+ * 
+ * @param slug
+ * @return { boolean }
+ * @since 3.0.0
+ */
+export function isPost(slug: string): boolean {
+	// up one directory from the current directory
+	const dirSep: string = process.platform === 'win32' ? '\\' : '/'
+	const blogDir: string = fs.realpathSync('.') + dirSep + 'app' + dirSep + '_blog' + dirSep
+
+	// check if post.md exists in the slug directory
+	const postPath: string = path.join(blogDir, slug, 'post.md')
+	const postExists: boolean = fs.pathExistsSync(postPath)
+
+	return postExists
+}
+
+/**
  * Get the blog post.
  *
  * @param slug
  * @return { object | null }
- * @since 1.0.0
+ * @since 3.0.0
  */
 export function post(slug: string): object | null {
 	// up one directory from the current directory
@@ -107,7 +126,7 @@ export function post(slug: string): object | null {
  * Get the list of blog posts.
  *
  * @return { Post[] }
- * @since 1.0.0
+ * @since 3.0.0
  */
 export function postList(): Post[] {
 	const post: Post[] = []
