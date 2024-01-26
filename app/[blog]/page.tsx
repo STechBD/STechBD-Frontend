@@ -1,7 +1,6 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import getConfig from 'next/config'
 import Markdown from 'react-markdown'
 import { post } from '@/app/_function/blog'
 
