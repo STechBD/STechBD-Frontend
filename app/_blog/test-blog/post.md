@@ -2,11 +2,11 @@
 title: Test Blog
 slug: test-blog
 created:
-  - date: 16-05-2020
-    time: 06:48:51
+  date: 16-05-2020
+  time: 06:48:51
 updated:
-  - date: 16-05-2020
-    time: 06:48:51
+  date: 16-05-2020
+  time: 06:48:51
 author:
   - name: Md. Ashraful Alam Shemul
     title: CEO of S Technologies

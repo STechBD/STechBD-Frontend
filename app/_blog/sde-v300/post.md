@@ -2,11 +2,11 @@
 title: S Database Explorer (SDE) v3.0.0
 slug: sde-v300
 created:
-  - date: 16-07-2023
-    time: 23:12:09
+  date: 16-07-2023
+  time: 23:12:09
 updated:
-  - date: 16-07-2023
-    time: 23:12:09
+  date: 16-07-2023
+  time: 23:12:09
 author:
   - user: AAShemul 
     name: Md. Ashraful Alam Shemul

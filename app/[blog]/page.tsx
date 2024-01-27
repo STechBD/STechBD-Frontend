@@ -4,34 +4,44 @@ import Markdown from 'react-markdown'
 
 
 /**
- * Get the post data.
- *
- * @param { string } slug - The slug of the post.
- * @returns { Promise<Post> } - The post data.
- * @since 3.0.0
- */
-async function getPost(slug: string): Promise<object> {
-	const fetchData: Response = await fetch(`/api?slug=${ slug }`)
-	return JSON.parse(fetchData.toString())
-}
-
-/**
  * Blog post page component.
  *
  * @returns { JSX.Element } - Blog post page component.
  * @since 3.0.0
  */
-export default function Page({ params }: { params: { blog: string } }): JSX.Element {
+export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
 	const slug: string = params.blog
-	const data = getPost(slug)
+	let host: string
 
-	// @ts-ignore
-	if (!data.status) {
+	if (process.env.NODE_ENV === 'development') {
+		host = 'http://localhost:3000'
+	} else {
+		host = 'https://beta.stechbd.net'
+	}
+
+	const fetchData: string = await (await fetch(`${ host }/api?slug=${ slug }`)).text()
+	const data = await JSON.parse(fetchData)
+
+	if (!data) {
 		return (
-			<>
-				<div>Blog not found.</div>
-				<div>Status: { data.status }</div>
-			</>
+			<div className="flex items-center justify-center h-screen">
+				<div className="flex items-center space-x-2 animate-pulse">
+					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+				</div>
+			</div>
+		)
+	} else {
+		console.log(data.data)
+		// show data as json text in div
+		return (
+			<div>
+				Title: { data.data.title } <br/>
+				Slug: { data.data.slug } <br/>
+				Author: { data.data.author[0].name } <br/>
+				Content: { data.data.content } <br/>
+			</div>
 		)
 	}
 
@@ -82,7 +92,7 @@ export default function Page({ params }: { params: { blog: string } }): JSX.Elem
 													)
 												}
 											)
-										}*/}
+										}*/ }
 										<p className="text-base text-gray-500 dark:text-gray-400">
 											<time dateTime="2022-02-08" title="February 8th, 2022">
 												{ date }
