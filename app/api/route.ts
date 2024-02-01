@@ -154,7 +154,7 @@
 import { isPost, post, postList } from '@/app/_function/blog'
 
 
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<Response> {
 	const { searchParams } = new URL(request.url)
 	const slug: string | null = searchParams.get('slug')
 
