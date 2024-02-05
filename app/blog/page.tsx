@@ -1,5 +1,4 @@
-import { JSX, useEffect, useState } from 'react'
-import Markdown from 'react-markdown'
+import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -27,11 +26,10 @@ export async function generateMetadata() {
  * Fetch data from API server.
  *
  * @return { Promise<{ props: { post: any } }> }
- * @since 1.0.0
- * @param slug
+ * @since 3.0.0
  */
 async function fetcher(): Promise<Post[]> {
-	const res = await fetch('https://api.stechbd.net/blog.json')
+	const res: Response = await fetch('https://api.stechbd.net/blog')
 	const data = await res.json()
 	return data.data
 }
@@ -43,8 +41,8 @@ async function fetcher(): Promise<Post[]> {
  * @returns { JSX.Element } Blog list page component.
  * @since 3.0.0
  */
-export default function Page(): JSX.Element {
-	const post = fetcher()
+export default async function Page(): Promise<JSX.Element> {
+	const post: Post[] = await fetcher()
 
 	return (
 		<>
@@ -61,14 +59,14 @@ export default function Page(): JSX.Element {
 					</div>
 					<div className="grid gap-8 lg:grid-cols-2">
 						{
-							post.then((item: any): JSX.Element => {
-								const title: string = item.title
-								const author: string = item.author instanceof Array ? item.author[0].name : item.author
-								const authorImage: string = item.author instanceof Array ? item.author[0].image : item.author
-								const slug: string = item.slug
-								const category: string = item.category instanceof Array ? item.category[0] : item.category
-								const date: string = item.date instanceof Date ? item.date.toISOString() : item.date
-								const content: JSX.Element = Markdown(item.content)
+							post.map((item: Post): JSX.Element => {
+								const title: string = item.title ?? 'Default Title'
+								const author: string = item.author ?? 'Default Author'
+								const authorImage: string = 'https://github.com/AAShemul.png'
+								const slug: string = item.slug ?? 'default-slug'
+								const category: string = item.category ?? 'Default Category'
+								const published: string = item.published ?? '2021-01-01'
+								const content: string = 'Default Content'
 
 								return (
 									<article key={ item.id }
@@ -85,11 +83,11 @@ export default function Page(): JSX.Element {
 												{ category }
 											</span>
 											<span className="text-sm">
-												{ date }
+												{ published }
 											</span>
 										</div>
 										<h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-											<Link href={ item.slug }>
+											<Link href={ slug }>
 												{ title }
 											</Link>
 										</h2>

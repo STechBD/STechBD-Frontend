@@ -3,6 +3,41 @@ import Image from 'next/image'
 import Markdown from 'react-markdown'
 
 
+interface Post {
+	id?: number
+	title?: string
+	slug?: string
+	author?: string
+	published?: string
+	image?: string
+	category?: string
+	view?: number
+	content?: string
+}
+
+
+export async function generateMetadata({ params }: { params: { blog: string } }) {
+	const slug: string = params.blog
+	const post: Post = await fetcher(slug)
+
+	return {
+		title: post.title,
+	}
+}
+
+
+/**
+ * Fetch data from API server.
+ *
+ * @return { Promise<{ props: { post: any } }> }
+ * @since 3.0.0
+ */
+async function fetcher(slug: string): Promise<Post> {
+	const response: Response = await fetch('https://api.stechbd.net/blog/post/' + slug)
+	const data = await response.json()
+	return data.data
+}
+
 /**
  * Blog post page component.
  *
@@ -11,42 +46,19 @@ import Markdown from 'react-markdown'
  */
 export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
 	const slug: string = params.blog
-	let host: string
+	const post: Post = await fetcher(slug)
 
-	if (process.env.NODE_ENV === 'development') {
-		host = 'http://localhost:3000'
-	} else {
-		host = 'https://beta.stechbd.net'
+	const title: string = post.title ?? 'Default Title'
+	const published: string = post.published ?? '2022-02-08'
+	const date: Date = new Date(published)
+	const options: Intl.DateTimeFormatOptions = {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
 	}
+	const publishedDate: string = date.toLocaleDateString('en-US', options)
+	const content: string = post.content ?? 'No content'
 
-	const fetchData: string = await (await fetch(`${ host }/api?slug=${ slug }`)).text()
-	const data = await JSON.parse(fetchData)
-
-	if (!data) {
-		return (
-			<div className="flex items-center justify-center h-screen">
-				<div className="flex items-center space-x-2 animate-pulse">
-					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
-					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
-					<div className="w-4 h-4 bg-gray-500 rounded-full"></div>
-				</div>
-			</div>
-		)
-	} else {
-		console.log(data.data)
-		// show data as json text in div
-		return (
-			<div>
-				Title: { data.data.title } <br/>
-				Slug: { data.data.slug } <br/>
-				Author: { data.data.author[0].name } <br/>
-				Content: { data.data.content } <br/>
-			</div>
-		)
-	}
-
-	// @ts-ignore
-	const date: any = data.date instanceof Date ? data.date.toISOString() : data.date
 
 	return (
 		<>
@@ -95,19 +107,19 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 										}*/ }
 										<p className="text-base text-gray-500 dark:text-gray-400">
 											<time dateTime="2022-02-08" title="February 8th, 2022">
-												{ date }
+												{ publishedDate }
 											</time>
 										</p>
 									</div>
 								</div>
 							</address>
 							<h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-								{ data.title }
+								{ title }
 							</h1>
 						</header>
 						<div className="mb-6 not-format dark:text-white">
 							<Markdown className="blog">
-								{ data.content }
+								{ content }
 							</Markdown>
 						</div>
 						<section className="not-format">
