@@ -3,6 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
+interface User {
+	id?: number
+	username?: string
+	firstname?: string
+	lastname?: string
+	image?: string
+	role?: string
+	company?: string
+	about?: string
+}
+
 interface Post {
 	id?: number
 	title?: string
@@ -12,10 +23,23 @@ interface Post {
 	image?: string
 	category?: string
 	view?: number
+	content?: string
+}
+
+interface Category {
+	id?: number
+	slug?: string
+	name?: string
 }
 
 
-export async function generateMetadata() {
+/**
+ * Generate the metadata for the blog list page.
+ *
+ * @returns { Promise<Record<string, string>> } The metadata.
+ * @since 3.0.0
+ */
+export async function generateMetadata(): Promise<Record<string, string>> {
 	return {
 		title: 'Blog',
 	}
@@ -23,14 +47,42 @@ export async function generateMetadata() {
 
 
 /**
- * Fetch data from API server.
+ * Fetch the post data from API server.
  *
- * @return { Promise<{ props: { post: any } }> }
+ * @returns { Promise<Post> } The post data.
  * @since 3.0.0
  */
-async function fetcher(): Promise<Post[]> {
-	const res: Response = await fetch('https://api.stechbd.net/blog')
-	const data = await res.json()
+async function postData(): Promise<Post[]> {
+	const response: Response = await fetch('https://api.stechbd.net/blog')
+	const data = await response.json()
+	return data.data
+}
+
+
+/**
+ * Fetch the user data from API server.
+ *
+ * @param username The username.
+ * @returns { Promise<User> } The user data.
+ * @since 3.0.0
+ */
+async function userData(username: string): Promise<User> {
+	const response: Response = await fetch('https://api.stechbd.net/user/' + username)
+	const data = await response.json()
+	return data.data
+}
+
+
+/**
+ * Fetch the category data from API server.
+ *
+ * @param id The category ID.
+ * @returns { Promise<Category> } The category data.
+ * @since 3.0.0
+ */
+async function categoryData(id: string): Promise<Category> {
+	const response: Response = await fetch('https://api.stechbd.net/blog/category/' + id)
+	const data = await response.json()
 	return data.data
 }
 
@@ -42,7 +94,7 @@ async function fetcher(): Promise<Post[]> {
  * @since 3.0.0
  */
 export default async function Page(): Promise<JSX.Element> {
-	const post: Post[] = await fetcher()
+	const post: Post[] = await postData()
 
 	return (
 		<>
@@ -59,12 +111,17 @@ export default async function Page(): Promise<JSX.Element> {
 					</div>
 					<div className="grid gap-8 lg:grid-cols-2">
 						{
-							post.map((item: Post): JSX.Element => {
+							post.map(async (item: Post): Promise<JSX.Element> => {
 								const title: string = item.title ?? 'Default Title'
-								const author: string = item.author ?? 'Default Author'
-								const authorImage: string = 'https://github.com/AAShemul.png'
+								const author: string = item.author ?? '0'
+								const authorInfo: User = await userData(author)
+								const authorName: string = authorInfo.firstname + ' ' + authorInfo.lastname
+								const authorUsername: string = authorInfo.username
+								const authorImage: string = authorInfo.image
 								const slug: string = item.slug ?? 'default-slug'
-								const category: string = item.category ?? 'Default Category'
+								const category: string = item.category ?? '0'
+								const categoryInfo: Category = await categoryData(category)
+								const categoryName: string = categoryInfo.name
 								const published: string = item.published ?? '2021-01-01'
 								const content: string = 'Default Content'
 
@@ -97,10 +154,10 @@ export default async function Page(): Promise<JSX.Element> {
 										<div className="flex justify-between items-center">
 											<div className="flex items-center space-x-4">
 												<Image className="w-7 h-7 rounded-full" height={ 7 } width={ 7 }
-												       src={ authorImage } alt={ author }/>
-												<Link href={ '/author/' + author }>
+												       src={ authorImage } alt={ authorName }/>
+												<Link href={ '/author/' + authorUsername }>
 												<span className="font-medium dark:text-white">
-													{ author }
+													{ authorName }
 												</span>
 												</Link>
 											</div>

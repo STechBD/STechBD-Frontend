@@ -1,7 +1,18 @@
 import { JSX } from 'react'
 import Image from 'next/image'
-import Markdown from 'react-markdown'
+import Link from 'next/link'
 
+
+interface User {
+	id?: number
+	username?: string
+	firstname?: string
+	lastname?: string
+	image?: string
+	role?: string
+	company?: string
+	about?: string
+}
 
 interface Post {
 	id?: number
@@ -15,10 +26,23 @@ interface Post {
 	content?: string
 }
 
+interface Category {
+	id?: number
+	slug?: string
+	name?: string
+}
 
+
+/**
+ * Generate metadata for the blog post page.
+ *
+ * @param { string } slug The post slug.
+ * @returns { Promise<{ title: string }> } The metadata.
+ * @since 3.0.0
+ */
 export async function generateMetadata({ params }: { params: { blog: string } }) {
 	const slug: string = params.blog
-	const post: Post = await fetcher(slug)
+	const post: Post = await postData(slug)
 
 	return {
 		title: post.title,
@@ -27,16 +51,46 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 
 
 /**
- * Fetch data from API server.
+ * Fetch the post data from API server.
  *
- * @return { Promise<{ props: { post: any } }> }
+ * @param slug The post slug.
+ * @returns { Promise<Post> } The post data.
  * @since 3.0.0
  */
-async function fetcher(slug: string): Promise<Post> {
+async function postData(slug: string): Promise<Post> {
 	const response: Response = await fetch('https://api.stechbd.net/blog/post/' + slug)
 	const data = await response.json()
 	return data.data
 }
+
+
+/**
+ * Fetch the user data from API server.
+ *
+ * @param username The username.
+ * @returns { Promise<User> } The user data.
+ * @since 3.0.0
+ */
+async function userData(username: string): Promise<User> {
+	const response: Response = await fetch('https://api.stechbd.net/user/' + username)
+	const data = await response.json()
+	return data.data
+}
+
+
+/**
+ * Fetch the category data from API server.
+ *
+ * @param id The category ID.
+ * @returns { Promise<Category> } The category data.
+ * @since 3.0.0
+ */
+async function categoryData(id: string): Promise<Category> {
+	const response: Response = await fetch('https://api.stechbd.net/blog/category/' + id)
+	const data = await response.json()
+	return data.data
+}
+
 
 /**
  * Blog post page component.
@@ -46,7 +100,7 @@ async function fetcher(slug: string): Promise<Post> {
  */
 export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
 	const slug: string = params.blog
-	const post: Post = await fetcher(slug)
+	const post: Post = await postData(slug)
 
 	const title: string = post.title ?? 'Default Title'
 	const published: string = post.published ?? '2022-02-08'
@@ -55,10 +109,18 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		hour12: true,
 	}
 	const publishedDate: string = date.toLocaleDateString('en-US', options)
 	const content: string = post.content ?? 'No content'
 
+	const userID: string = post.author ?? '0'
+	const user: User = await userData(userID)
+
+	const categoryID: string = post.category ? post.category.split(',')[0] : '0'
+	const category: Category = await categoryData(categoryID)
 
 	return (
 		<>
@@ -69,15 +131,16 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						<header className="mb-4 lg:mb-6 not-format">
 							<address className="flex items-center mb-6 not-italic">
 								<div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-									<Image className="mr-4 w-16 h-16 rounded-full" src="https://github.com/AAShemul.png"
-									       alt="Jese Leos" height={ 100 } width={ 100 }/>
+									<Image className="mr-4 w-16 h-16 rounded-full"
+									       src={ user.image ?? 'https://github.com/STechBD.png' }
+									       alt={ user.firstname + ' ' + user.lastname } height={ 100 } width={ 100 }/>
 									<div>
-										<a href="#" rel="author"
-										   className="text-xl font-bold text-gray-900 dark:text-white">
-											Md. Ashraful Alam Shemul
-										</a>
+										<Link href={ '/' + user.username } rel="author"
+										      className="text-xl font-bold text-gray-900 dark:text-white">
+											{ user.firstname + ' ' + user.lastname }
+										</Link>
 										<p className="text-base text-gray-500 dark:text-gray-400">
-											CEO at S Technologies
+											{ user.company }
 										</p>
 										{/*{
 											data.author?.map((item, index) => {
@@ -116,11 +179,14 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							<h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
 								{ title }
 							</h1>
+							<p className="mb-6 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+								<Link href={ '/category/' + category.slug }>
+									{ category.name }
+								</Link>
+							</p>
 						</header>
 						<div className="mb-6 not-format dark:text-white">
-							<Markdown className="blog">
-								{ content }
-							</Markdown>
+							<div className="post-content" dangerouslySetInnerHTML={ { __html: content } }/>
 						</div>
 						<section className="not-format">
 							<div className="flex justify-between items-center mb-6">
