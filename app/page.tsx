@@ -2,6 +2,7 @@ import { JSX } from 'react'
 import Hero from '@/app/hero'
 import AnimatedLogo from '@/app/_component/animatedLogo';
 import { Bounce } from '@/app/_component/animation'
+import PricingTable from '@/app/pricing-table';
 
 
 /**
@@ -43,6 +44,9 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-500">
 						We are providing web hosting since 2015 with customer satisfaction.
 					</p>
+					<div className="mt-10">
+						<PricingTable/>
+					</div>
 					<div className="mt-10">
 						{/* Pricing Table */ }
 						<div
