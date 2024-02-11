@@ -21,7 +21,7 @@ export default function Footer(): JSX.Element {
 					<div className="col-span-2 mb-6 grid grid-cols-3 justify-center">
 						<div className="flext justify-end">
 							<Bounce hover={ true }>
-								<Image src="/img/S-Technologies-Icon-Light.svg" className="mr-3 text-right"
+								<Image src="/image/S-Technologies-Icon-Light.svg" className="mr-3 text-right"
 								       alt="S Technologies Logo"
 								       height="100" width="100"/>
 							</Bounce>
