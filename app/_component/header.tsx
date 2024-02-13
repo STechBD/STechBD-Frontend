@@ -619,7 +619,6 @@ export default function Header(): JSX.Element {
 							<button className={ (isPath([
 								'/about',
 								'/contact',
-								'/support',
 								'/faq',
 								'/privacy',
 								'/term',
@@ -646,10 +645,6 @@ export default function Header(): JSX.Element {
 									<Link href="/contact"
 									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										Contact
-									</Link>
-									<Link href="/support"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Support
 									</Link>
 									<Link href="/faq"
 									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -887,7 +882,6 @@ export default function Header(): JSX.Element {
 										        className={ (isPath([
 											        '/about',
 											        '/contact',
-											        '/support',
 											        '/faq',
 											        '/privacy',
 											        '/term',
@@ -908,10 +902,6 @@ export default function Header(): JSX.Element {
 											<Link href="/contact"
 											      className={ (path === '/contact' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Contact
-											</Link>
-											<Link href="/support"
-											      className={ (path === '/support' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Support
 											</Link>
 											<Link href="/faq"
 											      className={ (path === '/faq' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>

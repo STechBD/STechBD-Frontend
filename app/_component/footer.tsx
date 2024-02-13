@@ -36,7 +36,7 @@ export default function Footer(): JSX.Element {
 								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>) is a research-based
 								technology company in Bangladesh. It was founded in 2013. It provides services like
 								domain registration, web hosting, web servers, software development, AI model
-								development, software as a service (SasS), UI/UX design, SEO, business solutions,
+								development, software as a service (SaaS), UI/UX design, SEO, business solutions,
 								etc. <strong>S Technologies</strong> has been working in research of new technologies,
 								especially in artificial intelligence and developing new products.
 							</div>
@@ -267,11 +267,6 @@ export default function Footer(): JSX.Element {
 							<li className="mb-2">
 								<Link href="/contact">
 									Contact Us
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/support">
-									Support
 								</Link>
 							</li>
 							<li className="mb-2">

@@ -25,3 +25,46 @@ body {
 			rgb(var(--background-end-rgb))
 	) rgb(var(--background-start-rgb));
 }*/
+
+
+/* Default Theme */
+:root {
+	--primary-color: #4F46E5;
+	--secondary-color: #401FC9;
+}
+
+/* Red Theme */
+.theme-red {
+	--primary-color: #DC2626;
+	--secondary-color: #B91C1C;
+}
+
+/* Green Theme */
+.theme-green {
+	--primary-color: #16A34A;
+	--secondary-color: #15803D;
+}
+
+/* Teal Theme */
+.theme-teal {
+	--primary-color: #0D9488;
+	--secondary-color: #0F766E;
+}
+
+/* Blue Theme */
+.theme-blue {
+	--primary-color: #2563EB;
+	--secondary-color: #1D4ED8;
+}
+
+/* Indigo Theme */
+.theme-indigo {
+	--primary-color: #4F46E5;
+	--secondary-color: #4338CA;
+}
+
+/* Purple Theme */
+.theme-purple {
+	--primary-color: #9333EA;
+	--secondary-color: #7E22CE;
+}
