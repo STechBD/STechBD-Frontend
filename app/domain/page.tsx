@@ -89,9 +89,9 @@ export default function Page(): JSX.Element {
 									i++
 
 									let textClass: string = 'text-2xl font-bold text-center'
-									textClass += (i % 2 == 0) ? ' text-purple-600' : ' text-indigo-600'
+									textClass += (i % 2 == 0) ? ' text-primary' : ' text-primary'
 									let buttonClass: string = 'block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none'
-									buttonClass += (i % 2 == 0) ? ' bg-purple-600 hover:bg-purple-700 focus:bg-purple-700' : ' bg-indigo-600 hover:bg-indigo-700 focus:bg-indigo-700'
+									buttonClass += (i % 2 == 0) ? ' bg-primary hover:bg-secondary focus:bg-secondary' : ' bg-primary hover:bg-secondary focus:bg-secondary'
 									return (
 										<div key={ i } className="bg-white shadow-md rounded-lg px-10 py-6">
 											<h2 className={ textClass }>

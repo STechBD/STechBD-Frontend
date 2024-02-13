@@ -17,8 +17,13 @@ const config: Config = {
 			screens: {
 				xs: '1px',
 			},
+			colors: {
+				primary: 'var(--color-primary)',
+				secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+			}
 		},
 	},
+	darkMode: 'class',
 	plugins: [],
 }
 export default config

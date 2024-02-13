@@ -38,7 +38,7 @@ export default function Page(): JSX.Element {
 						<div
 							className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
 							Current Version:
-							<a className="font-semibold text-indigo-600"
+							<a className="font-semibold text-primary"
 							   href="https://github.com/STechBD/Install-Express/releases">
 								<span className="absolute inset-0" aria-hidden="true"></span>
 								&nbsp;v1.0.0 🎉
@@ -88,7 +88,7 @@ export default function Page(): JSX.Element {
 						</p>
 						<div className="mt-10 flex items-center justify-center gap-x-6">
 							<a href="https://docs.stechbd.net/Install-Express" target="_blank"
-							   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+							   className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 								Get started
 							</a>
 							<Link href="/about"
@@ -128,7 +128,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.typescriptlang.org/" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -145,7 +145,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://pugjs.org/api/getting-started.html" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -161,7 +161,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://sass-lang.com/guide">Learn more</a></div>
 						</div>
 					</div>
@@ -226,7 +226,7 @@ export default function Page(): JSX.Element {
 									open an issue on GitHub.</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500" href="#">Learn
+								className="text-base font-medium text-primary hover:text-secondary" href="#">Learn
 								more</a></div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
@@ -239,7 +239,7 @@ export default function Page(): JSX.Element {
 									DM me on Twitter.</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500" href="#">Learn
+								className="text-base font-medium text-primary hover:text-secondary" href="#">Learn
 								more</a></div>
 						</div>
 					</div>
@@ -256,11 +256,11 @@ export default function Page(): JSX.Element {
 									Software Developer
 								</p>
 								<p className="mt-4 text-base text-gray-500"><a
-									className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+									className="text-base font-medium text-primary hover:text-secondary"
 									href="https://www.stechbd.net" target="_blank">S Technologies</a></p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://github.cm/AAShemul">Learn more</a></div>
 						</div>
 					</div>
@@ -279,7 +279,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/CookieCons" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -295,7 +295,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/ProjectPress" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -311,7 +311,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/S-PHP-Engine" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -326,7 +326,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://www.stechbd.net/project/S-Template-Engine">Learn more</a></div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
@@ -338,7 +338,7 @@ export default function Page(): JSX.Element {
 									MySQL with PDO.</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://www.stechbd.net/project/S-Database-Explorer">Learn more</a></div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
@@ -350,7 +350,7 @@ export default function Page(): JSX.Element {
 									different languages.</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://www.stechbd.net/project/S-Number-Manager">Learn more</a></div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
@@ -364,7 +364,7 @@ export default function Page(): JSX.Element {
 							</div>
 							<div className="pt-6 pb-8 px-6">
 								<a href="https://www.stechbd.net/project/PyWeb" target="_blank"
-								   className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								   className="text-base font-medium text-primary hover:text-secondary">
 									Learn more
 								</a>
 							</div>
@@ -379,7 +379,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://www.stechbd.net/project/ViwMD">Learn more</a></div>
 						</div>
 					</div>
@@ -400,7 +400,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div className="pt-6 pb-8 px-6"><a
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+								className="text-base font-medium text-primary hover:text-secondary"
 								href="https://docs.stechbd.net/Install-Express">Learn more</a></div>
 						</div>
 						<div className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">

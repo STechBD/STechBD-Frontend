@@ -95,7 +95,7 @@ export default function PricingTable(): JSX.Element {
 		<>
 			<div className="flex justify-center items-center my-10">
 				<button
-					className={ `px-4 py-2 rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-indigo-600' }` }
+					className={ `px-4 py-2 rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
 					onClick={ (): void => {
 						setCurrency('bdt')
 						setSharedHostingPrice(1200)
@@ -107,7 +107,7 @@ export default function PricingTable(): JSX.Element {
 					BDT (৳)
 				</button>
 				<button
-					className={ `px-4 py-2 rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-indigo-600' }` }
+					className={ `px-4 py-2 rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
 					onClick={ (): void => {
 						setCurrency('usd')
 						setSharedHostingPrice(12)
@@ -173,7 +173,7 @@ export default function PricingTable(): JSX.Element {
 								</div>
 								<div className="mt-8">
 									<Link href={ item.link }
-									      className="block w-full px-4 py-3 text-center font-medium text-white bg-purple-600 rounded-md hover:bg-primary-600">
+									      className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-primary-600">
 										{ item.button }
 									</Link>
 								</div>

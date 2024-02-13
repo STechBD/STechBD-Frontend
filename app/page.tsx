@@ -52,7 +52,7 @@ export default function Page(): JSX.Element {
 						<div
 							className="bg-white rounded-lg shadow overflow-hidden divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px">
 							<div
-								className="relative group bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+								className="relative group bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
 								<div>
 									<span
 										className="rounded-lg inline-flex p-3 bg-white text-[#ff80b5] ring-4 ring-white">
@@ -96,7 +96,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div
-								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
 								<div>
 									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
 										{/* Heroicon name: scale */ }
@@ -139,7 +139,7 @@ export default function Page(): JSX.Element {
 								</p>
 							</div>
 							<div
-								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
 								<div>
 									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
 										{/* Heroicon name: lightning-bolt */ }

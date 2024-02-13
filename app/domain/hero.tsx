@@ -113,13 +113,13 @@ export default function Hero(): JSX.Element {
 								</span>
 							</div>
 							<input type="text" name="domain" placeholder="Domain Name"
-							       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+							       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"/>
 							<div className="absolute inset-y-0 right-0 flex items-center">
 								<label htmlFor="extension" className="sr-only">
 									Domain Extension
 								</label>
 								<div onClick={ toggleDomainDropdown }
-								     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+								     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-secondary focus:border-secondary h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
 									{ extension }
 									<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
 									     xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@ export default function Hero(): JSX.Element {
 						</div>
 					</span>
 					<input type="submit" value="Search"
-					       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"/>
+					       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"/>
 				</div>
 				<div className="relative hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 z-10">
 					{
@@ -177,7 +177,7 @@ export default function Hero(): JSX.Element {
 										<div onClick={ (): void => {
 											setExtension(item)
 										} }
-										     className={ (index % 2 === 0 ? 'bg-purple-600 hover:bg-purple-700 focus:outline-none focus:bg-purple-700 ' : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 ') + 'block button w-full text-white text-center font-bold py-2 px-4 rounded' }>
+										     className={ (index % 2 === 0 ? 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ' : 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ') + 'block button w-full text-white text-center font-bold py-2 px-4 rounded' }>
 											Select
 										</div>
 									</div>

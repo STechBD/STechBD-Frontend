@@ -101,7 +101,7 @@ export default function E404(): JSX.Element {
 							<h1
 								className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
 								<span
-									className="block md:inline sm:block bg-indigo-600 text-white h-12">
+									className="block md:inline sm:block bg-primary text-white h-12">
 									4<Typewriter content="04" speed={ 100 }/>
 								</span>
 								<span className="block text-gray-800 xl:inline"> Error!</span>
@@ -124,13 +124,13 @@ export default function E404(): JSX.Element {
 											</span>
 										</div>
 										<input type="text" name="domain" placeholder="Domain Name"
-										       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+										       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"/>
 										<div className="absolute inset-y-0 right-0 flex items-center">
 											<label htmlFor="extension" className="sr-only">
 												Domain Extension
 											</label>
 											<div onClick={ toggleDomainDropdown }
-											     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+											     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-secondary focus:border-secondary h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
 												{ extension }
 												<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"
 												     aria-hidden="true"
@@ -169,13 +169,13 @@ export default function E404(): JSX.Element {
 									</div>
 								</span>
 								<input type="submit" value="Search"
-								       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"/>
+								       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"/>
 							</div>
 							<div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div
 									className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
 									<Link href="/server"
-									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 sm:px-8">
+									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary sm:px-8">
 										Get Server
 									</Link>
 									<Link href="/web-development"
@@ -198,7 +198,7 @@ export default function E404(): JSX.Element {
 							</p>
 							<div className="mt-6">
 								<Link href="/domain"
-								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
+								      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
 									Domain
 								</Link>
 							</div>
@@ -213,7 +213,7 @@ export default function E404(): JSX.Element {
 							</p>
 							<div className="mt-6">
 								<Link href="/hosting"
-								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
+								      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
 									Server
 								</Link>
 							</div>
@@ -228,7 +228,7 @@ export default function E404(): JSX.Element {
 							</p>
 							<div className="mt-6">
 								<Link href="/software"
-								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
+								      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
 									Software
 								</Link>
 							</div>
@@ -243,7 +243,7 @@ export default function E404(): JSX.Element {
 							</p>
 							<div className="mt-6">
 								<Link href="/ai-development"
-								      className="block button w-full bg-purple-600 text-white text-center font-bold py-2 px-4 rounded hover:bg-purple-700 focus:outline-none focus:bg-indigo-700">
+								      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
 									Artificial Intelligence
 								</Link>
 							</div>

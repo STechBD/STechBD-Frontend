@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { isPath } from '@/app/_function/utility'
 import ParticleAnimation from '@/app/_component/particleAnimation'
 import AnimatedLogo from '@/app/_component/animatedLogo'
+import Theme from '@/app/_component/theme'
 
 
 /**
@@ -180,12 +181,12 @@ export default function Header(): JSX.Element {
 					</div>
 					<div className="hidden lg:flex lg:gap-x-12">
 						<Link href="/"
-						      className={ (path === '/' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+						      className={ (path === '/' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
 							Home
 						</Link>
 						<div className="relative">
 							<button
-								className={ (path === '/product' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+								className={ (path === '/product' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 								type="button" aria-expanded="false" onMouseEnter={ openProduct }
 								onMouseLeave={ closeProduct }>
 								Product
@@ -204,7 +205,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -220,7 +221,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -236,7 +237,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -253,7 +254,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -269,7 +270,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -285,7 +286,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -301,7 +302,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -317,7 +318,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -337,12 +338,12 @@ export default function Header(): JSX.Element {
 							</div>
 						</div>
 						<Link href="/domain"
-						      className={ (path === '/domain' ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+						      className={ (path === '/domain' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
 							Domain
 						</Link>
 						<div className="relative">
 							<button
-								className={ (path === '/server' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+								className={ (path === '/server' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 								type="button" aria-expanded="false" onMouseEnter={ openServer }
 								onMouseLeave={ closeServer }>
 								Server
@@ -361,7 +362,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -377,7 +378,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -393,7 +394,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -409,7 +410,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -425,7 +426,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -441,7 +442,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -462,7 +463,7 @@ export default function Header(): JSX.Element {
 						</div>
 						<div className="relative">
 							<button onMouseEnter={ openService } onMouseLeave={ closeService }
-							        className={ (path === '/service' ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+							        className={ (path === '/service' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 							        type="button" aria-expanded="false">
 								Service
 								<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
@@ -480,7 +481,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -496,7 +497,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -512,7 +513,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -528,7 +529,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -544,7 +545,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -560,7 +561,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -576,7 +577,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -592,7 +593,7 @@ export default function Header(): JSX.Element {
 									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
 										<div
 											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
 											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
 										</div>
 										<div className="flex-auto">
@@ -612,7 +613,7 @@ export default function Header(): JSX.Element {
 							</div>
 						</div>
 						<Link href="/blog"
-						      className={ (path.startsWith('/blog') ? 'text-indigo-600' : 'text-gray-900') + ' font-semibold leading-6' }>
+						      className={ (path.startsWith('/blog') ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
 							Blog
 						</Link>
 						<div className="relative">
@@ -623,7 +624,7 @@ export default function Header(): JSX.Element {
 								'/privacy',
 								'/term',
 								'/disclaimer',
-							]) ? 'text-indigo-600' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
+							]) ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
 							        type="button" aria-expanded="false" onMouseEnter={ openMore }
 							        onMouseLeave={ closeMore }>
 								More
@@ -672,7 +673,7 @@ export default function Header(): JSX.Element {
 					</div>
 					<div className="hidden xl:flex xl:flex-1 xl:justify-end">
 						<a href="https://cpanel.stechbd.net/login" target="_blank"
-						   className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 cursor-pointer hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+						   className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
 							Login
 						</a>
 					</div>
@@ -708,7 +709,7 @@ export default function Header(): JSX.Element {
 							<div className="-my-6 divide-y divide-gray-500/10">
 								<div className="pt-6 pb-3">
 									<Link href="/"
-									      className={ (path === '/' ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+									      className={ (path === '/' ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 										Home
 									</Link>
 								</div>
@@ -717,7 +718,7 @@ export default function Header(): JSX.Element {
 										<button onClick={ toggleMobileProduct } type="button"
 										        aria-controls="disclosure-1"
 										        aria-expanded="false"
-										        className={ (path.startsWith('/product') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										        className={ (path.startsWith('/product') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 											Product
 											<svg className="h-5 w-5 flex-none">
 												<path fillRule="evenodd" clipRule="evenodd"
@@ -727,39 +728,39 @@ export default function Header(): JSX.Element {
 										</button>
 										<div className={ showMobileProduct ? 'mt-2 space-y-2' : 'hidden' }>
 											<Link href="/product/CookieCons"
-											      className={ (path === '/product/CookieCons' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/CookieCons' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												CookieCons
 											</Link>
 											<Link href="/product/ProjectPress"
-											      className={ (path === '/product/ProjectPress' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/ProjectPress' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												ProjectPress
 											</Link>
 											<Link href="/product/S-PHP-Engine"
-											      className={ (path === '/product/S-PHP-Engine' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/S-PHP-Engine' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												S PHP Engine
 											</Link>
 											<Link href="/product/S-Template-Engine"
-											      className={ (path === '/product/S-Template-Engine' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/S-Template-Engine' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												S Template Engine
 											</Link>
 											<Link href="/product/S-Database-Explorer"
-											      className={ (path === '/product/S-Database-Explorer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/S-Database-Explorer' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												S Database Explorer
 											</Link>
 											<Link href="/product/S-Number-Manager"
-											      className={ (path === '/product/S-Number-Manager' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/S-Number-Manager' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												S Number Manager
 											</Link>
 											<Link href="/product/PyWeb"
-											      className={ (path === '/product/PyWeb' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/PyWeb' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												PyWeb
 											</Link>
 											<Link href="/product/ViewMD"
-											      className={ (path === '/product/ViewMD' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/product/ViewMD' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												ViewMD
 											</Link>
 											<Link href="/product"
-											      className={ (path === '/product' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/product' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												View all product →
 											</Link>
 										</div>
@@ -767,7 +768,7 @@ export default function Header(): JSX.Element {
 								</div>
 								<div className="py-3">
 									<Link href="/domain"
-									      className={ (path === '/domain' ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+									      className={ (path === '/domain' ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 										Domain
 									</Link>
 								</div>
@@ -776,7 +777,7 @@ export default function Header(): JSX.Element {
 										<button onClick={ toggleMobileServer } type="button"
 										        aria-controls="disclosure-1"
 										        aria-expanded="false"
-										        className={ (path.startsWith('/server') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										        className={ (path.startsWith('/server') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 											Server
 											<svg className="h-5 w-5 flex-none">
 												<path fillRule="evenodd" clipRule="evenodd"
@@ -786,31 +787,31 @@ export default function Header(): JSX.Element {
 										</button>
 										<div className={ showMobileServer ? 'mt-2 space-y-2' : 'hidden' }>
 											<Link href="/shared-hosting"
-											      className={ (path === '/shared-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/shared-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Shared Hosting
 											</Link>
 											<Link href="/reseller-hosting"
-											      className={ (path === '/reseller-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/reseller-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Reseller Hosting
 											</Link>
 											<Link href="/master-reseller-hosting"
-											      className={ (path === '/master-reseller-hosting' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/master-reseller-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Master Reseller Hosting
 											</Link>
 											<Link href="/managed-vps"
-											      className={ (path === '/managed-vps' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/managed-vps' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Managed VPS
 											</Link>
 											<Link href="/unmanaged-vps"
-											      className={ (path === '/unmanaged-vps' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/unmanaged-vps' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Unmanaged VPS
 											</Link>
 											<Link href="/dedicated-server"
-											      className={ (path === '/dedicated-server' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/dedicated-server' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Dedicated Server
 											</Link>
 											<Link href="/server"
-											      className={ (path === '/server' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/server' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												View all server plan →
 											</Link>
 										</div>
@@ -821,7 +822,7 @@ export default function Header(): JSX.Element {
 										<button onClick={ toggleMobileService } type="button"
 										        aria-controls="disclosure-1"
 										        aria-expanded="false"
-										        className={ (path.startsWith('/service') ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										        className={ (path.startsWith('/service') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 											Service
 											<svg className="h-5 w-5 flex-none">
 												<path fillRule="evenodd" clipRule="evenodd"
@@ -831,39 +832,39 @@ export default function Header(): JSX.Element {
 										</button>
 										<div className={ showMobileService ? 'mt-2 space-y-2' : 'hidden' }>
 											<Link href="/ai-development"
-											      className={ (path === '/ai-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/ai-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												AI App Development
 											</Link>
 											<Link href="/web-development"
-											      className={ (path === '/web-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/web-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Wep App Development
 											</Link>
 											<Link href="/readymade-website"
-											      className={ (path === '/readymade-website' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/readymade-website' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Ready-made Web Development
 											</Link>
 											<Link href="/android-development"
-											      className={ (path === '/android-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/android-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												Android App Development
 											</Link>
 											<Link href="/ios-development"
-											      className={ (path === '/ios-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/ios-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												iOS App Development
 											</Link>
 											<Link href="/windows-development"
-											      className={ (path === '/windows-development' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/windows-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												Windows App Development
 											</Link>
 											<Link href="/ui-ux-design"
-											      className={ (path === '/ui-ux-design' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/ui-ux-design' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												UI/UX Design
 											</Link>
 											<Link href="/seo"
-											      className={ (path === '/seo' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/seo' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												Search Engine Optimization (SEO)
 											</Link>
 											<Link href="/service"
-											      className={ (path === '/service' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/service' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												View all service plan →
 											</Link>
 										</div>
@@ -871,7 +872,7 @@ export default function Header(): JSX.Element {
 								</div>
 								<div className="py-3">
 									<Link href="/blog"
-									      className={ (path.startsWith('/blog') ? 'text-indigo-600 ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+									      className={ (path.startsWith('/blog') ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 										Blog
 									</Link>
 								</div>
@@ -886,7 +887,7 @@ export default function Header(): JSX.Element {
 											        '/privacy',
 											        '/term',
 											        '/disclaimer',
-										        ]) ? 'text-indigo-600 ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
+										        ]) ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
 											More
 											<svg className="h-5 w-5 flex-none">
 												<path fillRule="evenodd" clipRule="evenodd"
@@ -896,31 +897,31 @@ export default function Header(): JSX.Element {
 										</button>
 										<div className={ showMobileMore ? 'mt-2 space-y-2' : 'hidden' }>
 											<Link href="/about"
-											      className={ (path === '/about' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/about' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												About S Technologies
 											</Link>
 											<Link href="/contact"
-											      className={ (path === '/contact' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/contact' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Contact
 											</Link>
 											<Link href="/faq"
-											      className={ (path === '/faq' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/faq' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Frequently Asked Questions (FAQ)
 											</Link>
 											<Link href="/privacy"
-											      className={ (path === '/privacy' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
+											      className={ (path === '/privacy' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
 												Privacy Policy
 											</Link>
 											<Link href="/term"
-											      className={ (path === '/term' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/term' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												Terms of Service
 											</Link>
 											<Link href="/disclaimer"
-											      className={ (path === '/disclaimer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											      className={ (path === '/disclaimer' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												Disclaimer
 											</Link>
 											<a href="https://github.com/STechBD" target="_blank"
-											   className={ (path === '/disclaimer' ? 'text-indigo-600 ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
+											   className={ (path === '/disclaimer' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
 												GitHub
 											</a>
 										</div>
@@ -937,6 +938,7 @@ export default function Header(): JSX.Element {
 					</div>
 				</div>
 			</header>
+			<Theme/>
 		</>
 	)
 }
