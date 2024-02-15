@@ -18,8 +18,8 @@ const config: Config = {
 				xs: '1px',
 			},
 			colors: {
-				primary: 'var(--color-primary)',
-				secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+				primary: 'var(--primary)',
+				secondary: 'var(--secondary)',
 			}
 		},
 	},
