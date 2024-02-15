@@ -1,5 +1,6 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
+import Script from 'next/script'
 import Hero from '@/app/contact/hero'
 import ContactForm from '@/app/contact/form'
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 	title: 'Contact Us',
 	description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.',
 }
+
 
 /**
  * The Contact page component.
@@ -34,10 +36,12 @@ export default function Page(): JSX.Element {
 							</h2>
 							<div className="mt-3">
 								<p className="text-lg text-gray-900">
-									S Technologies Headquarters
+									<strong>
+										S Technologies Headquarters
+									</strong>
 								</p>
 								<p className="mt-1 text-lg text-gray-900">
-									Dhaka - 1000
+									Dhaka
 								</p>
 								<p className="mt-1 text-lg text-gray-900">
 									Bangladesh
@@ -56,6 +60,74 @@ export default function Page(): JSX.Element {
 					</div>
 				</div>
 			</div>
+			<Script id="schema" type="application/ld+json">
+				{ `
+					{
+					  "@context": "https://schema.org",
+					  "@type": "Organization",
+					  "url": "https://www.stechbd.net",
+					  "name": "S Technologies",
+					  "contactPoint": {
+						"@type": "ContactPoint",
+						"telephone": "+8801935446721",
+						"contactType": "Customer service"
+					  },
+					  "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Dhaka",
+                        "addressCountry": "Bangladesh"				
+					},
+					  "sameAs": [
+						"https://www.facebook.com/STechBD.Net",
+						"https://www.linkedin.com/company/STechBD",
+						"https://www.instagram.com/STechBD",
+						"https://www.twitter.com/STechBD_Net"
+					  ]
+					},
+					{
+					  "@context": "https://schema.org",
+					  "@type": "WebSite",
+					  "url": "https://www.stechbd.net",
+					  "potentialAction": {
+						"@type": "SearchAction",
+						"target": "https://www.stechbd.net/search?q={search_term_string}",
+						"query-input": "required name=search_term_string"
+					  }
+					},
+					{
+					  "@context": "https://schema.org",
+					  "@type": "WebPage",
+					  "url": "https://www.stechbd.net",
+					  "name": "S Technologies",
+					  "isPartOf": {
+						"@type": "WebSite",
+						"url": "https://www.stechbd.net"
+					  },
+					  "inLanguage": "en-US",
+					  "about": "S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.",
+					  "datePublished": "2013-01-01",
+					  "dateModified": "2021-09-01"
+					},
+					{
+					  "@context": "https://schema.org",
+					  "@type": "BreadcrumbList",
+					  "itemListElement": [
+						{
+						  "@type": "ListItem",
+						  "position": 1,
+						  "name": "Home",
+						  "item": "https://www.stechbd.net"
+						},
+						{
+						  "@type": "ListItem",
+						  "position": 2,
+						  "name": "Contact",
+						  "item": "https://www.stechbd.net/contact"
+						}
+					  ]
+					}
+				` }
+			</Script>
 		</>
 	)
 }

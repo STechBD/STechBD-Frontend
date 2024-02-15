@@ -2,7 +2,7 @@ import { JSX } from 'react'
 
 
 /**
- * The Hero component for the Contact page.
+ * The Hero component for the Server Information page.
  *
  * @returns { JSX.Element } The Hero component.
  * @since 3.0.0
@@ -20,11 +20,11 @@ export default function Hero(): JSX.Element {
 					<div className="text-center">
 						<h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
 							<span className="block">
-								Contact Us
+								Server Information
 							</span>
 						</h1>
 						<p className="mt-4 text-xl text-white">
-							Fill out the form below and we will get back to you as soon as possible.
+							Here you can find information about our servers and their status.
 						</p>
 					</div>
 				</div>

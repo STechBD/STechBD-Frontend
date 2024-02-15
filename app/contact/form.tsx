@@ -4,14 +4,54 @@ import { FormEvent, JSX, useState } from 'react'
 
 
 export default function Form(): JSX.Element {
-	const [ name, setName ] = useState('')
-	const [ email, setEmail ] = useState('')
-	const [ department, setDepartment ] = useState('')
-	const [ priority, setPriority ] = useState('')
-	const [ message, setMessage ] = useState('')
+	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
+	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
+	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
+	const [ token, setToken ] = useState<string>('')
+	const [ name, setName ] = useState<string>('')
+	const [ email, setEmail ] = useState<string>('')
+	const [ department, setDepartment ] = useState<number>()
+	const [ priority, setPriority ] = useState<string>('')
+	const [ message, setMessage ] = useState<string>('')
 
 	const formHandler = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
+
+		if (!name || !email || !department || !priority || !message) {
+			console.log('All fields are required.')
+			return
+		}
+
+		if (department < 1 || department > 4) {
+			console.log('Invalid department.')
+			return
+		}
+
+		if (priority !== 'Low' && priority !== 'Medium' && priority !== 'High') {
+			console.log('Invalid priority.')
+			return
+		}
+
+		if (message.length < 10) {
+			console.log('Message is too short. Minimum 10 words is required.')
+			return
+		}
+
+		if (message.length > 500) {
+			console.log('Message is too long. Maximum 500 words is allowed.')
+			return
+		}
+
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			console.log('Invalid email address.')
+			return
+		}
+
+		if (!/^[\w\s.]{3,50}$/.test(name)) {
+			console.log('Invalid name. Name must be between 3 and 50 characters long. Only alphabets, dots, and spaces are allowed.')
+			return
+		}
+
 		console.log({ name, email, department, priority, message })
 	}
 
@@ -58,19 +98,19 @@ export default function Form(): JSX.Element {
 					<div className="mt-1">
 						<select
 							name="department"
-							onChange={ (event) => setDepartment(event.target.value) }
+							onChange={ (event) => setDepartment(parseInt(event.target.value)) }
 							className="block w-full h-8 border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 						>
-							<option value="Sales">
+							<option value="1">
 								Sales Department
 							</option>
-							<option value="Support">
+							<option value="2">
 								Support Department
 							</option>
-							<option value="Billing">
+							<option value="3">
 								Billing Department
 							</option>
-							<option value="Abuse">
+							<option value="4">
 								Abuse Department
 							</option>
 						</select>
