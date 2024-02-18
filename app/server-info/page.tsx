@@ -2,6 +2,110 @@ import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import Hero from '@/app/server-info/hero'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+
+
+const servers = [
+	{
+		id: 1,
+		name: 'Server 1',
+		location: 'Buffalo, New York',
+		latitude: 42.8864,
+		longitude: -78.8784,
+		ip: '105.25.44.401',
+	},
+	{
+		id: 2,
+		name: 'Server 2',
+		location: 'Los Angeles, California',
+		latitude: 34.0522,
+		longitude: -118.2437,
+		ip: '105.25.44.402',
+	},
+	{
+		id: 3,
+		name: 'Server 3',
+		location: 'Dallas, Texas',
+		latitude: 32.7767,
+		longitude: -96.7970,
+		ip: '105.25.44.403',
+	},
+	{
+		id: 4,
+		name: 'Server 4',
+		location: 'Miami, Florida',
+		latitude: 25.7617,
+		longitude: -80.1918,
+		ip: '105.25.44.404',
+	},
+	{
+		id: 5,
+		name: 'Server 5',
+		location: 'Chicago, Illinois',
+		latitude: 41.8781,
+		longitude: -87.6298,
+		ip: '105.25.44.405',
+	},
+	{
+		id: 6,
+		name: 'Server 6',
+		location: 'New York City, New York',
+		latitude: 40.7128,
+		longitude: -74.0060,
+		ip: '105.25.44.406',
+	},
+	{
+		id: 7,
+		name: 'Server 7',
+		location: 'San Francisco, California',
+		latitude: 37.7749,
+		longitude: -122.4194,
+		ip: '105.25.44.407',
+	},
+	{
+		id: 8,
+		name: 'Server 8',
+		location: 'Seattle, Washington',
+		latitude: 47.6062,
+		longitude: -122.3321,
+		ip: '105.25.44.408',
+	},
+	{
+		id: 9,
+		name: 'Server 9',
+		location: 'Las Vegas, Nevada',
+		latitude: 36.1699,
+		longitude: -115.1398,
+		ip: '105.25.44.409',
+	},
+	{
+		id: 10,
+		name: 'Server 10',
+		location: 'Phoenix, Arizona',
+		latitude: 33.1915,
+		longitude: -111.8870,
+		ip: '105.25.44.410',
+	},
+]
+const ServerMap = () => {
+	return (
+		<MapContainer center={ [ 0, 0 ] } zoom={ 2 } style={ { height: '500px', width: '100%' } }>
+			<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+			{ servers.map(server => (
+				<Marker key={ server.id } position={ [ server.latitude, server.longitude ] }>
+					<Popup>
+						<div>
+							<h2>{ server.name }</h2>
+							<p>Location: { server.location }</p>
+							<p>IP Address: { server.ip }</p>
+							{/* Add more server information as needed */ }
+						</div>
+					</Popup>
+				</Marker>
+			)) }
+		</MapContainer>
+	);
+};
 
 
 /**
@@ -18,19 +122,22 @@ export const metadata: Metadata = {
 
 async function info(): Promise<any> {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
+	// const url: string = 'https://www.stechbd.net/post.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 
+	const formData: FormData = new FormData()
+
+	formData.append('identifier', identifier)
+	formData.append('secret', secret)
+	formData.append('action', 'GetServers')
+	formData.append('serviceId', '1')
+	formData.append('fetchStatus', 'false')
+	formData.append('responsetype', 'json')
+
 	return await fetch(url, {
 		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: new URLSearchParams({
-			'identifier': identifier,
-			'secret': secret,
-			'action': 'GetServers',
-		}).toString(),
+		body: formData,
 	})
 }
 
@@ -42,63 +149,23 @@ async function info(): Promise<any> {
  * @since 3.0.0
  */
 export default async function Page(): Promise<JSX.Element> {
-	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
-	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
-	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
-	const exampleOutput: string = `{
-	    "result": "success",
-	    "servers": [
-	        {
-	            "id": 1,
-	            "name": "Sample cPanel Box",
-	            "hostname": "hostname.example.com",
-	            "ipaddress": "10.100.4.30",
-	            "active": true,
-	            "activeServices": 0,
-	            "maxAllowedServices": 200,
-	            "percentUsed": 0,
-	            "module": "cpanel",
-	            "status": {
-	                "http": false,
-	                "load": "",
-	                "uptime": ""
-	            }
-	        }
-	    ],
-	    "fetchStatus": ""
-	}`
-	// This exampleOutput is just for reference to understand the response pattern. It cannot be used in the actual code.
-
 	const data = await info()
 
-	if (!data.ok) {
-		const text = await data.text()
+	if (data.ok) {
+		const json = await data.json()
 
-		console.log('Error:', text)
+		console.log('JSON Data:')
+		console.log(json)
+		console.log('Status:')
+		console.log(json.servers[0].status)
 
-		if (typeof text === 'string') {
-			const match = text.match(/result=([^]+)message=([^]+)/)
+		const active: boolean = json.servers[0].active
+	} else {
+		console.error('Failed to fetch server information.')
+		console.error('Error:', data.statusText)
 
-			if (match) {
-				const result = match[1]
-				const message = match[2]
-				console.log('Result:', result)
-				console.log('Message:', message)
-			} else {
-				console.error('Unable to extract result and message from response:', text)
-			}
-		} else {
-			console.error('Unexpected response format:', text)
-		}
-
-		return (
-			<>
-				Error fetching data. Error: { data.statusText }
-			</>
-		)
+		const active: boolean = false
 	}
-
-	console.log('Data:', data.json())
 
 	return (
 		<>
