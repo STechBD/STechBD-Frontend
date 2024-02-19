@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { JSX, createContext } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import Hero from '@/app/server-info/hero'
@@ -87,9 +87,9 @@ const servers = [
 		ip: '105.25.44.410',
 	},
 ]
-const ServerMap = () => {
+function ServerMap(): JSX.Element {
 	return (
-		<MapContainer center={ [ 0, 0 ] } zoom={ 2 } style={ { height: '500px', width: '100%' } }>
+		<MapContainer center={[0, 0]} zoom={ 2 } style={ { height: '500px', width: '100%' } }>
 			<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
 			{ servers.map(server => (
 				<Marker key={ server.id } position={ [ server.latitude, server.longitude ] }>
@@ -104,8 +104,8 @@ const ServerMap = () => {
 				</Marker>
 			)) }
 		</MapContainer>
-	);
-};
+	)
+}
 
 
 /**
@@ -204,6 +204,9 @@ export default async function Page(): Promise<JSX.Element> {
 										Data: { data.toString() }
 									</pre>
 								</div>
+							</div>
+							<div className="mt-12">
+								<ServerMap/>
 							</div>
 						</div>
 					</div>
