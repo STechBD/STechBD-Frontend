@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import Hero from '@/app/hero'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
-import PricingTable from '@/app/pricing-table'
+import PricingTable from '@/app/_component/pricing-table'
 import Testimonial from '@/app/testimonial'
 import Update from '@/app/update'
 
@@ -14,6 +14,92 @@ import Update from '@/app/update'
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {
+	const pricingData = [
+		{
+			title: 'Shared Hosting',
+			featured: true,
+			price: {
+				bdt: 1200,
+				usd: 12,
+			},
+			period: 0,
+			description: 'Ideal for low volume websites',
+			features: [
+				<><strong>3GB NVMe SSD</strong> Storage</>,
+				<><strong>60GB</strong> Bandwidth</>,
+				<><strong>1</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+			],
+			button: 'More Plans',
+			link: '/shared-hosting',
+		},
+		{
+			title: 'Reseller Hosting',
+			price: {
+				bdt: 7000,
+				usd: 70,
+			},
+			period: 0,
+			description: 'Ideal for starting hosting service business',
+			features: [
+				<><strong>10GB NVMe SSD</strong> Storage</>,
+				<><strong>100GB</strong> Bandwidth</>,
+				<><strong>5</strong> cPanel Account</>,
+				<><strong>Unlimited</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Unlimited Free</strong> SSL Certificate</>,
+				<><strong>cPanel and WHM</strong> Control Panel</>,
+			],
+			button: 'More Plans',
+			link: '/reseller-hosting',
+		},
+		{
+			title: 'Unmanaged VPS',
+			price: {
+				bdt: 5000,
+				usd: 50,
+			},
+			period: 1,
+			description: 'Ideal for high traffic websites',
+			features: [
+				<><strong>50GB NVMe SSD</strong> Storage</>,
+				<><strong>1TB</strong> Bandwidth</>,
+				<><strong>2GB</strong> RAM</>,
+				<><strong>1</strong> vCPU</>,
+				<><strong>1</strong> IPv4 Address</>,
+				<><strong>Unlimited</strong> IPv6 Address</>,
+				<><strong>Unlimited</strong> OS</>,
+				<><strong>Full Root Access</strong> Control Panel</>,
+			],
+			button: 'More Plans',
+			link: '/unmanaged-vps',
+		},
+		{
+			title: 'Dedicated Server',
+			price: {
+				bdt: 12000,
+				usd: 120,
+			},
+			period: 1,
+			description: 'Ideal for high traffic websites',
+			features: [
+				<><strong>500GB NVMe SSD</strong> Storage</>,
+				<><strong>10TB</strong> Bandwidth</>,
+				<><strong>8GB</strong> RAM</>,
+				<><strong>4</strong> vCPU</>,
+				<><strong>1</strong> IPv4 Address</>,
+				<><strong>Unlimited</strong> IPv6 Address</>,
+				<><strong>Unlimited</strong> OS</>,
+				<><strong>Full Root Access</strong> Control Panel</>,
+			],
+			button: 'More Plans',
+			link: '/dedicated-server',
+		},
+	]
+
 	return (
 		<>
 			<Hero/>
@@ -39,14 +125,14 @@ export default function Page(): JSX.Element {
 						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 				</div>
-				<div className="md:px-20 py-10">
+				<div className="px-16 md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
 						Web Hosting and Server
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
 						We have been providing web hosting and server since 2015 with customer satisfaction.
 					</p>
-					<PricingTable/>
+					<PricingTable data={ pricingData }/>
 				</div>
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">

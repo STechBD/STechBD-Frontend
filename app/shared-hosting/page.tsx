@@ -1,14 +1,410 @@
+import { JSX } from 'react'
+import { Metadata } from 'next'
+import Hero from '@/app/shared-hosting/hero'
+import PricingTable from '@/app/_component/pricing-table'
+
+
+/**
+ * Metadata for the Shared Hosting page.
+ *
+ * @returns { Metadata } The metadata for the Shared Hosting page.
+ * @since 3.0.0
+ */
+export const metadata: Metadata = {
+	title: 'Shared Hosting',
+	description: 'Affordable shared hosting plans for your website. Get started with our shared hosting plans today.',
+}
+
+
+/**
+ * The Shared Hosting page component.
+ *
+ * @returns { JSX.Element } The Shared Hosting page component.
+ * @since 3.0.0
+ */
 export default function Page(): JSX.Element {
+	const pricingData = [
+		{
+			title: '3GB',
+			featured: true,
+			price: {
+				bdt: 3200,
+				usd: 32,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: [
+				<><strong>3GB NVMe SSD</strong> Storage</>,
+				<><strong>60GB</strong> Bandwidth</>,
+				<><strong>1</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/3gb',
+		},
+		{
+			title: '5GB',
+			price: {
+				bdt: 4000,
+				usd: 40,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: [
+				<><strong>5GB NVMe SSD</strong> Storage</>,
+				<><strong>100GB</strong> Bandwidth</>,
+				<><strong>1</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/5gb',
+		},
+		{
+			title: '10GB',
+			price: {
+				bdt: 6500,
+				usd: 65,
+			},
+			period: 0,
+			description: 'Ideal for low traffic business website',
+			features: [
+				<><strong>10GB NVMe SSD</strong> Storage</>,
+				<><strong>200GB</strong> Bandwidth</>,
+				<><strong>2</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/10gb',
+		},
+		{
+			title: '15GB',
+			price: {
+				bdt: 9500,
+				usd: 95,
+			},
+			period: 0,
+			description: 'Ideal for medium traffic business website',
+			features: [
+				<><strong>15GB NVMe SSD</strong> Storage</>,
+				<><strong>300GB</strong> Bandwidth</>,
+				<><strong>5</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/15gb',
+		},
+		{
+			title: '20GB',
+			price: {
+				bdt: 12000,
+				usd: 120,
+			},
+			period: 0,
+			description: 'Ideal for medium traffic business website',
+			features: [
+				<><strong>20GB NVMe SSD</strong> Storage</>,
+				<><strong>400GB</strong> Bandwidth</>,
+				<><strong>Unlimited</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/20gb',
+		},
+		{
+			title: '25GB',
+			price: {
+				bdt: 14500,
+				usd: 145,
+			},
+			period: 1,
+			description: 'Ideal for medium traffic business website',
+			features: [
+				<><strong>25GB NVMe SSD</strong> Storage</>,
+				<><strong>500GB</strong> Bandwidth</>,
+				<><strong>Unlimited</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/25gb',
+		},
+		{
+			title: 'Unlimited-A',
+			price: {
+				bdt: 10000,
+				usd: 100,
+			},
+			period: 0,
+			description: 'Ideal for medium traffic business website',
+			features: [
+				<><strong>Unlimited NVMe SSD</strong> Storage</>,
+				<><strong>200GB</strong> Bandwidth</>,
+				<><strong>1</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/ua',
+		},
+		{
+			title: 'Unlimited-B',
+			price: {
+				bdt: 20000,
+				usd: 200,
+			},
+			period: 0,
+			description: 'Ideal for medium traffic business website',
+			features: [
+				<><strong>Unlimited NVMe SSD</strong> Storage</>,
+				<><strong>Unlimited</strong> Bandwidth</>,
+				<><strong>2</strong> Domain</>,
+				<><strong>Unlimited</strong> Subdomain, Addon Domain, and Parked Domain</>,
+				<><strong>Unlimited</strong> Email Account, FTP, Database</>,
+				<><strong>Free</strong> SSL Certificate</>,
+				<><strong>99.9%</strong> Uptime</>,
+			],
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/ub',
+		},
+	]
+	const comparisonData = [
+		{
+			title: '3GB',
+			price: {
+				bdt: 3200,
+				usd: 32,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: {
+				disk: '3GB',
+				bandwidth: '60GB',
+				domain: '1',
+				subdomain: 'Unlimited',
+				email: 'Unlimited',
+				ftp: 'Unlimited',
+				database: 'Unlimited',
+				ssl: true,
+				uptime: '99.9%',
+				panel: 'cPanel',
+				ram: '1GB',
+				entryProcess: '30',
+				process: '120',
+				io: '20MBPS',
+				iops: '8192',
+				php: '8.3+',
+				mysql: '8.3+',
+				nodejs: '20.3+',
+				python: '3.11+',
+				ruby: '3.11+',
+				perl: '5.38+',
+				terminal: false,
+				ssh: true,
+				git: true,
+				metrics: true,
+				security: true,
+				virusScanner: true,
+				softaculous: true,
+				wordpress: true,
+				backup: 'Daily',
+			},
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/3gb',
+		},
+		{
+			title: '5GB',
+			price: {
+				bdt: 4000,
+				usd: 40,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: {
+				disk: '5GB',
+				bandwidth: '100GB',
+				domain: '1',
+				subdomain: 'Unlimited',
+				email: 'Unlimited',
+				ftp: 'Unlimited',
+				database: 'Unlimited',
+				ssl: true,
+				uptime: '99.9%',
+				panel: 'cPanel',
+				ram: '1GB',
+				entryProcess: '30',
+				process: '120',
+				io: '20MBPS',
+				iops: '8192',
+				php: '8.3+',
+				mysql: '8.3+',
+				nodejs: '20.3+',
+				python: '3.11+',
+				ruby: '3.11+',
+				perl: '5.38+',
+				terminal: false,
+				ssh: true,
+				git: true,
+				metrics: true,
+				security: true,
+				virusScanner: true,
+				softaculous: true,
+				wordpress: true,
+				backup: 'Daily',
+			},
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/5gb',
+		},
+		{
+			title: '10GB',
+			price: {
+				bdt: 5500,
+				usd: 55,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: {
+				disk: '10GB',
+				bandwidth: '200GB',
+				domain: '2',
+				subdomain: 'Unlimited',
+				email: 'Unlimited',
+				ftp: 'Unlimited',
+				database: 'Unlimited',
+				ssl: true,
+				uptime: '99.9%',
+				panel: 'cPanel',
+				ram: '1GB',
+				entryProcess: '30',
+				process: '120',
+				io: '20MBPS',
+				iops: '8192',
+				php: '8.3+',
+				mysql: '8.3+',
+				nodejs: '20.3+',
+				python: '3.11+',
+				ruby: '3.11+',
+				perl: '5.38+',
+				terminal: true,
+				ssh: true,
+				git: true,
+				metrics: true,
+				security: true,
+				virusScanner: true,
+				softaculous: true,
+				wordpress: true,
+				backup: 'Daily',
+			},
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/10gb',
+		},
+		{
+			title: '15GB',
+			price: {
+				bdt: 9500,
+				usd: 95,
+			},
+			period: 0,
+			description: 'Ideal for low traffic website',
+			features: {
+				disk: '15GB',
+				bandwidth: '300GB',
+				domain: '5',
+				subdomain: 'Unlimited',
+				email: 'Unlimited',
+				ftp: 'Unlimited',
+				database: 'Unlimited',
+				ssl: true,
+				uptime: '99.9%',
+				panel: 'cPanel',
+				ram: '1GB',
+				entryProcess: '30',
+				process: '120',
+				io: '20MBPS',
+				iops: '8192',
+				php: '8.3+',
+				mysql: '8.3+',
+				nodejs: '20.3+',
+				python: '3.11+',
+				ruby: '3.11+',
+				perl: '5.38+',
+				terminal: true,
+				ssh: true,
+				git: true,
+				metrics: true,
+				security: true,
+				virusScanner: true,
+				softaculous: true,
+				wordpress: true,
+				backup: 'Daily',
+			},
+			button: 'Order Now',
+			link: 'https://cpanel.stechbd.net/store/shared-hosting/3gb',
+		},
+	]
+
 	return (
 		<>
+			<Hero/>
+			<div className="relative isolate px-6 py-24 lg:px-8">
+				<div className="absolute inset-x-0 -top-24 -z-10 transform-gpu overflow-hidden blur-3xl"
+				     aria-hidden="true">
+					<div
+						className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }>
+					</div>
+				</div>
+				<div
+					className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+					aria-hidden="true">
+					<div
+						className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
+				</div>
+				<div
+					className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+					aria-hidden="true">
+					<div
+						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
+						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
+				</div>
+				<div className="px-16 lg:px-20 py-10">
+					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+						Pick a Plan
+					</h2>
+					<p className="mt-4 text-xl text-gray-500">
+						Choose the best shared hosting plan for your website.&nbsp;
+						We have a variety of shared hosting plans to meet your website needs.
+					</p>
+					<PricingTable data={ pricingData }/>
+				</div>
 			{ /** Comparison Table **/ }
 			<div className="relative dark:bg-gray-900">
 				<div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 md:py-14 lg:py-20 mx-auto">
 					<div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
 						<h2 className="text-2xl font-bold md:text-3xl md:leading-tight dark:text-white">Simple,
 							transparent pricing</h2>
-						<p className="mt-1 text-gray-600 dark:text-gray-400">Increase your teams productivity. Get
-							things done in rapid time.</p>
+						<p className="mt-1 text-gray-600 dark:text-gray-400">
+							Increase your teams productivity. Get things done in rapid time.
+						</p>
 					</div>
 
 					{ /** Switch **/ }
@@ -36,7 +432,6 @@ export default function Page(): JSX.Element {
 						</label>
 					</div>
 					{ /** End Switch **/ }
-
 					<div
 						className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:w-full after:h-48 after:bg-gradient-to-t after:from-white after:via-white/70 dark:after:from-slate-900 dark:after:via-slate-900/95">
 						{ /** Header **/ }
@@ -329,8 +724,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -346,8 +741,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -363,8 +758,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -380,8 +775,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -409,8 +804,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -426,8 +821,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -443,8 +838,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -460,8 +855,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -525,8 +920,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -542,8 +937,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -559,8 +954,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -576,8 +971,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -605,8 +1000,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -622,8 +1017,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -639,8 +1034,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -656,8 +1051,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -721,8 +1116,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -738,8 +1133,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -755,8 +1150,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -772,8 +1167,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -801,8 +1196,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -818,8 +1213,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -835,8 +1230,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -852,8 +1247,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -881,8 +1276,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -898,8 +1293,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -915,8 +1310,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -932,8 +1327,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -961,8 +1356,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -978,8 +1373,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -995,8 +1390,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1012,8 +1407,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1041,8 +1436,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1058,8 +1453,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1075,8 +1470,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1092,8 +1487,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1121,8 +1516,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1138,8 +1533,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1155,8 +1550,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1172,8 +1567,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1201,8 +1596,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1218,8 +1613,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1235,8 +1630,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1252,8 +1647,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1281,8 +1676,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1298,8 +1693,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1315,8 +1710,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1332,8 +1727,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1397,8 +1792,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1414,8 +1809,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1431,8 +1826,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1448,8 +1843,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1477,8 +1872,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1494,8 +1889,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1511,8 +1906,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1528,8 +1923,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1557,8 +1952,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1574,8 +1969,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1591,8 +1986,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<path d="M5 12h14"/>
 										</svg>
 									</div>
@@ -1608,8 +2003,8 @@ export default function Page(): JSX.Element {
 										<svg
 											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-											stroke-linecap="round" stroke-linejoin="round">
+											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+											strokeLinecap="round" strokeLinejoin="round">
 											<polyline points="20 6 9 17 4 12"/>
 										</svg>
 									</div>
@@ -1677,7 +2072,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1693,7 +2088,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1753,7 +2148,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1829,7 +2224,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1845,7 +2240,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1861,7 +2256,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1905,7 +2300,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1921,7 +2316,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1937,7 +2332,7 @@ export default function Page(): JSX.Element {
 											<svg className="w-4 h-4 lg:mx-auto text-gray-500"
 											     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 											     fill="currentColor" viewBox="0 0 16 16">
-												<path fill-rule="evenodd"
+												<path fillRule="evenodd"
 												      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 											</svg>
 										</div>
@@ -1976,8 +2371,8 @@ export default function Page(): JSX.Element {
 							<svg
 								className="hidden hs-collapse-open:block group-hover:rotate-180 transition duration-300 flex-shrink-0 w-4 h-4"
 								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-								stroke-linejoin="round">
+								fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+								strokeLinejoin="round">
 								<path d="M18 6 6 18"/>
 								<path d="m6 6 12 12"/>
 							</svg>
@@ -1987,6 +2382,7 @@ export default function Page(): JSX.Element {
 				</div>
 			</div>
 			{ /** End Comparison Table **/ }
+			</div>
 		</>
 	)
 }
