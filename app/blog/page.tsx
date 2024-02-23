@@ -1,6 +1,7 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Hero from '@/app/blog/hero'
 
 
 interface User {
@@ -98,17 +99,9 @@ export default async function Page(): Promise<JSX.Element> {
 
 	return (
 		<>
+			<Hero/>
 			<section className="bg-white dark:bg-gray-900">
 				<div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-					<div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-						<h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-							Our Blog
-						</h2>
-						<p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-							We use an agile approach to test assumptions and connect with the needs of your audience
-							early and often.
-						</p>
-					</div>
 					<div className="grid gap-8 lg:grid-cols-2">
 						{
 							post.map(async (item: Post): Promise<JSX.Element> => {
@@ -116,12 +109,12 @@ export default async function Page(): Promise<JSX.Element> {
 								const author: string = item.author ?? '0'
 								const authorInfo: User = await userData(author)
 								const authorName: string = authorInfo.firstname + ' ' + authorInfo.lastname
-								const authorUsername: string = authorInfo.username
-								const authorImage: string = authorInfo.image
+								const authorUsername: string = authorInfo.username ?? 'default-username'
+								const authorImage: string = authorInfo.image ?? '/default.jpg'
 								const slug: string = item.slug ?? 'default-slug'
 								const category: string = item.category ?? '0'
 								const categoryInfo: Category = await categoryData(category)
-								const categoryName: string = categoryInfo.name
+								const categoryName: string = categoryInfo.name ?? 'Default Category'
 								const published: string = item.published ?? '2021-01-01'
 								const content: string = 'Default Content'
 

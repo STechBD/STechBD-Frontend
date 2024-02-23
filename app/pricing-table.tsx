@@ -1,8 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link';
+import Link from 'next/link'
 
 /**
  * Pricing table for the homepage.
@@ -92,10 +91,10 @@ export default function PricingTable(): JSX.Element {
 	]
 
 	return (
-		<>
-			<div className="flex justify-center items-center my-10">
+		<div className="my-20">
+			<div className="flex justify-center items-center mb-10">
 				<button
-					className={ `px-4 py-2 rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
+					className={ `px-5 py-3 text-2xl rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
 					onClick={ (): void => {
 						setCurrency('bdt')
 						setSharedHostingPrice(1200)
@@ -107,7 +106,7 @@ export default function PricingTable(): JSX.Element {
 					BDT (৳)
 				</button>
 				<button
-					className={ `px-4 py-2 rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
+					className={ `px-5 py-3 text-2xl rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
 					onClick={ (): void => {
 						setCurrency('usd')
 						setSharedHostingPrice(12)
@@ -125,10 +124,10 @@ export default function PricingTable(): JSX.Element {
 						return (
 							<div
 								key={ index }
-								className="p-8 bg-white rounded-lg"
+								className="p-8 bg-white rounded-lg dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:border-gray-600 dark:hover:shadow-lg dark:shadow-sm"
 							>
 								<div className="text-center">
-									<h2 className="text-3xl font-semibold text-gray-900">
+									<h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
 										{ item.title }
 									</h2>
 									<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -137,17 +136,17 @@ export default function PricingTable(): JSX.Element {
 								</div>
 								<div className="mt-8">
 									<div className="flex items-center justify-center">
-										<span className="text-5xl font-semibold text-gray-900">
+										<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
 											{ currency === 'bdt' ? '৳' : '$' }
 										</span>
-										<span className="text-5xl font-semibold text-gray-900">
+										<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
 											{ item.price }
 										</span>
-										<span className="text-xl font-medium text-gray-500">
-											&nbsp;/{ item.period === 0 ? 'year' : 'month' }
+										<span className="text-2xl font-medium text-gray-600 dark:text-gray-400">
+											&nbsp;/ { item.period === 0 ? 'year' : 'month' }
 										</span>
 									</div>
-									<p className="mt-4 text-sm text-gray-500">
+									<p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
 										Billed { item.period === 0 ? 'annually' : 'monthly' }
 									</p>
 								</div>
@@ -157,12 +156,13 @@ export default function PricingTable(): JSX.Element {
 											item.features.map((feature: any, index: number): JSX.Element => {
 												return (
 													<li key={ index } className="flex items-center">
-														<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
+														<svg className="w-4 h-4 text-green-500" fill="currentColor"
+														     viewBox="0 0 20 20"
 														     xmlns="http://www.w3.org/2000/svg">
 															<path fillRule="evenodd" clipRule="evenodd"
 															      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"/>
 														</svg>
-														<span className="ml-2 text-gray-700">
+														<span className="ml-2 text-gray-700 dark:text-gray-300">
 															{ feature }
 														</span>
 													</li>
@@ -173,7 +173,8 @@ export default function PricingTable(): JSX.Element {
 								</div>
 								<div className="mt-8">
 									<Link href={ item.link }
-									      className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-primary-600">
+									      className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-secondary"
+									>
 										{ item.button }
 									</Link>
 								</div>
@@ -181,129 +182,7 @@ export default function PricingTable(): JSX.Element {
 						)
 					})
 				}
-				<div
-					className="p-8 bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:border-gray-600 dark:hover:shadow-lg dark:shadow-sm rounded-lg">
-					<div className="text-center">
-						<h2 className="text-3xl font-semibold text-gray-900 dark:text-gray-100">
-							Shared Hosting
-						</h2>
-						<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
-							Ideal for low volume websites
-						</p>
-					</div>
-					<div className="mt-8">
-						<div className="flex items-center justify-center">
-							<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
-								{ currency === 'bdt' ? '৳' : '$' }
-							</span>
-							<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
-								{ sharedHostingPrice }
-							</span>
-							<span className="text-xl font-medium text-gray-500 dark:text-gray-400">
-								&nbsp;/ year
-							</span>
-						</div>
-						<p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-							Billed annually
-						</p>
-					</div>
-					<div className="mt-8">
-						<ul className="space-y-2">
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"/>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">Unlimited projects</span>
-							</li>
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"/>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">Unlimited users</span>
-							</li>
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"/>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">24/7 support</span>
-							</li>
-							<li className="flex items-center">
-								<Image src="/icon/tick.svg" className="w-4 h-4 text-green-500" alt="Tick" width={ 100 } height={ 100 }/>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">24/7 support</span>
-							</li>
-						</ul>
-					</div>
-					<div className="mt-8">
-						<a href="#"
-						   className="block w-full px-4 py-3 text-center font-medium text-white bg-primary-500 rounded-md hover:bg-primary-600">Start
-							free trial
-						</a>
-					</div>
-				</div>
-				<div
-					className="p-8 bg-white dark:bg-gray-800 dark:border dark:border-gray-700 dark:hover:border-gray-600 dark:hover:shadow-lg dark:shadow-sm rounded-lg">
-					<div className="text-center">
-						<h2 className="text-3xl font-semibold text-gray-900 dark:text-gray-100">Premium</h2>
-						<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">For large teams</p>
-					</div>
-					<div className="mt-8">
-						<div className="flex items-center justify-center">
-							<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">$</span>
-							<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">49</span>
-							<span className="text-xl font-medium text-gray-500 dark:text-gray-400">/mo</span>
-						</div>
-						<p className="mt-4 text-sm text-gray-500 dark:text-gray-400">Billed monthly</p>
-					</div>
-					<div className="mt-8">
-						<ul className="space-y-2">
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"></path>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">Unlimited projects</span>
-							</li>
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"></path>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">Unlimited users</span>
-							</li>
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"></path>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">24/7 support</span>
-							</li>
-							<li className="flex items-center">
-								<svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-								     xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd"
-									      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"></path>
-								</svg>
-								<span className="ml-2 text-gray-700 dark:text-gray-300">Advanced analytics</span>
-							</li>
-						</ul>
-					</div>
-					<div className="mt-8">
-						<a href="#"
-						   className="block w-full px-4 py-3 text-center font-medium text-white bg-primary-500 rounded-md hover:bg-primary-600">Start
-							free trial
-						</a>
-					</div>
-				</div>
 			</div>
-		</>
+		</div>
 	)
 }

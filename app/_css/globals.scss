@@ -101,30 +101,11 @@ body {
 	--secondary: #7E22CE;
 }
 
-/* Theme Switcher */
-.text-primary {
-	color: var(--primary);
+.theme-rose {
+	--primary: #E11D48;
+	--secondary: #BE123C;
 }
 
-.text-secondary {
-	color: var(--secondary);
-}
-
-.bg-primary {
-	background: var(--primary);
-}
-
-.bg-secondary {
-	background: var(--secondary);
-}
-
-.border-primary {
-	border-color: var(--primary);
-}
-
-.border-secondary {
-	border-color: var(--secondary);
-}
 
 /**
  * Default rule.

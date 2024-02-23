@@ -1,8 +1,9 @@
 import { JSX } from 'react'
 import Hero from '@/app/hero'
-import AnimatedLogo from '@/app/_component/animatedLogo';
+import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
-import PricingTable from '@/app/pricing-table';
+import PricingTable from '@/app/pricing-table'
+import Testimonial from '@/app/testimonial'
 
 
 /**
@@ -39,152 +40,14 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-						Web Hosting Packages
+						Web Hosting and Server
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						We are providing web hosting since 2015 with customer satisfaction.
+						We have been providing web hosting and server since 2015 with customer satisfaction.
 					</p>
-					<div className="mt-10">
-						<PricingTable/>
-					</div>
-					<div className="mt-10">
-						{/* Pricing Table */ }
-						<div
-							className="bg-white rounded-lg shadow overflow-hidden divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-3 sm:gap-px">
-							<div
-								className="relative group bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
-								<div>
-									<span
-										className="rounded-lg inline-flex p-3 bg-white text-[#ff80b5] ring-4 ring-white">
-										{/* Heroicon name: globe-alt */ }
-										<svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-										     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-											      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-										</svg>
-									</span>
-								</div>
-								<h3 className="mt-8 text-lg font-medium text-white">
-									Free
-								</h3>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> Website
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> GB SSD Storage
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">10</span> GB Bandwidth
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> Email Account
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> Subdomain
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> Database
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> FTP Account
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> Cronjob
-								</p>
-								<p className="mt-2 text-sm text-white">
-									<span className="font-bold">1</span> SSL Certificate
-								</p>
-							</div>
-							<div
-								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
-								<div>
-									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
-										{/* Heroicon name: scale */ }
-										<svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-										     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-											      d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m6 2l-6 2"/>
-										</svg>
-									</span>
-								</div>
-								<h3 className="mt-8 text-lg font-medium text-gray-900">
-									Standard
-								</h3>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">1</span> Website
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> GB SSD Storage
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> GB Bandwidth
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> Email Account
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> Subdomain
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> Database
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> FTP Account
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> Cronjob
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> SSL Certificate
-								</p>
-							</div>
-							<div
-								className="relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary">
-								<div>
-									<span className="rounded-lg inline-flex p-3 bg-[#ff80b5] text-white">
-										{/* Heroicon name: lightning-bolt */ }
-										<svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-										     viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-											      d="M13 10V3L4 14h7v7l9-11h-7z"/>
-										</svg>
-									</span>
-								</div>
-								<h3 className="mt-8 text-lg font-medium text-gray-900">
-									Premium
-								</h3>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">10</span> Website
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> GB SSD Storage
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">1000</span> GB Bandwidth
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> Email Account
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> Subdomain
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> Database
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> FTP Account
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> Cronjob
-								</p>
-								<p className="mt-2 text-sm text-gray-500">
-									<span className="font-bold">100</span> SSL Certificate
-								</p>
-							</div>
-						</div>
-					</div>
+					<PricingTable/>
 				</div>
-				<div className="px-20 py-10"></div>
+				<div className="py-10"></div>
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
 						<div className="flex items-center justify-center mt-3">
@@ -198,13 +61,13 @@ export default function Page(): JSX.Element {
 							</h2>
 							<div className="mt-3">
 								<p className="text-lg text-gray-500">
-									We are a team of software engineers, AI experts, and designers who are passionate about building technology solutions for you.
+									We are a team of software engineers, AI experts, and designers who are passionate
+									about building technology solutions for you.
 								</p>
 							</div>
 							<div className="mt-9">
 								<div className="flex">
 									<div className="flex-shrink-0">
-										{/* Heroicon name: check */ }
 										<svg className="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
 										     fill="none" viewBox="0 0 24 24" stroke="currentColor"
 										     aria-hidden="true">
@@ -214,13 +77,27 @@ export default function Page(): JSX.Element {
 									</div>
 									<div className="ml-3 text-base text-gray-500">
 										<p>
-											We develop and design website, software, UI, UX, and other technological solution for businesses.
+											We develop and design website and software.
 										</p>
 									</div>
 								</div>
 								<div className="mt-6 flex">
 									<div className="flex-shrink-0">
-										{/* Heroicon name: check */ }
+										<svg className="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
+										     fill="none" viewBox="0 0 24 24" stroke="currentColor"
+										     aria-hidden="true">
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+											      d="M5 13l4 4L19 7"/>
+										</svg>
+									</div>
+									<div className="ml-3 text-base text-gray-500">
+										<p>
+											We design UI and UX for website and software.
+										</p>
+									</div>
+								</div>
+								<div className="mt-6 flex">
+									<div className="flex-shrink-0">
 										<svg className="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
 										     fill="none" viewBox="0 0 24 24" stroke="currentColor"
 										     aria-hidden="true">
@@ -236,7 +113,6 @@ export default function Page(): JSX.Element {
 								</div>
 								<div className="mt-6 flex">
 									<div className="flex-shrink-0">
-										{/* Heroicon name: check */ }
 										<svg className="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
 										     fill="none" viewBox="0 0 24 24" stroke="currentColor"
 										     aria-hidden="true">
@@ -250,11 +126,35 @@ export default function Page(): JSX.Element {
 										</p>
 									</div>
 								</div>
+								<div className="mt-6 flex">
+									<div className="flex-shrink-0">
+										<svg className="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
+										     fill="none" viewBox="0 0 24 24" stroke="currentColor"
+										     aria-hidden="true">
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+											      d="M5 13l4 4L19 7"/>
+										</svg>
+									</div>
+									<div className="ml-3 text-base text-gray-500">
+										<p>
+											We provide SEO solution and digital marketing service for business.
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div className="px-20 py-10"></div>
+				<div className="md:px-20 py-10">
+					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+						Client Testimonials
+					</h2>
+					<p className="mt-4 text-xl text-gray-500">
+						What our clients say about us.
+					</p>
+					<Testimonial/>
+				</div>
 			</div>
 		</>
 	)

@@ -1,111 +1,89 @@
-import { JSX, createContext } from 'react'
+import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import Hero from '@/app/server-info/hero'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 
 const servers = [
 	{
 		id: 1,
 		name: 'Server 1',
-		location: 'Buffalo, New York',
-		latitude: 42.8864,
-		longitude: -78.8784,
-		ip: '105.25.44.401',
+		location: 'Dallas, Texas',
+		zip: 75270,
+		country: 'United States',
+		host: 'srv1.whitednszone.com',
+		ip: '166.0.175.226',
+		isp: 'Psychz Networks',
+		organization: 'IPXO',
+		active: true,
+		up: true,
 	},
 	{
 		id: 2,
 		name: 'Server 2',
-		location: 'Los Angeles, California',
-		latitude: 34.0522,
-		longitude: -118.2437,
-		ip: '105.25.44.402',
+		location: 'Dhaka, Dhaka Division',
+		zip: 1219,
+		country: 'Bangladesh',
+		host: 'srv4.whitednszone.com',
+		ip: '103.174.153.125',
+		isp: 'ColoCone Admin',
+		organization: 'ColoCone Limited',
+		active: true,
+		up: true,
 	},
 	{
 		id: 3,
 		name: 'Server 3',
-		location: 'Dallas, Texas',
-		latitude: 32.7767,
-		longitude: -96.7970,
-		ip: '105.25.44.403',
+		location: 'Singapore City, Singapore',
+		zip: 178958,
+		country: 'Singapore',
+		host: 'srv2.whitednszone.com',
+		ip: '131.153.48.206',
+		isp: 'Secured Servers LLC',
+		organization: 'PingPipe Internet Corporation',
+		active: true,
+		up: true,
 	},
 	{
 		id: 4,
 		name: 'Server 4',
-		location: 'Miami, Florida',
-		latitude: 25.7617,
-		longitude: -80.1918,
-		ip: '105.25.44.404',
+		location: 'Phoenix, Arizona',
+		zip: 85034,
+		country: 'United States',
+		host: 'srv5.whitednszone.com',
+		ip: '184.164.94.74',
+		isp: 'Input Output Flood LLC',
+		organization: 'Input Output Flood LLC',
+		active: true,
+		up: true,
 	},
 	{
 		id: 5,
 		name: 'Server 5',
-		location: 'Chicago, Illinois',
-		latitude: 41.8781,
-		longitude: -87.6298,
-		ip: '105.25.44.405',
+		location: 'Dhaka, Dhaka Division',
+		zip: 1230,
+		country: 'Bangladesh',
+		host: 'srv6.whitednszone.com',
+		ip: '103.174.152.60',
+		isp: 'ColoCone Admin',
+		organization: 'ColoCone Limited',
+		active: true,
+		up: true,
 	},
 	{
 		id: 6,
 		name: 'Server 6',
-		location: 'New York City, New York',
-		latitude: 40.7128,
-		longitude: -74.0060,
-		ip: '105.25.44.406',
-	},
-	{
-		id: 7,
-		name: 'Server 7',
-		location: 'San Francisco, California',
-		latitude: 37.7749,
-		longitude: -122.4194,
-		ip: '105.25.44.407',
-	},
-	{
-		id: 8,
-		name: 'Server 8',
-		location: 'Seattle, Washington',
-		latitude: 47.6062,
-		longitude: -122.3321,
-		ip: '105.25.44.408',
-	},
-	{
-		id: 9,
-		name: 'Server 9',
-		location: 'Las Vegas, Nevada',
-		latitude: 36.1699,
-		longitude: -115.1398,
-		ip: '105.25.44.409',
-	},
-	{
-		id: 10,
-		name: 'Server 10',
-		location: 'Phoenix, Arizona',
-		latitude: 33.1915,
-		longitude: -111.8870,
-		ip: '105.25.44.410',
+		location: 'Dhaka, Dhaka Division',
+		zip: 1230,
+		country: 'Bangladesh',
+		host: 'srv7.whitednszone.com',
+		ip: '103.174.152.34',
+		isp: 'ColoCone Admin',
+		organization: 'ColoCone Limited',
+		active: true,
+		up: true,
 	},
 ]
-function ServerMap(): JSX.Element {
-	return (
-		<MapContainer center={[0, 0]} zoom={ 2 } style={ { height: '500px', width: '100%' } }>
-			<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-			{ servers.map(server => (
-				<Marker key={ server.id } position={ [ server.latitude, server.longitude ] }>
-					<Popup>
-						<div>
-							<h2>{ server.name }</h2>
-							<p>Location: { server.location }</p>
-							<p>IP Address: { server.ip }</p>
-							{/* Add more server information as needed */ }
-						</div>
-					</Popup>
-				</Marker>
-			)) }
-		</MapContainer>
-	)
-}
 
 
 /**
@@ -154,17 +132,18 @@ export default async function Page(): Promise<JSX.Element> {
 	if (data.ok) {
 		const json = await data.json()
 
-		console.log('JSON Data:')
+		console.log('Data:')
 		console.log(json)
 		console.log('Status:')
 		console.log(json.servers[0].status)
 
-		const active: boolean = json.servers[0].active
+		// modify the up status of the server 1
+		servers[0].up = json.servers[0].active
 	} else {
 		console.error('Failed to fetch server information.')
 		console.error('Error:', data.statusText)
 
-		const active: boolean = false
+		servers[0].up = false
 	}
 
 	return (
@@ -175,38 +154,54 @@ export default async function Page(): Promise<JSX.Element> {
 					<div className="lg:grid lg:grid-cols-3 lg:gap-8">
 						<div>
 							<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
-								Server Information
+								Server Location
 							</h2>
 							<div className="mt-3">
-								<p className="text-lg text-gray-900">
-									<strong>
-										United States of America (USA)
-									</strong>
-								</p>
-								<p className="mt-1 text-lg text-gray-900">
-									Buffalo, New York
-								</p>
-								<p className="mt-1 text-lg text-gray-900">
-									United States of America
-								</p>
+								{
+									servers.map((server) => (
+										<div key={ server.id }>
+											<p className="mt-1 text-lg text-gray-900">
+												{ server.id }. { server.location }, { server.country }
+											</p>
+										</div>
+									))
+								}
 							</div>
 						</div>
 						<div className="mt-12 lg:mt-0 lg:col-span-2">
-							<div className="p-8 rounded-lg shadow-lg">
-								<div className="mt-3">
-									<p className="text-lg text-gray-900">
-										Here you can find information about our servers and their status.
-									</p>
-									<p className="mt-1 text-lg text-gray-900">
-										Status will be displayed here.
-									</p>
-									<pre className="mt-1 text-lg text-gray-900 bg-gray-100 p-4 rounded-lg">
-										Data: { data.toString() }
-									</pre>
-								</div>
+							<div className="mt-3">
+								<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+									Servers of S Technologies
+								</h2>
+								<p className="text-lg text-gray-900">
+									Here you can find information about our servers and their status.
+								</p>
 							</div>
 							<div className="mt-12">
-								<ServerMap/>
+								{
+									servers.map((server) => (
+										<div key={ server.id }>
+											<div className="mb-8 p-8 rounded-lg shadow-lg">
+												<h3 className="text-lg text-primary">
+													<strong>
+														{ server.name }
+													</strong>
+												</h3>
+												<p className="mt-1 text-lg text-gray-900">
+													<strong>Location:</strong> { server.location }
+												</p>
+												<p className="mt-1 text-lg text-gray-900">
+													<strong>Country:</strong> { server.country }
+												</p>
+												<p className="mt-1 text-lg text-gray-900">
+													<strong>Status:</strong> { server.up ?
+													<span className="text-green-700">Up</span> :
+													<span className="text-red-700">Down</span> }
+												</p>
+											</div>
+										</div>
+									))
+								}
 							</div>
 						</div>
 					</div>

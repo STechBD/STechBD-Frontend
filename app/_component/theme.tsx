@@ -10,22 +10,24 @@ import { JSX, useState } from 'react'
  * @since 3.0.0
  */
 export default function Theme(): JSX.Element {
-	const themeList: string[] = [
+	const themes: string[] = [
 		'red',
 		'green',
 		'teal',
 		'blue',
 		'indigo',
 		'purple',
+		'rose',
 	]
 	const [ theme, setTheme ] = useState<string>('indigo')
 	const [ darkMode, setDarkMode ] = useState<boolean>(false)
+	const [ themePanel, setThemePanel ] = useState<boolean>(false)
 
 	function toggleTheme(theme: string): void {
-		if (themeList.find(t => t === theme)) {
+		if (themes.find(t => t === theme)) {
 			setTheme(theme)
 			document.documentElement.classList.remove('theme-red', 'theme-green', 'theme-teal', 'theme-blue', 'theme-indigo', 'theme-purple')
-			document.documentElement.classList.add(`theme-${theme}`)
+			document.documentElement.classList.add(`theme-${ theme }`)
 		} else {
 			setTheme('indigo')
 			document.documentElement.classList.remove('theme-red', 'theme-green', 'theme-teal', 'theme-blue', 'theme-indigo', 'theme-purple')
@@ -36,43 +38,55 @@ export default function Theme(): JSX.Element {
 	function toggleDarkMode(): void {
 		setDarkMode(!darkMode)
 		document.documentElement.classList.toggle('dark')
+	}
 
+	if (themePanel) {
+		return (
+				<div
+					className={ 'fixed top-0 bottom-0 right-0 w-[400px] max-w-[90%] m-4 p-12 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg z-[100]' }
+				>
+					<button
+						className="absolute top-0 right-0 p-4 text-4xl text-gray-900 dark:text-gray-100"
+						onClick={ () => setThemePanel(false) }
+					>
+						&times;
+					</button>
+					<div>
+						<p className="text-3xl text-primary y-2">
+							Color
+						</p>
+						{
+							themes.map(theme => (
+								<button
+									key={ theme }
+									className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-' + theme + '-600 border m-2' }
+									onClick={ () => toggleTheme(theme) }
+								/>
+							))
+						}
+					</div>
+					<div>
+						<p className="text-3xl text-primary my-2">
+							Mode
+						</p>
+						<button
+							className={ (darkMode ? 'border-white bg-gray-700' : 'border-black bg-gray-300') + ' w-12 h-12 rounded-full bg-gray-700 border m-2' }
+							onClick={ toggleDarkMode }
+						/>
+					</div>
+				</div>
+		)
 	}
 
 	return (
-		<div className="fixed bottom-0 right-0 m-4 p-4 bg-white dark:bg-[#020102] rounded-lg shadow-lg z-[100]">
-			<div className="flex items-center justify-between">
-				<div>
-					<label htmlFor="theme" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-						Theme
-					</label>
-					<select
-						id="theme"
-						name="theme"
-						className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
-						value={ theme }
-						onChange={ e => toggleTheme(e.target.value) }
-					>
-						{ themeList.map(t => (
-							<option key={ t } value={ t }>{ t }</option>
-						)) }
-					</select>
-				</div>
-				<div>
-					<label htmlFor="darkMode" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-						Dark Mode
-					</label>
-					<button
-						id="darkMode"
-						name="darkMode"
-						type="button"
-						className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md dark:bg-[#020102] dark:text-gray-300 bg-gray-100 text-gray-900"
-						onClick={ toggleDarkMode }
-					>
-						{ darkMode ? 'On' : 'Off' }
-					</button>
-				</div>
-			</div>
-		</div>
+		<button
+			className="fixed top-1/2 transform -translate-y-1/2 right-0 m-4 p-4 text-3xl bg-gray-100 dark:bg-gray-900 rounded-full shadow-lg z-[100]"
+			onClick={() => setThemePanel(true)}
+		>
+			{/*🎨*/}
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="text-primary" viewBox="0 0 16 16">
+				<path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07M8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+			</svg>
+		</button>
 	)
 }
