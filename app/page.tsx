@@ -4,6 +4,7 @@ import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
 import PricingTable from '@/app/pricing-table'
 import Testimonial from '@/app/testimonial'
+import Update from '@/app/update'
 
 
 /**
@@ -47,7 +48,6 @@ export default function Page(): JSX.Element {
 					</p>
 					<PricingTable/>
 				</div>
-				<div className="py-10"></div>
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
 						<div className="flex items-center justify-center mt-3">
@@ -145,7 +145,6 @@ export default function Page(): JSX.Element {
 						</div>
 					</div>
 				</div>
-				<div className="px-20 py-10"></div>
 				<div className="md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
 						Client Testimonials
@@ -154,6 +153,15 @@ export default function Page(): JSX.Element {
 						What our clients say about us.
 					</p>
 					<Testimonial/>
+				</div>
+				<div className="md:px-20 py-10">
+					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+						Latest News and Update
+					</h2>
+					<p className="mt-4 text-xl text-gray-500">
+						Find out the latest news and updates from us.
+					</p>
+					<Update/>
 				</div>
 			</div>
 		</>

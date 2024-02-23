@@ -10,7 +10,7 @@ import Link from 'next/link'
  * @since 3.0.0
  */
 export default function PricingTable(): JSX.Element {
-	const [ sharedHostingPrice, setSharedHostingPrice ] = useState<number>(1200)
+	const [ threePrice, setSharedHostingPrice ] = useState<number>(1200)
 	const [ resellerHostingPrice, setResellerHostingPrice ] = useState<number>(7000)
 	const [ unmanagedVPSPrice, setUnmanagedVPSPrice ] = useState<number>(5000)
 	const [ serverPrice, setServerPrice ] = useState<number>(1200)
