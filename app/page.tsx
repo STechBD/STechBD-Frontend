@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import Hero from '@/app/hero'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
-import PricingTable from '@/app/_component/pricing-table'
+import PricingTable from '@/app/_component/pricingTable'
 import Testimonial from '@/app/testimonial'
 import Update from '@/app/update'
 
