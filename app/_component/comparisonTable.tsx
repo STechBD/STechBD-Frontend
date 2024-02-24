@@ -90,7 +90,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = ' bdt
 						{ /** Header **/ }
 						<div className="hidden lg:block sticky top-20 start-0 py-2 bg-white dark:bg-slate-900">
 							{ /** Grid **/ }
-							<div className="grid grid-cols-6 gap-6">
+							<div className="grid grid-cols-10 gap-6">
 								<div className="col-span-2">
 									{ /** Header **/ }
 									<div className="h-full">
@@ -202,7 +202,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = ' bdt
 								return (
 									<div key={ index } className="space-y-4 lg:space-y-0">
 										{ /** List **/ }
-										<ul className="grid lg:grid-cols-6 lg:gap-6">
+										<ul className="grid lg:grid-cols-10 lg:gap-6">
 											{ /** Item **/ }
 											<li className="lg:col-span-2 lg:py-3">
 									            <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
@@ -232,14 +232,14 @@ export default function ComparisonTable({ feature, data, defaultCurrency = ' bdt
 											{ /** End Item **/ }
 										</ul>
 										{
-											data.features && Object.entries(data.features).map(([key, value]): JSX.Element => {
+											feature.features && Object.entries(feature.features).map(([key, value]): JSX.Element => {
 												return (
 													<>
-													<ul key={ key } className="grid lg:grid-cols-6 lg:gap-6">
+													<ul key={ key } className="grid lg:grid-cols-10 lg:gap-6">
 														{ /** Item **/ }
 														<li className="lg:col-span-2 pb-1.5 lg:py-3">
 												            <span className="text-sm text-gray-800 dark:text-gray-200">
-												              { value }
+													            { value }
 												            </span>
 														</li>
 														{ /** End Item **/ }
