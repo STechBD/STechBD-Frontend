@@ -245,7 +245,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
 		<html lang="en">
 		<body className={ inter.className }>
 		<HeaderLoader/>
-		<main className="min-h-screen">
+		<main className="min-h-screen dark:bg-gray-900">
 			{ children }
 		</main>
 		<Footer/>
