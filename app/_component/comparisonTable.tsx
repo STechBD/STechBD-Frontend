@@ -3,7 +3,15 @@
 import { JSX, useState } from 'react'
 
 
-
+/**
+ * Interface definition.
+ *
+ * @interface Feature
+ * @interface Data
+ * @interface FeatureList
+ *
+ * @since 3.0.0
+ */
 interface Feature {
 	title: string
 	features: {
