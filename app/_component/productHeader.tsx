@@ -7,6 +7,35 @@ import { usePathname } from 'next/navigation'
 import { isPath } from '@/app/_function/utility'
 import ParticleAnimation from '@/app/_component/particleAnimation'
 import AnimatedLogo from '@/app/_component/animatedLogo'
+import Theme from '@/app/_component/theme'
+
+
+/**
+ * Type declaration for the menu.
+ *
+ * @interface Menu
+ * @since 3.0.0
+ */
+interface Menu {
+	title: string
+	path?: string
+	mobileState?: boolean
+	mobileToggle?: () => void
+	submenu: {
+		type: number
+		state: boolean
+		openCallback: () => void
+		closeCallback: () => void
+		items: {
+			title: string
+			path: string
+			description?: string
+			icon?: string
+		}[]
+		text?: string
+		path?: string
+	} | false
+}
 
 
 /**
@@ -144,6 +173,225 @@ export default function ProductHeader(): JSX.Element {
 		window.addEventListener('scroll', handleScroll)
 	}, [])
 
+	const menu: Menu[] = [
+		{
+			title: 'Home',
+			path: '/',
+			submenu: false,
+		},
+		{
+			title: 'Product',
+			mobileState: showMobileProduct,
+			mobileToggle: toggleMobileProduct,
+			submenu: {
+				type: 2,
+				state: showProduct,
+				openCallback: openProduct,
+				closeCallback: closeProduct,
+				items: [
+					{
+						title: 'CookieCons',
+						path: '/product/CookieCons',
+						description: 'WordPress plugin for GDPR and ePrivacy Cookie Compliance',
+					},
+					{
+						title: 'ProjectPress',
+						path: '/product/ProjectPress',
+						description: 'WordPress plugin for showing projects as a portfolio',
+					},
+					{
+						title: 'S PHP Engine',
+						path: '/product/S-PHP-Engine',
+						description: 'Lightweight MVC-based PHP framework for building powerful web applications',
+					},
+					{
+						title: 'S Template Engine',
+						path: '/product/S-Template-Engine',
+						description: 'Lightweight template engine for PHP',
+					},
+					{
+						title: 'S Database Explorer',
+						path: '/product/S-Database-Explorer',
+						description: 'Simple and easy to use Database Explorer for MySQL with PDO',
+					},
+					{
+						title: 'S Number Manager',
+						path: '/product/S-Number-Manager',
+						description: 'Simple library for converting numbers in different languages',
+					},
+					{
+						title: 'PyWeb',
+						path: '/product/PyWeb',
+						description: 'Python-based lightweight web browser for Windows',
+					},
+					{
+						title: 'ViewMD',
+						path: '/product/ViewMD',
+						description: 'Markdown viewer for Windows',
+					},
+				],
+				text: 'View all product →',
+				path: '/product',
+			},
+		},
+		{
+			title: 'Domain',
+			path: '/domain',
+			submenu: false,
+		},
+		{
+			title: 'Server',
+			mobileState: showMobileServer,
+			mobileToggle: toggleMobileServer,
+			submenu: {
+				type: 2,
+				state: showServer,
+				openCallback: openServer,
+				closeCallback: closeServer,
+				items: [
+					{
+						title: 'Shared Hosting',
+						path: '/shared-hosting',
+						description: 'Shared hosting for small and mid-scale business',
+					},
+					{
+						title: 'Reseller Hosting',
+						path: '/reseller-hosting',
+						description: 'Reseller hosting for business',
+					},
+					{
+						title: 'Managed VPS',
+						path: '/managed-vps',
+						description: 'Managed VPS for large-scale business',
+					},
+					{
+						title: 'Unmanaged VPS',
+						path: '/unmanaged-vps',
+						description: 'Unmanaged VPS for large-scale business',
+					},
+					{
+						title: 'Dedicated Server',
+						path: '/dedicated-server',
+						description: 'Dedicated server for enterprise-scale business',
+					},
+				],
+				text: 'View all server plan →',
+				path: '/server',
+			},
+		},
+		{
+			title: 'Service',
+			mobileState: showMobileService,
+			mobileToggle: toggleMobileService,
+			submenu: {
+				type: 2,
+				state: showService,
+				openCallback: openService,
+				closeCallback: closeService,
+				items: [
+					{
+						title: 'AI App Development',
+						path: '/ai-development',
+						description: 'Artificial Intelligence (AI) app development for web and native device',
+					},
+					{
+						title: 'Web App Development',
+						path: '/web-development',
+						description: 'Frontend and backend app development for website',
+					},
+					{
+						title: 'Ready-made Website',
+						path: '/readymade-website',
+						description: 'Pre-developed frontend and backend app for website',
+					},
+					{
+						title: 'Android App Development',
+						path: '/android-development',
+						description: 'Android app development for mobile, tablet, and TV',
+					},
+					{
+						title: 'iOS App Development',
+						path: '/ios-development',
+						description: 'iOS app development for iPhone, iPad, and Apple Watch',
+					},
+					{
+						title: 'Windows App Development',
+						path: '/windows-development',
+						description: 'Windows app development for PC',
+					},
+					{
+						title: 'Game Development',
+						path: '/game-development',
+						description: 'Game development for PC, mobile, and console',
+					},
+					{
+						title: 'UI/UX Design',
+						path: '/ui-ux-design',
+						description: 'UI/UX design for web and native app',
+					},
+					{
+						title: 'Search Engine Optimization',
+						path: '/seo',
+						description: 'Search Engine Optimization for website',
+					},
+					{
+						title: 'Graphic Design',
+						path: '/graphic-design',
+						description: 'Graphic Design for business',
+					},
+				],
+				text: 'View all service →',
+				path: '/service',
+			},
+		},
+		{
+			title: 'Blog',
+			path: '/blog',
+			submenu: false,
+		},
+		{
+			title: 'More',
+			mobileState: showMobileMore,
+			mobileToggle: toggleMobileMore,
+			submenu: {
+				type: 1,
+				state: showMore,
+				openCallback: openMore,
+				closeCallback: closeMore,
+				items: [
+					{
+						title: 'About S Technologies',
+						path: '/about',
+					},
+					{
+						title: 'Contact',
+						path: '/contact',
+					},
+					{
+						title: 'Frequency Asked Question (FAQ)',
+						path: '/faq',
+					},
+					{
+						title: 'Privacy Policy',
+						path: '/privacy',
+					},
+					{
+						title: 'Terms of Service',
+						path: '/term',
+					},
+					{
+						title: 'Disclaimer',
+						path: '/disclaimer',
+					},
+					{
+						title: 'GitHub',
+						path: 'https://github.com/STechBD',
+					},
+				],
+			},
+		},
+	]
+
 	return (
 		<>
 			{
@@ -180,438 +428,125 @@ export default function ProductHeader(): JSX.Element {
 						</button>
 					</div>
 					<div className="hidden lg:flex lg:gap-x-12">
-						<Link href="/"
-						      className={ (path === '/' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
-							Home
-						</Link>
-						<div className="relative">
-							<button
-								className={ (path === '/product' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-								type="button" aria-expanded="false" onMouseEnter={ openProduct }
-								onMouseLeave={ closeProduct }>
-								Product
-								<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
-								     aria-hidden="true">
-									<path fillRule="evenodd"
-									      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-									      clipRule="evenodd">
-									</path>
-								</svg>
-							</button>
-							<div onMouseEnter={ openProduct } onMouseLeave={ closeProduct }
-							     className={ showProduct ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
-								<div className="grid grid-cols-2 px-4 py-0">
-									<Link href="/product/CookieCons"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											CookieCons
-										</span>
-											<p className="mt-1 text-gray-600">
-												WordPress plugin for GDPR and ePrivacy Cookie Compliance
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/ProjectPress"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											ProjectPress
-										</span>
-											<p className="mt-1 text-gray-600">
-												WordPress plugin for showing projects as a portfolio
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/S-PHP-Engine"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											S PHP Engine
-										</span>
-											<p className="mt-1 text-gray-600">
-												Lightweight MVC-based PHP framework for building powerful web
-												applications
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/S-Template-Engine"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											S Template Engine
-										</span>
-											<p className="mt-1 text-gray-600">
-												Lightweight template engine for PHP
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/S-Database-Explorer"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											S Database Explorer
-										</span>
-											<p className="mt-1 text-gray-600">
-												Simple and easy to use Database Explorer for MySQL with PDO
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/S-Number-Manager"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											S Number Manager
-										</span>
-											<p className="mt-1 text-gray-600">Simple library for converting numbers in
-												different
-												languages</p>
-										</div>
-									</Link>
-									<Link href="/product/PyWeb"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											PyWeb
-										</span>
-											<p className="mt-1 text-gray-600">
-												Python-based lightweight web browser for Windows
-											</p>
-										</div>
-									</Link>
-									<Link href="/product/ViewMD"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											ViewMD
-										</span>
-											<p className="mt-1 text-gray-600">
-												Markdown viewer for Windows
-											</p>
-										</div>
-									</Link>
-								</div>
-								<Link href="/product"
-								      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									View all product →
-								</Link>
-							</div>
-						</div>
-						<Link href="/domain"
-						      className={ (path === '/domain' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
-							Domain
-						</Link>
-						<div className="relative">
-							<button
-								className={ (path === '/server' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-								type="button" aria-expanded="false" onMouseEnter={ openServer }
-								onMouseLeave={ closeServer }>
-								Server
-								<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
-								     aria-hidden="true">
-									<path fillRule="evenodd"
-									      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-									      clipRule="evenodd">
-									</path>
-								</svg>
-							</button>
-							<div onMouseEnter={ openServer } onMouseLeave={ closeServer }
-							     className={ showServer ? 'absolute -left-8 lg:-left-32 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
-								<div className="grid grid-cols-2 px-4 py-0">
-									<Link href="/shared-hosting"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Shared Hosting
-										</span>
-											<p className="mt-1 text-gray-600">
-												Shared hosting for small website
-											</p>
-										</div>
-									</Link>
-									<Link href="/reseller-hosting"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Reseller Hosting
-										</span>
-											<p className="mt-1 text-gray-600">
-												White label reseller hosting for small business
-											</p>
-										</div>
-									</Link>
-									<Link href="/master-reseller-hosting"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Master Reseller Hosting
-										</span>
-											<p className="mt-1 text-gray-600">
-												White label master reseller hosting for large business
-											</p>
-										</div>
-									</Link>
-									<Link href="/managed-vps"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Managed VPS
-										</span>
-											<p className="mt-1 text-gray-600">
-												Managed virtual private server for large website
-											</p>
-										</div>
-									</Link>
-									<Link href="/unmanaged-vps"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Unmanaged VPS
-										</span>
-											<p className="mt-1 text-gray-600">
-												Unmanaged virtual private server for large website
-											</p>
-										</div>
-									</Link>
-									<Link href="/dedicated-server"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Dedicated Server
-										</span>
-											<p className="mt-1 text-gray-600">
-												Dedicated server for large website or application
-											</p>
-										</div>
-									</Link>
-								</div>
-								<Link href="/server"
-								      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									View all server plan →
-								</Link>
-							</div>
-						</div>
-						<div className="relative">
-							<button onMouseEnter={ openService } onMouseLeave={ closeService }
-							        className={ (path === '/service' ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-							        type="button" aria-expanded="false">
-								Service
-								<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
-								     aria-hidden="true">
-									<path fillRule="evenodd"
-									      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-									      clipRule="evenodd">
-									</path>
-								</svg>
-							</button>
-							<div onMouseEnter={ openService } onMouseLeave={ closeService }
-							     className={ showService ? 'absolute -left-8 lg:-left-56 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
-								<div className="grid grid-cols-2 px-4 py-0">
-									<Link href="/ai-development"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											AI App Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Artificial Intelligence (AI) app development for web and native device
-											</p>
-										</div>
-									</Link>
-									<Link href="/web-development"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Wep App Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Custom frontend and backend web app development
-											</p>
-										</div>
-									</Link>
-									<Link href="/readymade-website"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Ready-made Web Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Pre-developed cheap frontend and backend web app
-											</p>
-										</div>
-									</Link>
-									<Link href="/android-development"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Android App Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Custom Android app development
-											</p>
-										</div>
-									</Link>
-									<Link href="/ios-development"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											iOS App Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Custom iOS app development
-											</p>
-										</div>
-									</Link>
-									<Link href="/windows-development"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Windows App Development
-										</span>
-											<p className="mt-1 text-gray-600">
-												Custom Windows app development
-											</p>
-										</div>
-									</Link>
-									<Link href="/ui-ux-design"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											UI/UX Design
-										</span>
-											<p className="mt-1 text-gray-600">
-												Custom UI/UX design for web and native device
-											</p>
-										</div>
-									</Link>
-									<Link href="/seo"
-									      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										<div
-											className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-											<Image className="h-6 w-6 text-gray-600 group-hover:text-primary"
-											       src="/icon/app.svg" alt="App" height={ 100 } width={ 100 }/>
-										</div>
-										<div className="flex-auto">
-										<span className="block font-semibold text-gray-900">
-											Search Engine Optimization (SEO)
-										</span>
-											<p className="mt-1 text-gray-600">
-												Search engine optimization for your website
-											</p>
-										</div>
-									</Link>
-								</div>
-								<Link href="/service"
-								      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									View all service plan →
-								</Link>
-							</div>
-						</div>
+						{
+							menu.map((item: Menu, index) => {
+								if (item.submenu) {
+									if (item.submenu.type === 1) {
+										return (
+											<div key={ index } className="relative">
+												<button className={ (isPath([
+													...item.submenu.items.map((item, index) => item.path),
+												]) ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+												        type="button" aria-expanded="false" onMouseEnter={ item.submenu.openCallback }
+												        onMouseLeave={ item.submenu.closeCallback }
+												>
+													{ item.title }
+
+													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100" viewBox="0 0 20 20" fill="currentColor"
+													     aria-hidden="true">
+														<path fillRule="evenodd"
+														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+														      clipRule="evenodd">
+														</path>
+													</svg>
+												</button>
+												<div onMouseEnter={ item.submenu.openCallback } onMouseLeave={ item.submenu.closeCallback }
+												     className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }>
+													<div className="px-4 py-0">
+														{
+															item.submenu.items.map((item, index) => {
+																return (
+																	<Link key={ index } href={ item.path }
+																	      target={ item.path.startsWith('http') ? '_blank' : '' }
+																	      className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+																	>
+																		{ item.title }
+																	</Link>
+																)
+															})
+														}
+													</div>
+												</div>
+											</div>
+										)
+									}
+									else if (item.submenu.type === 2) {
+										return (
+											<div key={ index } className="relative">
+												<button
+													className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+													type="button" aria-expanded="false"
+													onMouseEnter={ item.submenu.openCallback }
+													onMouseLeave={ item.submenu.closeCallback }
+												>
+													{ item.title }
+
+													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+													     viewBox="0 0 20 20" fill="currentColor"
+													     aria-hidden="true">
+														<path fillRule="evenodd"
+														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+														      clipRule="evenodd">
+														</path>
+													</svg>
+												</button>
+												<div onMouseEnter={ item.submenu.openCallback }
+												     onMouseLeave={ item.submenu.closeCallback }
+												     className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }>
+													<div className="grid grid-cols-2 px-4 py-0">
+														{
+															item.submenu.items.map((subitem, index) => {
+																return (
+																	<Link key={ index } href={ subitem.path }
+																	      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+																		<div
+																			className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+																			<Image
+																				className="h-6 w-6 text-gray-600 group-hover:text-primary"
+																				src="/icon/app.svg" alt="App"
+																				height={ 100 }
+																				width={ 100 }/>
+																		</div>
+																		<div className="flex-auto">
+																		<span
+																			className="block font-semibold text-gray-900 dark:text-gray-100">
+																			{ subitem.title }
+																		</span>
+																			<p className="mt-1 text-gray-600">
+																				{ subitem.description }
+																			</p>
+																		</div>
+																	</Link>
+																)
+															})
+														}
+													</div>
+													{
+														item.submenu.text && item.submenu.path && (
+															<Link href={ item.submenu.path }
+															      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+															>
+																{ item.submenu.text }
+															</Link>
+														)
+													}
+												</div>
+											</div>
+										)
+									}
+								} else {
+									if (item.path) {
+										return (
+											<Link key={ index } href={ item.path }
+											      className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
+											>
+												{ item.title }
+											</Link>
+										)
+									}
+								}
+							})
+						}
 						<Link href="/product/CookieCons/about"
 						      className={ (path === '/CookieCons/about' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
 							About
@@ -620,65 +555,6 @@ export default function ProductHeader(): JSX.Element {
 						   className="font-semibold leading-6 text-gray-900">
 							GitHub
 						</a>
-						<Link href="/blog"
-						      className={ (path.startsWith('/blog') ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }>
-							Blog
-						</Link>
-						<div className="relative">
-							<button className={ (isPath([
-								'/about',
-								'/contact',
-								'/support',
-								'/faq',
-								'/privacy',
-								'/term',
-								'/disclaimer',
-							]) ? 'text-primary' : 'text-gray-900') + ' flex items-center gap-x-1 font-semibold leading-6' }
-							        type="button" aria-expanded="false" onMouseEnter={ openMore }
-							        onMouseLeave={ closeMore }>
-								More
-								<svg className="h-5 w-5 flex-none text-gray-900" viewBox="0 0 20 20" fill="currentColor"
-								     aria-hidden="true">
-									<path fillRule="evenodd"
-									      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-									      clipRule="evenodd">
-									</path>
-								</svg>
-							</button>
-							<div onMouseEnter={ openMore } onMouseLeave={ closeMore }
-							     className={ showMore ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5' }>
-								<div className="px-4 py-0">
-									<Link href="/about"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										About S Technologies
-									</Link>
-									<Link href="/contact"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Contact
-									</Link>
-									<Link href="/support"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Support
-									</Link>
-									<Link href="/faq"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Frequently Asked Questions (FAQ)
-									</Link>
-									<Link href="/privacy"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Privacy Policy
-									</Link>
-									<Link href="/term"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Terms of Service
-									</Link>
-									<Link href="/disclaimer"
-									      className="block px-3 py-4 font-semibold text-gray-900 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-										Disclaimer
-									</Link>
-								</div>
-							</div>
-						</div>
 						<a href="https://cpanel.stechbd.net/login" target="_blank"
 						   className="font-semibold leading-6 text-gray-900">
 							Login
@@ -726,168 +602,70 @@ export default function ProductHeader(): JSX.Element {
 						<div className="mt-6 flow-root">
 							<div className="-my-6 divide-y divide-gray-500/10">
 								<div className="pt-6 pb-3">
-									<Link href="/"
-									      className={ (path === '/' ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
-										Home
-									</Link>
+
 								</div>
-								<div className="space-y-2 py-6">
-									<div className="-mx-3">
-										<button onClick={ toggleMobileProduct } type="button"
-										        aria-controls="disclosure-1"
-										        aria-expanded="false"
-										        className={ (path.startsWith('/product') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
-											Product
-											<svg className="h-5 w-5 flex-none">
-												<path fillRule="evenodd" clipRule="evenodd"
-												      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-												</path>
-											</svg>
-										</button>
-										<div className={ showMobileProduct ? 'mt-2 space-y-2' : 'hidden' }>
-											<Link href="/product/CookieCons"
-											      className={ (path === '/product/CookieCons' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												CookieCons
-											</Link>
-											<Link href="/product/ProjectPress"
-											      className={ (path === '/product/ProjectPress' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												ProjectPress
-											</Link>
-											<Link href="/product/S-PHP-Engine"
-											      className={ (path === '/product/S-PHP-Engine' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												S PHP Engine
-											</Link>
-											<Link href="/product/S-Template-Engine"
-											      className={ (path === '/product/S-Template-Engine' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												S Template Engine
-											</Link>
-											<Link href="/product/S-Database-Explorer"
-											      className={ (path === '/product/S-Database-Explorer' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												S Database Explorer
-											</Link>
-											<Link href="/product/S-Number-Manager"
-											      className={ (path === '/product/S-Number-Manager' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												S Number Manager
-											</Link>
-											<Link href="/product/PyWeb"
-											      className={ (path === '/product/PyWeb' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												PyWeb
-											</Link>
-											<Link href="/product/ViewMD"
-											      className={ (path === '/product/ViewMD' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												ViewMD
-											</Link>
-											<Link href="/product"
-											      className={ (path === '/product' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												View all product →
-											</Link>
-										</div>
-									</div>
-								</div>
-								<div className="py-3">
-									<Link href="/domain"
-									      className={ (path === '/domain' ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-										Domain
-									</Link>
-								</div>
-								<div className="space-y-2 py-6">
-									<div className="-mx-3">
-										<button onClick={ toggleMobileServer } type="button"
-										        aria-controls="disclosure-1"
-										        aria-expanded="false"
-										        className={ (path.startsWith('/server') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
-											Server
-											<svg className="h-5 w-5 flex-none">
-												<path fillRule="evenodd" clipRule="evenodd"
-												      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-												</path>
-											</svg>
-										</button>
-										<div className={ showMobileServer ? 'mt-2 space-y-2' : 'hidden' }>
-											<Link href="/shared-hosting"
-											      className={ (path === '/shared-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Shared Hosting
-											</Link>
-											<Link href="/reseller-hosting"
-											      className={ (path === '/reseller-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Reseller Hosting
-											</Link>
-											<Link href="/master-reseller-hosting"
-											      className={ (path === '/master-reseller-hosting' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Master Reseller Hosting
-											</Link>
-											<Link href="/managed-vps"
-											      className={ (path === '/managed-vps' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Managed VPS
-											</Link>
-											<Link href="/unmanaged-vps"
-											      className={ (path === '/unmanaged-vps' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Unmanaged VPS
-											</Link>
-											<Link href="/dedicated-server"
-											      className={ (path === '/dedicated-server' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Dedicated Server
-											</Link>
-											<Link href="/server"
-											      className={ (path === '/server' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												View all server plan →
-											</Link>
-										</div>
-									</div>
-								</div>
-								<div className="space-y-2 py-6">
-									<div className="-mx-3">
-										<button onClick={ toggleMobileService } type="button"
-										        aria-controls="disclosure-1"
-										        aria-expanded="false"
-										        className={ (path.startsWith('/service') ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
-											Service
-											<svg className="h-5 w-5 flex-none">
-												<path fillRule="evenodd" clipRule="evenodd"
-												      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-												</path>
-											</svg>
-										</button>
-										<div className={ showMobileService ? 'mt-2 space-y-2' : 'hidden' }>
-											<Link href="/ai-development"
-											      className={ (path === '/ai-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												AI App Development
-											</Link>
-											<Link href="/web-development"
-											      className={ (path === '/web-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Wep App Development
-											</Link>
-											<Link href="/readymade-website"
-											      className={ (path === '/readymade-website' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Ready-made Web Development
-											</Link>
-											<Link href="/android-development"
-											      className={ (path === '/android-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												Android App Development
-											</Link>
-											<Link href="/ios-development"
-											      className={ (path === '/ios-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												iOS App Development
-											</Link>
-											<Link href="/windows-development"
-											      className={ (path === '/windows-development' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												Windows App Development
-											</Link>
-											<Link href="/ui-ux-design"
-											      className={ (path === '/ui-ux-design' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												UI/UX Design
-											</Link>
-											<Link href="/seo"
-											      className={ (path === '/seo' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												Search Engine Optimization (SEO)
-											</Link>
-											<Link href="/service"
-											      className={ (path === '/service' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												View all service plan →
-											</Link>
-										</div>
-									</div>
-								</div>
+								{
+									menu.map((item, index) => {
+										if (item.submenu) {
+											return (
+												<div key={ index } className="space-y-2 py-2">
+													<div className="-mx-3">
+														<button onClick={ item.mobileToggle } type="button"
+														        aria-controls="disclosure-1"
+														        aria-expanded="false"
+														        className={ (isPath([
+															        item.submenu.path ?? '',
+															        ...item.submenu.items.map((item) => item.path),
+														        ]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+														>
+															{ item.title }
+
+															<svg className="h-5 w-5 flex-none">
+																<path fillRule="evenodd" clipRule="evenodd"
+																      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
+																</path>
+															</svg>
+														</button>
+														<div className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }>
+															{
+																item.submenu.items.map((item, index) => {
+																	return (
+																		<Link key={ index } href={ item.path } target={ item.path.startsWith('http') ? '_blank' : '' }
+																		      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
+																		>
+																			{ item.title }
+																		</Link>
+																	)
+																})
+															}
+															{
+																item.submenu.text && item.submenu.path && (
+																	<Link href={ item.submenu.path }
+																	      className="block text-gray-900 dark:text-gray-100 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+																	>
+																		{ item.submenu.text }
+																	</Link>
+																)
+															}
+														</div>
+													</div>
+												</div>
+											)
+										} else {
+											if (item.path) {
+												return (
+													<div key={ index } className="py-2">
+														<Link href={ item.path }
+														      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+														>
+															{ item.title }
+														</Link>
+													</div>
+												)
+											}
+										}
+									})
+								}
 								<div className="py-3">
 									<Link href="/product/CookieCons/about"
 									      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
@@ -901,64 +679,6 @@ export default function ProductHeader(): JSX.Element {
 									</a>
 								</div>
 								<div className="py-3">
-									<Link href="/blog"
-									      className={ (path.startsWith('/blog') ? 'text-primary ' : 'text-gray-900 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-										Blog
-									</Link>
-								</div>
-								<div className="space-y-2 py-6">
-									<div className="-mx-3">
-										<button onClick={ toggleMobileMore } type="button" aria-controls="disclosure-1"
-										        aria-expanded="false"
-										        className={ (isPath([
-											        '/about',
-											        '/contact',
-											        '/support',
-											        '/faq',
-											        '/privacy',
-											        '/term',
-											        '/disclaimer',
-										        ]) ? 'text-primary ' : 'text-gray-900 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }>
-											More
-											<svg className="h-5 w-5 flex-none">
-												<path fillRule="evenodd" clipRule="evenodd"
-												      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-												</path>
-											</svg>
-										</button>
-										<div className={ showMobileMore ? 'mt-2 space-y-2' : 'hidden' }>
-											<Link href="/about"
-											      className={ (path === '/about' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												About S Technologies
-											</Link>
-											<Link href="/contact"
-											      className={ (path === '/contact' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Contact
-											</Link>
-											<Link href="/support"
-											      className={ (path === '/support' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Support
-											</Link>
-											<Link href="/faq"
-											      className={ (path === '/faq' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Frequently Asked Questions (FAQ)
-											</Link>
-											<Link href="/privacy"
-											      className={ (path === '/privacy' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }>
-												Privacy Policy
-											</Link>
-											<Link href="/term"
-											      className={ (path === '/term' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												Terms of Service
-											</Link>
-											<Link href="/disclaimer"
-											      className={ (path === '/disclaimer' ? 'text-primary ' : 'text-gray-900 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50' }>
-												Disclaimer
-											</Link>
-										</div>
-									</div>
-								</div>
-								<div className="py-3">
 									<a href="https://cpanel.stechbd.net/login" target="_blank"
 									   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 										Login
@@ -969,6 +689,7 @@ export default function ProductHeader(): JSX.Element {
 					</div>
 				</div>
 			</header>
+			<Theme/>
 		</>
 	)
 }
