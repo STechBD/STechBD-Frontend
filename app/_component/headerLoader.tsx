@@ -26,6 +26,6 @@ export default function HeaderLoader(): JSX.Element {
 	return (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? (
 		<Header type="product" data={ data }/>
 	) : (
-		<Header/>
+		<Header data={ data }/>
 	)
 }

@@ -33,7 +33,7 @@ export default function Testimonial(): JSX.Element {
 			<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 					{ reviews.map((review, index) => (
-						<div key={ index } className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+						<div key={ index } className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white dark:bg-gray-800">
 							<div className="flex-shrink-0">
 								<Image className="h-48 w-full object-cover"
 								       src={ review.image }
@@ -42,17 +42,17 @@ export default function Testimonial(): JSX.Element {
 								       height={ 384 }
 								/>
 							</div>
-							<div className="flex-1 bg-white p-6 flex flex-col justify-between">
+							<div className="flex-1 p-6 flex flex-col justify-between">
 								<div className="flex-1">
-									<p className="text-sm font-medium text-primary">
+									<p className="text-sm font-medium text-primary dark:text-gray-200">
 										{ review.organization }
 									</p>
-									<p className="mt-2 text-xl font-bold text-gray-900">
+									<p className="mt-2 text-xl font-bold text-gray-900 dark:text-white">
 										{ review.name }
 									</p>
 									<p className="mt-2">
 										{ [ ...Array(review.rating) ].map((_, index) => (
-											<svg key={ index } className="h-5 w-5 inline text-primary"
+											<svg key={ index } className="h-5 w-5 inline text-primary dark:text-blue-500"
 											     fill="currentColor"
 											     viewBox="0 0 20 20"
 											     xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ export default function Testimonial(): JSX.Element {
 											</svg>
 										)) }
 										{ [ ...Array(5 - review.rating) ].map((_, index) => (
-											<svg key={ index } className="h-5 w-5 inline text-gray-300"
+											<svg key={ index } className="h-5 w-5 inline text-gray-300 dark:text-gray-600"
 											     fill="currentColor"
 											     viewBox="0 0 20 20"
 											     xmlns="http://www.w3.org/2000/svg">
@@ -70,13 +70,14 @@ export default function Testimonial(): JSX.Element {
 											</svg>
 										)) }
 									</p>
-									<p className="mt-2 text-lg text-gray-500">
+									<p className="mt-2 text-lg text-gray-500 dark:text-gray-400">
 										{ review.review }
 									</p>
 								</div>
 							</div>
 						</div>
 					)) }
+
 				</div>
 			</div>
 		</div>

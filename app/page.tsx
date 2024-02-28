@@ -126,10 +126,10 @@ export default function Page(): JSX.Element {
 						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 				</div>
 				<div className="px-16 md:px-20 py-10">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Web Hosting and Server
 					</h2>
-					<p className="mt-4 text-xl text-gray-500">
+					<p className="mt-4 text-xl text-gray-800 dark:text-gray-200">
 						We have been providing web hosting and server since 2015 with customer satisfaction.
 					</p>
 					<PricingTable data={ pricingData }/>
@@ -142,11 +142,11 @@ export default function Page(): JSX.Element {
 							</Bounce>
 						</div>
 						<div className="mt-12 sm:mt-16 md:mt-0">
-							<h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+							<h2 className="text-3xl font-extrabold text-primary sm:text-4xl">
 								We provide technological solutions for businesses
 							</h2>
 							<div className="mt-3">
-								<p className="text-lg text-gray-500">
+								<p className="text-lg text-gray-800 dark:text-gray-200">
 									We are a team of software engineers, AI experts, and designers who are passionate
 									about building technology solutions for you.
 								</p>
@@ -161,7 +161,7 @@ export default function Page(): JSX.Element {
 											      d="M5 13l4 4L19 7"/>
 										</svg>
 									</div>
-									<div className="ml-3 text-base text-gray-500">
+									<div className="ml-3 text-base text-gray-800 dark:text-gray-200">
 										<p>
 											We develop and design website and software.
 										</p>
@@ -176,7 +176,7 @@ export default function Page(): JSX.Element {
 											      d="M5 13l4 4L19 7"/>
 										</svg>
 									</div>
-									<div className="ml-3 text-base text-gray-500">
+									<div className="ml-3 text-base text-gray-800 dark:text-gray-200">
 										<p>
 											We design UI and UX for website and software.
 										</p>
@@ -191,7 +191,7 @@ export default function Page(): JSX.Element {
 											      d="M5 13l4 4L19 7"/>
 										</svg>
 									</div>
-									<div className="ml-3 text-base text-gray-500">
+									<div className="ml-3 text-base text-gray-800 dark:text-gray-200">
 										<p>
 											We build artificial intelligence solution for businesses.
 										</p>
@@ -206,7 +206,7 @@ export default function Page(): JSX.Element {
 											      d="M5 13l4 4L19 7"/>
 										</svg>
 									</div>
-									<div className="ml-3 text-base text-gray-500">
+									<div className="ml-3 text-base text-gray-800 dark:text-gray-200">
 										<p>
 											We provide domain, web hosting, and server for website.
 										</p>
@@ -221,7 +221,7 @@ export default function Page(): JSX.Element {
 											      d="M5 13l4 4L19 7"/>
 										</svg>
 									</div>
-									<div className="ml-3 text-base text-gray-500">
+									<div className="ml-3 text-base text-gray-800 dark:text-gray-200">
 										<p>
 											We provide SEO solution and digital marketing service for business.
 										</p>
@@ -232,19 +232,19 @@ export default function Page(): JSX.Element {
 					</div>
 				</div>
 				<div className="md:px-20 py-10">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Client Testimonials
 					</h2>
-					<p className="mt-4 text-xl text-gray-500">
+					<p className="mt-4 text-xl text-gray-800 dark:text-gray-200">
 						What our clients say about us.
 					</p>
 					<Testimonial/>
 				</div>
 				<div className="md:px-20 py-10">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Latest News and Update
 					</h2>
-					<p className="mt-4 text-xl text-gray-500">
+					<p className="mt-4 text-xl text-gray-800 dark:text-gray-200">
 						Find out the latest news and updates from us.
 					</p>
 					<Update/>

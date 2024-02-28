@@ -126,16 +126,17 @@ export default function Hero(): JSX.Element {
 					<div className="pt-32 pb-12 md:pt-40 md:pb-20">
 						<div className="max-w-4xl flex flex-col items-center mx-auto text-center">
 							<h1
-								className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
-								<span className="block text-gray-800 xl:inline">We provide </span>
+								className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl"
+							>
+								<span className="block text-gray-800 dark:text-gray-200 xl:inline">We provide </span>
 								<span
 									className="block md:inline sm:block bg-primary text-white h-12">
 									<RandomTypewriter content={ listHeroText } speed={ 100 } change={ 3000 }/>
 								</span>
-								<span className="block text-gray-800 xl:inline"> for </span>
+								<span className="block text-gray-800 dark:text-gray-200 xl:inline"> for </span>
 								<div className="text-primary">businesses</div>
 							</h1>
-							<p className="mt-3 text-base text-gray-900 sm:mt-5 sm:text-xl lg:text-2xl">
+							<p className="mt-3 text-base text-gray-700 dark:text-gray-300 sm:mt-5 sm:text-xl lg:text-2xl">
 								We are a team of software engineers, AI experts, and designers who are passionate about
 								building technology solutions for you.
 							</p>
@@ -257,13 +258,16 @@ export default function Hero(): JSX.Element {
 							</div>
 							<div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
 								<div
-									className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+									className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5"
+								>
 									<Link href="/server"
-									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary sm:px-8">
+									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary sm:px-8"
+									>
 										Get Server
 									</Link>
 									<Link href="/web-development"
-									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-black bg-white hover:bg-gray-200 sm:px-8">
+									      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-black bg-white hover:bg-gray-200 sm:px-8"
+									>
 										Website Development
 									</Link>
 								</div>
@@ -272,65 +276,69 @@ export default function Hero(): JSX.Element {
 					</div>
 					{ /** Grid of Services **/ }
 					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
 							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-900">
+								<h2 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100">
 									Domain Name Registration
 								</h2>
-								<p className="mt-4 text-center text-gray-800">
+								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
 									We provide domain registration service.
 								</p>
 								<div className="mt-6">
 									<Link href="/domain"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
+									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+									>
 										Domain
 									</Link>
 								</div>
 							</Bounce>
 						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
 							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-900">
+								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
 									Server and Hosting
 								</h2>
-								<p className="mt-4 text-center text-gray-800">
+								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
 									We provide server and hosting service.
 								</p>
 								<div className="mt-6">
 									<Link href="/hosting"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
+									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+									>
 										Server
 									</Link>
 								</div>
 							</Bounce>
 						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
 							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-900">
+								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
 									Software Development
 								</h2>
-								<p className="mt-4 text-center text-gray-800">
+								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
 									We provide software development service.
 								</p>
 								<div className="mt-6">
 									<Link href="/software"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
+									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+									>
 										Software
 									</Link>
 								</div>
 							</Bounce>
 						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100">
+						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
 							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-900">
+								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
 									Artificial Intelligence
 								</h2>
-								<p className="mt-4 text-center text-gray-800">
+								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
 									We provide AI development solution.
 								</p>
 								<div className="mt-6">
 									<Link href="/ai-development"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary">
+									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+									>
 										Artificial Intelligence
 									</Link>
 								</div>

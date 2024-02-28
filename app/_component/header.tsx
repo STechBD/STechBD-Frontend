@@ -398,7 +398,7 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 				process.env.NODE_ENV === 'production' && <ParticleAnimation/>
 			}
 			<header
-				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 ' : '') + 'sticky top-0 z-50' }>
+				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }>
 				<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 					<div className="flex lg:flex-1">
 						<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
