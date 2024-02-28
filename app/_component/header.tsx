@@ -43,7 +43,7 @@ interface Menu {
  *
  * @since 3.0.0
  */
-export default function Header(): JSX.Element {
+export default function Header({ type = 'default', data = {} }: any): JSX.Element {
 	const path: string | undefined = usePathname()
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
 	const [ showProduct, setShowProduct ] = useState<boolean>(false)
@@ -403,12 +403,28 @@ export default function Header(): JSX.Element {
 					<div className="flex lg:flex-1">
 						<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
 						<span className="sr-only">
-							S Technologies
+							{
+								type === 'product' ? data.productTitle : data.siteTitle
+							}
 						</span>
-							<AnimatedLogo/>
+							{
+								type === 'product' ? (
+									<Image
+										className="h-8 w-auto sm:h-10"
+										src={ '/image/' + data.productLogo }
+										alt={ data.productTitle + ' Logo' }
+										height={ 100 }
+										width={ 100 }/>
+								) : (
+									data.siteLogo
+								)
+							}
 							<div
-								className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap">
-								S Technologies
+								className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
+							>
+								{
+									type === 'product' ? data.productTitle : data.siteTitle
+								}
 							</div>
 						</Link>
 					</div>
@@ -436,12 +452,14 @@ export default function Header(): JSX.Element {
 												<button className={ (isPath([
 													...item.submenu.items.map((item, index) => item.path),
 												]) ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
-												        type="button" aria-expanded="false" onMouseEnter={ item.submenu.openCallback }
+												        type="button" aria-expanded="false"
+												        onMouseEnter={ item.submenu.openCallback }
 												        onMouseLeave={ item.submenu.closeCallback }
 												>
 													{ item.title }
 
-													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100" viewBox="0 0 20 20" fill="currentColor"
+													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+													     viewBox="0 0 20 20" fill="currentColor"
 													     aria-hidden="true">
 														<path fillRule="evenodd"
 														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -449,7 +467,8 @@ export default function Header(): JSX.Element {
 														</path>
 													</svg>
 												</button>
-												<div onMouseEnter={ item.submenu.openCallback } onMouseLeave={ item.submenu.closeCallback }
+												<div onMouseEnter={ item.submenu.openCallback }
+												     onMouseLeave={ item.submenu.closeCallback }
 												     className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }>
 													<div className="px-4 py-0">
 														{
@@ -468,8 +487,7 @@ export default function Header(): JSX.Element {
 												</div>
 											</div>
 										)
-									}
-									else if (item.submenu.type === 2) {
+									} else if (item.submenu.type === 2) {
 										return (
 											<div key={ index } className="relative">
 												<button
@@ -546,28 +564,67 @@ export default function Header(): JSX.Element {
 								}
 							})
 						}
+						{
+							type === 'product' && (
+								<>
+									<Link href="/product/CookieCons/about"
+									      className={ (path === '/CookieCons/about' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }
+									>
+										About
+									</Link>
+									<a href="https://github.com/STechBD/Install-Express" target="_blank"
+									   className="font-semibold leading-6 text-gray-900"
+									>
+										GitHub
+									</a>
+									<a href="https://cpanel.stechbd.net/login" target="_blank"
+									   className="font-semibold leading-6 text-gray-900"
+									>
+										Login
+									</a>
+								</>
+							)
+						}
 					</div>
-					<div className="hidden xl:flex xl:flex-1 xl:justify-end">
-						<a href="https://cpanel.stechbd.net/login" target="_blank"
-						   className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
-							Login
-						</a>
-					</div>
+					{
+						type === 'product' ? (
+							<div className="hidden lg:flex lg:flex-1 lg:justify-end">
+								<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
+									<span className="sr-only">
+										S Technologies
+									</span>
+									<div
+										className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
+										S Technologies
+									</div>
+									<AnimatedLogo/>
+								</Link>
+							</div>
+						) : (
+							<div className="hidden xl:flex xl:flex-1 xl:justify-end">
+								<a href="https://cpanel.stechbd.net/login" target="_blank"
+								   className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+									Login
+								</a>
+							</div>
+						)
+					}
 				</nav>
 
 				{ /** Mobile Menu **/ }
 				<div onClick={ () => toggleMenu() } aria-modal="true" role="dialog"
-				     className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }>
+				     className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }
+				>
 					<div onClick={ (event) => event.stopPropagation() }
 					     className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20">
 						<div className="flex items-center justify-between">
 							<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
 							<span className="sr-only">
-								S Technologies
+								{ data.siteTitle }
 							</span>
 								<AnimatedLogo/>
 								<span className="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
-								S Technologies
+								{ data.siteTitle }
 							</span>
 							</Link>
 							<button onClick={ () => toggleMenu() } type="button"
@@ -596,7 +653,7 @@ export default function Header(): JSX.Element {
 														        aria-controls="disclosure-1"
 														        aria-expanded="false"
 														        className={ (isPath([
-																	item.submenu.path ?? '',
+															        item.submenu.path ?? '',
 															        ...item.submenu.items.map((item) => item.path),
 														        ]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
 														>
@@ -608,11 +665,13 @@ export default function Header(): JSX.Element {
 																</path>
 															</svg>
 														</button>
-														<div className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }>
+														<div
+															className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }>
 															{
 																item.submenu.items.map((item, index) => {
 																	return (
-																		<Link key={ index } href={ item.path } target={ item.path.startsWith('http') ? '_blank' : '' }
+																		<Link key={ index } href={ item.path }
+																		      target={ item.path.startsWith('http') ? '_blank' : '' }
 																		      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
 																		>
 																			{ item.title }
@@ -648,9 +707,28 @@ export default function Header(): JSX.Element {
 										}
 									})
 								}
+								{
+									type === 'product' && (
+										<>
+											<div className="py-2">
+												<Link href="/product/CookieCons/about"
+												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+													About
+												</Link>
+											</div>
+											<div className="py-2">
+												<a href="https://github.com/STechBD/Install-Express" target="_blank"
+												   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+													GitHub
+												</a>
+											</div>
+										</>
+									)
+								}
 								<div className="py-2">
 									<a href="https://cpanel.stechbd.net/login" target="_blank"
-									   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50">
+									   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+									>
 										Login
 									</a>
 								</div>

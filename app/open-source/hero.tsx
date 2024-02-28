@@ -12,7 +12,8 @@ export default function Hero(): JSX.Element {
 				<div className="py-12 md:py-20">
 					<div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
 						<h1 className="h1">Open Source</h1>
-						<p className="text-xl text-gray-600 dark:text-gray-400">We love open source. We use open source. We contribute to open source.</p>
+						<p className="text-xl text-gray-600 dark:text-gray-400">We love open source. We use open source.
+							We contribute to open source.</p>
 					</div>
 				</div>
 			</div>

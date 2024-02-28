@@ -45,7 +45,7 @@ export default function Hero(): JSX.Element {
 		'.xyz',
 		'.com.bd',
 		'.edu.bd',
-		]
+	]
 
 	const toggleDomainDropdown = (): void => {
 		setShowDomainDropdown(!showDomainDropdown)
@@ -162,16 +162,21 @@ export default function Hero(): JSX.Element {
 				<div className="relative hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 z-10">
 					{
 						domainPrice.map((item: string, index: number) => (
-							<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100" key={ index }>
+							<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100"
+							     key={ index }>
 								<Bounce>
 									<h2 className="text-2xl font-bold text-center text-gray-900">
 										{ item }
 									</h2>
 									<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-										৳ { Domain.find((domain: { extension: string }): boolean => domain.extension === item).registration.bdt }
+										৳ { Domain.find((domain: {
+										extension: string
+									}): boolean => domain.extension === item).registration.bdt }
 									</p>
 									<p className="mt-4 text-center text-gray-500">
-										{ Domain.find((domain: { title: string }): boolean => domain.title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year' }
+										{ Domain.find((domain: {
+											title: string
+										}): boolean => domain.title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year' }
 									</p>
 									<div className="mt-6">
 										<div onClick={ (): void => {

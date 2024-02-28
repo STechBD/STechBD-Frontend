@@ -28,8 +28,7 @@ export async function GET(request: Request, { params }: { params: { name: string
 				error: 'Domain name is required.',
 			},
 		})
-	}
-	else if (!extensionList.includes(`.${ extension }`)) {
+	} else if (!extensionList.includes(`.${ extension }`)) {
 		return Response.json({
 			status: 400,
 			body: {

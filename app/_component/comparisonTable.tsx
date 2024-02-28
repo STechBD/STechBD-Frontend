@@ -178,10 +178,10 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** End Item **/ }
 										</ul>
 										{
-											feature.features && Object.entries(feature.features).map(([ key, value ]): JSX.Element => {
+											feature.features && Object.entries(feature.features).map(([ key, value ], index: number): JSX.Element => {
 												return (
 													<>
-														<ul key={ key } className="grid lg:grid-cols-10 lg:gap-6">
+														<ul key={ index } className="grid lg:grid-cols-10 lg:gap-6">
 															{ /** Item **/ }
 															<li className="lg:col-span-2 pb-1.5 lg:py-3">
 												            <span className="text-sm text-gray-800 dark:text-gray-200">

@@ -4,7 +4,7 @@ import { JSX } from 'react'
 import { usePathname } from 'next/navigation'
 import { validatePath } from '@/app/_function/utility'
 import Header from '@/app/_component/header'
-import ProductHeader from '@/app/_component/productHeader'
+import AnimatedLogo from '@/app/_component/animatedLogo'
 
 
 /**
@@ -16,5 +16,16 @@ import ProductHeader from '@/app/_component/productHeader'
 export default function HeaderLoader(): JSX.Element {
 	const path: string = usePathname()
 
-	return (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? <ProductHeader/> : <Header/>
+	const data = {
+		siteTitle: 'S Technologies',
+		siteLogo: <AnimatedLogo/>,
+		productTitle: 'Install Express',
+		productLogo: 'Install-Express-Logo-Light.svg',
+	}
+
+	return (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? (
+		<Header type="product" data={ data }/>
+	) : (
+		<Header/>
+	)
 }
