@@ -103,20 +103,9 @@ async function info(): Promise<any> {
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 	const key: string = process.env.WHMCS_API_KEY || 'stechbd'
+	const fullURL: string = url + '?action=GetServers&identifier=' + identifier + '&secret=' + secret + '&accesskey=' + key + '&responsetype=json'
 
-	const formData: FormData = new FormData()
-
-	formData.append('identifier', identifier)
-	formData.append('secret', secret)
-	formData.append('accesskey', key)
-	formData.append('action', 'GetServers')
-	formData.append('serviceId', '1')
-	formData.append('fetchStatus', 'false')
-	formData.append('responsetype', 'json')
-
-	return await fetch(url, {
-		method: 'POST',
-		body: formData,
+	return await fetch(fullURL, {
 		next: {
 			revalidate: 60,
 		},
@@ -132,21 +121,6 @@ async function info(): Promise<any> {
  */
 export default async function Page(): Promise<JSX.Element> {
 	const data = await info()
-
-	const ipData = await fetch('https://www.stechbd.net/ip.php', {
-		next: {
-			revalidate: 3600,
-		},
-	})
-
-	if (ipData.ok) {
-		const json = await ipData.text()
-		console.log('IP Data:')
-		console.log(json)
-	} else {
-		console.error('Failed to fetch IP information.')
-		console.error('Error:', ipData.statusText)
-	}
 
 	if (data.ok) {
 		const json = await data.json()
@@ -200,7 +174,7 @@ export default async function Page(): Promise<JSX.Element> {
 								{
 									servers.map((server) => (
 										<div key={ server.id }>
-											<div className="mb-8 p-8 rounded-lg shadow-lg">
+											<div className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700">
 												<h3 className="text-lg text-primary">
 													<strong>
 														{ server.name }
@@ -233,7 +207,7 @@ export default async function Page(): Promise<JSX.Element> {
 					  "@type": "Organization",
 					  "url": "https://www.stechbd.net",
 					  "name": "S Technologies",
-					  "alternateName": "এস টেকনোলজি",
+					  "alternateName": "এস টেকনোলজিস",
 					  "alternateName": "STechBD",
 					  "alternateName": "STechBD.Net",
 					  "logo": "https://www.stechbd.net/image/S-Technologies-Icon-Light.svg",

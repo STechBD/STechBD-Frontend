@@ -723,25 +723,21 @@ export default function Page(): JSX.Element {
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
-				{
-					process.env.NODE_ENV === 'development' && (
-						<div className="px-16 lg:px-20 py-10">
-							<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-								Compare Plans
-							</h2>
-							<p className="mt-4 text-xl text-gray-500">
-								Compare the best shared hosting plan for your website.&nbsp;
-								We have a variety of shared hosting plans to meet your website needs.
-							</p>
-							<ComparisonTable feature={ featureData } data={ comparisonData }/>
-						</div>
-					)
-				}
+				<div className="px-16 lg:px-20 py-10">
+					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
+						Compare Plans
+					</h2>
+					<p className="mt-4 text-xl text-gray-500">
+						Compare the best shared hosting plan for your website.&nbsp;
+						We have a variety of shared hosting plans to meet your website needs.
+					</p>
+					<ComparisonTable feature={ featureData } data={ comparisonData }/>
+				</div>
 				<div className="px-16 lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						What is Shared Hosting?
 					</h2>
-					<p className="mt-4 text-lg text-gray-900">
+					<p className="mt-4 text-gray-800 dark:text-gray-200">
 						Shared hosting is a type of web hosting where a single physical server hosts multiple websites.
 						Many users utilize the resources on a single server, which keeps the costs low. Users each get a
 						section of a server in which they can host their website files.
@@ -752,7 +748,7 @@ export default function Page(): JSX.Element {
 						percentage of everything from RAM and CPU, and other elements such as the single MySQL server,
 						Apache server, and mail server.
 					</p>
-					<p className="mt-4 text-lg text-gray-900">
+					<p className="mt-4 text-gray-800 dark:text-gray-200">
 						Shared hosting is the most economical option for hosting, as many people share the overall cost
 						of server maintenance.
 						It is perfect for personal websites, small and medium businesses that do not require all the
@@ -765,7 +761,7 @@ export default function Page(): JSX.Element {
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Features of Shared Hosting
 					</h2>
-					<p className="mt-4 text-lg text-gray-900">
+					<p className="mt-4 text-gray-800 dark:text-gray-200">
 						<ol className="list-decimal list-inside">
 							<li>Low cost</li>
 							<li>Easy to use</li>
@@ -781,7 +777,7 @@ export default function Page(): JSX.Element {
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Why S Technologies Shared Hosting?
 					</h2>
-					<p className="mt-4 text-lg text-gray-900">
+					<p className="mt-4 text-gray-800 dark:text-gray-200">
 						<ol className="list-decimal list-inside">
 							<li>High Performance</li>
 							<li>Reliability</li>
@@ -803,7 +799,7 @@ export default function Page(): JSX.Element {
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Shared Hosting Provider in Bangladesh
 					</h2>
-					<p className="mt-4 text-lg text-gray-900">
+					<p className="mt-4 text-gray-800 dark:text-gray-200">
 						<ol className="list-decimal list-inside">
 							<li>S Technologies</li>
 							<li>STechBD.Net</li>

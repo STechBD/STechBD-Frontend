@@ -302,7 +302,7 @@ export default function Hero(): JSX.Element {
 									We provide server and hosting service.
 								</p>
 								<div className="mt-6">
-									<Link href="/hosting"
+									<Link href="/server"
 									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
 									>
 										Server
