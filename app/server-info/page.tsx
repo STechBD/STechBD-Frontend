@@ -100,7 +100,6 @@ export const metadata: Metadata = {
 
 async function info(): Promise<any> {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
-	// const url: string = 'https://www.stechbd.net/post.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 
@@ -116,6 +115,9 @@ async function info(): Promise<any> {
 	return await fetch(url, {
 		method: 'POST',
 		body: formData,
+		next: {
+			revalidate: 300,
+		},
 	})
 }
 
@@ -129,7 +131,11 @@ async function info(): Promise<any> {
 export default async function Page(): Promise<JSX.Element> {
 	const data = await info()
 
-	const ipData = await fetch('https://www.stechbd.net/ip.php')
+	const ipData = await fetch('https://www.stechbd.net/ip.php', {
+		next: {
+			revalidate: 3600,
+		},
+	})
 
 	if (ipData.ok) {
 		const json = await ipData.text()

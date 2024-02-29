@@ -402,11 +402,11 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 				<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 					<div className="flex lg:flex-1">
 						<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
-						<span className="sr-only">
-							{
-								type === 'product' ? data.productTitle : data.siteTitle
-							}
-						</span>
+							<span className="sr-only">
+								{
+									type === 'product' ? data.productTitle : data.siteTitle
+								}
+							</span>
 							{
 								type === 'product' ? (
 									<Image
@@ -420,7 +420,7 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 								)
 							}
 							<div
-								className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
+								className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
 							>
 								{
 									type === 'product' ? data.productTitle : data.siteTitle
@@ -430,10 +430,11 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 					</div>
 					<div className="flex lg:hidden">
 						<button type="button" onClick={ toggleMenu }
-						        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-						<span className="sr-only">
-							Open main menu
-						</span>
+						        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900 dark:text-gray-100"
+						>
+							<span className="sr-only">
+								Open main menu
+							</span>
 							<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
 							     stroke="currentColor" aria-hidden="true">
 								<path strokeLinecap="round" strokeLinejoin="round"
@@ -442,7 +443,7 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 							</svg>
 						</button>
 					</div>
-					<div className="hidden lg:flex lg:gap-x-12">
+					<div className="hidden lg:flex lg:gap-x-4 2xl:gap-x-10">
 						{
 							menu.map((item: Menu, index) => {
 								if (item.submenu) {
@@ -568,17 +569,17 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 							type === 'product' && (
 								<>
 									<Link href="/product/CookieCons/about"
-									      className={ (path === '/CookieCons/about' ? 'text-primary' : 'text-gray-900') + ' font-semibold leading-6' }
+									      className={ (path === '/CookieCons/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
 									>
 										About
 									</Link>
 									<a href="https://github.com/STechBD/Install-Express" target="_blank"
-									   className="font-semibold leading-6 text-gray-900"
+									   className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
 									>
 										GitHub
 									</a>
 									<a href="https://cpanel.stechbd.net/login" target="_blank"
-									   className="font-semibold leading-6 text-gray-900"
+									   className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
 									>
 										Login
 									</a>
@@ -594,7 +595,7 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 										S Technologies
 									</span>
 									<div
-										className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
+										className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100">
 										S Technologies
 									</div>
 									<AnimatedLogo/>
@@ -619,22 +620,24 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 					     className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20">
 						<div className="flex items-center justify-between">
 							<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
-							<span className="sr-only">
-								{ data.siteTitle }
-							</span>
+								<span className="sr-only">
+									{ data.siteTitle }
+								</span>
 								<AnimatedLogo/>
 								<span className="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
 								{ data.siteTitle }
 							</span>
 							</Link>
 							<button onClick={ () => toggleMenu() } type="button"
-							        className="-m-2.5 rounded-md p-2.5 text-gray-700">
-							<span className="sr-only">
-								Close menu
-							</span>
+							        className="-m-2.5 rounded-md p-2.5 text-gray-700"
+							>
+								<span className="sr-only">
+									Close menu
+								</span>
 								<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-								     stroke="currentColor" aria-hidden="true">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+								     stroke="currentColor" aria-hidden="true"
+								>
+									<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
 								</svg>
 							</button>
 						</div>
@@ -712,13 +715,13 @@ export default function Header({ type = 'default', data = {} }: any): JSX.Elemen
 										<>
 											<div className="py-2">
 												<Link href="/product/CookieCons/about"
-												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50">
 													About
 												</Link>
 											</div>
 											<div className="py-2">
 												<a href="https://github.com/STechBD/Install-Express" target="_blank"
-												   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+												   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50">
 													GitHub
 												</a>
 											</div>

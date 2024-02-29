@@ -243,9 +243,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode }): JSX.Element {
 	return (
 		<html lang="en">
-		<body className={ inter.className }>
+		<body className={ inter.className + ' dark:bg-gray-900' }>
 		<HeaderLoader/>
-		<main className="min-h-screen dark:bg-gray-900">
+		<main className="min-h-screen">
 			{ children }
 		</main>
 		<Footer/>
