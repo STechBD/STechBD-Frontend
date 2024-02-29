@@ -129,6 +129,17 @@ async function info(): Promise<any> {
 export default async function Page(): Promise<JSX.Element> {
 	const data = await info()
 
+	const ipData = await fetch('https://www.stechbd.net/ip.php')
+
+	if (ipData.ok) {
+		const json = await ipData.text()
+		console.log('IP Data:')
+		console.log(json)
+	} else {
+		console.error('Failed to fetch IP information.')
+		console.error('Error:', ipData.statusText)
+	}
+
 	if (data.ok) {
 		const json = await data.json()
 
