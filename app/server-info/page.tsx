@@ -102,11 +102,13 @@ async function info(): Promise<any> {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
+	const key: string = process.env.WHMCS_API_KEY || 'stechbd'
 
 	const formData: FormData = new FormData()
 
 	formData.append('identifier', identifier)
 	formData.append('secret', secret)
+	formData.append('accesskey', key)
 	formData.append('action', 'GetServers')
 	formData.append('serviceId', '1')
 	formData.append('fetchStatus', 'false')
@@ -116,7 +118,7 @@ async function info(): Promise<any> {
 		method: 'POST',
 		body: formData,
 		next: {
-			revalidate: 300,
+			revalidate: 60,
 		},
 	})
 }
