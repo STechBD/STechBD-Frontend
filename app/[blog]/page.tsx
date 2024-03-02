@@ -3,6 +3,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Image from 'next/image'
 import Link from 'next/link'
+import Hero from '@/app/[blog]/hero';
 
 
 interface User {
@@ -13,6 +14,7 @@ interface User {
 	image?: string
 	role?: string
 	company?: string
+	position?: string
 	about?: string
 }
 
@@ -105,6 +107,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 	const post: Post = await postData(slug)
 
 	const title: string = post.title ?? 'Default Title'
+	const thumbnail: string = '/image/Banner.webp'
 	const published: string = post.published ?? '2022-02-08'
 	const date: Date = new Date(published)
 	const options: Intl.DateTimeFormatOptions = {
@@ -124,40 +127,64 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 	const userName: string = user.firstname + ' ' + user.lastname
 	const userImage: string = user.image ?? 'https://github.com/STechBD.png'
 	const userCompany: string = user.company ?? 'Default Company'
-	const userRole: string = user.role ?? 'Default Role'
+	const userPosition: string | null = user.position ?? null
+	const userAbout: string = user.about ?? 'No Information'
 
 	const categoryID: string = post.category ? post.category.split(',')[0] : '0'
 	const category: Category = await categoryData(categoryID)
 
 	return (
 		<>
-			<div className="relative isolate px-6 py-24 lg:px-8">
-				<div aria-hidden="true"
-				     className="absolute inset-x-0 -top-24 -z-10 transform-gpu overflow-hidden blur-3xl"
-				>
-					<div
-						className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }>
+			<Hero/>
+			<div className="relative h-full">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6">
+					<div className="pt-32 md:pt-40">
+						<div className="max-w-4xl flex flex-col items-center mx-auto text-center">
+							<h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
+								<span className="block md:inline sm:block bg-primary text-white h-12">
+									{ title }
+								</span>
+							</h1>
+							<div className="mt-8">
+								<Image src={ thumbnail } alt={ title } height={ 628 } width={ 1200 }/>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div aria-hidden="true"
-				     className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-				>
+			</div>
+			<div className="relative lg:grid lg:grid-cols-4 mt-12 mb-24">
+				<div className="px-4 mb-4 lg:mb-0">
 					<div
-						className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
+						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
+					>
+						<div
+							className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"
+						>
+							<Image className="mr-4 w-16 h-16 rounded-full"
+							       src={ userImage }
+							       alt={ userName } height={ 100 }
+							       width={ 100 }/>
+							<div>
+								<Link href={ '/author/' + userUsername } rel="author"
+								      className="text-xl font-bold text-gray-900 dark:text-white"
+								>
+									{ userName }
+								</Link>
+								<p className="text-base text-gray-500 dark:text-gray-400">
+									{ userPosition && (userPosition + ' at ') }{ userCompany }
+								</p>
+							</div>
+						</div>
+						<div className="mt-4 text-gray-900">
+							{ userAbout }
+						</div>
+					</div>
 				</div>
-				<div aria-hidden="true"
-				     className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-				>
-					<div
-						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
-				</div>
-				<div className="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
-					<div className="flex justify-between px-4 mx-auto max-w-screen-4xl">
+				<div className="col-span-2 antialiased">
+					<div className="flex justify-between px-4 mx-auto">
 						<article
-							className="p-8 mx-auto w-full max-w-4xl bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5">
+							className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
+						>
 							<header className="mb-4 lg:mb-6 not-format">
 								<address className="flex items-center mb-6 not-italic">
 									<div
@@ -174,7 +201,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 												{ userName }
 											</Link>
 											<p className="text-base text-gray-500 dark:text-gray-400">
-												{ userRole } at { userCompany }
+												{ userPosition && (userPosition + ' at ') }{ userCompany }
 											</p>
 											<p className="text-base text-gray-500 dark:text-gray-400">
 												<time dateTime={ published } title={ publishedDate }>
@@ -478,7 +505,26 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						</article>
 					</div>
 				</div>
-
+				<div className="px-4 mb-4 lg:mb-0">
+					<div
+						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
+					>
+						<h2 className="text-xl font-bold text-gray-900 dark:text-white">
+							Index
+						</h2>
+						<ul>
+							<li>
+								<a href="#first">First</a>
+							</li>
+							<li>
+								<a href="#second">Second</a>
+							</li>
+							<li>
+								<a href="#third">Third</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 				{
 					process.env.NODE_ENV === 'development' && (
 						<>
