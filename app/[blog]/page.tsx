@@ -3,7 +3,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Image from 'next/image'
 import Link from 'next/link'
-import Hero from '@/app/[blog]/hero';
+import Hero from '@/app/[blog]/hero'
 
 
 interface User {
@@ -119,7 +119,13 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		hour12: true,
 	}
 	const publishedDate: string = date.toLocaleDateString('en-US', options)
-	const content: string = post.content ?? 'No content'
+	const content: JSX.Element = post.content ? (
+		<Markdown remarkPlugins={ [ remarkGfm ] }>
+			{ post.content }
+		</Markdown>
+	) : (
+		<>No content</>
+	)
 
 	const userID: string = post.author ?? '0'
 	const user: User = await userData(userID)
@@ -222,9 +228,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							</header>
 							<div className="mb-6 not-format dark:text-white">
 								<div className="post-content">
-									<Markdown remarkPlugins={ [ remarkGfm ] }>
-										{ content }
-									</Markdown>
+									{ content }
 								</div>
 							</div>
 							{
