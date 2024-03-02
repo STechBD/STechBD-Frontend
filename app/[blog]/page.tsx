@@ -1,4 +1,6 @@
 import { JSX } from 'react'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -118,6 +120,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 
 	const userID: string = post.author ?? '0'
 	const user: User = await userData(userID)
+	const userUsername: string = user.username ?? 'username'
+	const userName: string = user.firstname + ' ' + user.lastname
+	const userImage: string = user.image ?? 'https://github.com/STechBD.png'
+	const userCompany: string = user.company ?? 'Default Company'
+	const userRole: string = user.role ?? 'Default Role'
 
 	const categoryID: string = post.category ? post.category.split(',')[0] : '0'
 	const category: Category = await categoryData(categoryID)
@@ -154,47 +161,23 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							<header className="mb-4 lg:mb-6 not-format">
 								<address className="flex items-center mb-6 not-italic">
 									<div
-										className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+										className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"
+									>
 										<Image className="mr-4 w-16 h-16 rounded-full"
-										       src={ user.image ?? 'https://github.com/STechBD.png' }
-										       alt={ user.firstname + ' ' + user.lastname } height={ 100 }
+										       src={ userImage }
+										       alt={ userName } height={ 100 }
 										       width={ 100 }/>
 										<div>
-											<Link href={ '/' + user.username } rel="author"
-											      className="text-xl font-bold text-gray-900 dark:text-white">
-												{ user.firstname + ' ' + user.lastname }
+											<Link href={ '/author/' + userUsername } rel="author"
+											      className="text-xl font-bold text-gray-900 dark:text-white"
+											>
+												{ userName }
 											</Link>
 											<p className="text-base text-gray-500 dark:text-gray-400">
-												{ user.company }
+												{ userRole } at { userCompany }
 											</p>
-											{/*{
-											data.author?.map((item, index) => {
-													const user: string = item.user ? item.user : '#'
-													const name: string = item.name ? item.name : 'Jese Leos'
-													const title: string = item.title ? item.title : 'Graphic Designer'
-													const url: string = item.url ? item.url : '#'
-													const image: string = item.image ? item.image : 'https://github.com/STechBDWeb'
-
-													return (
-														<div key={ index }>
-															<Image className="mr-4 w-16 h-16 rounded-full" src={ image }
-															       alt="Jese Leos" height={ 100 } width={ 100 }/>
-															<div>
-															<Link href={ user } rel="author"
-															      className="text-xl font-bold text-gray-900 dark:text-white">
-																{ name }
-															</Link>
-															<p className="text-base text-gray-500 dark:text-gray-400">
-																{ title }
-															</p>
-															</div>
-														</div>
-													)
-												}
-											)
-										}*/ }
 											<p className="text-base text-gray-500 dark:text-gray-400">
-												<time dateTime="2022-02-08" title="February 8th, 2022">
+												<time dateTime={ published } title={ publishedDate }>
 													{ publishedDate }
 												</time>
 											</p>
@@ -211,7 +194,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 								</p>
 							</header>
 							<div className="mb-6 not-format dark:text-white">
-								<div className="post-content" dangerouslySetInnerHTML={ { __html: content } }/>
+								<div className="post-content">
+									<Markdown remarkPlugins={ [ remarkGfm ] }>
+										{ content }
+									</Markdown>
+								</div>
 							</div>
 							{
 								process.env.NODE_ENV === 'development' && (
@@ -281,13 +268,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 													</ul>
 												</div>
 											</footer>
-											<p>Very straight-to-point article. Really worth time reading. Thank you! But tools
-												are
-												just the
-												instruments for the UX designers. The knowledge of the design tools are as
-												important
-												as the
-												creation of the design strategy.</p>
+											<p>
+												Very straight-to-point article. Really worth time reading. Thank you! But
+												tools are just the instruments for the UX designers. The knowledge of the
+												design tools are as important as the creation of the design strategy.
+											</p>
 											<div className="flex items-center mt-4 space-x-4">
 												<button type="button"
 												        className="flex items-center font-medium text-sm text-gray-500 hover:underline dark:text-gray-400">
@@ -369,7 +354,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 														<Image
 															className="mr-2 w-6 h-6 rounded-full"
 															src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-															alt="Bonnie Green" height={ 100 } width={ 100 }/>Bonnie Green</p>
+															alt="Bonnie Green" height={ 100 } width={ 100 }/>Bonnie Green
+													</p>
 													<p className="text-sm text-gray-600 dark:text-gray-400">
 														<time dateTime="2022-03-12"
 														      title="March 12th, 2022">Mar. 12, 2022
@@ -407,7 +393,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 													</ul>
 												</div>
 											</footer>
-											<p>The article covers the essentials, challenges, myths and stages the UX designer
+											<p>The article covers the essentials, challenges, myths and stages the UX
+												designer
 												should consider while creating the design strategy.</p>
 											<div className="flex items-center mt-4 space-x-4">
 												<button type="button"
@@ -430,7 +417,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 														<Image
 															className="mr-2 w-6 h-6 rounded-full"
 															src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-															alt="Helene Engels" height={ 100 } width={ 100 }/>Helene Engels</p>
+															alt="Helene Engels" height={ 100 } width={ 100 }/>Helene Engels
+													</p>
 													<p className="text-sm text-gray-600 dark:text-gray-400">
 														<time dateTime="2022-06-23"
 														      title="June 23rd, 2022">Jun. 23, 2022
@@ -467,7 +455,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 													</ul>
 												</div>
 											</footer>
-											<p>Thanks for sharing this. I do came from the Backend development and explored some
+											<p>Thanks for sharing this. I do came from the Backend development and explored
+												some
 												of
 												the tools to design my Side Projects.</p>
 											<div className="flex items-center mt-4 space-x-4">
@@ -495,7 +484,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						<>
 							<aside aria-label="Related articles" className="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
 								<div className="px-4 mx-auto max-w-screen-xl">
-									<h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
+									<h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related
+										articles</h2>
 									<div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
 										<article className="max-w-xs">
 											<a href="#">
@@ -506,7 +496,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 											<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
 												<a href="#">Our first office</a>
 											</h2>
-											<p className="mb-4 text-gray-500 dark:text-gray-400">Over the past year, Volosoft has
+											<p className="mb-4 text-gray-500 dark:text-gray-400">Over the past year,
+												Volosoft has
 												undergone many changes! After months of preparation.</p>
 											<a href="#"
 											   className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
@@ -522,7 +513,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 											<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
 												<a href="#">Enterprise design tips</a>
 											</h2>
-											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has
+											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year,
+												Volosoft has
 												undergone many changes! After months of preparation.</p>
 											<a href="#"
 											   className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
@@ -538,7 +530,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 											<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
 												<a href="#">We partnered with Google</a>
 											</h2>
-											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has
+											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year,
+												Volosoft has
 												undergone many changes! After months of preparation.</p>
 											<a href="#"
 											   className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
@@ -554,7 +547,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 											<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
 												<a href="#">Our first project with React</a>
 											</h2>
-											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has
+											<p className="mb-4  text-gray-500 dark:text-gray-400">Over the past year,
+												Volosoft has
 												undergone many changes! After months of preparation.</p>
 											<a href="#"
 											   className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
@@ -571,7 +565,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 										<h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Sign
 											up for our newsletter</h2>
 										<p className="mx-auto mb-8 max-w-2xl  text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">Stay
-											up to date with the roadmap progress, announcements and exclusive discounts feel free to
+											up to date with the roadmap progress, announcements and exclusive discounts feel
+											free to
 											sign up with your email.</p>
 										<form action="#">
 											<div
@@ -582,7 +577,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 														address</label>
 													<div
 														className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-														<svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+														<svg className="w-4 h-4 text-gray-500 dark:text-gray-400"
+														     aria-hidden="true"
 														     xmlns="http://www.w3.org/2000/svg" fill="currentColor"
 														     viewBox="0 0 20 16">
 															<path
@@ -593,7 +589,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 													</div>
 													<input
 														className="block p-3 pl-9 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-														placeholder="Enter your email" type="email" id="email" required={ false }/>
+														placeholder="Enter your email" type="email" id="email"
+														required={ false }/>
 												</div>
 												<div>
 													<button type="submit"
