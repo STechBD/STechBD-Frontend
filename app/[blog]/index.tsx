@@ -1,33 +1,38 @@
-import { JSX } from 'react'
+'use client'
+
+import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
+import ReactDOMServer from 'react-dom/server'
+import cheerio from 'cheerio'
 
-export default function Index({ content }: {
-	content: JSX.Element
-}): JSX.Element {
-	const html = { content }
-	const extractHeadings = (markdownContent: any) => {
-		const headings: { id: any; text: any; level: any; }[] = []
-		const renderer = (text: any, level: any) => {
-			const id = text.toLowerCase().replace(/ /g, '-')
-			headings.push({ id, text, level })
-			return `<h${ level } id="${ id }">${ text }</h${ level }>`
-		}
 
-		renderer(markdownContent, 3)
+export default function Index({ content }: { content: JSX.Element }): JSX.Element {
+	const headings = (jsxElement: JSX.Element): any[] => {
+		const htmlString = ReactDOMServer.renderToStaticMarkup(jsxElement)
+		const $ = cheerio.load(htmlString)
+		const headings: any[] = []
+
+		$('h1, h2, h3').each((index, element) => {
+			headings.push({
+				type: $(element).prop('tagName').toLowerCase(),
+				text: $(element).text()
+			})
+		})
+
 		return headings
 	}
 
-	const headings = extractHeadings(content)
-
 	return (
 		<ul>
-			{ headings.map((heading: any) => (
-				<li key={ heading.id }>
-					<Link href={ `#${ heading.id }` }>
-						{ heading.text }
-					</Link>
-				</li>
-			)) }
+			{
+				headings.map((heading, index) => (
+					<li key={ index }>
+						<Link href={ `#${ heading.id }` }>
+							{ heading.text }
+						</Link>
+					</li>
+				))
+			}
 		</ul>
 	)
 }

@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import Image from 'next/image'
 import Link from 'next/link'
 import Hero from '@/app/[blog]/hero'
+import Index from '@/app/[blog]/index'
 
 
 interface User {
@@ -516,17 +517,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						<h2 className="text-xl font-bold text-gray-900 dark:text-white">
 							Index
 						</h2>
-						<ul>
-							<li>
-								<a href="#first">First</a>
-							</li>
-							<li>
-								<a href="#second">Second</a>
-							</li>
-							<li>
-								<a href="#third">Third</a>
-							</li>
-						</ul>
+						<Index content={ content }/>
 					</div>
 				</div>
 				{
