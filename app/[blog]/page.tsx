@@ -1,6 +1,10 @@
 import { JSX } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import remarkEmoji from 'remark-emoji'
+import rehypeSlug from 'rehype-slug'
+import { remarkCodeBlock } from 'remark-code-block'
+import js from 'refractor/lang/javascript.js'
 import Image from 'next/image'
 import Link from 'next/link'
 import Hero from '@/app/[blog]/hero'
@@ -120,8 +124,18 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		hour12: true,
 	}
 	const publishedDate: string = date.toLocaleDateString('en-US', options)
+	remarkCodeBlock.register(js)
 	const content: JSX.Element = post.content ? (
-		<Markdown remarkPlugins={ [ remarkGfm ] }>
+		<Markdown
+			remarkPlugins={ [
+				remarkGfm,
+				remarkEmoji,
+				remarkCodeBlock,
+			] }
+			rehypePlugins={ [
+				rehypeSlug,
+			] }
+		>
 			{ post.content }
 		</Markdown>
 	) : (
@@ -515,7 +529,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
 						<h2 className="text-xl font-bold text-gray-900 dark:text-white">
-							Index
+							Table of Content
 						</h2>
 						<Index content={ content }/>
 					</div>
