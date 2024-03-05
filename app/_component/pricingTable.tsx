@@ -72,7 +72,7 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 											item.features.map((feature: any, index: number): JSX.Element => {
 												return (
 													<li key={ index } className="flex items-center">
-														<svg className="w-4 h-4 text-green-500" fill="currentColor"
+														<svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor"
 														     viewBox="0 0 20 20"
 														     xmlns="http://www.w3.org/2000/svg">
 															<path fillRule="evenodd" clipRule="evenodd"

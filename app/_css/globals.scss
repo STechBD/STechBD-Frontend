@@ -312,7 +312,7 @@ footer {
  */
 .post-content {
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 700;
+		font-weight: bold;
 		margin-top: 2rem;
 		margin-bottom: 1rem;
 	}
@@ -343,7 +343,6 @@ footer {
 
 	p {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
@@ -357,15 +356,13 @@ footer {
 
 	li {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 0.5rem;
 	}
 
 	a {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
-		color: #0c71c3;
+		color: var(--primary);
 	}
 
 	img {
@@ -374,75 +371,66 @@ footer {
 
 	blockquote {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
+		padding: 0.2rem 1rem;
+		border-left: 0.35rem solid var(--primary);
+
+		*:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	code {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	pre {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	table {
+		width: 100%;
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
+		border: 1px;
 	}
 
 	thead {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	tbody {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	tfoot {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	tr {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	th {
 		font-size: 1rem;
-		font-weight: 400;
+		font-weight: bold;
 		margin-bottom: 1rem;
 	}
 
 	td {
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 
 	hr {
-		border-bottom: 1px solid #000000;
+		border-bottom: 1px solid black;
 		margin-bottom: 1rem;
-	}
-
-	strong {
-		font-weight: 700;
-	}
-
-	em {
-		font-style: italic;
 	}
 
 	small {
@@ -466,8 +454,8 @@ footer {
 	}
 
 	mark {
-		background-color: #ff0;
-		color: #000;
+		background-color: #FFFF00;
+		color: black;
 	}
 
 	abbr {
@@ -499,7 +487,6 @@ footer {
 		width: 100%;
 		padding: 0.75rem 1rem;
 		font-size: 1rem;
-		font-weight: 400;
 		margin-bottom: 1rem;
 	}
 }

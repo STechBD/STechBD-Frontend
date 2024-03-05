@@ -4,7 +4,7 @@ import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
 import PricingTable from '@/app/_component/pricingTable'
 import Testimonial from '@/app/testimonial'
-import Update from '@/app/update'
+import PostList from '@/app/_component/postList'
 
 
 /**
@@ -126,7 +126,7 @@ export default function Page(): JSX.Element {
 						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 				</div>
-				<div className="px-16 md:px-20 py-10">
+				<div className="px-4 lg:px-16 md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Web Hosting and Server
 					</h2>
@@ -248,7 +248,11 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-800 dark:text-gray-200">
 						Find out the latest news and updates from us.
 					</p>
-					<Update/>
+					<section className="mt-16">
+						<div className="grid gap-8 lg:grid-cols-3 2xl:grid-cols-4">
+							<PostList/>
+						</div>
+					</section>
 				</div>
 			</div>
 		</>

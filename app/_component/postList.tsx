@@ -11,7 +11,7 @@ import { postList, userData, categoryData } from '@/app/_function/api'
  * @returns { JSX.Element } Blog list page component.
  * @since 3.0.0
  */
-export default async function List(): Promise<JSX.Element> {
+export default async function PostList(): Promise<JSX.Element> {
 	const post: Post[] = await postList()
 
 	return (

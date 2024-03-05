@@ -13,18 +13,20 @@ import Image from 'next/image'
 export default function Testimonial(): JSX.Element {
 	const reviews = [
 		{
-			name: 'John Doe',
-			image: 'https://github.com/AAShemul.png',
-			organization: 'ABC Inc.',
+			name: 'Ruhul Sinbad',
+			image: '/image/Ruhul-Sinbad-Client.webp',
+			organization: 'Dukululu',
+			profession: 'Software Developer',
 			rating: 5,
-			review: 'S Technologies has been providing us with web hosting and server since 2015. We are very satisfied with their service.',
+			review: 'Too much <strong>reliable</strong> and <strong>great service</strong>. Obviously, I will buy all products from here next time. Thanks for the <strong>user-friendly</strong> service. <strong>Best of luck.</strong>',
 		},
 		{
-			name: 'Jane Doe',
-			image: 'https://github.com/AAShemul.png',
-			organization: 'XYZ Inc.',
-			rating: 3,
-			review: 'We have been using S Technologies web hosting and server for our business since 2017. We are very happy with their service.',
+			name: 'Saiful Islam Nasir',
+			image: '/image/Saiful-Islam-Nasir-Client.webp',
+			organization: 'Astabd',
+			profession: 'Graphic Designer',
+			rating: 5,
+			review: 'I got <strong>great service</strong> here. And get <strong>proper support</strong> all the time. Server quality, speed, and uptime are <strong>great.</strong> I am <strong>satisfied</strong> with their service.',
 		},
 	]
 
@@ -33,7 +35,7 @@ export default function Testimonial(): JSX.Element {
 			<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 					{ reviews.map((review, index) => (
-						<div key={ index } className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white dark:bg-gray-800">
+						<div key={ index } className="flex flex-col rounded-lg shadow-sm hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800">
 							<div className="flex-shrink-0">
 								<Image className="h-48 w-full object-cover"
 								       src={ review.image }
@@ -45,7 +47,7 @@ export default function Testimonial(): JSX.Element {
 							<div className="flex-1 p-6 flex flex-col justify-between">
 								<div className="flex-1">
 									<p className="text-sm font-medium text-primary dark:text-gray-200">
-										{ review.organization }
+										{ review.organization } • { review.profession }
 									</p>
 									<p className="mt-2 text-xl font-bold text-gray-900 dark:text-white">
 										{ review.name }
@@ -70,8 +72,9 @@ export default function Testimonial(): JSX.Element {
 											</svg>
 										)) }
 									</p>
-									<p className="mt-2 text-lg text-gray-500 dark:text-gray-400">
-										{ review.review }
+									<p className="mt-2 text-lg text-gray-500 dark:text-gray-400"
+									dangerouslySetInnerHTML={ { __html: review.review } }
+									>
 									</p>
 								</div>
 							</div>

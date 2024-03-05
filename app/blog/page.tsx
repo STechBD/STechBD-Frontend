@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Hero from '@/app/blog/hero'
-import List from '@/app/blog/list'
+import PostList from '@/app/blog/postList'
 
 
 /**
@@ -55,7 +55,7 @@ export default function Page(): JSX.Element {
 					</h2>
 					<section className="mt-16">
 						<div className="grid gap-8 lg:grid-cols-3 2xl:grid-cols-4">
-							<List/>
+							<PostList/>
 						</div>
 					</section>
 				</div>
