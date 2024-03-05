@@ -22,10 +22,6 @@ const nextConfig = {
 			},
 		],
 	},
-	publicRuntimeConfig: {
-		APP_DIR: process.env.APP_DIR || path.join('app'),
-		BLOG_DIR: process.env.BLOG_DIR || path.join('app', '_blog'),
-	},
 }
 
 

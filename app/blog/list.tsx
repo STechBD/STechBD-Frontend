@@ -1,89 +1,8 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-
-interface User {
-	id?: number
-	username?: string
-	firstname?: string
-	lastname?: string
-	image?: string
-	role?: string
-	company?: string
-	about?: string
-}
-
-interface Post {
-	id?: number
-	title?: string
-	slug?: string
-	author?: string
-	published?: string
-	image?: string
-	category?: string
-	view?: number
-	content?: string
-}
-
-interface Category {
-	id?: number
-	slug?: string
-	name?: string
-}
-
-
-/**
- * Fetch the post data from API server.
- *
- * @returns { Promise<Post> } The post data.
- * @since 3.0.0
- */
-async function postData(): Promise<Post[]> {
-	const response: Response = await fetch('https://api.stechbd.net/blog', {
-		next: {
-			revalidate: 300,
-		},
-	})
-	const data = await response.json()
-	return data.data
-}
-
-
-/**
- * Fetch the user data from API server.
- *
- * @param username The username.
- * @returns { Promise<User> } The user data.
- * @since 3.0.0
- */
-async function userData(username: string): Promise<User> {
-	const response: Response = await fetch('https://api.stechbd.net/user/' + username, {
-		next: {
-			revalidate: 300,
-		},
-	})
-	const data = await response.json()
-	return data.data
-}
-
-
-/**
- * Fetch the category data from API server.
- *
- * @param id The category ID.
- * @returns { Promise<Category> } The category data.
- * @since 3.0.0
- */
-async function categoryData(id: string): Promise<Category> {
-	const response: Response = await fetch('https://api.stechbd.net/blog/category/' + id, {
-		next: {
-			revalidate: 300,
-		},
-	})
-	const data = await response.json()
-	return data.data
-}
+import { User, Post, Category } from '@/app/_data/type'
+import { postList, userData, categoryData } from '@/app/_function/api'
 
 
 /**
@@ -93,7 +12,7 @@ async function categoryData(id: string): Promise<Category> {
  * @since 3.0.0
  */
 export default async function List(): Promise<JSX.Element> {
-	const post: Post[] = await postData()
+	const post: Post[] = await postList()
 
 	return (
 		<>

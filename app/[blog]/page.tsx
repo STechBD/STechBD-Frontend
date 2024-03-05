@@ -2,44 +2,15 @@ import { JSX } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkEmoji from 'remark-emoji'
+// import remarkCodeBlock from 'remark-code-block'
 import rehypeSlug from 'rehype-slug'
-import { remarkCodeBlock } from 'remark-code-block'
-import js from 'refractor/lang/javascript.js'
+// import js from 'refractor/lang/javascript.js'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Category, Post, User } from '@/app/_data/type'
+import { categoryData, postData, postList, userData } from '@/app/_function/api'
 import Hero from '@/app/[blog]/hero'
 import Index from '@/app/[blog]/index'
-
-
-interface User {
-	id?: number
-	username?: string
-	firstname?: string
-	lastname?: string
-	image?: string
-	role?: string
-	company?: string
-	position?: string
-	about?: string
-}
-
-interface Post {
-	id?: number
-	title?: string
-	slug?: string
-	author?: string
-	published?: string
-	image?: string
-	category?: string
-	view?: number
-	content?: string
-}
-
-interface Category {
-	id?: number
-	slug?: string
-	name?: string
-}
 
 
 /**
@@ -56,48 +27,6 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 	return {
 		title: post.title,
 	}
-}
-
-
-/**
- * Fetch the post data from API server.
- *
- * @param slug The post slug.
- * @returns { Promise<Post> } The post data.
- * @since 3.0.0
- */
-async function postData(slug: string): Promise<Post> {
-	const response: Response = await fetch('https://api.stechbd.net/blog/post/' + slug)
-	const data = await response.json()
-	return data.data
-}
-
-
-/**
- * Fetch the user data from API server.
- *
- * @param username The username.
- * @returns { Promise<User> } The user data.
- * @since 3.0.0
- */
-async function userData(username: string): Promise<User> {
-	const response: Response = await fetch('https://api.stechbd.net/user/' + username)
-	const data = await response.json()
-	return data.data
-}
-
-
-/**
- * Fetch the category data from API server.
- *
- * @param id The category ID.
- * @returns { Promise<Category> } The category data.
- * @since 3.0.0
- */
-async function categoryData(id: string): Promise<Category> {
-	const response: Response = await fetch('https://api.stechbd.net/blog/category/' + id)
-	const data = await response.json()
-	return data.data
 }
 
 
@@ -124,13 +53,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		hour12: true,
 	}
 	const publishedDate: string = date.toLocaleDateString('en-US', options)
-	remarkCodeBlock.register(js)
 	const content: JSX.Element = post.content ? (
 		<Markdown
 			remarkPlugins={ [
 				remarkGfm,
 				remarkEmoji,
-				remarkCodeBlock,
 			] }
 			rehypePlugins={ [
 				rehypeSlug,
@@ -174,7 +101,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 				</div>
 			</div>
 			<div className="relative lg:grid lg:grid-cols-4 mt-12 mb-24">
-				<div className="px-4 mb-4 lg:mb-0">
+				<div className="px-4 mb-4 lg:mb-0 sticky top-[6.5rem]">
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
@@ -187,18 +114,60 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							       width={ 100 }/>
 							<div>
 								<Link href={ '/author/' + userUsername } rel="author"
-								      className="text-xl font-bold text-gray-900 dark:text-white"
+								      className="text-xl font-bold text-gray-900 dark:text-gray-100"
 								>
 									{ userName }
 								</Link>
-								<p className="text-base text-gray-500 dark:text-gray-400">
+								<p className="text-base text-gray-700 dark:text-gray-300">
 									{ userPosition && (userPosition + ' at ') }{ userCompany }
 								</p>
 							</div>
 						</div>
-						<div className="mt-4 text-gray-900">
+						<div className="mt-4 text-gray-800 dark:text-gray-200">
 							{ userAbout }
 						</div>
+					</div>
+					<div
+						className="mt-8 p-2 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
+					>
+						{
+							(await postList()).map((post: Post, index: number) => {
+								const date: Date = new Date(post.published ?? '')
+								const options: Intl.DateTimeFormatOptions = {
+									year: 'numeric',
+									month: 'short',
+									day: 'numeric',
+								}
+								const published: string = date.toLocaleDateString('en-US', options)
+
+								return (
+									<Link key={ index }
+									      href={ '/' + post.slug }
+									      className="block mb-4 text-xl font-bold text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-400"
+									>
+										<div className="flex p-4 bg-white bg-opacity-50 rounded-lg dark:bg-opacity-5">
+											<div className="flex-shrink-0 w-36">
+												<div
+													className="w-36 h-24 bg-cover bg-center rounded-lg"
+													style={ { backgroundImage: `url(${ post.image === '' ? '/image/Banner.webp' : post.image })` } }
+												>
+												</div>
+											</div>
+											<div className="flex flex-row">
+												<div className="flex-shrink-0 ml-4">
+													<h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:text-secondary dark:text-gray-100 dark:hover:text-primary">
+														{ post.title }
+													</h2>
+													<p className="self-end font-light text-sm text-gray-700 dark:text-gray-300">
+														{ published }
+													</p>
+												</div>
+											</div>
+										</div>
+									</Link>
+								)
+							})
+						}
 					</div>
 				</div>
 				<div className="col-span-2 antialiased">
@@ -524,11 +493,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						</article>
 					</div>
 				</div>
-				<div className="px-4 mb-4 lg:mb-0">
+				<div className="px-4 mb-4 lg:mb-0 sticky top-[6.5rem]">
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
-						<h2 className="text-xl font-bold text-gray-900 dark:text-white">
+						<h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
 							Table of Content
 						</h2>
 						<Index content={ content }/>

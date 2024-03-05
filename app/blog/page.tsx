@@ -4,36 +4,6 @@ import Hero from '@/app/blog/hero'
 import List from '@/app/blog/list'
 
 
-interface User {
-	id?: number
-	username?: string
-	firstname?: string
-	lastname?: string
-	image?: string
-	role?: string
-	company?: string
-	about?: string
-}
-
-interface Post {
-	id?: number
-	title?: string
-	slug?: string
-	author?: string
-	published?: string
-	image?: string
-	category?: string
-	view?: number
-	content?: string
-}
-
-interface Category {
-	id?: number
-	slug?: string
-	name?: string
-}
-
-
 /**
  * Generate the metadata for the blog list page.
  *

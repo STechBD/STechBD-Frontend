@@ -34,7 +34,7 @@ export default function Index({ content }: { content: JSX.Element }): JSX.Elemen
 
 					return (
 						<li key={ index } className={ className }>
-							<Link href={ '#' + heading.url }>
+							<Link href={ '#' + heading.url } className="text-gray-800 dark:text-gray-200">
 								{ heading.text }
 							</Link>
 						</li>
