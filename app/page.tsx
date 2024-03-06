@@ -239,7 +239,11 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-800 dark:text-gray-200">
 						What our clients say about us.
 					</p>
-					<Testimonial/>
+					<section className="mt-16">
+						<div className="grid gap-8 lg:grid-cols-3 2xl:grid-cols-4">
+							<Testimonial/>
+						</div>
+					</section>
 				</div>
 				<div className="md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
