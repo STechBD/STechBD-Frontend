@@ -19,9 +19,7 @@ export default function Hero(): JSX.Element {
 				<div className="relative max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
 					<div className="text-center">
 						<h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-							<span className="block">
-								Server Information
-							</span>
+							Server Information
 						</h1>
 						<p className="mt-4 text-xl text-white">
 							Here you can find information about our servers and their status.

@@ -43,7 +43,12 @@ export default function Theme(): JSX.Element {
 	if (themePanel) {
 		return (
 			<div
-				className={ 'fixed top-0 bottom-0 right-0 w-[400px] max-w-[90%] m-4 p-12 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg z-[100]' }
+				className="fixed top-0 bottom-0 right-0 w-[400px] max-w-[90%] m-4 p-12 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg z-[100] transition-opacity duration-500"
+				style={ {
+					animationName: themePanel ? 'fadeIn' : 'fadeOut',
+					animationDuration: '0.5s',
+					animationTimingFunction: 'ease-in-out',
+				} }
 			>
 				<button
 					className="absolute top-0 right-0 p-4 text-4xl text-gray-900 dark:text-gray-100"
@@ -56,21 +61,96 @@ export default function Theme(): JSX.Element {
 						Color
 					</p>
 					<div className="grid grid-cols-4">
-						{
+						{/* It doesn't work. Doesn't show the color in the circle. */}
+						{/*{
 							themes.map(theme => (
 								<div key={ theme } className="flex flex-col items-center">
-									<button onClick={ () => toggleTheme(theme) }
-									        className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-' + theme + '-600 border m-2' }>
+									<button
+										onClick={ () => toggleTheme(theme) }
+										className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-' + theme + '-600 border m-2' }
+									>
 									</button>
 									<span className="font-bold text-gray-800 dark:text-gray-200">
 										{ theme.charAt(0).toUpperCase() + theme.slice(1) }
 									</span>
 								</div>
 							))
-						}
+						}*/}
+
+						{/* It works fine. Shows the color in the circle. */}
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('red') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-red-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Red
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('green') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-green-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Green
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('teal') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-teal-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Teal
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('blue') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-blue-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Blue
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('indigo') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-indigo-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Indigo
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('purple') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-purple-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Purple
+							</span>
+						</div>
+						<div className="flex flex-col items-center">
+							<button
+								onClick={ () => toggleTheme('rose') }
+								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-rose-600 border m-2' }
+							>
+							</button>
+							<span className="font-bold text-gray-800 dark:text-gray-200">
+								Rose
+							</span>
+						</div>
 					</div>
 				</div>
-				<div>
+				<div className="mt-4">
 					<p className="text-3xl text-primary my-2">
 						Mode
 					</p>
