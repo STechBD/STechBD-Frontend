@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkEmoji from 'remark-emoji'
 // import remarkCodeBlock from 'remark-code-block'
 import rehypeSlug from 'rehype-slug'
+import rehypeRaw from 'rehype-raw'
 // import js from 'refractor/lang/javascript.js'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -61,6 +62,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 			] }
 			rehypePlugins={ [
 				rehypeSlug,
+				rehypeRaw,
 			] }
 		>
 			{ post.content }

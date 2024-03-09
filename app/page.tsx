@@ -3,7 +3,7 @@ import Hero from '@/app/hero'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
 import PricingTable from '@/app/_component/pricingTable'
-import Testimonial from '@/app/testimonial'
+import Testimonial from '@/app/_component/testimonial'
 import PostList from '@/app/_component/postList'
 
 

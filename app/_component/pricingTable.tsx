@@ -2,6 +2,7 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
+import Currency from '@/app/_component/currency'
 
 
 /**
@@ -17,22 +18,7 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 	return (
 		<div className="my-20">
 			<div className="flex justify-center items-center mb-10">
-				<button
-					className={ `px-5 py-3 text-2xl rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
-					onClick={ (): void => {
-						setCurrency('bdt')
-					} }
-				>
-					BDT (৳)
-				</button>
-				<button
-					className={ `px-5 py-3 text-2xl rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
-					onClick={ (): void => {
-						setCurrency('usd')
-					} }
-				>
-					USD ($)
-				</button>
+				<Currency currency={ currency } callback={ setCurrency } defaultCurrency={ defaultCurrency }/>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				{

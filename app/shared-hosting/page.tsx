@@ -713,7 +713,7 @@ export default function Page(): JSX.Element {
 						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
 						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Pick a Plan
 					</h2>
@@ -723,7 +723,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Compare Plans
 					</h2>
@@ -733,7 +733,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						What is Shared Hosting?
 					</h2>
@@ -757,7 +757,7 @@ export default function Page(): JSX.Element {
 						If you are starting a new website, shared hosting is the most cost-effective way of doing so.
 					</p>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Features of Shared Hosting
 					</h2>
@@ -773,7 +773,7 @@ export default function Page(): JSX.Element {
 						</ol>
 					</p>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Why S Technologies Shared Hosting?
 					</h2>
@@ -795,7 +795,7 @@ export default function Page(): JSX.Element {
 						</ol>
 					</p>
 				</div>
-				<div className="px-16 lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Shared Hosting Provider in Bangladesh
 					</h2>

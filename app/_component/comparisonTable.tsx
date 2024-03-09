@@ -2,57 +2,9 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
+import { Feature, Data } from '@/app/_data/type'
+import Currency from '@/app/_component/currency'
 
-
-/**
- * Interface definition.
- *
- * @interface Feature
- * @interface Data
- * @interface FeatureList
- *
- * @since 3.0.0
- */
-interface Feature {
-	title: string
-	features: {
-		[key: string]: string | number | boolean
-	}
-}
-
-interface Data {
-	title: string
-	price: {
-		bdt: number
-		usd: number
-	}
-	period: number
-	description: string
-	features: {
-		[key: string]: string | number | boolean
-	}
-	button: string
-	link: string
-}
-
-
-interface FeatureList {
-	[key: string]: string
-}
-
-
-interface Pricing {
-	title: string
-	price: {
-		bdt: number
-		usd: number
-	}
-	period: number
-	description: string
-	features: JSX.Element[]
-	button: string
-	link: string
-}
 
 
 /**
@@ -72,22 +24,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 
 					{ /** Switch **/ }
 					<div className="flex justify-center items-center mb-10">
-						<button
-							className={ `px-5 py-3 text-2xl rounded-l-md focus:outline-none ${ currency === 'bdt' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
-							onClick={ (): void => {
-								setCurrency('bdt')
-							} }
-						>
-							BDT (৳)
-						</button>
-						<button
-							className={ `px-5 py-3 text-2xl rounded-r-md focus:outline-none ${ currency === 'usd' ? 'bg-primary text-white' : 'bg-gray-200 text-primary' }` }
-							onClick={ (): void => {
-								setCurrency('usd')
-							} }
-						>
-							USD ($)
-						</button>
+						<Currency currency={ currency } callback={ setCurrency }/>
 					</div>
 					{ /** End Switch **/ }
 					<div
@@ -257,201 +194,207 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 						}
 						{ /** End Section **/ }
 
-						{ /** Section **/ }
-						<div className="mt-6 space-y-4 lg:space-y-0">
-							{ /** List **/ }
-							<ul className="grid lg:grid-cols-6 lg:gap-6">
-								{ /** Item **/ }
-								<li className="lg:col-span-2 lg:py-3">
-						            <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-							            Financial data
-						            </span>
-								</li>
-								{ /** End Item **/ }
+						{
+							process.env.NODE_ENV === 'development' && (
+								<>
+									{ /** Section **/ }
+									<div className="mt-6 space-y-4 lg:space-y-0">
+										{ /** List **/ }
+										<ul className="grid lg:grid-cols-6 lg:gap-6">
+											{ /** Item **/ }
+											<li className="lg:col-span-2 lg:py-3">
+									            <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+										            Financial data
+									            </span>
+											</li>
+											{ /** End Item **/ }
 
-								{ /** Item **/ }
-								<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
-								</li>
-								{ /** End Item **/ }
+											{ /** Item **/ }
+											<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
+											</li>
+											{ /** End Item **/ }
 
-								{ /** Item **/ }
-								<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
-								</li>
-								{ /** End Item **/ }
+											{ /** Item **/ }
+											<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
+											</li>
+											{ /** End Item **/ }
 
-								{ /** Item **/ }
-								<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
-								</li>
-								{ /** End Item **/ }
+											{ /** Item **/ }
+											<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
+											</li>
+											{ /** End Item **/ }
 
-								{ /** Item **/ }
-								<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
-								</li>
-								{ /** End Item **/ }
-							</ul>
-							{ /** End List **/ }
+											{ /** Item **/ }
+											<li className="hidden lg:block lg:col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center">
+											</li>
+											{ /** End Item **/ }
+										</ul>
+										{ /** End List **/ }
 
-							{ /** List **/ }
-							<ul className="grid lg:grid-cols-6 lg:gap-6">
-								{ /** Item **/ }
-								<li className="lg:col-span-2 pb-1.5 lg:py-3">
-						            <span className="text-sm text-gray-800 dark:text-gray-200">
-							            Open/High/Low/Close
-						            </span>
-								</li>
-								{ /** End Item **/ }
+										{ /** List **/ }
+										<ul className="grid lg:grid-cols-6 lg:gap-6">
+											{ /** Item **/ }
+											<li className="lg:col-span-2 pb-1.5 lg:py-3">
+									            <span className="text-sm text-gray-800 dark:text-gray-200">
+										            Open/High/Low/Close
+									            </span>
+											</li>
+											{ /** End Item **/ }
 
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Free
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<path d="M5 12h14"/>
-										</svg>
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Free
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<path d="M5 12h14"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Startup
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<path d="M5 12h14"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Team
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<polyline points="20 6 9 17 4 12"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Enterprise
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<polyline points="20 6 9 17 4 12"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+										</ul>
+										{ /** End List **/ }
+
+										{ /** List **/ }
+										<ul className="grid lg:grid-cols-6 lg:gap-6">
+											{ /** Item **/ }
+											<li className="lg:col-span-2 pb-1.5 lg:py-3">
+									            <span className="text-sm text-gray-800 dark:text-gray-200">
+										            Price-volume difference indicator
+									            </span>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Free
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<path d="M5 12h14"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Startup
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<polyline points="20 6 9 17 4 12"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Team
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<polyline points="20 6 9 17 4 12"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+
+											{ /** Item **/ }
+											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
+												<div className="grid grid-cols-6 lg:block">
+													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+														Enterprise
+													</span>
+													<svg
+														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
+														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														strokeLinecap="round" strokeLinejoin="round">
+														<polyline points="20 6 9 17 4 12"/>
+													</svg>
+												</div>
+											</li>
+											{ /** End Item **/ }
+										</ul>
+										{ /** End List **/ }
 									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Startup
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<path d="M5 12h14"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Team
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<polyline points="20 6 9 17 4 12"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Enterprise
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<polyline points="20 6 9 17 4 12"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-							</ul>
-							{ /** End List **/ }
-
-							{ /** List **/ }
-							<ul className="grid lg:grid-cols-6 lg:gap-6">
-								{ /** Item **/ }
-								<li className="lg:col-span-2 pb-1.5 lg:py-3">
-						            <span className="text-sm text-gray-800 dark:text-gray-200">
-							            Price-volume difference indicator
-						            </span>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Free
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<path d="M5 12h14"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Startup
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<polyline points="20 6 9 17 4 12"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Team
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<polyline points="20 6 9 17 4 12"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-
-								{ /** Item **/ }
-								<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-									<div className="grid grid-cols-6 lg:block">
-										<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
-											Enterprise
-										</span>
-										<svg
-											className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
-											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-											viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-											strokeLinecap="round" strokeLinejoin="round">
-											<polyline points="20 6 9 17 4 12"/>
-										</svg>
-									</div>
-								</li>
-								{ /** End Item **/ }
-							</ul>
-							{ /** End List **/ }
-						</div>
-						{ /** End Section **/ }
+									{ /** End Section **/ }
+								</>
+							)
+						}
 
 						{
 							process.env.NODE_ENV === 'development' && (
