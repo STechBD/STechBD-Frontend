@@ -39,23 +39,20 @@ interface Menu {
 
 
 /**
- * Header component.
+ * The Header component.
  *
+ * @returns { JSX.Element } The Header component.
  * @since 3.0.0
  */
 export default function Header(): JSX.Element {
 	const path: string = usePathname()
-	const [ type, setType ] = useState<string>('default')
+	const type: string = (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? 'product' : 'default'
 
 	const data = {
 		siteTitle: 'S Technologies',
 		siteLogo: <AnimatedLogo/>,
 		productTitle: 'Install Express',
 		productLogo: 'Install-Express-Logo-Light.svg',
-	}
-
-	if (path.startsWith('/product') && path !== '/product' && validatePath(path)) {
-		setType('product')
 	}
 
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
