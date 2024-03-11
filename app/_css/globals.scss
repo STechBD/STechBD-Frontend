@@ -43,12 +43,50 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #888888;
+	background: var(--primary);
 	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #555555;
+	background: var(--secondary);
+	cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:active {
+	background: var(--secondary);
+	cursor: grabbing;
+}
+
+// cursor design
+
+/* cursor design */
+.cursor {
+	position: fixed;
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--primary);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9999;
+	transition: all 0.1s ease;
+	transition-property: width, height, border;
+	will-change: width, height, transform, border;
+}
+
+.cursor-dot {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: var(--primary);
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.1s ease;
+}
+
+.cursor-dot.active {
+	background-color: var(--secondary);
 }
 
 
