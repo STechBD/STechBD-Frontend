@@ -4,7 +4,7 @@ import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { isPath } from '@/app/_function/utility'
+import { isPath, validatePath } from '@/app/_function/utility'
 import ParticleAnimation from '@/app/_component/particleAnimation'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import Theme from '@/app/_component/theme'
@@ -43,8 +43,21 @@ interface Menu {
  *
  * @since 3.0.0
  */
-export default function Header({ type = 'default', data = {} }: any): JSX.Element {
-	const path: string | undefined = usePathname()
+export default function Header(): JSX.Element {
+	const path: string = usePathname()
+	const [ type, setType ] = useState<string>('default')
+
+	const data = {
+		siteTitle: 'S Technologies',
+		siteLogo: <AnimatedLogo/>,
+		productTitle: 'Install Express',
+		productLogo: 'Install-Express-Logo-Light.svg',
+	}
+
+	if (path.startsWith('/product') && path !== '/product' && validatePath(path)) {
+		setType('product')
+	}
+
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
 	const [ showProduct, setShowProduct ] = useState<boolean>(false)
 	const [ showServer, setShowServer ] = useState<boolean>(false)

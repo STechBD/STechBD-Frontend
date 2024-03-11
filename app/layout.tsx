@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import '@/app/_css/globals.scss'
-import HeaderLoader from '@/app/_component/headerLoader'
+import Header from '@/app/_component/header'
 import Footer from '@/app/_component/footer'
 
 
@@ -244,7 +244,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
 	return (
 		<html lang="en">
 		<body className={ inter.className + ' dark:bg-gray-900' }>
-		<HeaderLoader/>
+		<Header/>
 		<main className="min-h-screen">
 			{ children }
 		</main>
