@@ -1,10 +1,11 @@
 'use client'
 
-import { JSX, useState } from 'react'
+import { JSX } from 'react'
 import Link from 'next/link'
+import { HeroEffect } from '@/app/_component/background'
 import { RandomTypewriter } from '@/app/_component/typewriter'
 import { Bounce } from '@/app/_component/animation'
-import DomainChecker from '@/app/_component/domainChecker';
+import DomainChecker from '@/app/_component/domainChecker'
 
 
 /**
@@ -22,49 +23,36 @@ export default function Hero(): JSX.Element {
 		'UI/UX',
 		'Solution',
 	]
+	const services = [
+		{
+			title: 'Domain Name Registration',
+			description: 'We provide domain registration service.',
+			button: 'Domain',
+			link: '/domain',
+		},
+		{
+			title: 'Server and Hosting',
+			description: 'We provide server and hosting service.',
+			button: 'Server',
+			link: '/server',
+		},
+		{
+			title: 'Software Development',
+			description: 'We provide software development service.',
+			button: 'Software',
+			link: '/software',
+		},
+		{
+			title: 'Artificial Intelligence',
+			description: 'We provide AI development solution.',
+			button: 'Artificial Intelligence',
+			link: '/ai-development',
+		},
+	]
 
 	return (
 		<div className="relative min-h-screen overflow-hidden -mt-24 py-16 md:py-24">
-			{ /** Background color effect **/ }
-			<div
-				className="absolute inset-0 h-full w-full bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
-			</div>
-			<div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-			     aria-hidden="true">
-				<div
-					className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }>
-				</div>
-			</div>
-			<div
-				className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-				aria-hidden="true">
-				<div
-					className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
-			</div>
-			<div
-				className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-				aria-hidden="true">
-				<div
-					className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
-					style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
-			</div>
-			{ /** Background gradient effect **/ }
-			<div
-				className="absolute inset-0 h-full min-h-screen w-full -z-10 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30">
-				<svg className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice"
-				     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 678">
-					<path d="M0 0l1463 678L0 678V0z" fill="url(#heroicon-gradient)" fillOpacity=".4"
-					/>
-					<defs>
-						<linearGradient x1="731.5" x2="731.5" y1="0" y2="678" gradientUnits="userSpaceOnUse">
-							<stop stopColor="#ff80b5"/>
-							<stop offset="1" stopColor="#9089fc"/>
-						</linearGradient>
-					</defs>
-				</svg>
-			</div>
+			<HeroEffect/>
 			{ /** Content **/ }
 			<div className="relative h-full min-h-screen">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -106,74 +94,30 @@ export default function Hero(): JSX.Element {
 					</div>
 					{ /** Grid of Services **/ }
 					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
-							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100">
-									Domain Name Registration
-								</h2>
-								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
-									We provide domain registration service.
-								</p>
-								<div className="mt-6">
-									<Link href="/domain"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
-									>
-										Domain
-									</Link>
+						{
+							services.map((service, index) => (
+								<div
+									key={ index }
+									className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
+								>
+									<Bounce>
+										<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
+											{ service.title }
+										</h2>
+										<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
+											{ service.description }
+										</p>
+										<div className="mt-6">
+											<Link href={ service.link }
+											      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+											>
+												{ service.button }
+											</Link>
+										</div>
+									</Bounce>
 								</div>
-							</Bounce>
-						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
-							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
-									Server and Hosting
-								</h2>
-								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
-									We provide server and hosting service.
-								</p>
-								<div className="mt-6">
-									<Link href="/server"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
-									>
-										Server
-									</Link>
-								</div>
-							</Bounce>
-						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
-							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
-									Software Development
-								</h2>
-								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
-									We provide software development service.
-								</p>
-								<div className="mt-6">
-									<Link href="/software"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
-									>
-										Software
-									</Link>
-								</div>
-							</Bounce>
-						</div>
-						<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0">
-							<Bounce>
-								<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
-									Artificial Intelligence
-								</h2>
-								<p className="mt-4 text-center text-gray-800 dark:text-gray-200">
-									We provide AI development solution.
-								</p>
-								<div className="mt-6">
-									<Link href="/ai-development"
-									      className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
-									>
-										Artificial Intelligence
-									</Link>
-								</div>
-							</Bounce>
-						</div>
+							))
+						}
 					</div>
 				</div>
 			</div>

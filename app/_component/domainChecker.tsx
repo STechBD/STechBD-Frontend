@@ -75,8 +75,7 @@ export default function DomainChecker(): JSX.Element {
 					Domain Name
 				</label>
 				<div className="relative">
-					<div
-						className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+					<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 						<span className="text-gray-500 pr-5 sm:text-sm">
 							@
 						</span>
@@ -95,6 +94,7 @@ export default function DomainChecker(): JSX.Element {
 						     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-secondary focus:border-secondary h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
 						>
 							{ extension }
+
 							<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"
 							     aria-hidden="true"
 							     xmlns="http://www.w3.org/2000/svg"
@@ -139,11 +139,14 @@ export default function DomainChecker(): JSX.Element {
 			} }
 			        className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
 				{ domainLoading ? (
-					<div role="status" aria-label="loading"
-					     className="animate-spin inline-block w-6 h-6 border-[5px] border-current border-t-transparent text-blue-600 rounded-full dark:text-white">
-											<span className="sr-only">
-												Loading ...
-											</span>
+					<div
+						role="status"
+						aria-label="loading"
+						className="animate-spin inline-block w-6 h-6 border-[5px] border-current border-t-transparent text-blue-600 rounded-full dark:text-white"
+					>
+						<span className="sr-only">
+							Loading ...
+						</span>
 					</div>
 				) : (
 					<>Search</>
@@ -152,8 +155,7 @@ export default function DomainChecker(): JSX.Element {
 			<div className={ domainChecking ? 'block my-3' : 'hidden' }>
 				{
 					!domainLoading && domainError ? (
-						<div role="alert"
-						     className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
+						<div role="alert" className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
 							<svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 16 16">
 								<path
 									d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
@@ -163,8 +165,7 @@ export default function DomainChecker(): JSX.Element {
 						</div>
 					) : (
 						!domainLoading && domainAvailable ? (
-							<div role="alert"
-							     className="flex items-center bg-green-500 text-white font-bold px-4 py-3">
+							<div role="alert" className="flex items-center bg-green-500 text-white font-bold px-4 py-3">
 								<svg className="w-4 h-4 mr-2" fill="currentColor"
 								     viewBox="0 0 16 16">
 									<path
@@ -173,10 +174,10 @@ export default function DomainChecker(): JSX.Element {
 								<>Available</>
 							</div>
 						) : (
-							<div role="alert"
-							     className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
+							<div role="alert" className="flex items-center bg-red-500 text-white font-bold px-4 py-3">
 								<svg className="w-4 h-4 mr-2" fill="currentColor"
-								     viewBox="0 0 16 16">
+								     viewBox="0 0 16 16"
+								>
 									<path
 										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
 									<circle cx="10.553" cy="14.447" r="1"/>

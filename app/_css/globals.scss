@@ -162,6 +162,42 @@ textarea, input[type=text], input[type=email], input[type=password], input[type=
 	}
 }
 
+a, input, textarea button, .button, select {
+	&:disabled {
+		cursor: not-allowed;
+	}
+
+	&:active {
+		cursor: grabbing;
+	}
+
+	&:focus {
+		cursor: pointer;
+	}
+
+	&:focus-visible {
+		cursor: pointer;
+	}
+
+	&:focus-within {
+		cursor: pointer;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+input, select, textarea, button {
+	accent-color: var(--primary);
+}
+
+::selection {
+	background-color: var(--primary);
+	color: white;
+}
+
+
 
 /**
  * Page Layout.
