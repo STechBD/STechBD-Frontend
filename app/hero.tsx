@@ -53,7 +53,6 @@ export default function Hero(): JSX.Element {
 	return (
 		<div className="relative min-h-screen overflow-hidden -mt-24 py-16 md:py-24">
 			<HeroEffect/>
-			{ /** Content **/ }
 			<div className="relative h-full min-h-screen">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6">
 					<div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -92,7 +91,6 @@ export default function Hero(): JSX.Element {
 							</div>
 						</div>
 					</div>
-					{ /** Grid of Services **/ }
 					<div className="relative hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 						{
 							services.map((service, index) => (

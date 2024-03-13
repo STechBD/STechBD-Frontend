@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { User, Post, Category } from '@/app/_data/type'
+import type { User, Post, Category } from '@/app/_data/type'
 import { postList, userData, categoryData } from '@/app/_function/api'
 
 

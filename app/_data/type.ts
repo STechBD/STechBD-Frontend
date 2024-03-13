@@ -1,3 +1,15 @@
+import { JSX } from 'react'
+
+
+/**
+ * Interface definition for the metadata of API data.
+ *
+ * @interface User
+ * @interface Post
+ * @interface Category
+ *
+ * @since 3.0.0
+ */
 export interface User {
 	id?: number
 	username?: string
@@ -35,6 +47,7 @@ export interface Category {
  * @interface Feature
  * @interface Data
  * @interface FeatureList
+ * @interface Pricing
  *
  * @since 3.0.0
  */
@@ -78,4 +91,3 @@ export interface Pricing {
 	button: string
 	link: string
 }
-

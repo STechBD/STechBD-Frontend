@@ -5,10 +5,9 @@ import remarkEmoji from 'remark-emoji'
 // import remarkCodeBlock from 'remark-code-block'
 import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
-// import js from 'refractor/lang/javascript.js'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Category, Post, User } from '@/app/_data/type'
+import type { Category, Post, User } from '@/app/_data/type'
 import { categoryData, postData, postList, userData } from '@/app/_function/api'
 import Hero from '@/app/[blog]/hero'
 import Index from '@/app/[blog]/index'
@@ -21,7 +20,7 @@ import Index from '@/app/[blog]/index'
  * @returns { Promise<{ title: string }> } The metadata.
  * @since 3.0.0
  */
-export async function generateMetadata({ params }: { params: { blog: string } }) {
+export async function generateMetadata({ params }: { params: { blog: string } }): Promise<{ title: string | undefined }> {
 	const slug: string = params.blog
 	const post: Post = await postData(slug)
 
@@ -97,7 +96,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							</h1>
 							<div className="mt-8">
 								<Image src={ thumbnail } alt={ title } height={ 628 } width={ 1200 }
-								       className="rounded-lg"/>
+								       className="rounded-lg"
+								/>
 							</div>
 						</div>
 					</div>

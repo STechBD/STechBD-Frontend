@@ -20,8 +20,7 @@ export const metadata: Metadata = {
 export default function Hero(): JSX.Element {
 	return (
 		<div className="relative min-h-screen overflow-hidden -mt-24 py-16 md:py-24">
-			{ /** Content of 2-column for about page **/ }
-			<div className="relative h-full min-h-screen">
+			<div className="relative h-full">
 				<div className="lg:grid lg:grid-cols-5">
 					<div className="col-span-2 flex justify-center items-center">
 						<Bounce hover={ true }>
@@ -34,20 +33,19 @@ export default function Hero(): JSX.Element {
 						</h1>
 					</div>
 				</div>
-			</div>
-			{/* Scroll down arrow button to go next section */ }
-			<div
-				className="absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer"
-				onClick={ (): void => {
+				<div
+					className="mt-8 flex justify-center cursor-pointer"
+					onClick={ (): void => {
 						window.scrollBy(0, window.innerHeight)
 					}
-				}
-			>
-				<svg className="w-16 h-16 animate-bounce text-primary bg-white rounded-full" fill="none"
-				     viewBox="0 0 24 24" stroke="currentColor"
+					}
 				>
-					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-				</svg>
+					<svg className="w-16 h-16 animate-bounce text-primary bg-white rounded-full" fill="none"
+					     viewBox="0 0 24 24" stroke="currentColor"
+					>
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+					</svg>
+				</div>
 			</div>
 		</div>
 	)

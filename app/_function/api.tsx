@@ -1,4 +1,4 @@
-import { Category, Post, User } from '@/app/_data/type'
+import type { Category, Post, User } from '@/app/_data/type'
 
 
 /**
