@@ -64,19 +64,50 @@ export default function Page(): JSX.Element {
 			date: 'August 14, 2013',
 			description: 'S Technologies was launched as a software company in Bangladesh.',
 			button: {
-				title: 'Learn more',
+				title: 'Read more',
 				link: '/welcome-to-stechbd',
 			},
 		},
 		{
-			title: 'Marketing UI design in Figma',
-			date: 'March 2022',
-			description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
+			title: 'Launched S Hosting',
+			date: 'June 8, 2015',
+			description: 'S Technologies launched S Hosting, a domain, hosting, and server provider company.',
+			button: {
+				title: 'Read more',
+				link: '/launched-shostbd',
+			},
 		},
 		{
-			title: 'E-Commerce UI code in Tailwind CSS',
-			date: 'April 2022',
-			description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+			title: 'Launched Ulkaa',
+			date: 'August 14, 2015',
+			description: 'S Technologies launched Ulkaa as a community company. Ulkaa is a social media website to connect people. It also provide other services like search engine, online shopping, online tool, etc.',
+			button: {
+				title: 'Read more',
+				link: '/launched-ulkaa',
+			},
+		},
+		{
+			title: 'Spread services in the overseas countries',
+			date: 'October 25, 2015',
+			description: 'S Technologies worked with international client for the first time to make services available internationally.',
+		},
+		{
+			title: 'Closed S Hosting',
+			date: 'June 1, 2015',
+			description: 'S Hosting was closed and merged all the services with S Technologies. Now S Technologies will also provide domain, hosting, server, etc.',
+			button: {
+				title: 'Read more',
+				link: '/closed-shostbd',
+			},
+		},
+		{
+			title: 'Launched Shikkha Web',
+			date: 'August 14, 2017',
+			description: 'S Technologies launched Shikkha Web as an ed-tech company. Ulkaa is a social media website to connect people. It also provide other services like search engine, online shopping, online tool, etc.',
+			button: {
+				title: 'Read more',
+				link: '/launched-ulkaa',
+			},
 		},
 	]
 
@@ -130,14 +161,15 @@ export default function Page(): JSX.Element {
 										className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
 									>
 										<Bounce>
-											<div className="flex flex-col">
-												<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
-													{ company.title }
-												</h2>
-												<p className="flex-grow mt-4 text-center text-gray-800 dark:text-gray-200">
+											<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
+												{ company.title }
+											</h2>
+											<div className="flex flex-col justify-between h-full">
+												<p id="description"
+												   className="flex-shrink-0 mt-4 text-center text-gray-800 dark:text-gray-200">
 													{ company.description }
 												</p>
-												<div className="mt-6">
+												<div id="bottom" className="mt-6">
 													<a href={ company.button.link } target="_blank"
 													   className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
 													>
@@ -156,7 +188,7 @@ export default function Page(): JSX.Element {
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 							Evolution of S Technologies
 						</h2>
-						<div className="lg:grid lg:grid-cols-3">
+						<div className="lg:grid lg:grid-cols-3 lg:gap-8">
 							<section className="mt-16 col-span-2">
 								<ol className="relative border-s border-primary">
 									{
@@ -164,29 +196,34 @@ export default function Page(): JSX.Element {
 											<li key={ index } className="mb-10 ms-4">
 												<div
 													className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -start-1.5 border border-primary"></div>
-												<time className="mb-1 text-sm font-normal leading-none text-primary">
+												<time className="mb-1 text-lg font-normal leading-none text-primary">
 													{ event.date }
 												</time>
-												<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+												<h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
 													{ event.title }
 												</h3>
-												<p className="text-base font-normal text-gray-800 dark:text-gray-200">
+												<p className="text-lg font-normal text-gray-800 dark:text-gray-200">
 													{ event.description }
 												</p>
 												{
-													event.button &&
-													<Link href={ event.button.link }
-													      className="inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-													>
-														{ event.button.title } <></>
-														<svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
-														     xmlns="http://www.w3.org/2000/svg" fill="none"
-														     viewBox="0 0 14 10">
-															<path stroke="currentColor" strokeLinecap="round"
-															      strokeLinejoin="round" strokeWidth="2"
-															      d="M1 5h12m0 0L9 1m4 4L9 9"/>
-														</svg>
-													</Link>
+													event.button && (
+														<Link
+															href={ event.button.link }
+															className="inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+														>
+															{ event.button.title }
+
+															<svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
+															     xmlns="http://www.w3.org/2000/svg" fill="none"
+															     viewBox="0 0 14 10"
+															>
+																<path stroke="currentColor" strokeLinecap="round"
+																      strokeLinejoin="round" strokeWidth="2"
+																      d="M1 5h12m0 0L9 1m4 4L9 9"
+																/>
+															</svg>
+														</Link>
+													)
 												}
 											</li>
 										))
@@ -194,7 +231,7 @@ export default function Page(): JSX.Element {
 								</ol>
 							</section>
 							<section className="mt-16">
-								<div className="p-4 bg-white">
+								<div className="p-4 bg-white bg-opacity-40">
 									<Image
 										src="/image/Rising.webp"
 										alt="Rising"

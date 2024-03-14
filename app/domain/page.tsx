@@ -101,11 +101,14 @@ export default function Page(): JSX.Element {
 												{ domain.registration.bdt }
 											</p>
 											<p className="mt-4 text-center text-gray-500">
-												Per Year
+												{
+													domain.title === 'Bangladeshi' ? 'Per 2 Year' : 'Per Year'
+												}
 											</p>
 											<div className="mt-6">
 												<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
-												   target="_blank" className={ buttonClass }>
+												   target="_blank" className={ buttonClass }
+												>
 													Buy Now
 												</a>
 											</div>

@@ -26,8 +26,8 @@ const inter: NextFont = Inter({ subsets: [ 'latin' ] })
  */
 export const metadata: Metadata = {
 	title: {
-		default: 'S Technologies',
-		template: '%s | S Technologies',
+		default: 'Welcome to S Technologies',
+		template: '%s | S Technologies | STechBD.Net',
 	},
 	description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SasS), UI/UX design, SEO, business solutions, etc. S Technologies has been working in research of new technologies especially in artificial intelligence, and developing new products.',
 	keywords: [
@@ -109,6 +109,14 @@ export const metadata: Metadata = {
 		siteName: 'S Technologies',
 		title: 'Welcome to S Technologies',
 		description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
+		images: [
+			{
+				url: '/image/Banner.webp',
+				width: 1200,
+				height: 628,
+				alt: 'S Technologies',
+			}
+		],
 	},
 	icons: {
 		icon: [

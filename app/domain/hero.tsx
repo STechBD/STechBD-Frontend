@@ -144,7 +144,8 @@ export default function Hero(): JSX.Element {
 															onClick={ (): void => {
 																setExtension(ext)
 																setShowDomainDropdown(false)
-															} }>
+															} }
+														>
 															{ ext }
 														</li>
 													)) }
@@ -163,26 +164,32 @@ export default function Hero(): JSX.Element {
 					{
 						domainPrice.map((item: string, index: number) => (
 							<div className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100"
-							     key={ index }>
+							     key={ index }
+							>
 								<Bounce>
 									<h2 className="text-2xl font-bold text-center text-gray-900">
 										{ item }
 									</h2>
 									<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-										৳ { Domain.find((domain: {
-										extension: string
-									}): boolean => domain.extension === item).registration.bdt }
+										৳ {
+										Domain.find((domain: {
+											extension: string
+										}): boolean => domain.extension === item).registration.bdt
+									}
 									</p>
 									<p className="mt-4 text-center text-gray-500">
-										{ Domain.find((domain: {
-											title: string
-										}): boolean => domain.title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year' }
+										{
+											(Domain.find((domain: {
+											extension: string
+										}): boolean => domain.extension === item).title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year'
+									}
 									</p>
 									<div className="mt-6">
 										<div onClick={ (): void => {
 											setExtension(item)
 										} }
-										     className={ (index % 2 === 0 ? 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ' : 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ') + 'block button w-full text-white text-center font-bold py-2 px-4 rounded' }>
+										     className={ (index % 2 === 0 ? 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ' : 'bg-primary hover:bg-secondary focus:outline-none focus:bg-secondary ') + 'block button w-full text-white text-center font-bold py-2 px-4 rounded' }
+										>
 											Select
 										</div>
 									</div>

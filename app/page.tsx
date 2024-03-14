@@ -1,4 +1,5 @@
 import { JSX } from 'react'
+import { Metadata } from 'next'
 import Hero from '@/app/hero'
 import { DefaultEffect } from '@/app/_component/background'
 import AnimatedLogo from '@/app/_component/animatedLogo'
