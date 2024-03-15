@@ -26,20 +26,26 @@ export default function Cursor(): JSX.Element {
 			setIsActive(false)
 		}
 
+		const handleTouchStart = () => {
+			setIsActive(false)
+		}
+
 		document.addEventListener('mousemove', handleMouseMove)
 		document.addEventListener('mouseenter', handleMouseEnter)
 		document.addEventListener('mouseleave', handleMouseLeave)
+		document.addEventListener('touchstart', handleTouchStart)
 
 		return () => {
 			document.removeEventListener('mousemove', handleMouseMove)
 			document.removeEventListener('mouseenter', handleMouseEnter)
 			document.removeEventListener('mouseleave', handleMouseLeave)
+			document.removeEventListener('touchstart', handleTouchStart)
 		}
 	}, [])
 
 	return (
 		<div className="cursor" style={ { left: cursorPosition.x, top: cursorPosition.y } }>
-			<div className={ `cursor-dot' + ${ isActive ? ' active' : '' }` }/>
+			<div className={ `cursor-dot${ isActive ? ' active' : '' }` }/>
 		</div>
 	)
 }

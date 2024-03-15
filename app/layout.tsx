@@ -26,10 +26,10 @@ const inter: NextFont = Inter({ subsets: [ 'latin' ] })
  */
 export const metadata: Metadata = {
 	title: {
-		default: 'Welcome to S Technologies',
+		default: 'Welcome to S Technologies | STechBD.Net',
 		template: '%s | S Technologies | STechBD.Net',
 	},
-	description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SasS), UI/UX design, SEO, business solutions, etc. S Technologies has been working in research of new technologies especially in artificial intelligence, and developing new products.',
+	description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SaaS), UI/UX design, SEO, business solutions, etc. S Technologies has been working on the research of new technologies, especially artificial intelligence, and developing new products.',
 	keywords: [
 		'S Technologies',
 		'STechBD.Net',
@@ -107,8 +107,29 @@ export const metadata: Metadata = {
 		locale: 'en_US',
 		url: process.env.SITE,
 		siteName: 'S Technologies',
-		title: 'Welcome to S Technologies',
-		description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
+		title: {
+			default: 'Welcome to S Technologies | STechBD.Net',
+			template: '%s | S Technologies | STechBD.Net',
+		},
+		description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SaaS), UI/UX design, SEO, business solutions, etc. S Technologies has been working on the research of new technologies, especially artificial intelligence, and developing new products.',
+		images: [
+			{
+				url: '/image/Banner.webp',
+				width: 1200,
+				height: 628,
+				alt: 'S Technologies',
+			}
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		site: '@STechBD_Net',
+		creator: '@STechBD_Net',
+		title: {
+			default: 'Welcome to S Technologies | STechBD.Net',
+			template: '%s | S Technologies | STechBD.Net',
+		},
+		description: 'S Technologies (STechBD.Net) is a research-based technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, AI model development, software as a service (SaaS), UI/UX design, SEO, business solutions, etc. S Technologies has been working on the research of new technologies, especially artificial intelligence, and developing new products.',
 		images: [
 			{
 				url: '/image/Banner.webp',
@@ -232,13 +253,6 @@ export const metadata: Metadata = {
 				sizes: '310x310',
 			},
 		],
-	},
-	twitter: {
-		card: 'summary_large_image',
-		site: '@STechBD_Net',
-		creator: '@STechBD_Net',
-		title: 'Welcome to S Technologies',
-		description: 'S Technologies (STechBD.Net) is a leading technology company in Bangladesh. It was founded in 2013. It provides services like domain registration, web hosting, web servers, software development, software as a service (SasS), design solutions, etc. S Technologies has been working in research of new technologies and developing new products for the people.',
 	},
 }
 

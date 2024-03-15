@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { safeColorList } from './app/_function/theme'
 
 
 const config: Config = {
@@ -25,5 +26,6 @@ const config: Config = {
 	},
 	darkMode: 'class',
 	plugins: [],
+	safelist: safeColorList,
 }
 export default config

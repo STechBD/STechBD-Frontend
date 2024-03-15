@@ -68,7 +68,7 @@ export default function Hero(): JSX.Element {
 								<span className="block text-gray-800 dark:text-gray-200 xl:inline"> for </span>
 								<div className="text-primary">businesses</div>
 							</h1>
-							<p className="mt-3 text-base text-gray-700 dark:text-gray-300 sm:mt-5 sm:text-xl lg:text-2xl">
+							<p className="mt-3 text-base text-gray-800 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-2xl">
 								We are a team of software engineers, AI experts, and designers who are passionate about
 								building technology solutions for you.
 							</p>

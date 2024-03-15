@@ -14,6 +14,12 @@ import { Bounce } from '@/app/_component/animation'
  */
 export const metadata: Metadata = {
 	title: 'About',
+	openGraph: {
+		title: 'About',
+	},
+	twitter: {
+		title: 'About',
+	},
 }
 
 
@@ -136,15 +142,13 @@ export default function Page(): JSX.Element {
 						</h2>
 						<section className="mt-16">
 							<p className="text-2xl">
-								<span className="text-white bg-primary">
-								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>)
-							</span> is a research-based technology company in Bangladesh. It was founded in 2013. It
-								provides services like domain registration, web hosting, web servers, software
-								development, AI model development, software as a service (SaaS), UI/UX design, SEO,
-								business solutions, etc. <span className="text-white bg-primary">
-								<strong>S Technologies</strong>
-							</span> has been working in research of new technologies, especially in artificial
-								intelligence and developing new products.
+								<span className="text-white bg-primary"><strong>S Technologies</strong> (<strong>
+								STechBD.Net</strong>)</span> is a research-based technology company in Bangladesh. It
+								was founded in 2013. It provides services like domain registration, web hosting, web
+								servers, software development, AI model development, software as a service (SaaS), UI/UX
+								design, SEO, business solutions, etc. <span className="text-white bg-primary"><strong>S
+								Technologies</strong></span> has been working on the research of new technologies,
+								especially artificial intelligence, and developing new products.
 							</p>
 						</section>
 					</div>
@@ -237,7 +241,6 @@ export default function Page(): JSX.Element {
 										alt="Rising"
 										width={ 0 }
 										height={ 0 }
-										layout="responsive"
 									/>
 								</div>
 							</section>

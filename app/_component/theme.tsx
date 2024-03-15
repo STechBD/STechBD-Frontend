@@ -1,6 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
+import { themes } from '@/app/_function/theme'
 
 
 /**
@@ -10,15 +11,6 @@ import { JSX, useState } from 'react'
  * @since 3.0.0
  */
 export default function Theme(): JSX.Element {
-	const themes: string[] = [
-		'red',
-		'green',
-		'teal',
-		'blue',
-		'indigo',
-		'purple',
-		'rose',
-	]
 	const [ theme, setTheme ] = useState<string>('indigo')
 	const [ darkMode, setDarkMode ] = useState<boolean>(false)
 	const [ themePanel, setThemePanel ] = useState<boolean>(false)
@@ -61,8 +53,8 @@ export default function Theme(): JSX.Element {
 						Color
 					</p>
 					<div className="grid grid-cols-4">
-						{/* It doesn't work. Doesn't show the color in the circle. */}
-						{/*{
+						{/* It doesn't work. Doesn't show the color in the circle. */ }
+						{
 							themes.map(theme => (
 								<div key={ theme } className="flex flex-col items-center">
 									<button
@@ -75,10 +67,10 @@ export default function Theme(): JSX.Element {
 									</span>
 								</div>
 							))
-						}*/}
+						}
 
-						{/* It works fine. Shows the color in the circle. */}
-						<div className="flex flex-col items-center">
+						{/* It works fine. Shows the color in the circle. */ }
+						{/*<div className="flex flex-col items-center">
 							<button
 								onClick={ () => toggleTheme('red') }
 								className={ (darkMode ? 'border-white' : 'border-black') + ' w-12 h-12 rounded-full bg-red-600 border m-2' }
@@ -147,7 +139,7 @@ export default function Theme(): JSX.Element {
 							<span className="font-bold text-gray-800 dark:text-gray-200">
 								Rose
 							</span>
-						</div>
+						</div>*/ }
 					</div>
 				</div>
 				<div className="mt-4">

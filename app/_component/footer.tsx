@@ -21,9 +21,13 @@ export default function Footer(): JSX.Element {
 					<div className="col-span-2 mb-6 grid grid-cols-3 justify-center">
 						<div className="flext justify-end">
 							<Bounce hover={ true }>
-								<Image src="/image/S-Technologies-Icon-Light.svg" className="mr-3 text-right"
-								       alt="S Technologies Logo"
-								       height="100" width="100"/>
+								<Image
+									src="/image/S-Technologies-Icon-Light.svg"
+									className="mr-3 text-right"
+									alt="S Technologies Logo"
+									height="100"
+									width="100"
+								/>
 							</Bounce>
 						</div>
 						<div className="col-span-2">
@@ -33,17 +37,19 @@ export default function Footer(): JSX.Element {
 								</strong>
 							</div>
 							<div className="mb-3 dark:text-gray-400">
-								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>) is a research-based
-								technology company in Bangladesh. It was founded in 2013. It provides services like
-								domain registration, web hosting, web servers, software development, AI model
-								development, software as a service (SaaS), UI/UX design, SEO, business solutions,
-								etc. <strong>S Technologies</strong> has been working in research of new technologies,
-								especially in artificial intelligence and developing new products.
+								<span className="text-white bg-primary"><strong>S Technologies</strong> (<strong>
+								STechBD.Net</strong>)</span> is a research-based technology company in Bangladesh. It
+								was founded in 2013. It provides services like domain registration, web hosting, web
+								servers, software development, AI model development, software as a service (SaaS), UI/UX
+								design, SEO, business solutions, etc. <span className="text-white bg-primary"><strong>S
+								Technologies</strong></span> has been working on the research of new technologies,
+								especially artificial intelligence, and developing new products.
 							</div>
 							<div className="text-green-700">
 								<div>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 6 3"
-									     className="inline-block mr-1">
+									     className="inline-block mr-1"
+									>
 										<rect fill="#009639" width="6" height="3"/>
 										<rect fill="#FFF" width="6" height="2"/>
 										<rect width="6" height="1"/>

@@ -4,6 +4,7 @@ import { JSX, useState } from 'react'
 import { Bounce } from '@/app/_component/animation'
 import { Typewriter } from '@/app/_component/typewriter'
 import Domain from '@/app/_data/domain'
+import DomainChecker from '@/app/_component/domainChecker';
 
 
 /**
@@ -94,72 +95,23 @@ export default function Hero(): JSX.Element {
 			</div>
 			{/* Content */ }
 			<div className="relative screen-height w-full flex flex-col items-center justify-center px-10">
-				<h1 className="text-4xl font-bold text-center tracking-tight text-gray-900 sm:text-6xl">
-					Domain Registration
-				</h1>
-				<p className="mt-4 text-center text-2xl text-gray-500">
-					C
-					<Typewriter content="hoose your domain name for your personal or business website." speed={ 10 }/>
-				</p>
-				<div className="mt-10 w-full max-w-xl">
-					<span>
-						<label htmlFor="domain" className="sr-only">
-							Domain Name
-						</label>
-						<div className="relative">
-							<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-								<span className="text-gray-500 pr-5 sm:text-sm">
-									@
-								</span>
-							</div>
-							<input type="text" name="domain" placeholder="Domain Name"
-							       className="block w-full pl-9 pr-12 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"/>
-							<div className="absolute inset-y-0 right-0 flex items-center">
-								<label htmlFor="extension" className="sr-only">
-									Domain Extension
-								</label>
-								<div onClick={ toggleDomainDropdown }
-								     className="flex items-center justify-center gap-2 cursor-pointer focus:ring-secondary focus:border-secondary h-full py-0 pl-16 pr-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
-									{ extension }
-									<svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
-									     xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M12,16a2.5,2.5,0,0,1-1.768-.731L4.939,9.975,7.061,7.854,12,12.793l4.939-4.939,2.122,2.121-5.293,5.293A2.5,2.5,0,0,1,12,16Z"/>
-									</svg>
-								</div>
-								{ showDomainDropdown && (
-									<div
-										className="absolute top-full left-0 w-full max-h-48 overflow-y-auto bg-white border border-black border-opacity-10 rounded py-2">
-										<ul className="list-none">
-											{ domain.map((type: any, index: number) => (
-												<>
-													<li className="px-3 py-1 text-sm cursor-default font-bold"
-													    key={ index }>
-														{ type.name }
-													</li>
-													{ type.extension.map((ext: string, extIndex: number) => (
-														<li
-															key={ `${ index }-${ extIndex }` }
-															className="px-3 py-1 ml-2 text-sm cursor-pointer hover:text-white hover:bg-gray-600"
-															onClick={ (): void => {
-																setExtension(ext)
-																setShowDomainDropdown(false)
-															} }
-														>
-															{ ext }
-														</li>
-													)) }
-												</>
-											)) }
-										</ul>
-									</div>
-								) }
-							</div>
-						</div>
+				<h1
+					className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl"
+				>
+					<span
+						className="block md:inline sm:block bg-primary text-white h-12"
+					>
+						D<Typewriter content="omain"/>
+					</span> <span className="text-primary">
+						Name
+					</span> <span className="block text-gray-800 dark:text-gray-200 xl:inline">
+						Registration
 					</span>
-					<input type="submit" value="Search"
-					       className="mt-3 w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"/>
-				</div>
+				</h1>
+				<p className="mt-3 text-base text-gray-800 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-2xl">
+					Choose your desired domain name for your personal or business website.
+				</p>
+				<DomainChecker/>
 				<div className="relative hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 z-10">
 					{
 						domainPrice.map((item: string, index: number) => (
@@ -180,9 +132,9 @@ export default function Hero(): JSX.Element {
 									<p className="mt-4 text-center text-gray-500">
 										{
 											(Domain.find((domain: {
-											extension: string
-										}): boolean => domain.extension === item).title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year'
-									}
+												extension: string
+											}): boolean => domain.extension === item).title === 'Bangladeshi') ? 'Per 2 Year' : 'Per Year'
+										}
 									</p>
 									<div className="mt-6">
 										<div onClick={ (): void => {
