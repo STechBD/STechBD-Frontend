@@ -1,8 +1,10 @@
 'use client'
 
 import { JSX, useState } from 'react'
+import { Metadata } from 'next'
 import data from '@/app/_data/domain'
 import Hero from '@/app/domain/hero'
+import { DefaultEffect } from '@/app/_component/background';
 
 
 /**
@@ -10,8 +12,20 @@ import Hero from '@/app/domain/hero'
  *
  * @since 3.0.0
  */
-const title: string = 'Domain Registration'
-const description: string = 'We will help you to choose a domain name for your website.'
+const title: string = 'Domain Name Registration'
+const description: string = 'We will help you to choose a domain name for your website. S Technologies provides domain registration service in cheap rate. Here is the list of domain price.'
+/*export const metadata: Metadata = {
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+	},
+	twitter: {
+		title,
+		description,
+	},
+}*/
 
 
 /**
@@ -55,33 +69,30 @@ export default function Page(): JSX.Element {
 		<>
 			<Hero/>
 			<div className="relative isolate px-6 lg:px-8">
-				<div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-				     aria-hidden="true">
-					<div
-						className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }>
-					</div>
-				</div>
-				<div
-					className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-					aria-hidden="true">
-					<div
-						className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
-				</div>
-				<div
-					className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-					aria-hidden="true">
-					<div
-						className="relative left-[calc(50%-3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]"
-						style={ { clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' } }></div>
-				</div>
+				<DefaultEffect/>
 				<div className="md:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Pricing Table</h2>
 					<p className="mt-4 text-xl text-gray-500">
 						Domain price varies from domain to domain. We will help you to choose a domain name for your
 						website. Here is the list of domain price.
 					</p>
+					{/* domain sorting option selecting button */}
+					<div className="mt-10">
+						<div className="flex justify-center">
+							<button
+								onClick={ (): void => requestSort('asc') }
+								className="px-4 py-2 mx-2 text-white font-bold bg-primary rounded-lg focus:outline-none focus:bg-secondary"
+							>
+								Ascending
+							</button>
+							<button
+								onClick={ (): void => requestSort('desc') }
+								className="px-4 py-2 mx-2 text-white font-bold bg-primary rounded-lg focus:outline-none focus:bg-secondary"
+							>
+								Descending
+							</button>
+						</div>
+					</div>
 					<div className="mt-10">
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-10">
 							{
