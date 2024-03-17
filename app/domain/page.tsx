@@ -53,9 +53,7 @@ export default function Page(): JSX.Element {
 		return data
 	}
 
-	const requestSort = (key: string): void => {
-		let direction: string = 'asc'
-
+	const requestSort = (key: string, direction: string): void => {
 		if (sortDomain.key === key && sortDomain.direction === 'asc') {
 			direction = 'desc'
 		}
@@ -71,27 +69,37 @@ export default function Page(): JSX.Element {
 			<div className="relative isolate px-6 lg:px-8">
 				<DefaultEffect/>
 				<div className="md:px-20 py-10">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Pricing Table</h2>
+					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+						Pricing Table
+					</h2>
 					<p className="mt-4 text-xl text-gray-500">
 						Domain price varies from domain to domain. We will help you to choose a domain name for your
 						website. Here is the list of domain price.
 					</p>
-					{/* domain sorting option selecting button */}
-					<div className="mt-10">
-						<div className="flex justify-center">
-							<button
-								onClick={ (): void => requestSort('asc') }
-								className="px-4 py-2 mx-2 text-white font-bold bg-primary rounded-lg focus:outline-none focus:bg-secondary"
-							>
-								Ascending
-							</button>
-							<button
-								onClick={ (): void => requestSort('desc') }
-								className="px-4 py-2 mx-2 text-white font-bold bg-primary rounded-lg focus:outline-none focus:bg-secondary"
-							>
-								Descending
-							</button>
-						</div>
+					{/**
+						// domain sorting option selecting button
+						// 2 button will be there. one is "sort by price" another is "sort by name"
+						// another icon will be there to show the sorting direction
+					**/}
+					<div className="mt-10 flex">
+						<button
+							className="text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
+							onClick={ (): void => requestSort('none', sortDomain.direction) }
+						>
+							Sort by Default
+						</button>
+						<button
+							className="ml-4 text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
+							onClick={ (): void => requestSort('extension', sortDomain.direction) }
+						>
+							Sort by Name
+						</button>
+						<button
+							className="ml-4 text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
+							onClick={ (): void => requestSort('registration.bdt', sortDomain.direction) }
+						>
+							Sort by Price
+						</button>
 					</div>
 					<div className="mt-10">
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-10">
