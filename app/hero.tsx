@@ -2,7 +2,7 @@
 
 import { JSX } from 'react'
 import Link from 'next/link'
-import { HeroEffect } from '@/app/_component/background'
+import { AdvancedHeroEffect } from '@/app/_component/background'
 import { RandomTypewriter } from '@/app/_component/typewriter'
 import { Bounce } from '@/app/_component/animation'
 import DomainChecker from '@/app/_component/domainChecker'
@@ -52,7 +52,7 @@ export default function Hero(): JSX.Element {
 
 	return (
 		<div className="relative min-h-screen overflow-hidden -mt-24 py-16 md:py-24">
-			<HeroEffect/>
+			<AdvancedHeroEffect/>
 			<div className="relative h-full min-h-screen">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6">
 					<div className="pt-32 pb-12 md:pt-40 md:pb-20">

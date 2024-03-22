@@ -6,6 +6,9 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
+				hostname: '*.stechbd.net',
+			},
+			{
 				hostname: 'tailwindui.com',
 			},
 			{

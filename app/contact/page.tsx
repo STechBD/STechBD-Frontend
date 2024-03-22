@@ -1,6 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
+import { DefaultEffect } from '@/app/_component/background'
 import Hero from '@/app/contact/hero'
 import ContactForm from '@/app/contact/form'
 
@@ -14,6 +15,14 @@ import ContactForm from '@/app/contact/form'
 export const metadata: Metadata = {
 	title: 'Contact Us',
 	description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.',
+	openGraph: {
+		title: 'Contact Us',
+		description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.',
+	},
+	twitter: {
+		title: 'Contact Us',
+		description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.'
+	},
 }
 
 
@@ -27,7 +36,8 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="bg-white">
+			<div className="relative isolate px-6 py-24 lg:px-8">
+				<DefaultEffect/>
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
 					<div className="lg:grid lg:grid-cols-3 lg:gap-8">
 						<div>

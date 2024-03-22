@@ -38,12 +38,30 @@ export function DefaultEffect(): JSX.Element {
 
 
 /**
- * The Hero Background Effect component to use as a background effect in the hero section.
+ * The Basic Hero Background Effect component to use as a background effect in the hero section.
+ * This includes three gradient layers; from pink to purple.
  *
- * @returns { JSX.Element } The Hero Background Effect component.
+ * @returns { JSX.Element } The Basic Hero Background Effect component.
  * @since 3.0.0
  */
-export function HeroEffect(): JSX.Element {
+export function BasicHeroEffect(): JSX.Element {
+	return (
+		<div className="absolute inset-0">
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
+		</div>
+	)
+}
+
+
+/**
+ * The Advanced Hero Background Effect component to use as a background effect in the hero section.
+ *
+ * @returns { JSX.Element } The Advanced Hero Background Effect component.
+ * @since 3.0.0
+ */
+export function AdvancedHeroEffect(): JSX.Element {
 	return (
 		<>
 			{ /** Background color effect **/ }
