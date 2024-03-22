@@ -7,6 +7,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
 import Image from 'next/image'
 import Link from 'next/link'
+import E404 from '@/app/not-found'
 import type { Category, Post, User } from '@/app/_data/type'
 import { categoryData, postData, postList, userData } from '@/app/_function/api'
 import Hero from '@/app/[blog]/hero'
@@ -16,16 +17,49 @@ import Index from '@/app/[blog]/index'
 /**
  * Generate metadata for the blog post page.
  *
- * @param { string } slug The post slug.
+ * @param { string } slug The post-slug.
  * @returns { Promise<{ title: string }> } The metadata.
  * @since 3.0.0
  */
-export async function generateMetadata({ params }: { params: { blog: string } }): Promise<{ title: string | undefined }> {
+export async function generateMetadata({ params }: { params: { blog: string } }): Promise<any> {
 	const slug: string = params.blog
 	const post: Post = await postData(slug)
 
+	if (!post) {
+		return {
+			title: '404 Error | Page Not Found',
+			description: 'The page you requested was not found. Please check the URL and try again.',
+			openGraph: {
+				title: '404 Error | Page Not Found',
+				description: 'The page you requested was not found. Please check the URL and try again.',
+			},
+			twitter: {
+				title: '404 Error | Page Not Found',
+				description: 'The page you requested was not found. Please check the URL and try again.',
+			},
+		}
+	}
+
 	return {
 		title: post.title,
+		description: post.content?.slice(0, 160) ?? 'No content',
+		openGraph: {
+			title: post.title,
+			description: post.content?.slice(0, 160) ?? 'No content',
+			type: 'article',
+			image: {
+				url: post.image ?? '/image/Banner.webp',
+				alt: post.title,
+			},
+		},
+		twitter: {
+			title: post.title,
+			description: post.content?.slice(0, 160) ?? 'No content',
+			image: {
+				url: post.image ?? '/image/Banner.webp',
+				alt: post.title,
+			},
+		},
 	}
 }
 
@@ -39,6 +73,10 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
 	const slug: string = params.blog
 	const post: Post = await postData(slug)
+
+	if (!post) {
+		return <E404/>
+	}
 
 	const title: string = post.title ?? 'Default Title'
 	const thumbnail: string = '/image/Banner.webp'
@@ -86,11 +124,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		<>
 			<Hero/>
 			<div className="relative h-full">
-				<div className="max-w-7xl mx-auto">
+				<div className="mx-4 lg:mx-auto max-w-7xl">
 					<div className="pt-32 md:pt-40">
 						<div className="max-w-4xl flex flex-col items-center mx-auto text-center">
 							<h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
-								<span className="block md:inline sm:block bg-primary text-white h-12">
+								<span className="block md:inline sm:block bg-primary text-white">
 									{ title }
 								</span>
 							</h1>
@@ -103,8 +141,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 					</div>
 				</div>
 			</div>
-			<div className="relative lg:grid lg:grid-cols-4 mt-12 mb-24">
-				<div className="px-4 mb-4 lg:mb-0 sticky top-[6.5rem]">
+			<div className="relative grid lg:grid-cols-4 mt-12 mb-24">
+				<div className="order-2 lg:order-1 px-4 my-8 lg:my-0 lg:sticky lg:top-[6.5rem]">
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
@@ -134,6 +172,11 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 					<div
 						className="mt-8 p-2 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
+						<div className="p-6 mb-2">
+							<h2 className="text-2xl text-center font-bold text-gray-900 dark:text-white">
+								More from the author
+							</h2>
+						</div>
 						{
 							(await postList()).map((post: Post, index: number) => {
 								const date: Date = new Date(post.published ?? '')
@@ -179,7 +222,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						}
 					</div>
 				</div>
-				<div className="col-span-2 antialiased">
+				<div className="order-1 lg:order-2 lg:col-span-2 antialiased overflow-x-hidden">
 					<div className="flex justify-between px-4 mx-auto">
 						<article
 							className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
@@ -210,9 +253,6 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 										</div>
 									</div>
 								</address>
-								<h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-									{ title }
-								</h1>
 								<p className="mb-6 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
 									<Link href={ '/category/' + category.slug }>
 										{ category.name }
@@ -502,7 +542,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						</article>
 					</div>
 				</div>
-				<div className="px-4 mb-4 lg:mb-0 sticky top-[6.5rem]">
+				<div className="order-3 hidden lg:block px-4 mb-4 lg:mb-0 sticky top-[6.5rem]">
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
@@ -526,7 +566,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 									{
 										(await postList()).map((post: Post, index: number) => {
 											return (
-												<article key={ index } className="rounded-lg max-w-xs bg-white">
+												<article key={ index } className="rounded-lg bg-white">
 													<Link href={ '/' + post.slug }>
 														<Image
 															src={ (post.image === '' || post.image === undefined) ? '/image/Banner.webp' : post.image }
@@ -602,9 +642,10 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 										<div
 											className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300"
 										>
-											We care about the protection of your data. <Link href="#" className="font-medium text-primary-600 dark:text-primary-500 hover:underline">
-												Read our Privacy Policy
-											</Link>.
+											We care about the protection of your data. <Link href="#"
+											                                                 className="font-medium text-primary-600 dark:text-primary-500 hover:underline">
+											Read our Privacy Policy
+										</Link>.
 										</div>
 									</form>
 								</div>

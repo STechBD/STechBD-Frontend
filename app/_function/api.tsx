@@ -10,13 +10,13 @@ const api: string = process.env.API ?? ''
 
 
 /**
- * Fetch the post list from the API server.
+ * Fetch the post-list from the API server.
  *
- * @returns { Promise<Post> } The post data.
+ * @returns { Promise<Post> } The post-data.
  * @since 3.0.0
  */
 export async function postList(): Promise<Post[]> {
-	const response: Response = await fetch(api + '/blog', {
+	const response: Response = await fetch(api + '/blog?order=latest', {
 		next: {
 			revalidate: 300,
 		},
@@ -27,18 +27,18 @@ export async function postList(): Promise<Post[]> {
 
 
 /**
- * Fetch the post data from the API server.
+ * Fetch the post-data from the API server.
  *
- * @param slug The post slug.
- * @returns { Promise<Post> } The post data.
+ * @param slug The post-slug.
+ * @returns { Promise<Post> } The post-data.
  * @since 3.0.0
  */
 export async function postData(slug: string): Promise<Post> {
 	const response: Response = await fetch(api + '/blog/post/' + slug, {
 		cache: 'force-cache',
 	})
-	const data = await response.json()
-	return data.data
+
+	return (await response.json()).data
 }
 
 
