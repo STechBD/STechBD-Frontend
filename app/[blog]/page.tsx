@@ -1,15 +1,16 @@
 import { JSX } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import E404 from '@/app/not-found'
+import type { Category, Post, User } from '@/app/_data/type'
+import { categoryData, postData, postList, userData } from '@/app/_function/api'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkEmoji from 'remark-emoji'
 // import remarkCodeBlock from 'remark-code-block'
 import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
-import Image from 'next/image'
-import Link from 'next/link'
-import E404 from '@/app/not-found'
-import type { Category, Post, User } from '@/app/_data/type'
-import { categoryData, postData, postList, userData } from '@/app/_function/api'
+import DOMPurify from 'dompurify'
 import Hero from '@/app/[blog]/hero'
 import Index from '@/app/[blog]/index'
 
@@ -61,6 +62,11 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 			},
 		},
 	}
+}
+
+
+function cleanHtmlTags(html: string): string {
+	return html.replace(/<[^>]*>/g, '')
 }
 
 
@@ -564,27 +570,30 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 								</h2>
 								<div className="rounded-lg grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
 									{
-										(await postList()).map((post: Post, index: number) => {
+										(await postList(8)).map((post: Post, index: number) => {
 											return (
 												<article key={ index } className="rounded-lg bg-white">
-													<Link href={ '/' + post.slug }>
-														<Image
-															src={ (post.image === '' || post.image === undefined) ? '/image/Banner.webp' : post.image }
-															className="mb-5 rounded-t-lg"
-															alt={ post.title ?? 'Image' }
-															height={ 628 }
-															width={ 1200 }
-														/>
-													</Link>
+													<div className="flex-shrink-0 w-full aspect-[1200/628] overflow-hidden relative">
+														<div className="absolute inset-0 flex items-center justify-center">
+															<Image
+																className="object-cover rounded-t-2xl"
+																src={ (post.image === '' || post.image === undefined) ? '/image/Banner.webp' : post.image }
+																alt={ title }
+																width={ 1200 }
+																height={ 628 }
+																loading="lazy"
+															/>
+														</div>
+													</div>
 													<div className="p-4">
 														<Link href={ '/' + post.slug }>
 															<h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-																{ post.title }
+																{ post.title?.split(/\s+/).slice(0, 9).join(' ') }
 															</h2>
 														</Link>
-														<p className="mb-4 text-gray-500 dark:text-gray-400">
-															{ post.content?.split(/\s+/).slice(0, 16).join(' ') }...
-														</p>
+														<div className="mb-4 text-gray-500 dark:text-gray-400">
+															{ cleanHtmlTags(post.excerpt ?? '').split(/\s+/).slice(0, 14).join(' ') }...
+														</div>
 														<Link href={ '/' + post.slug }
 														      className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline"
 														>

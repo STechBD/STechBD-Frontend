@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import Hero from '@/app/server-info/hero'
+import Hero from './hero'
 
 
 const servers = [

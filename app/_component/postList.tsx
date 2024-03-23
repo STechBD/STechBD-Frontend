@@ -1,8 +1,8 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { User, Post, Category } from '@/app/_data/type'
-import { postList, userData, categoryData } from '@/app/_function/api'
+import type { Category, Post, User } from '@/app/_data/type'
+import { categoryData, postList, userData } from '@/app/_function/api'
 
 
 /**
@@ -11,8 +11,8 @@ import { postList, userData, categoryData } from '@/app/_function/api'
  * @returns { JSX.Element } Blog list page component.
  * @since 3.0.0
  */
-export default async function PostList(): Promise<JSX.Element> {
-	const post: Post[] = await postList()
+export default async function PostList({ limit }: { limit?: number }): Promise<JSX.Element> {
+	const post: Post[] = await postList(limit ?? null)
 
 	return (
 		<>
@@ -40,13 +40,17 @@ export default async function PostList(): Promise<JSX.Element> {
 						<article key={ item.id }
 						         className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
 						>
-							<div className="flex-shrink-0">
-								<Image className="w-full object-cover rounded-t-2xl"
-								       src={ image }
-								       alt={ title }
-								       width={ 1200 }
-								       height={ 628 }
-								/>
+							<div className="flex-shrink-0 w-full aspect-[1200/628] overflow-hidden relative">
+								<div className="absolute inset-0 flex items-center justify-center">
+									<Image
+										className="object-cover rounded-t-2xl"
+										src={ image }
+										alt={ title }
+										width={ 1200 }
+										height={ 628 }
+										loading="lazy"
+									/>
+								</div>
 							</div>
 							<div className="p-6">
 								<div className="flex justify-between items-center mb-5 text-gray-500">
@@ -65,9 +69,9 @@ export default async function PostList(): Promise<JSX.Element> {
 										{ published }
 									</span>
 								</div>
-								<h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-secondary dark:text-gray-100 dark:hover:text-primary">
+								<h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:text-secondary dark:text-gray-100 dark:hover:text-primary">
 									<Link href={ slug }>
-										{ title }
+										{ title?.split(/\s+/).slice(0, 14).join(' ') }
 									</Link>
 								</h2>
 								{/*<p className="mb-5 font-light text-gray-500 dark:text-gray-400">

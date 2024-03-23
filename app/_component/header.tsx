@@ -387,7 +387,7 @@ export default function Header(): JSX.Element {
 					},
 					{
 						title: 'Terms of Service',
-						path: '/term',
+						path: '/terms',
 					},
 					{
 						title: 'Disclaimer',

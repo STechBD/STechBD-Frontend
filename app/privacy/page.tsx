@@ -1,36 +1,41 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import { DefaultEffect } from '@/app/_component/background'
-import Hero from '@/app/privacy/hero'
+import Hero from './hero'
 
 
 /**
- * The metadata for the Contact page.
+ * The metadata for the Privacy Policy page.
  *
- * @type { Metadata }
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title = 'Privacy Policy'
+const description = 'Our privacy policy outlines the information we collect and how we use it.'
 export const metadata: Metadata = {
-	title: 'Privacy Policy',
-	description: 'Our privacy policy outlines the information we collect and how we use it.',
+	title,
+	description,
 	openGraph: {
-		title: 'Privacy Policy',
-		description: 'Our privacy policy outlines the information we collect and how we use it.',
+		title,
+		description,
 	},
 	twitter: {
-		title: 'Privacy Policy',
-		description: 'Our privacy policy outlines the information we collect and how we use it.'
+		title,
+		description,
 	},
 }
 
 
 /**
- * The Server page component.
+ * The Privacy Policy page component.
  *
- * @returns { JSX.Element } The Server page component.
+ * @returns { JSX.Element } The Privacy Policy page component.
  * @since 3.0.0
  */
-export default function Server(): JSX.Element {
+export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>

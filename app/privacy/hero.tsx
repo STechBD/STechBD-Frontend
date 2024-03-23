@@ -3,7 +3,7 @@ import { BasicHeroEffect } from '@/app/_component/background'
 
 
 /**
- * The Hero component for the Privacy page.
+ * The Hero component for the Privacy Policy page.
  *
  * @returns { JSX.Element } The Hero component.
  * @since 3.0.0

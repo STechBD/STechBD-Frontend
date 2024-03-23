@@ -105,11 +105,6 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/master-reseller-hosting">
-									Reseller Hosting
-								</Link>
-							</li>
-							<li className="mb-2">
 								<Link href="/unmanaged-vps">
 									Unmanaged VPS
 								</Link>
@@ -281,7 +276,7 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/term">
+								<Link href="/terms">
 									Terms of Service
 								</Link>
 							</li>

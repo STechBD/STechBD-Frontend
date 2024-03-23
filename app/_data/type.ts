@@ -32,6 +32,7 @@ export interface Post {
 	category?: string
 	view?: number
 	content?: string
+	excerpt?: string
 }
 
 export interface Category {

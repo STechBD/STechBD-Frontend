@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import Hero from '@/app/server/hero'
+import Hero from './hero'
 
 
 /**
@@ -8,7 +8,7 @@ import Hero from '@/app/server/hero'
  * @returns { JSX.Element } The Server page component.
  * @since 3.0.0
  */
-export default function Server(): JSX.Element {
+export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>

@@ -3,7 +3,7 @@ import { BasicHeroEffect } from '@/app/_component/background'
 
 
 /**
- * The Hero component for the Privacy page.
+ * The Hero component for the Refund Policy page.
  *
  * @returns { JSX.Element } The Hero component.
  * @since 3.0.0
@@ -16,10 +16,11 @@ export default function Hero(): JSX.Element {
 				<div className="relative max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
 					<div className="text-center">
 						<h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-							Privacy Policy
+							Refund Policy
 						</h1>
 						<p className="mt-4 text-xl text-white">
-							We take your privacy seriously. Here&apos;s how we handle your data.
+							We are committed to providing the best service to our clients.
+							Please read these refund policy carefully before using our service.
 						</p>
 					</div>
 				</div>

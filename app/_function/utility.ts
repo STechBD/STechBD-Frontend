@@ -59,7 +59,7 @@ export function validatePath(path: string): boolean {
 		'/contact',
 		'/support',
 		'/privacy',
-		'/term',
+		'/terms',
 		'/disclaimer',
 		'/refund',
 		'/blog',

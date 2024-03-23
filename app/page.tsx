@@ -7,6 +7,7 @@ import { Bounce } from '@/app/_component/animation'
 import PricingTable from '@/app/_component/pricingTable'
 import Testimonial from '@/app/_component/testimonial'
 import PostList from '@/app/_component/postList'
+import Link from 'next/link';
 
 
 /**
@@ -235,7 +236,18 @@ export default function Page(): JSX.Element {
 					</p>
 					<section className="mt-16">
 						<div className="grid gap-8 lg:grid-cols-3 2xl:grid-cols-4">
-							<PostList/>
+							<PostList limit={ 4 }/>
+						</div>
+						<div className="mt-10 max-w-sm mx-auto flex justify-center">
+							<div
+								className="space-y-0 mx-auto"
+							>
+								<Link href="/blog"
+								      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary sm:px-8"
+								>
+									More News
+								</Link>
+							</div>
 						</div>
 					</section>
 				</div>
