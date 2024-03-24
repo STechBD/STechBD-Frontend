@@ -2,6 +2,7 @@ import { JSX } from 'react'
 import { Metadata } from 'next'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
+import Link from 'next/link';
 
 
 /**
@@ -67,16 +68,18 @@ export default function Page(): JSX.Element {
 					</h3>
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						We may collect the following information:
-						<ul>
-							<li>
-								Name
-							</li>
-							<li>
-								Contact Information including email address
-							</li>
-							<li>Demographic Information such as postcode, preferences and interests</li>
-						</ul>
 					</p>
+					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+						<li>
+							Name
+						</li>
+						<li>
+							Contact Information including email address
+						</li>
+						<li>
+							Demographic Information such as postcode, preferences and interests
+						</li>
+					</ul>
 
 					<h3 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
 						What We Do With The Information We Gather
@@ -84,25 +87,25 @@ export default function Page(): JSX.Element {
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						We require this information to understand your needs and provide you with a better service, and
 						in particular for the following reasons:
-						<ul>
-							<li>
-								Internal record keeping.
-							</li>
-							<li>
-								We may use the information to improve our products and services.
-							</li>
-							<li>
-								We may periodically send promotional emails about new products, special offers or other
-								information which we think you may find interesting using the email address which you
-								have provided.
-							</li>
-							<li>
-								From time to time, we may also use your information to contact you for market research
-								purposes. We may contact you by email, phone or mail. We may use the information to
-								customize the website according to your interests.
-							</li>
-						</ul>
 					</p>
+					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+						<li>
+							Internal record keeping.
+						</li>
+						<li>
+							We may use the information to improve our products and services.
+						</li>
+						<li>
+							We may periodically send promotional emails about new products, special offers or other
+							information which we think you may find interesting using the email address which you have
+							provided.
+						</li>
+						<li>
+							From time to time, we may also use your information to contact you for market research
+							purposes. We may contact you by email, phone or mail. We may use the information to
+							customize the website according to your interests.
+						</li>
+					</ul>
 
 					<h3 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
 						Security
@@ -154,10 +157,10 @@ export default function Page(): JSX.Element {
 						fraud screening methods to ensure that all payments accepted by <span
 						className="text-white bg-primary"><strong>S Technologies</strong></span> are legal and in no way
 						associated with fraud. If at any time a order / payment is flagged for fraud an immediate refund
-						will be issued and proof of account ownership will be requested wether it be proof of identity
-						or any other means. If you are found to be ordering services on a fraudlent basis then <span
+						will be issued and proof of account ownership will be requested whether it be proof of identity
+						or any other means. If you are found to be ordering services on a fraudulent basis then <span
 						className="text-white bg-primary"><strong>STechnologies</strong></span> reserve the right to
-						hand any information onto the appropiate legal authorities for further investigation.
+						hand any information onto the appropriate legal authorities for further investigation.
 					</p>
 
 					<h3 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
@@ -166,26 +169,27 @@ export default function Page(): JSX.Element {
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						You may choose to restrict the collection or use of your personal information in the
 						following ways:
-						<ul>
-							<li>
-								Whenever you are asked to fill in a form on the website, look for the box that you can
-								click to indicate that you do not want the information to be used by anybody for direct
-								marketing purposes
-							</li>
-							<li>
-								If you have previously agreed to us using your personal information for direct marketing
-								purposes, you may change your mind at any time by writing to or emailing us at
-								billing[@]stechbd.net
-							</li>
-						</ul>
 					</p>
+					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+						<li>
+							Whenever you are asked to fill in a form on the website, look for the box that you can click
+							to indicate that you do not want the information to be used by anybody for direct marketing
+							purposes.
+						</li>
+						<li>
+							If you have previously agreed to us using your personal information for direct marketing
+							purposes, you may change your mind at any time by writing to or emailing us at <Link
+							href="mailto:billing@stechbd.net"><strong>billing@stechbd.net</strong></Link>.
+						</li>
+					</ul>
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						We will not sell, distribute or lease your personal information to third parties unless we have
 						your permission or are required by law to do so. We may use your personal information to send
 						you promotional information about third parties which we think you may find interesting if you
 						tell us that you wish this to happen. You may request details of personal information which we
 						hold about you under the Data Protection Act 1998. A small fee will be payable. If you would
-						like a copy of the information held on you please write to billing[@]stechbd.net
+						like a copy of the information held on you please write to <Link
+						href="mailto:billing@stechbd.net"><strong>billing@stechbd.net</strong></Link>.
 					</p>
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						If you believe that any information we are holding on you is incorrect or incomplete, please
