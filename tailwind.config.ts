@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { safeColorList } from './app/_function/theme'
+import { safeList } from './app/_function/tailwind'
 
 
 const config: Config = {
@@ -12,8 +12,7 @@ const config: Config = {
 		extend: {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic':
-					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
 			screens: {
 				xs: '1px',
@@ -26,6 +25,6 @@ const config: Config = {
 	},
 	darkMode: 'class',
 	plugins: [],
-	safelist: safeColorList,
+	safelist: safeList,
 }
 export default config

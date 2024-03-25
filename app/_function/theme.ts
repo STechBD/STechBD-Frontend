@@ -24,5 +24,7 @@ themes.map((theme) => {
 		colorSafeList.push(`bg-${ theme }-${ shade }`)
 	})
 })
+colorSafeList.push('grid-cols-8')
+colorSafeList.push('grid-cols-10')
 
 export const safeColorList: string[] = colorSafeList

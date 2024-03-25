@@ -2,9 +2,8 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
-import { Feature, Data } from '@/app/_data/type'
+import { Data, Feature } from '@/app/_data/type'
 import Currency from '@/app/_component/currency'
-
 
 
 /**
@@ -15,7 +14,7 @@ import Currency from '@/app/_component/currency'
  */
 export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt' }: any): JSX.Element {
 	const [ currency, setCurrency ] = useState<string>(defaultCurrency)
-	const column: string = 'grid-cols-' + (data.length + 2)
+	const column: number = data.length + 2
 
 	return (
 		<>
@@ -34,7 +33,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 						{ /** Header **/ }
 						<div className="hidden lg:block sticky top-[5.5rem] start-0 py-2 bg-white dark:bg-slate-900">
 							{ /** Grid **/ }
-							<div className={ 'grid gap-6 ' + column }>
+							<div className={ 'grid gap-6 grid-cols-' + column }>
 								<div className="col-span-2">
 									{ /** Header **/ }
 									<div className="h-full">
@@ -51,13 +50,14 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Header **/ }
 												<div
 													className="h-full p-4 flex flex-col justify-between bg-white border border-gray-200 rounded-xl dark:bg-slate-900 dark:border-gray-700">
-													<div>
+													<div className="text-center">
 										                <span
-											                className="font-semibold text-lg text-gray-800 dark:text-gray-200">
+											                className="font-semibold text-lg text-gray-800 dark:text-gray-200"
+										                >
 											                { item.title }
 										                </span>
 														<p className="text-xs text-gray-500">
-															{ currency === 'bdt' ? `৳${ item.price.bdt } per month billed annually` : `$${ item.price.usd } per month billed annually` }
+															{ currency === 'bdt' ? `৳${ item.price.bdt }` : `$${ item.price.usd }` } { item.period === 0 ? 'per year' : 'per month' }
 														</p>
 													</div>
 													<div className="mt-2">
@@ -85,7 +85,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 								return (
 									<div key={ index } className="space-y-4 lg:space-y-0">
 										{ /** List **/ }
-										<ul className="grid lg:grid-cols-10 lg:gap-6">
+										<ul className={ 'grid lg:gap-6 lg:grid-cols-' + column }>
 											{ /** Item **/ }
 											<li className="lg:col-span-2 lg:py-3">
 									            <span
@@ -119,7 +119,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											feature.features && Object.entries(feature.features).map(([ key, value ], index: number): JSX.Element => {
 												return (
 													<>
-														<ul key={ index } className="grid lg:grid-cols-10 lg:gap-6">
+														<ul key={ index }
+														    className={ 'grid lg:gap-6 lg:grid-cols-' + column }>
 															{ /** Item **/ }
 															<li className="lg:col-span-2 pb-1.5 lg:py-3">
 												            <span className="text-sm text-gray-800 dark:text-gray-200">
@@ -204,7 +205,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 										<ul className="grid lg:grid-cols-6 lg:gap-6">
 											{ /** Item **/ }
 											<li className="lg:col-span-2 lg:py-3">
-									            <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+									            <span
+										            className="text-lg font-semibold text-gray-800 dark:text-gray-200">
 										            Financial data
 									            </span>
 											</li>
@@ -245,13 +247,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Free
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<path d="M5 12h14"/>
 													</svg>
@@ -262,13 +266,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Startup
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<path d="M5 12h14"/>
 													</svg>
@@ -279,13 +285,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Team
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<polyline points="20 6 9 17 4 12"/>
 													</svg>
@@ -296,13 +304,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Enterprise
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<polyline points="20 6 9 17 4 12"/>
 													</svg>
@@ -325,13 +335,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Free
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-gray-400 dark:text-gray-600"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<path d="M5 12h14"/>
 													</svg>
@@ -342,13 +354,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Startup
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<polyline points="20 6 9 17 4 12"/>
 													</svg>
@@ -359,13 +373,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Team
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<polyline points="20 6 9 17 4 12"/>
 													</svg>
@@ -376,13 +392,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 												<div className="grid grid-cols-6 lg:block">
-													<span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+													<span
+														className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 														Enterprise
 													</span>
 													<svg
 														className="flex-shrink-0 lg:mx-auto h-5 w-5 text-blue-600 dark:text-blue-500"
 														xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+														viewBox="0 0 24 24" fill="none" stroke="currentColor"
+														strokeWidth="2"
 														strokeLinecap="round" strokeLinejoin="round">
 														<polyline points="20 6 9 17 4 12"/>
 													</svg>
@@ -401,8 +419,9 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 							process.env.NODE_ENV === 'development' && (
 								<>
 									{ /** Load More Content **/ }
-									<div className="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300"
-									     aria-labelledby="view-all-features">
+									<div
+										className="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300"
+										aria-labelledby="view-all-features">
 										{ /** Section **/ }
 										<div className="mt-6 relative z-20 space-y-4 lg:space-y-0">
 											{ /** List **/ }
@@ -450,7 +469,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 							                  Free
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -466,7 +486,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 							                  Startup
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -482,7 +503,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Team
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
@@ -498,7 +520,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Enterprise
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
@@ -526,7 +549,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 							                  Free
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -542,7 +566,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 							                  Startup
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
@@ -558,7 +583,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Team
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
@@ -574,7 +600,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Enterprise
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
@@ -602,7 +629,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Free
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -618,7 +646,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Startup
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -634,7 +663,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Team
 							                </span>
 														<svg className="w-4 h-4 lg:mx-auto text-gray-500"
@@ -650,7 +680,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 												{ /** Item **/ }
 												<li className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
 													<div className="grid grid-cols-6 lg:block">
-							                <span className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
+							                <span
+								                className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200">
 								                Enterprise
 							                </span>
 														<svg className="w-5 h-5 lg:mx-auto text-blue-600"
