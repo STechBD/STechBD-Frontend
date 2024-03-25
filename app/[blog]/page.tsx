@@ -11,7 +11,7 @@ import remarkEmoji from 'remark-emoji'
 import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
 import DOMPurify from 'dompurify'
-import Hero from '@/app/[blog]/hero'
+import Hero from './hero'
 import Index from '@/app/[blog]/index'
 
 

@@ -4,6 +4,13 @@ import Script from 'next/script'
 import Hero from './hero'
 
 
+/**
+ * The server information.
+ *
+ * @constant servers { Server[] }
+ *
+ * @since 3.0.0
+ */
 const servers = [
 	{
 		id: 1,
@@ -89,15 +96,34 @@ const servers = [
 /**
  * The metadata for the Server Information page.
  *
- * @type { Metadata }
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title: string = 'Server Information'
+const description: string = 'Here you can find information about our servers and their status.'
 export const metadata: Metadata = {
-	title: 'Server Information',
-	description: 'Here you can find information about our servers and their status.',
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+	},
+	twitter: {
+		title,
+		description,
+	},
 }
 
 
+/**
+ * Fetch the server information from the WHMCS API.
+ *
+ * @returns { Promise<any> } The server information.
+ * @since 3.0.0
+ */
 async function info(): Promise<any> {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'

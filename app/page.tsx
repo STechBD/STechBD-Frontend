@@ -1,13 +1,12 @@
 import { JSX } from 'react'
-import { Metadata } from 'next'
-import Hero from '@/app/hero'
+import Link from 'next/link'
+import Hero from './hero'
 import { DefaultEffect } from '@/app/_component/background'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import { Bounce } from '@/app/_component/animation'
 import PricingTable from '@/app/_component/pricingTable'
 import Testimonial from '@/app/_component/testimonial'
 import PostList from '@/app/_component/postList'
-import Link from 'next/link';
 
 
 /**
@@ -108,7 +107,7 @@ export default function Page(): JSX.Element {
 			<Hero/>
 			<div className="relative isolate px-6 py-24 lg:px-8">
 				<DefaultEffect/>
-				<div className="px-4 lg:px-16 md:px-20 py-10">
+				<div className="lg:px-16 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Web Hosting and Server
 					</h2>
@@ -117,7 +116,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
-				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-7xl mx-auto py-16 lg:px-8">
 					<div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
 						<div className="flex items-center justify-center mt-3">
 							<Bounce hover={ true }>

@@ -1,8 +1,8 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
-import Link from 'next/link';
 
 
 /**
@@ -14,8 +14,8 @@ import Link from 'next/link';
  *
  * @since 3.0.0
  */
-const title = 'Privacy Policy'
-const description = 'Our privacy policy outlines the information we collect and how we use it.'
+const title: string = 'Privacy Policy'
+const description: string = 'Our privacy policy outlines the information we collect and how we use it.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -40,7 +40,7 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8">
+			<div className="relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 					Privacy Policy
@@ -69,7 +69,7 @@ export default function Page(): JSX.Element {
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						We may collect the following information:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Name
 						</li>
@@ -88,7 +88,7 @@ export default function Page(): JSX.Element {
 						We require this information to understand your needs and provide you with a better service, and
 						in particular for the following reasons:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Internal record keeping.
 						</li>
@@ -170,7 +170,7 @@ export default function Page(): JSX.Element {
 						You may choose to restrict the collection or use of your personal information in the
 						following ways:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Whenever you are asked to fill in a form on the website, look for the box that you can click
 							to indicate that you do not want the information to be used by anybody for direct marketing

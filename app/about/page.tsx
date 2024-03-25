@@ -1,24 +1,27 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Hero from '@/app/about/hero'
-import { HeroEffect } from '@/app/_component/background'
+import Hero from './hero'
+import { AdvancedHeroEffect } from '@/app/_component/background'
 import { Bounce } from '@/app/_component/animation'
 
 
 /**
  * Metadata setup for the About page.
  *
- * @returns { Metadata } Metadata setup for the About page.
+ * @const title { string }
+ * @const metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title: string = 'About'
 export const metadata: Metadata = {
-	title: 'About',
+	title,
 	openGraph: {
-		title: 'About',
+		title,
 	},
 	twitter: {
-		title: 'About',
+		title,
 	},
 }
 
@@ -115,12 +118,21 @@ export default function Page(): JSX.Element {
 				link: '/launched-ulkaa',
 			},
 		},
+		{
+			title: '10 Years of S Technologies',
+			date: 'August 14, 2023',
+			description: 'S Technologies is now 10 years old. We are celebrating 10th anniversary of S Technologies. It is a great achievement for us.',
+			button: {
+				title: 'Read more',
+				link: '/10-years-of-stechbd',
+			},
+		},
 	]
 
 	return (
 		<>
 			<div className="relative min-h-screen overflow-hidden isolate -mt-24 px-6 pt-48 pb-24 lg:px-8">
-				<HeroEffect/>
+				<AdvancedHeroEffect/>
 				<div className="relative h-full min-h-screen">
 					<Hero/>
 					<hr className="mt-16 border-t-2 border-primary"/>

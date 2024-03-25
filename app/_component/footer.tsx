@@ -16,7 +16,7 @@ import { Bounce } from '@/app/_component/animation'
 export default function Footer(): JSX.Element {
 	return (<>
 		<footer className="relative bg-gray-100 dark:bg-gray-900">
-			<div className="relative mx-auto w-full max-w-screen-2xl">
+			<div className="relative mx-auto px-2 lg:px-16 w-full">
 				<div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 lg:grid-cols-6">
 					<div className="col-span-2 mb-6 grid grid-cols-3 justify-center">
 						<div className="flext justify-end">
@@ -95,8 +95,18 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/shared-hosting">
-									Shared Hosting
+								<Link href="/shared-hosting/us">
+									Shared Hosting (United States)
+								</Link>
+							</li>
+							<li className="mb-2">
+								<Link href="/shared-hosting/bd">
+									Shared Hosting (Bangladesh)
+								</Link>
+							</li>
+							<li className="mb-2">
+								<Link href="/shared-hosting/bd">
+									Shared Hosting (Singapore)
 								</Link>
 							</li>
 							<li className="mb-2">
@@ -105,12 +115,12 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/unmanaged-vps">
+								<Link href="/vps/unmanaged">
 									Unmanaged VPS
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/managed-vps">
+								<Link href="/vps/managed">
 									Managed VPS
 								</Link>
 							</li>

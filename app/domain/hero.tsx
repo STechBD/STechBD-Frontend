@@ -4,7 +4,7 @@ import { JSX, useState } from 'react'
 import { Bounce } from '@/app/_component/animation'
 import { Typewriter } from '@/app/_component/typewriter'
 import Domain from '@/app/_data/domain'
-import DomainChecker from '@/app/_component/domainChecker';
+import DomainChecker from '@/app/_component/domainChecker'
 
 
 /**

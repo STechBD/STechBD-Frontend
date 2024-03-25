@@ -1,8 +1,8 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
-import Link from 'next/link';
 
 
 /**
@@ -14,8 +14,8 @@ import Link from 'next/link';
  *
  * @since 3.0.0
  */
-const title = 'Disclaimer'
-const description = 'Disclosure of information and disclaimer of warranties and liabilities.'
+const title: string = 'Disclaimer'
+const description: string = 'Disclosure of information and disclaimer of warranties and liabilities.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -40,7 +40,7 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8">
+			<div className="relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 					Disclaimer

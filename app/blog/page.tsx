@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import Hero from '@/app/blog/hero'
+import Hero from './hero'
 import PostList from '@/app/_component/postList'
 
 

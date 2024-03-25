@@ -1,20 +1,22 @@
-'use client'
-
-import { JSX, useState } from 'react'
+import { JSX } from 'react'
 import { Metadata } from 'next'
-import data from '@/app/_data/domain'
-import Hero from '@/app/domain/hero'
-import { DefaultEffect } from '@/app/_component/background';
+import { DefaultEffect } from '@/app/_component/background'
+import Hero from './hero'
+import List from '@/app/domain/list'
 
 
 /**
  * Metadata for the Domain Registration page.
  *
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
 const title: string = 'Domain Name Registration'
 const description: string = 'We will help you to choose a domain name for your website. S Technologies provides domain registration service in cheap rate. Here is the list of domain price.'
-/*export const metadata: Metadata = {
+export const metadata: Metadata = {
 	title,
 	description,
 	openGraph: {
@@ -25,7 +27,7 @@ const description: string = 'We will help you to choose a domain name for your w
 		title,
 		description,
 	},
-}*/
+}
 
 
 /**
@@ -34,35 +36,6 @@ const description: string = 'We will help you to choose a domain name for your w
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {
-	const [ sortDomain, setSortDomain ] = useState({ key: 'none', direction: 'asc' })
-	const sortData = (data: any): any => {
-		if (sortDomain.key !== 'none') {
-			return data.sort((a: any, b: any): number => {
-				if (a[sortDomain.key] < b[sortDomain.key]) {
-					return sortDomain.direction === 'asc' ? -1 : 1
-				}
-
-				if (a[sortDomain.key] > b[sortDomain.key]) {
-					return sortDomain.direction === 'asc' ? 1 : -1
-				}
-
-				return 0
-			})
-		}
-
-		return data
-	}
-
-	const requestSort = (key: string, direction: string): void => {
-		if (sortDomain.key === key && sortDomain.direction === 'asc') {
-			direction = 'desc'
-		}
-
-		setSortDomain({ key, direction })
-	}
-
-	const sortedDomain = sortData(data)
-
 	return (
 		<>
 			<Hero/>
@@ -76,67 +49,7 @@ export default function Page(): JSX.Element {
 						Domain price varies from domain to domain. We will help you to choose a domain name for your
 						website. Here is the list of domain price.
 					</p>
-					{/**
-						// domain sorting option selecting button
-						// 2 button will be there. one is "sort by price" another is "sort by name"
-						// another icon will be there to show the sorting direction
-					**/}
-					<div className="mt-10 flex">
-						<button
-							className="text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
-							onClick={ (): void => requestSort('none', sortDomain.direction) }
-						>
-							Sort by Default
-						</button>
-						<button
-							className="ml-4 text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
-							onClick={ (): void => requestSort('extension', sortDomain.direction) }
-						>
-							Sort by Name
-						</button>
-						<button
-							className="ml-4 text-white bg-primary text-center font-bold py-2 px-4 rounded focus:outline-none"
-							onClick={ (): void => requestSort('registration.bdt', sortDomain.direction) }
-						>
-							Sort by Price
-						</button>
-					</div>
-					<div className="mt-10">
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-10">
-							{
-								sortedDomain.map((domain: any, i: number = 0) => {
-									i++
-
-									let textClass: string = 'text-2xl font-bold text-center'
-									textClass += (i % 2 == 0) ? ' text-primary' : ' text-primary'
-									let buttonClass: string = 'block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none'
-									buttonClass += (i % 2 == 0) ? ' bg-primary hover:bg-secondary focus:bg-secondary' : ' bg-primary hover:bg-secondary focus:bg-secondary'
-									return (
-										<div key={ i } className="bg-white shadow-md rounded-lg px-10 py-6">
-											<h2 className={ textClass }>
-												{ domain.extension }
-											</h2>
-											<p className="mt-4 text-center text-3xl font-bold text-gray-900">
-												{ domain.registration.bdt }
-											</p>
-											<p className="mt-4 text-center text-gray-500">
-												{
-													domain.title === 'Bangladeshi' ? 'Per 2 Year' : 'Per Year'
-												}
-											</p>
-											<div className="mt-6">
-												<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
-												   target="_blank" className={ buttonClass }
-												>
-													Buy Now
-												</a>
-											</div>
-										</div>
-									)
-								})
-							}
-						</div>
-					</div>
+					<List/>
 				</div>
 				<div className="px-20 py-10"></div>
 			</div>

@@ -13,8 +13,8 @@ import Hero from './hero'
  *
  * @since 3.0.0
  */
-const title = 'Terms of Service'
-const description = 'We are committed to providing the best service to our clients. Please read these terms of service carefully before using our service.'
+const title: string = 'Terms of Service'
+const description: string = 'We are committed to providing the best service to our clients. Please read these terms of service carefully before using our service.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -39,7 +39,7 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8">
+			<div className="relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 					Terms of Service
@@ -69,7 +69,7 @@ export default function Page(): JSX.Element {
 						regarding your service will be sent to the email specified in your account registration. The
 						following are not allowed:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Anti Islamic or Islamophobic Content
 						</li>
@@ -127,7 +127,7 @@ export default function Page(): JSX.Element {
 						content WITHOUT notification and WITHOUT any backups provided.
 						The following are examples of unacceptable usage:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Attempting to interfere or deny service to any user or host on the Internet. Using the
 							service for mail bombing or spamming
@@ -156,7 +156,7 @@ export default function Page(): JSX.Element {
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						Users may not:
 					</p>
-					<ul className="mb-4 ml-10 text-xl text-gray-800 list-disc dark:text-gray-200">
+					<ul className="mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200">
 						<li>
 							Use 10% or more of CPU resources for longer then 60 seconds (Applies to Virtual Servers
 							ONLY)

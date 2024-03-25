@@ -1,10 +1,11 @@
 import { JSX } from 'react'
-import Link from 'next/link';
+import Link from 'next/link'
 
 
 /**
- * Product page.
+ * The product page component.
  *
+ * @returns { JSX.Element } The product page component.
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {

@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import Hero from '@/app/shared-hosting/hero'
+import Hero from './hero'
 import PricingTable from '@/app/_component/pricingTable'
 import ComparisonTable from '@/app/_component/comparisonTable'
 
@@ -8,12 +8,25 @@ import ComparisonTable from '@/app/_component/comparisonTable'
 /**
  * Metadata for the Shared Hosting page.
  *
- * @returns { Metadata } The metadata for the Shared Hosting page.
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title: string = 'Shared Hosting'
+const description: string = 'Affordable shared hosting plans for your website. Get started with our shared hosting plans today.'
 export const metadata: Metadata = {
-	title: 'Shared Hosting',
-	description: 'Affordable shared hosting plans for your website. Get started with our shared hosting plans today.',
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+	},
+	twitter: {
+		title,
+		description,
+	},
 }
 
 

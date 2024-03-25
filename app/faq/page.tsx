@@ -1,46 +1,51 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import { DefaultEffect } from '@/app/_component/background'
-import Hero from '@/app/privacy/hero'
+import Hero from './hero'
 
 
 /**
- * The metadata for the Contact page.
+ * The metadata for the Frequently Asked Questions page.
  *
- * @type { Metadata }
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title: string = 'Frequency Asked Questions (FAQ)'
+const description: string = 'Our frequently asked questions page provides answers to common questions.'
 export const metadata: Metadata = {
-	title: 'Privacy Policy',
-	description: 'Our privacy policy outlines the information we collect and how we use it.',
+	title,
+	description,
 	openGraph: {
-		title: 'Privacy Policy',
-		description: 'Our privacy policy outlines the information we collect and how we use it.',
+		title,
+		description,
 	},
 	twitter: {
-		title: 'Privacy Policy',
-		description: 'Our privacy policy outlines the information we collect and how we use it.'
+		title,
+		description,
 	},
 }
 
 
 /**
- * The Server page component.
+ * The Frequently Asked Questions page component.
  *
- * @returns { JSX.Element } The Server page component.
+ * @returns { JSX.Element } The Frequently Asked Questions page component.
  * @since 3.0.0
  */
-export default function Server(): JSX.Element {
+export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8">
+			<div className="relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-					Privacy Policy
+					Frequently Asked Questions (FAQ)
 				</h2>
 				<p className="lg:px-16 md:px-20 py-10 text-xl text-gray-800 dark:text-gray-200">
-					Our privacy policy outlines the information we collect and how we use it.
+					Our frequently asked questions page provides answers to common questions.
 				</p>
 				<div className="lg:px-16 md:px-20 py-10">
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">

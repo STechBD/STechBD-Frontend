@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import { DefaultEffect } from '@/app/_component/background'
-import Hero from '@/app/contact/hero'
+import Hero from './hero'
 import ContactForm from '@/app/contact/form'
 
 
@@ -12,16 +12,18 @@ import ContactForm from '@/app/contact/form'
  * @type { Metadata }
  * @since 3.0.0
  */
+const title: string = 'Contact Us'
+const description: string = 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.'
 export const metadata: Metadata = {
-	title: 'Contact Us',
-	description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.',
+	title,
+	description,
 	openGraph: {
-		title: 'Contact Us',
-		description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.',
+		title,
+		description,
 	},
 	twitter: {
-		title: 'Contact Us',
-		description: 'Get in touch with us by filling out the form below and we will get back to you as soon as possible.'
+		title,
+		description,
 	},
 }
 
