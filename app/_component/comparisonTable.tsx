@@ -10,11 +10,12 @@ import Currency from '@/app/_component/currency'
 /**
  * The Comparison Table component.
  *
- * @returns { JSX.Element } The comparison table.
+ * @returns { JSX.Element } The Comparison Table.
  * @since 3.0.0
  */
 export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt' }: any): JSX.Element {
 	const [ currency, setCurrency ] = useState<string>(defaultCurrency)
+	const column: string = 'grid-cols-' + (data.length + 2)
 
 	return (
 		<>
@@ -33,7 +34,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 						{ /** Header **/ }
 						<div className="hidden lg:block sticky top-[5.5rem] start-0 py-2 bg-white dark:bg-slate-900">
 							{ /** Grid **/ }
-							<div className="grid grid-cols-10 gap-6">
+							<div className={ 'grid gap-6 ' + column }>
 								<div className="col-span-2">
 									{ /** Header **/ }
 									<div className="h-full">
@@ -60,11 +61,11 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 														</p>
 													</div>
 													<div className="mt-2">
-														<Link href={ item.link }
-														      target={ item.link.startsWith('http') ? '_blank' : '_self' }
+														<Link href={ item.button.link }
+														      target={ item.button.link.startsWith('http') ? '_blank' : '_self' }
 														      className="w-full py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-primary text-white shadow-sm hover:bg-secondary disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
 														>
-															{ item.button }
+															{ item.button.text }
 														</Link>
 													</div>
 												</div>

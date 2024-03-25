@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 /**
  * AI App Development page component.
  *
- * @returns { JSX.Element } The AI App Development page component.
+ * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {

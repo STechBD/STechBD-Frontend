@@ -1,14 +1,14 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import { DefaultEffect } from '@/app/_component/background'
 import { pricingData, featureData, comparisonData } from './data'
+import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
 import PricingTable from '@/app/_component/pricingTable'
 import ComparisonTable from '@/app/_component/comparisonTable'
 
 
 /**
- * Metadata for the Shared Hosting page.
+ * Metadata for the Reseller Hosting page.
  *
  * @constant title { string }
  * @constant description { string }
@@ -16,8 +16,8 @@ import ComparisonTable from '@/app/_component/comparisonTable'
  *
  * @since 3.0.0
  */
-const title: string = 'Shared Hosting'
-const description: string = 'Affordable shared hosting plans for your website. Get started with our shared hosting plans today.'
+const title: string = 'Reseller Hosting'
+const description: string = 'We have been providing shared hosting since 2015 with customer satisfaction. Reseller hosting is ideal for small businesses and individuals who want to start their own web hosting business with a reliable and affordable web hosting provider. Get started with our reseller hosting plans today.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 
 /**
- * The Shared Hosting page component.
+ * The Reseller Hosting page component.
  *
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
@@ -59,7 +59,7 @@ export default function Page(): JSX.Element {
 						Compare Plans
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Compare the best shared hosting plan for your website.
+						Compare the best shared hosting plan for your website.&nbsp;
 						We have a variety of shared hosting plans to meet your website needs.
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>

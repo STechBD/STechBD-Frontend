@@ -142,7 +142,7 @@ async function info(): Promise<any> {
 /**
  * The Server Information page component.
  *
- * @returns { JSX.Element } The Server Information page component.
+ * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
 export default async function Page(): Promise<JSX.Element> {

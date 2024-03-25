@@ -1,4 +1,5 @@
 import { JSX } from 'react'
+import Link from 'next/link'
 import { BasicHeroEffect } from '@/app/_component/background'
 
 
@@ -22,6 +23,31 @@ export default function Hero(): JSX.Element {
 							We take your privacy seriously. Here&apos;s how we handle your data.
 						</p>
 					</div>
+					<nav className="flex" aria-label="Breadcrumb">
+						<ol className="flex items-center space-x-4">
+							<li>
+								<div>
+									<Link href="/" className="font-medium text-white hover:text-gray-300">
+										Home
+									</Link>
+								</div>
+							</li>
+							<li className="font-medium text-white hover:text-gray-300">
+								&gt;
+							</li>
+							<li>
+								<div>
+									<a
+										href="/privacy"
+										className="font-medium text-white hover:text-gray-300"
+										aria-current="page"
+									>
+										Privacy Policy
+									</a>
+								</div>
+							</li>
+						</ol>
+					</nav>
 				</div>
 			</div>
 		</>

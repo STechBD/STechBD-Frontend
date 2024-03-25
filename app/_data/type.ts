@@ -45,20 +45,13 @@ export interface Category {
 /**
  * Interface definition for the metadata of server.
  *
- * @interface Feature
  * @interface Data
- * @interface FeatureList
  * @interface Pricing
+ * @interface Feature
+ * @interface Comparison
  *
  * @since 3.0.0
  */
-export interface Feature {
-	title: string
-	features: {
-		[key: string]: string | number | boolean
-	}
-}
-
 export interface Data {
 	title: string
 	price: {
@@ -70,18 +63,16 @@ export interface Data {
 	features: {
 		[key: string]: string | number | boolean
 	}
-	button: string
-	link: string
-}
-
-
-export interface FeatureList {
-	[key: string]: string
+	button: {
+		text: string
+		link: string
+	}
 }
 
 
 export interface Pricing {
 	title: string
+	featured?: boolean
 	price: {
 		bdt: number
 		usd: number
@@ -89,6 +80,33 @@ export interface Pricing {
 	period: number
 	description: string
 	features: JSX.Element[]
-	button: string
-	link: string
+	button: {
+		text: string
+		link: string
+	}
+}
+
+
+export interface Feature {
+	title: string
+	features: {
+		[key: string]: string | number | boolean
+	}
+}
+
+export interface Comparison {
+	title: string
+	price: {
+		bdt: number
+		usd: number
+	}
+	period: number
+	description: string
+	features: {
+		[key: string]: string | number | boolean
+	}
+	button: {
+		text: string
+		link: string
+	}
 }

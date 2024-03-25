@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 /**
  * The Frequently Asked Questions page component.
  *
- * @returns { JSX.Element } The Frequently Asked Questions page component.
+ * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {

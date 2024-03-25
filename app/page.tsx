@@ -1,5 +1,6 @@
 import { JSX } from 'react'
 import Link from 'next/link'
+import { Pricing } from '@/app/_data/type'
 import Hero from './hero'
 import { DefaultEffect } from '@/app/_component/background'
 import AnimatedLogo from '@/app/_component/animatedLogo'
@@ -16,7 +17,7 @@ import PostList from '@/app/_component/postList'
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {
-	const pricingData = [
+	const pricingData: Pricing[] = [
 		{
 			title: 'Shared Hosting',
 			featured: true,
@@ -35,8 +36,10 @@ export default function Page(): JSX.Element {
 				<><strong>Free</strong> SSL Certificate</>,
 				<><strong>cPanel</strong> Control Panel</>,
 			],
-			button: 'More Plans',
-			link: '/shared-hosting',
+			button: {
+				text: 'More Plans',
+				link: '/shared-hosting',
+			},
 		},
 		{
 			title: 'Reseller Hosting',
@@ -55,8 +58,10 @@ export default function Page(): JSX.Element {
 				<><strong>Unlimited Free</strong> SSL Certificate</>,
 				<><strong>cPanel and WHM</strong> Control Panel</>,
 			],
-			button: 'More Plans',
-			link: '/reseller-hosting',
+			button: {
+				text: 'More Plans',
+				link: '/reseller-hosting',
+			},
 		},
 		{
 			title: 'Unmanaged VPS',
@@ -76,8 +81,10 @@ export default function Page(): JSX.Element {
 				<><strong>Full Root Access</strong> Control Panel</>,
 				<><strong>USA</strong> Server</>,
 			],
-			button: 'More Plans',
-			link: '/unmanaged-vps',
+			button: {
+				text: 'More Plans',
+				link: '/unmanaged-vps',
+			},
 		},
 		{
 			title: 'Dedicated Server',
@@ -97,8 +104,10 @@ export default function Page(): JSX.Element {
 				<><strong>Full</strong> Root Access</>,
 				<><strong>USA</strong> Server</>,
 			],
-			button: 'More Plans',
-			link: '/dedicated-server',
+			button: {
+				text: 'More Plans',
+				link: '/dedicated-server',
+			},
 		},
 	]
 

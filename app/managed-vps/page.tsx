@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 /**
  * The VPS page component.
  *
- * @returns { JSX.Element } The Server page component.
+ * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
 export default function Server(): JSX.Element {

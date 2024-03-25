@@ -2,6 +2,7 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
+import { Pricing } from '@/app/_data/type'
 import Currency from '@/app/_component/currency'
 
 
@@ -22,7 +23,7 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				{
-					data.map((item: any, index: number): JSX.Element => {
+					data.map((item: Pricing, index: number): JSX.Element => {
 						return (
 							<div
 								key={ index }
@@ -74,10 +75,10 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 									</ul>
 								</div>
 								<div className="mt-8">
-									<Link href={ item.link } target={ item.link.startsWith('http') ? '_blank' : '' }
+									<Link href={ item.button.link } target={ item.button.link.startsWith('http') ? '_blank' : '' }
 									      className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-secondary"
 									>
-										{ item.button }
+										{ item.button.text }
 									</Link>
 								</div>
 							</div>

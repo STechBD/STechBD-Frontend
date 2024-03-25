@@ -95,18 +95,8 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/shared-hosting/us">
-									Shared Hosting (United States)
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/shared-hosting/bd">
-									Shared Hosting (Bangladesh)
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/shared-hosting/bd">
-									Shared Hosting (Singapore)
+								<Link href="/shared-hosting">
+									Shared Hosting
 								</Link>
 							</li>
 							<li className="mb-2">
@@ -115,12 +105,12 @@ export default function Footer(): JSX.Element {
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/vps/unmanaged">
+								<Link href="/unmanaged-vps">
 									Unmanaged VPS
 								</Link>
 							</li>
 							<li className="mb-2">
-								<Link href="/vps/managed">
+								<Link href="/managed-vps">
 									Managed VPS
 								</Link>
 							</li>
@@ -141,6 +131,11 @@ export default function Footer(): JSX.Element {
 							<strong>Product</strong>
 						</h2>
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
+							<li className="mb-2">
+								<Link href="https://britto.stechbd.net">
+									Britto AI 🎉
+								</Link>
+							</li>
 							<li className="mb-2">
 								<Link href="/product/Install-Express">
 									Install Express 🎉
@@ -206,6 +201,11 @@ export default function Footer(): JSX.Element {
 							<li className="mb-2">
 								<Link href="/readymade-website">
 									Readymade Website Development
+								</Link>
+							</li>
+							<li className="mb-2">
+								<Link href="/school-management">
+									School Management System
 								</Link>
 							</li>
 							<li className="mb-2">

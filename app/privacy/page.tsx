@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 /**
  * The Privacy Policy page component.
  *
- * @returns { JSX.Element } The Privacy Policy page component.
+ * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
 export default function Page(): JSX.Element {
