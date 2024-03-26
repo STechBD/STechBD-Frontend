@@ -8,7 +8,10 @@ import { JSX } from 'react'
  * @returns { JSX.Element } The currency component.
  * @since 3.0.0
  */
-export default function Currency({ currency, callback = () => {} }: any): JSX.Element {
+export default function Currency({
+	                                 currency, callback = () => {
+	}
+                                 }: any): JSX.Element {
 	const currencies = [
 		{
 			name: 'bdt',

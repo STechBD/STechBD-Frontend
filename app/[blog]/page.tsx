@@ -10,7 +10,6 @@ import remarkEmoji from 'remark-emoji'
 // import remarkCodeBlock from 'remark-code-block'
 import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
-import DOMPurify from 'dompurify'
 import Hero from './hero'
 import Index from '@/app/[blog]/index'
 
@@ -573,7 +572,9 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 										(await postList(8)).map((post: Post, index: number) => {
 											return (
 												<article key={ index } className="rounded-lg bg-white">
-													<div className="flex-shrink-0 w-full aspect-[1200/628] overflow-hidden relative">
+													<div
+														className="flex-shrink-0 w-full aspect-[1200/628] overflow-hidden relative"
+													>
 														<div className="absolute inset-0 flex items-center justify-center">
 															<Image
 																className="object-cover rounded-t-2xl"

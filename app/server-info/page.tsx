@@ -200,7 +200,8 @@ export default async function Page(): Promise<JSX.Element> {
 								{
 									servers.map((server) => (
 										<div key={ server.id }>
-											<div className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700">
+											<div
+												className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700">
 												<h3 className="text-lg text-primary">
 													<strong>
 														{ server.name }

@@ -83,7 +83,7 @@ export default function Testimonial(): JSX.Element {
 						</div>
 					</div>
 				</div>
-			)) }*/}
+			)) }*/ }
 			{ reviews.map((review, index) => (
 				<div key={ index }
 				     className="flex flex-col rounded-lg shadow-lg hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800"

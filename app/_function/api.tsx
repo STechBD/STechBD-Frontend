@@ -16,7 +16,7 @@ const api: string = process.env.API ?? ''
  * @since 3.0.0
  */
 export async function postList(limit?: number | null): Promise<Post[]> {
-	const response: Response = await fetch(api + '/blog?order=latest' + (limit ? `&limit=${limit}` : ''), {
+	const response: Response = await fetch(api + '/blog?order=latest' + (limit ? `&limit=${ limit }` : ''), {
 		next: {
 			revalidate: 300,
 		},

@@ -7,12 +7,25 @@ import PostList from '@/app/_component/postList'
 /**
  * Generate the metadata for the blog list page.
  *
- * @returns { Promise<Record<string, string>> } The metadata.
+ * @constant title { string }
+ * @constant description { string }
+ * @constant metadata { Metadata }
+ *
  * @since 3.0.0
  */
+const title: string = 'Blog'
+const description: string = 'Read our blog to get the latest news and updates.'
 export const metadata: Metadata = {
-	title: 'Blog',
-	description: 'Read our blog to get the latest news and updates.',
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+	},
+	twitter: {
+		title,
+		description,
+	},
 }
 
 

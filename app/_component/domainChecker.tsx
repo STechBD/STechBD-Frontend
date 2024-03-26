@@ -115,11 +115,11 @@ export default function DomainChecker(): JSX.Element {
 											</li>
 											{ type.extension.map((ext: string, extIndex: number) => (
 												<li key={ `${ index }-${ extIndex }` }
-													className="px-3 py-1 ml-2 text-sm cursor-pointer hover:text-white hover:bg-gray-600"
-													onClick={ (): void => {
-														setExtension(ext)
-														setShowDomainDropdown(false)
-													} }
+												    className="px-3 py-1 ml-2 text-sm cursor-pointer hover:text-white hover:bg-gray-600"
+												    onClick={ (): void => {
+													    setExtension(ext)
+													    setShowDomainDropdown(false)
+												    } }
 												>
 													{ ext }
 												</li>
