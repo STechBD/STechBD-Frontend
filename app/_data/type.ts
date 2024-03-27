@@ -110,3 +110,56 @@ export interface Comparison {
 		link: string
 	}
 }
+
+
+/**
+ * Interface definition for the section of the Product page.
+ *
+ * @interface Hero
+ * @interface Section
+ * @interface Content
+ *
+ * @since 3.0.0
+ */
+export interface Hero {
+	title: string
+	description: JSX.Element
+	notice?: JSX.Element
+	code?: {
+		text: string
+		language: string
+	}
+	button?: {
+		text: string
+		link: string
+	}[]
+}
+
+export interface Section {
+	id: string
+	title: string
+	content?: Content[]
+}
+
+export interface Content {
+	title: string
+	description: string
+	button?: {
+		text: string
+		link: string
+	}
+	code?: {
+		text: string
+		language?: string
+	}
+	image?: {
+		src: string
+		alt: string
+		height: number
+		width: number
+	}
+	url?: {
+		text: string
+		link: string
+	}
+}

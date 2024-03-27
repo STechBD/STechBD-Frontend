@@ -6,9 +6,9 @@ import Hero from './hero'
 /**
  * Metadata for the Server page.
  *
- * @constant title { string }
- * @constant description { string }
- * @constant metadata { Metadata }
+ * @constant title { string } The title of the page.
+ * @constant description { string } The description of the page.
+ * @constant metadata { Metadata } The exported metadata of the page.
  *
  * @since 3.0.0
  */

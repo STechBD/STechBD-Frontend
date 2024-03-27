@@ -7,9 +7,9 @@ import PostList from '@/app/_component/postList'
 /**
  * Generate the metadata for the blog list page.
  *
- * @constant title { string }
- * @constant description { string }
- * @constant metadata { Metadata }
+ * @constant title { string } The title of the page.
+ * @constant description { string } The description of the page.
+ * @constant metadata { Metadata } The exported metadata of the page.
  *
  * @since 3.0.0
  */

@@ -96,9 +96,9 @@ const servers = [
 /**
  * The metadata for the Server Information page.
  *
- * @constant title { string }
- * @constant description { string }
- * @constant metadata { Metadata }
+ * @constant title { string } The title of the page.
+ * @constant description { string } The description of the page.
+ * @constant metadata { Metadata } The exported metadata of the page.
  *
  * @since 3.0.0
  */
@@ -151,12 +151,6 @@ export default async function Page(): Promise<JSX.Element> {
 	if (data.ok) {
 		const json = await data.json()
 
-		console.log('Data:')
-		console.log(json)
-		console.log('Status:')
-		console.log(json.servers[0].status)
-
-		// modify the up status of the server 1
 		servers[0].up = json.servers[0].active
 	} else {
 		console.error('Failed to fetch server information.')

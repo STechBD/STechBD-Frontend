@@ -9,9 +9,9 @@ import DomainChecker from '@/app/_component/domainChecker'
 
 
 /**
- * Hero component for the homepage.
+ * The Hero component for the homepage.
  *
- * @returns { JSX.Element } The hero.
+ * @returns { JSX.Element } The Hero component.
  * @since 3.0.0
  */
 export default function Hero(): JSX.Element {

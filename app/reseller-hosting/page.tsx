@@ -10,14 +10,14 @@ import ComparisonTable from '@/app/_component/comparisonTable'
 /**
  * Metadata for the Reseller Hosting page.
  *
- * @constant title { string }
- * @constant description { string }
- * @constant metadata { Metadata }
+ * @constant title { string } The title of the page.
+ * @constant description { string } The description of the page.
+ * @constant metadata { Metadata } The exported metadata of the page.
  *
  * @since 3.0.0
  */
 const title: string = 'Reseller Hosting'
-const description: string = 'We have been providing shared hosting since 2015 with customer satisfaction. Reseller hosting is ideal for small businesses and individuals who want to start their own web hosting business with a reliable and affordable web hosting provider. Get started with our reseller hosting plans today.'
+const description: string = 'We have been providing reseller hosting since 2015 with customer satisfaction. Reseller hosting is ideal for small businesses and individuals who want to start their own web hosting business with a reliable and affordable web hosting provider. Get started with our reseller hosting plans today.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -133,10 +133,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Shared Hosting Provider in Bangladesh
+						Top 10 Reseller Hosting Provider in Bangladesh
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 shared hosting providers in Bangladesh:
+						Here are the top 10 reseller hosting providers in Bangladesh:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
 						<li>S Technologies</li>
@@ -153,10 +153,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Shared Hosting Provider in the World
+						Top 10 Reseller Hosting Provider in the World
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 shared hosting providers in the world:
+						Here are the top 10 reseller hosting providers in the world:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
 						<li>S Technologies</li>

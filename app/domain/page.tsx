@@ -8,9 +8,9 @@ import List from '@/app/domain/list'
 /**
  * Metadata for the Domain Registration page.
  *
- * @constant title { string }
- * @constant description { string }
- * @constant metadata { Metadata }
+ * @constant title { string } The title of the page.
+ * @constant description { string } The description of the page.
+ * @constant metadata { Metadata } The exported metadata of the page.
  *
  * @since 3.0.0
  */
