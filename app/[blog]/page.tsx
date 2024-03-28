@@ -1,6 +1,7 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import E404 from '@/app/not-found'
 import type { Category, Post, User } from '@/app/_data/type'
 import { categoryData, postData, postList, userData } from '@/app/_function/api'
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 	const slug: string = params.blog
 	const post: Post = await postData(slug)
 
-	if (!post) {
+	/*if (!post) {
 		return {
 			title: '404 Error | Page Not Found',
 			description: 'The page you requested was not found. Please check the URL and try again.',
@@ -38,29 +39,33 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 				description: 'The page you requested was not found. Please check the URL and try again.',
 			},
 		}
+	}*/
+
+	if (post) {
+		return {
+			title: post.title,
+			description: post.content?.slice(0, 160) ?? 'No content',
+			openGraph: {
+				title: post.title,
+				description: post.content?.slice(0, 160) ?? 'No content',
+				type: 'article',
+				image: {
+					url: post.image ?? '/image/Banner.webp',
+					alt: post.title,
+				},
+			},
+			twitter: {
+				title: post.title,
+				description: post.content?.slice(0, 160) ?? 'No content',
+				image: {
+					url: post.image ?? '/image/Banner.webp',
+					alt: post.title,
+				},
+			},
+		}
 	}
 
-	return {
-		title: post.title,
-		description: post.content?.slice(0, 160) ?? 'No content',
-		openGraph: {
-			title: post.title,
-			description: post.content?.slice(0, 160) ?? 'No content',
-			type: 'article',
-			image: {
-				url: post.image ?? '/image/Banner.webp',
-				alt: post.title,
-			},
-		},
-		twitter: {
-			title: post.title,
-			description: post.content?.slice(0, 160) ?? 'No content',
-			image: {
-				url: post.image ?? '/image/Banner.webp',
-				alt: post.title,
-			},
-		},
-	}
+	return {}
 }
 
 
@@ -80,7 +85,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 	const post: Post = await postData(slug)
 
 	if (!post) {
-		return <E404/>
+		notFound()
 	}
 
 	const title: string = post.title ?? 'Default Title'

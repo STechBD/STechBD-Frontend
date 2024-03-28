@@ -1,6 +1,7 @@
 import { JSX } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Metadata } from 'next'
 import { Section, Content } from '@/app/_data/type'
 import { DefaultEffect } from '@/app/_component/background'
 import Code from '@/app/_component/code'
@@ -18,7 +19,7 @@ import Hero from './hero'
  */
 const title: string = 'Install-Express'
 const description: string = 'Install Express is a CLI tool that helps you to create a Express.js backend project in seconds. It is a simple, fast, and lightweight tool that you can use to create a Express.js backend project with TypeScript, Pug, and Sass. It also includes a basic folder structure and some basic files to get started.'
-export const metadata = {
+export const metadata: Metadata = {
 	title,
 	description,
 	openGraph: {

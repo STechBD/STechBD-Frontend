@@ -1,10 +1,12 @@
+'use client'
+
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Error from '@/app/_component/error'
 
 
 /**
- * The metadata for the 404 Error page.
+ * The metadata for the General Error page.
  *
  * @constant title { string } The title of the page.
  * @constant description { string } The description of the page.
@@ -12,8 +14,8 @@ import Error from '@/app/_component/error'
  *
  * @since 3.0.0
  */
-const title: string = '404 Error'
-const description: string = 'The page you requested was not found. Please check the URL and try again.'
+const title: string = 'Error'
+const description: string = 'Something went wrong. Please check the URL and try refreshing the page.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -29,16 +31,16 @@ export const metadata: Metadata = {
 
 
 /**
- * The 404 Error page component.
+ * The General Error page component.
  *
- * @returns { JSX.Element } The 404 Error component.
+ * @returns { JSX.Element } The General Error component.
  * @since 3.0.0
  */
-export default function E404(): JSX.Element {
+export default function EGeneral(): JSX.Element {
 	return (
 		<Error
-			title="404"
-			description="The page you requested was not found. Please check the URL and try again."
+			title="Unknown"
+			description="Something went wrong. Please check the URL and try refreshing the page."
 		/>
 	)
 }
