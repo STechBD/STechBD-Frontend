@@ -26,21 +26,6 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 	const slug: string = params.blog
 	const post: Post = await postData(slug)
 
-	/*if (!post) {
-		return {
-			title: '404 Error | Page Not Found',
-			description: 'The page you requested was not found. Please check the URL and try again.',
-			openGraph: {
-				title: '404 Error | Page Not Found',
-				description: 'The page you requested was not found. Please check the URL and try again.',
-			},
-			twitter: {
-				title: '404 Error | Page Not Found',
-				description: 'The page you requested was not found. Please check the URL and try again.',
-			},
-		}
-	}*/
-
 	if (post) {
 		return {
 			title: post.title,

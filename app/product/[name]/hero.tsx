@@ -1,9 +1,11 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import { Hero } from '@/app/_data/type'
+import { isProduct, products } from '@/app/_data/product'
 import Code from '@/app/_component/code'
 
 
@@ -13,48 +15,25 @@ import Code from '@/app/_component/code'
  * @returns { JSX.Element } The Hero component.
  * @since 3.0.0
  */
-export default function Hero(): JSX.Element {
-	const [ copy, setCopy ] = useState(false)
+export default function Hero({ product }: { product: string }): JSX.Element {
+	const id: string = product.replaceAll('-', '')
+	const [ copied, setCopied ] = useState(false)
 
 	const copyCode = (): void => {
 		const code: string = 'npx install-express@latest'
 		if (code) {
 			navigator.clipboard.writeText(code).then((): void => {
-				setCopy(true)
-				setTimeout(() => setCopy(false), 3000)
+				setCopied(true)
+				setTimeout(() => setCopied(false), 3000)
 			})
 		}
 	}
 
-	const heroData: Hero = {
-		title: 'Start your Express.js backend project in seconds!',
-		description: <>
-			<strong>Install-Express</strong> is a CLI tool that helps you to create a Express.js backend project in seconds. It is a simple, fast, and lightweight tool that you can use to create a Express.js backend project with TypeScript, Pug, and Sass. It also includes a basic folder structure and some basic files to get started.
-		</>,
-		notice: <>
-			Current Version:
-			<Link className="font-semibold text-primary"
-			   href="/product/Install-Express/releases"
-			>
-				<span className="absolute inset-0" aria-hidden="true"></span> v1.0.0 🎉
-			</Link>
-		</>,
-		code: {
-			text: 'npx install-express@latest',
-			language: 'bash',
-		},
-		button: [
-			{
-				text: 'Get Server',
-				link: 'https://docs.stechbd.net/Install-Express',
-			},
-			{
-				text: 'Learn More',
-				link: '/product/Install-Express/about',
-			}
-		],
-
+	if (!isProduct(product)) {
+		notFound()
 	}
+
+	const heroData: Hero = products[id].hero
 
 	return (
 		<div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-32 text-center">
@@ -77,36 +56,38 @@ export default function Hero(): JSX.Element {
 			}
 			{
 				heroData.code && (
-					<div className="flex items-center justify-center gap-5 bg-gray-100 border border-gray-300 rounded-lg p-4 mt-6">
+					<div
+						className="flex items-center justify-center gap-5 bg-gray-100 border border-gray-300 rounded-lg p-4 mt-6">
 						<Code code={ heroData.code.text } language={ heroData.code.language }/>
 						<button
 							onClick={ copyCode }
 							className="px-3 py-1 text-sm font-medium text-gray-700 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring focus:ring-gray-300 hover:bg-gray-200"
 						>
+							<span className="flex items-center gap-2">
 							{
-								!copy && (
-									<span className="flex items-center gap-2">
-										Copy&nbsp;
-
-										<Image
-											src="/icon/copy.svg" height={ 100 } width={ 100 } alt="Copy"
-											className="h-[16px] w-[16px]"
-										/>
-									</span>
-								)
-							}
-							{
-								copy && (
-									<span className="flex items-center gap-2">
+								copied ? (
+									<>
 										Copied!&nbsp;
 
 										<Image
 											src="/icon/copied.svg" height={ 100 } width={ 100 } alt="Copied"
 											className="h-[16px] w-[16px]"
 										/>
-									</span>
+									</>
+								) : (
+									<>
+										Copy&nbsp;
+
+										<Image
+											src="/icon/copy.svg" height={ 100 } width={ 100 } alt="Copy"
+											className="h-[16px] w-[16px]"
+										/>
+									</>
 								)
 							}
+
+
+							</span>
 						</button>
 					</div>
 				)
