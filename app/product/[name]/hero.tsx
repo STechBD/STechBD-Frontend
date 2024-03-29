@@ -16,7 +16,7 @@ import Code from '@/app/_component/code'
  * @since 3.0.0
  */
 export default function Hero({ product }: { product: string }): JSX.Element {
-	const id: string = product.replaceAll('-', '')
+	const id: string = product.replaceAll('-', '_')
 	const [ copied, setCopied ] = useState(false)
 
 	const copyCode = (): void => {
@@ -27,10 +27,6 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 				setTimeout(() => setCopied(false), 3000)
 			})
 		}
-	}
-
-	if (!isProduct(product)) {
-		notFound()
 	}
 
 	const heroData: Hero = products[id].hero
