@@ -17,6 +17,9 @@ export const productList: any[] = [
 			<strong>Britto</strong> is a deep learning AI model for conversational chatbot. It can also solve
 			mathematical problems, answer general knowledge questions, and more.
 		</>,
+		logo: '/image/Britto-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/Britto',
+		github: 'https://github.com/STechBD/Britto',
 	},
 	{
 		id: 'Install-Express',
@@ -28,6 +31,9 @@ export const productList: any[] = [
 			with TypeScript, Pug, and Sass. It also includes a basic folder structure and some basic files to get
 			started
 		</>,
+		logo: '/image/Install-Express-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/Install-Express',
+		github: 'https://github.com/STechBD/Install-Express',
 	},
 	{
 		id: 'CookieCons',
@@ -37,6 +43,9 @@ export const productList: any[] = [
 			<strong>CookieCons</strong> is a simple and lightweight WordPress plugin cookie consent banner for websites.
 			It is very easy to use and customize. You can easily change the notice text simply.
 		</>,
+		logo: '/image/CookieCons-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/CookieCons',
+		github: 'https://github.com/STechBD/CookieCons',
 	},
 	{
 		id: 'ProjectPress',
@@ -46,6 +55,9 @@ export const productList: any[] = [
 			<strong>ProjectPress</strong> is a simple WordPress plugin for managing projects. It is a simple, fast, and
 			lightweight tool that you can use to create and manage projects in WordPress.
 		</>,
+		logo: '/image/ProjectPress-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/ProjectPress',
+		github: 'https://github.com/STechBD/ProjectPress',
 	},
 	{
 		id: 'S-PHP-Engine',
@@ -55,6 +67,9 @@ export const productList: any[] = [
 			<strong>S PHP Engine</strong> is a lightweight MVC-based PHP framework for building powerful full stack web
 			applications.
 		</>,
+		logo: '/image/S-PHP-Engine-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/S-PHP-Engine',
+		github: 'https://github.com/STechBD/S-PHP-Engine',
 	},
 	{
 		id: 'S-Template-Engine',
@@ -63,6 +78,9 @@ export const productList: any[] = [
 		description: <>
 			<strong>S Template Engine</strong> is a lightweight template engine for PHP.
 		</>,
+		logo: '/image/S-Template-Engine-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/S-Template-Engine',
+		github: 'https://github.com/STechBD/S-Template-Engine',
 	},
 	{
 		id: 'S-Database-Explorer',
@@ -71,6 +89,9 @@ export const productList: any[] = [
 		description: <>
 			<strong>S Database Explorer</strong> is a simple and easy to use Database Explorer for MySQL with PDO.
 		</>,
+		logo: '/image/S-Database-Explorer-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/S-Database-Explorer',
+		github: 'https://github.com/STechBD/S-Database-Explorer',
 	},
 	{
 		id: 'S-Number-Manager',
@@ -79,6 +100,9 @@ export const productList: any[] = [
 		description: <>
 			<strong>S Number Manager</strong> is a simple library for converting numbers in different languages.
 		</>,
+		logo: '/image/S-Number-Manager-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/S-Number-Manager',
+		github: 'https://github.com/STechBD/S-Number-Manager',
 	},
 	{
 		id: 'PyWeb',
@@ -87,6 +111,9 @@ export const productList: any[] = [
 		description: <>
 			<strong>PyWeb</strong> is a Python-based lightweight web browser for Windows.
 		</>,
+		logo: '/image/PyWeb-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/PyWeb',
+		github: 'https://github.com/STechBD/PyWeb',
 	},
 	{
 		id: 'ViewMD',
@@ -95,6 +122,9 @@ export const productList: any[] = [
 		description: <>
 			<strong>ViewMD</strong> is a Markdown viewer for Windows.
 		</>,
+		logo: '/image/ViewMD-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/ViewMD',
+		github: 'https://github.com/STechBD/ViewMD',
 	},
 ]
 
@@ -108,6 +138,18 @@ export const productList: any[] = [
  */
 export function isProduct(id: string): boolean {
 	return productList.some(product => product.id === id)
+}
+
+
+/**
+ * Function to get the product data.
+ *
+ * @param id { string } The product ID.
+ * @returns { any } The product data.
+ * @since 3.0.0
+ */
+export function getProduct(id: string): any {
+	return productList.find(product => product.id === id)
 }
 
 
@@ -147,7 +189,7 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 		id: 'Britto',
 		title: 'Britto',
 		description: 'Britto is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
-		logo: '/image/Britto.svg',
+		logo: '/image/Britto-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
 	},
@@ -316,7 +358,7 @@ export const Install_Express: { info: any, hero: Hero, section: Section[] } = {
 		id: 'Install_Express',
 		title: 'Install-Express',
 		description: 'Install Express is a CLI tool that helps you to create a Express.js backend project in seconds. It is a simple, fast, and lightweight tool that you can use to create a Express.js backend project with TypeScript, Pug, and Sass. It also includes a basic folder structure and some basic files to get started.',
-		logo: '/image/Install-Express.svg',
+		logo: '/image/Install-Express-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/Install-Express',
 		github: 'https://github.com/STechBD/Install-Express',
 	},
@@ -498,7 +540,7 @@ export const CookieCons: { info: any, hero: Hero, section: Section[] } = {
 		id: 'CookieCons',
 		title: 'CookieCons',
 		description: 'A lightweight cookie consent banner for websites.',
-		logo: '/image/CookieCons.svg',
+		logo: '/image/CookieCons-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/CookieCons',
 		github: 'https://github.com/STechBD/CookieCons',
 	},
@@ -675,7 +717,7 @@ const ProjectPress: { info: any, hero: Hero, section: Section[] } = {
 		id: 'ProjectPress',
 		title: 'ProjectPress',
 		description: 'ProjectPress is a simple WordPress plugin for managing projects.',
-		logo: '/image/ProjectPress.svg',
+		logo: '/image/ProjectPress-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/ProjectPress',
 		github: 'https://github.com/ProjectPress',
 	},
@@ -847,7 +889,7 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 		id: 'S_PHP_Engine',
 		title: 'S PHP Engine',
 		description: 'S PHP Engine is a lightweight MVC-based PHP framework for building powerful full stack web applications.',
-		logo: '/image/S-PHP-Engine.svg',
+		logo: '/image/S-PHP-Engine-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/S-PHP-Engine',
 		github: 'https://github.com/STechBD/S-PHP-Engine',
 	},
@@ -1019,7 +1061,7 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 		id: 'S_Template_Engine',
 		title: 'S Template Engine',
 		description: 'S Template Engine is a lightweight template engine for PHP.',
-		logo: '/image/S-Template-Engine.svg',
+		logo: '/image/S-Template-Engine-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/S-Template-Engine',
 		github: 'https://github.com/STechBD/S-Template-Engine',
 	},
@@ -1190,7 +1232,7 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 		id: 'S_Database_Explorer',
 		title: 'S Database Explorer',
 		description: 'S Database Explorer is a lightweight database explorer for MySQL.',
-		logo: '/image/S-Database-Explorer.svg',
+		logo: '/image/S-Database-Explorer-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/S-Database-Explorer',
 		github: 'https://github.com/STechBD/S-Database-Explorer',
 	},
@@ -1353,7 +1395,7 @@ const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 		id: 'S_Number_Manager',
 		title: 'S Number Manager',
 		description: 'S Number Manager is a lightweight number manager for PHP.',
-		logo: '/image/S-Number-Manager.svg',
+		logo: '/image/S-Number-Manager-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/S-Number-Manager',
 		github: 'https://github.com/STechBD/S-Number-Manager',
 	},
@@ -1516,7 +1558,7 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 		id: 'PyWeb',
 		title: 'PyWeb',
 		description: 'PyWeb is a Python-based lightweight web browser for Windows',
-		logo: '/image/PyWeb.svg',
+		logo: '/image/PyWeb-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/PyWeb',
 		github: 'https://github.com/STechBD/PyWeb',
 	},
@@ -1687,7 +1729,7 @@ const ViewMD: { info: any, hero: Hero, section: Section[] } = {
 		id: 'ViewMD',
 		title: 'ViewMD',
 		description: 'ViewMD is a Markdown viewer for Windows',
-		logo: '/image/ViewMD.svg',
+		logo: '/image/ViewMD-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 	},

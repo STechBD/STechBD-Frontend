@@ -8,6 +8,7 @@ import { isPath, validatePath } from '@/app/_function/utility'
 import ParticleAnimation from '@/app/_component/particleAnimation'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import Theme from '@/app/_component/theme'
+import { getProduct } from '@/app/_data/product';
 
 
 /**
@@ -51,8 +52,8 @@ export default function Header(): JSX.Element {
 	const data = {
 		siteTitle: 'S Technologies',
 		siteLogo: <AnimatedLogo/>,
-		productTitle: 'Install Express',
-		productLogo: 'Install-Express-Logo-Light.svg',
+		productTitle: getProduct(path.split('/')[2]).title,
+		productLogo: getProduct(path.split('/')[2]).logo,
 	}
 
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
@@ -421,7 +422,7 @@ export default function Header(): JSX.Element {
 								type === 'product' ? (
 									<Image
 										className="h-8 w-auto sm:h-10"
-										src={ '/image/' + data.productLogo }
+										src={ data.productLogo }
 										alt={ data.productTitle + ' Logo' }
 										height={ 100 }
 										width={ 100 }/>
