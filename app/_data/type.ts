@@ -2,6 +2,34 @@ import { JSX } from 'react'
 
 
 /**
+ * Interface definition for the metadata of the menu.
+ *
+ * @interface Menu
+ *
+ * @since 3.0.0
+ */
+export interface Menu {
+	title: string
+	path?: string
+	mobileState?: boolean
+	mobileToggle?: () => void
+	submenu: {
+		type: number
+		state: boolean
+		openCallback: () => void
+		closeCallback: () => void
+		items: {
+			title: string
+			path: string
+			description?: string
+			icon?: string
+		}[]
+		text?: string
+		path?: string
+	} | false
+}
+
+/**
  * Interface definition for the metadata of API data.
  *
  * @interface User

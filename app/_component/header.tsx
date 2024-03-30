@@ -4,39 +4,12 @@ import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import type { Menu } from '@/app/_data/type'
 import { isPath, validatePath } from '@/app/_function/utility'
+import { getProduct } from '@/app/_data/product'
 import ParticleAnimation from '@/app/_component/particleAnimation'
 import AnimatedLogo from '@/app/_component/animatedLogo'
 import Theme from '@/app/_component/theme'
-import { getProduct } from '@/app/_data/product';
-
-
-/**
- * Type declaration for the menu.
- *
- * @interface Menu
- * @since 3.0.0
- */
-interface Menu {
-	title: string
-	path?: string
-	mobileState?: boolean
-	mobileToggle?: () => void
-	submenu: {
-		type: number
-		state: boolean
-		openCallback: () => void
-		closeCallback: () => void
-		items: {
-			title: string
-			path: string
-			description?: string
-			icon?: string
-		}[]
-		text?: string
-		path?: string
-	} | false
-}
 
 
 /**
@@ -52,8 +25,17 @@ export default function Header(): JSX.Element {
 	const data = {
 		siteTitle: 'S Technologies',
 		siteLogo: <AnimatedLogo/>,
-		productTitle: getProduct(path.split('/')[2]).title,
-		productLogo: getProduct(path.split('/')[2]).logo,
+		productSlug: false,
+		productTitle: false,
+		productLogo: false,
+		productGithub: false,
+	}
+
+	if (type === 'product') {
+		data.productSlug = getProduct(path.split('/')[2]).id
+		data.productTitle = getProduct(path.split('/')[2]).title
+		data.productLogo = getProduct(path.split('/')[2]).logo
+		data.productGithub = getProduct(path.split('/')[2]).github
 	}
 
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
@@ -412,20 +394,24 @@ export default function Header(): JSX.Element {
 				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }>
 				<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 					<div className="flex lg:flex-1">
-						<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
+						<Link
+							className="flex gap-5 -m-1.5 p-1.5"
+							href={ type === 'product' && data.productSlug ? data.productSlug : '/' }
+						>
 							<span className="sr-only">
 								{
 									type === 'product' ? data.productTitle : data.siteTitle
 								}
 							</span>
 							{
-								type === 'product' ? (
+								type === 'product' && data.productLogo ? (
 									<Image
 										className="h-8 w-auto sm:h-10"
 										src={ data.productLogo }
 										alt={ data.productTitle + ' Logo' }
 										height={ 100 }
-										width={ 100 }/>
+										width={ 100 }
+									/>
 								) : (
 									data.siteLogo
 								)
@@ -447,7 +433,8 @@ export default function Header(): JSX.Element {
 								Open main menu
 							</span>
 							<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-							     stroke="currentColor" aria-hidden="true">
+							     stroke="currentColor" aria-hidden="true"
+							>
 								<path strokeLinecap="round" strokeLinejoin="round"
 								      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
 								</path>
@@ -471,17 +458,19 @@ export default function Header(): JSX.Element {
 													{ item.title }
 
 													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-													     viewBox="0 0 20 20" fill="currentColor"
-													     aria-hidden="true">
+													     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+													>
 														<path fillRule="evenodd"
 														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
 														      clipRule="evenodd">
 														</path>
 													</svg>
 												</button>
-												<div onMouseEnter={ item.submenu.openCallback }
-												     onMouseLeave={ item.submenu.closeCallback }
-												     className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }>
+												<div
+													onMouseEnter={ item.submenu.openCallback }
+													onMouseLeave={ item.submenu.closeCallback }
+													className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+												>
 													<div className="px-4 py-0">
 														{
 															item.submenu.items.map((item, index) => {
@@ -511,36 +500,44 @@ export default function Header(): JSX.Element {
 													{ item.title }
 
 													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-													     viewBox="0 0 20 20" fill="currentColor"
-													     aria-hidden="true">
+													     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+													>
 														<path fillRule="evenodd"
 														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
 														      clipRule="evenodd">
 														</path>
 													</svg>
 												</button>
-												<div onMouseEnter={ item.submenu.openCallback }
-												     onMouseLeave={ item.submenu.closeCallback }
-												     className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }>
+												<div
+													onMouseEnter={ item.submenu.openCallback }
+													onMouseLeave={ item.submenu.closeCallback }
+													className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+												>
 													<div className="grid grid-cols-2 px-4 py-0">
 														{
 															item.submenu.items.map((subitem, index) => {
 																return (
-																	<Link key={ index } href={ subitem.path }
-																	      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+																	<Link
+																		key={ index }
+																		href={ subitem.path }
+																		className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+																	>
 																		<div
-																			className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+																			className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+																		>
 																			<Image
 																				className="h-6 w-6 text-gray-600 group-hover:text-primary"
 																				src="/icon/app.svg" alt="App"
 																				height={ 100 }
-																				width={ 100 }/>
+																				width={ 100 }
+																			/>
 																		</div>
 																		<div className="flex-auto">
-																		<span
-																			className="block font-semibold text-gray-900 dark:text-gray-100">
-																			{ subitem.title }
-																		</span>
+																			<span
+																				className="block font-semibold text-gray-900 dark:text-gray-100"
+																			>
+																				{ subitem.title }
+																			</span>
 																			<p className="mt-1 text-gray-600">
 																				{ subitem.description }
 																			</p>
@@ -566,8 +563,10 @@ export default function Header(): JSX.Element {
 								} else {
 									if (item.path) {
 										return (
-											<Link key={ index } href={ item.path }
-											      className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
+											<Link
+												key={ index }
+												href={ item.path }
+												className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
 											>
 												{ item.title }
 											</Link>
@@ -579,13 +578,16 @@ export default function Header(): JSX.Element {
 						{
 							type === 'product' && (
 								<>
-									<Link href="/product/CookieCons/about"
-									      className={ (path === '/CookieCons/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
+									<Link
+										href={ data.productSlug && data.productSlug + '/about' }
+										className={ (path === data.productSlug + '/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
 									>
 										About
 									</Link>
-									<a href="https://github.com/STechBD/Install-Express" target="_blank"
-									   className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+									<a
+										href={ data.productGithub ?? 'https://github.com/STechBD' }
+										target="_blank"
+										className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
 									>
 										GitHub
 									</a>
@@ -606,7 +608,8 @@ export default function Header(): JSX.Element {
 										S Technologies
 									</span>
 									<div
-										className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100">
+										className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100"
+									>
 										S Technologies
 									</div>
 									<AnimatedLogo/>
@@ -614,8 +617,11 @@ export default function Header(): JSX.Element {
 							</div>
 						) : (
 							<div className="hidden xl:flex xl:flex-1 xl:justify-end">
-								<a href="https://cpanel.stechbd.net/login" target="_blank"
-								   className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+								<a
+									href="https://cpanel.stechbd.net/login"
+									target="_blank"
+									className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+								>
 									Login
 								</a>
 							</div>
@@ -624,11 +630,16 @@ export default function Header(): JSX.Element {
 				</nav>
 
 				{ /** Mobile Menu **/ }
-				<div onClick={ () => toggleMenu() } aria-modal="true" role="dialog"
-				     className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }
+				<div
+					onClick={ () => toggleMenu() }
+					aria-modal="true"
+					role="dialog"
+					className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }
 				>
-					<div onClick={ (event) => event.stopPropagation() }
-					     className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20">
+					<div
+						onClick={ (event) => event.stopPropagation() }
+						className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20"
+					>
 						<div className="flex items-center justify-between">
 							<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
 								<span className="sr-only">
@@ -636,11 +647,13 @@ export default function Header(): JSX.Element {
 								</span>
 								<AnimatedLogo/>
 								<span className="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
-								{ data.siteTitle }
-							</span>
+									{ data.siteTitle }
+								</span>
 							</Link>
-							<button onClick={ () => toggleMenu() } type="button"
-							        className="-m-2.5 rounded-md p-2.5 text-gray-700"
+							<button
+								onClick={ () => toggleMenu() }
+								type="button"
+								className="-m-2.5 rounded-md p-2.5 text-gray-700"
 							>
 								<span className="sr-only">
 									Close menu
@@ -654,22 +667,21 @@ export default function Header(): JSX.Element {
 						</div>
 						<div className="mt-6 flow-root">
 							<div className="-my-6 divide-y divide-gray-500/10">
-								<div className="pt-6 pb-3">
-
-								</div>
+								<div className="pt-6 pb-3"></div>
 								{
 									menu.map((item, index) => {
 										if (item.submenu) {
 											return (
 												<div key={ index } className="space-y-2 py-2">
 													<div className="-mx-3">
-														<button onClick={ item.mobileToggle } type="button"
-														        aria-controls="disclosure-1"
-														        aria-expanded="false"
-														        className={ (isPath([
-															        item.submenu.path ?? '',
-															        ...item.submenu.items.map((item) => item.path),
-														        ]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+														<button
+															onClick={ item.mobileToggle } type="button"
+															aria-controls="disclosure-1"
+															aria-expanded="false"
+															className={ (isPath([
+																item.submenu.path ?? '',
+																...item.submenu.items.map((item) => item.path),
+															]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
 														>
 															{ item.title }
 
@@ -680,7 +692,8 @@ export default function Header(): JSX.Element {
 															</svg>
 														</button>
 														<div
-															className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }>
+															className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
+														>
 															{
 																item.submenu.items.map((item, index) => {
 																	return (
@@ -695,8 +708,9 @@ export default function Header(): JSX.Element {
 															}
 															{
 																item.submenu.text && item.submenu.path && (
-																	<Link href={ item.submenu.path }
-																	      className="block text-gray-900 dark:text-gray-100 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+																	<Link
+																		href={ item.submenu.path }
+																		className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
 																	>
 																		{ item.submenu.text }
 																	</Link>
@@ -725,14 +739,18 @@ export default function Header(): JSX.Element {
 									type === 'product' && (
 										<>
 											<div className="py-2">
-												<Link href="/product/CookieCons/about"
-												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50">
+												<Link href={ data.productSlug + '/about' }
+												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+												>
 													About
 												</Link>
 											</div>
 											<div className="py-2">
-												<a href="https://github.com/STechBD/Install-Express" target="_blank"
-												   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50">
+												<a
+													href={ data.productGithub ?? 'https://github.com/STechBD' }
+													target="_blank"
+													className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+												>
 													GitHub
 												</a>
 											</div>
@@ -740,8 +758,10 @@ export default function Header(): JSX.Element {
 									)
 								}
 								<div className="py-2">
-									<a href="https://cpanel.stechbd.net/login" target="_blank"
-									   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+									<a
+										href="https://cpanel.stechbd.net/login"
+										target="_blank"
+										className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
 									>
 										Login
 									</a>

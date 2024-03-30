@@ -1,37 +1,54 @@
 import { JSX } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Metadata } from 'next'
-import { Section, Content } from '@/app/_data/type'
+import { Content, Section } from '@/app/_data/type'
 import { DefaultEffect } from '@/app/_component/background'
 import Code from '@/app/_component/code'
 import Hero from './hero'
-import { isProduct, products } from '@/app/_data/product';
-import { notFound } from 'next/navigation';
+import { getProduct, isProduct, products } from '@/app/_data/product'
+import { notFound } from 'next/navigation'
 
 
 /**
- * Metadata for the Install-Express page.
+ * Generate metadata for the Single Product page.
  *
- * @constant title { string } The title of the page.
- * @constant description { string } The description of the page.
- * @constant metadata { Metadata } The exported metadata of the page.
- *
+ * @param { string } name The product-slug.
+ * @returns { Promise<{ title: string }> } The metadata.
  * @since 3.0.0
  */
-const title: string = 'Install-Express'
-const description: string = 'Install Express is a CLI tool that helps you to create a Express.js backend project in seconds. It is a simple, fast, and lightweight tool that you can use to create a Express.js backend project with TypeScript, Pug, and Sass. It also includes a basic folder structure and some basic files to get started.'
-export const metadata: Metadata = {
-	title,
-	description,
-	openGraph: {
-		title,
-		description,
-	},
-	twitter: {
-		title,
-		description,
-	},
+export async function generateMetadata({ params }: { params: { name: string } }): Promise<any> {
+	const product: string = params.name
+
+	if (isProduct(product)) {
+		const info = getProduct(product)
+		const title = info.title
+		const description = info.description
+		const image = info.image
+
+		return {
+			title,
+			description,
+			openGraph: {
+				title,
+				description,
+				type: 'article',
+				image: {
+					url: image ?? '/image/Banner.webp',
+					alt: title,
+				},
+			},
+			twitter: {
+				title,
+				description,
+				image: {
+					url: image ?? '/image/Banner.webp',
+					alt: title,
+				},
+			},
+		}
+	}
+
+	return {}
 }
 
 

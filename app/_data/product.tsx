@@ -17,7 +17,7 @@ export const productList: any[] = [
 			<strong>Britto</strong> is a deep learning AI model for conversational chatbot. It can also solve
 			mathematical problems, answer general knowledge questions, and more.
 		</>,
-		logo: '/image/Britto-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
 	},
@@ -38,12 +38,14 @@ export const productList: any[] = [
 	{
 		id: 'CookieCons',
 		title: 'CookieCons',
-		info: 'CookieCons is a simple and lightweight WordPress plugin cookie consent banner for websites',
+		info: 'CookieCons is a simple and lightweight cookie consent plugin for WordPress.',
 		description: <>
-			<strong>CookieCons</strong> is a simple and lightweight WordPress plugin cookie consent banner for websites.
-			It is very easy to use and customize. You can easily change the notice text simply.
+			<strong>CookieCons</strong> is a simple and lightweight cookie consent plugin for WordPress. It is a free
+			and open-source plugin that helps you comply with the EU GDPR cookie law and CCPA regulations. It is
+			compatible with any WordPress theme and any WordPress version. It is also compatible with any browser,
+			device, and operating system.
 		</>,
-		logo: '/image/CookieCons-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/CookieCons',
 		github: 'https://github.com/STechBD/CookieCons',
 	},
@@ -55,52 +57,53 @@ export const productList: any[] = [
 			<strong>ProjectPress</strong> is a simple WordPress plugin for managing projects. It is a simple, fast, and
 			lightweight tool that you can use to create and manage projects in WordPress.
 		</>,
-		logo: '/image/ProjectPress-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/ProjectPress',
 		github: 'https://github.com/STechBD/ProjectPress',
 	},
 	{
 		id: 'S-PHP-Engine',
-		title: 'S PHP Engine',
-		info: 'S PHP Engine is a lightweight MVC-based PHP framework for building powerful full stack web applications',
+		title: 'S PHP Engine (SPE)',
+		info: 'S PHP Engine (SPE) is a lightweight MVC-based PHP framework for building powerful full stack web applications',
 		description: <>
-			<strong>S PHP Engine</strong> is a lightweight MVC-based PHP framework for building powerful full stack web
+			<strong>S PHP Engine (SPE)</strong> is a lightweight MVC-based PHP framework for building powerful full
+			stack web
 			applications.
 		</>,
-		logo: '/image/S-PHP-Engine-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-PHP-Engine',
 		github: 'https://github.com/STechBD/S-PHP-Engine',
 	},
 	{
 		id: 'S-Template-Engine',
-		title: 'S Template Engine',
-		info: 'S Template Engine is a lightweight template engine for PHP',
+		title: 'S Template Engine (STE)',
+		info: 'S Template Engine (STE) is a lightweight template engine for PHP',
 		description: <>
-			<strong>S Template Engine</strong> is a lightweight template engine for PHP.
+			<strong>S Template Engine (STE)</strong> is a lightweight template engine for PHP.
 		</>,
-		logo: '/image/S-Template-Engine-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Template-Engine',
 		github: 'https://github.com/STechBD/S-Template-Engine',
 	},
 	{
 		id: 'S-Database-Explorer',
-		title: 'S Database Explorer',
-		info: 'S Database Explorer is a simple and easy to use Database Explorer for MySQL with PDO',
+		title: 'S Database Explorer (SDE)',
+		info: 'S Database Explorer (SDE) is a simple and easy to use Database Explorer for MySQL with PDO',
 		description: <>
-			<strong>S Database Explorer</strong> is a simple and easy to use Database Explorer for MySQL with PDO.
+			<strong>S Database Explorer (SDE)</strong> is a simple and easy to use Database Explorer for MySQL with PDO.
 		</>,
-		logo: '/image/S-Database-Explorer-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Database-Explorer',
 		github: 'https://github.com/STechBD/S-Database-Explorer',
 	},
 	{
 		id: 'S-Number-Manager',
-		title: 'S Number Manager',
-		info: 'S Number Manager is a simple library for converting numbers in different languages',
+		title: 'S Number Manager (SNM)',
+		info: 'S Number Manager (SNM) is a simple library for converting numbers in different languages',
 		description: <>
-			<strong>S Number Manager</strong> is a simple library for converting numbers in different languages.
+			<strong>S Number Manager (SNM)</strong> is a simple library for converting numbers in different languages.
 		</>,
-		logo: '/image/S-Number-Manager-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Number-Manager',
 		github: 'https://github.com/STechBD/S-Number-Manager',
 	},
@@ -111,7 +114,7 @@ export const productList: any[] = [
 		description: <>
 			<strong>PyWeb</strong> is a Python-based lightweight web browser for Windows.
 		</>,
-		logo: '/image/PyWeb-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/PyWeb',
 		github: 'https://github.com/STechBD/PyWeb',
 	},
@@ -122,7 +125,7 @@ export const productList: any[] = [
 		description: <>
 			<strong>ViewMD</strong> is a Markdown viewer for Windows.
 		</>,
-		logo: '/image/ViewMD-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 	},
@@ -189,7 +192,7 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 		id: 'Britto',
 		title: 'Britto',
 		description: 'Britto is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
-		logo: '/image/Britto-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
 	},
@@ -539,17 +542,18 @@ export const CookieCons: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'CookieCons',
 		title: 'CookieCons',
-		description: 'A lightweight cookie consent banner for websites.',
-		logo: '/image/CookieCons-Logo-Light.svg',
+		description: 'CookieCons is a simple and lightweight cookie consent plugin for WordPress.',
+		logo: false,
 		docs: 'https://docs.stechbd.net/CookieCons',
 		github: 'https://github.com/STechBD/CookieCons',
 	},
 	hero: {
 		title: 'A lightweight cookie consent banner for websites.',
 		description: <>
-			<strong>CookieCons</strong> is a lightweight cookie consent banner for websites. It is a simple, fast, and
-			lightweight tool that you can use to create a cookie consent banner for your website. It also includes a
-			basic configuration and some basic styles to get started.
+			<strong>CookieCons</strong> is a simple and lightweight cookie consent plugin for WordPress. It is a free
+			and open-source plugin that helps you comply with the EU GDPR cookie law and CCPA regulations. It is
+			compatible with any WordPress theme and any WordPress version. It is also compatible with any browser,
+			device, and operating system.
 		</>,
 		notice: <>
 			Current Version:
@@ -717,7 +721,7 @@ const ProjectPress: { info: any, hero: Hero, section: Section[] } = {
 		id: 'ProjectPress',
 		title: 'ProjectPress',
 		description: 'ProjectPress is a simple WordPress plugin for managing projects.',
-		logo: '/image/ProjectPress-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/ProjectPress',
 		github: 'https://github.com/ProjectPress',
 	},
@@ -879,7 +883,7 @@ const ProjectPress: { info: any, hero: Hero, section: Section[] } = {
 
 
 /**
- * The product data for S PHP Engine.
+ * The product data for S PHP Engine (SPE).
  *
  * @constant S_PHP_Engine { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
@@ -887,16 +891,17 @@ const ProjectPress: { info: any, hero: Hero, section: Section[] } = {
 const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'S_PHP_Engine',
-		title: 'S PHP Engine',
-		description: 'S PHP Engine is a lightweight MVC-based PHP framework for building powerful full stack web applications.',
-		logo: '/image/S-PHP-Engine-Logo-Light.svg',
+		title: 'S PHP Engine (SPE)',
+		description: 'S PHP Engine (SPE) is a lightweight MVC-based PHP framework for building powerful full stack web applications.',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-PHP-Engine',
 		github: 'https://github.com/STechBD/S-PHP-Engine',
 	},
 	hero: {
-		title: 'S PHP Engine',
+		title: 'S PHP Engine (SPE)',
 		description: <>
-			<strong>S PHP Engine</strong> is a lightweight MVC-based PHP framework for building powerful full stack web
+			<strong>S PHP Engine (SPE)</strong> is a lightweight MVC-based PHP framework for building powerful full
+			stack web
 			applications.
 		</>,
 		notice: <>
@@ -955,11 +960,11 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from Your Website',
-					description: 'To install S PHP Engine from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S PHP Engine (SPE) from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install S PHP Engine from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S PHP Engine (SPE) from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/ProjectPress',
@@ -967,7 +972,7 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 				},
 				{
 					title: 'Install from Zip File',
-					description: 'To install S PHP Engine from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
+					description: 'To install S PHP Engine (SPE) from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/ProjectPress/releases',
@@ -1021,16 +1026,16 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is S PHP Engine?',
-					description: 'S PHP Engine is a lightweight MVC-based PHP framework for building powerful full stack web applications.',
+					title: 'What is S PHP Engine (SPE)?',
+					description: 'S PHP Engine (SPE) is a lightweight MVC-based PHP framework for building powerful full stack web applications.',
 					url: {
 						text: 'Learn More',
 						link: 'https://docs.stechbd.net/S-PHP-Engine',
 					},
 				},
 				{
-					title: 'How to install S PHP Engine?',
-					description: 'To install S PHP Engine, run the following command:',
+					title: 'How to install S PHP Engine (SPE)?',
+					description: 'To install S PHP Engine (SPE), run the following command:',
 					code: {
 						text: 'npx s-php-engine@latest',
 						language: 'bash',
@@ -1051,7 +1056,7 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 
 
 /**
- * The product data for S Template Engine.
+ * The product data for S Template Engine (STE).
  *
  * @constant S_Template_Engine { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
@@ -1059,16 +1064,16 @@ const S_PHP_Engine: { info: any, hero: Hero, section: Section[] } = {
 const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'S_Template_Engine',
-		title: 'S Template Engine',
-		description: 'S Template Engine is a lightweight template engine for PHP.',
-		logo: '/image/S-Template-Engine-Logo-Light.svg',
+		title: 'S Template Engine (STE)',
+		description: 'S Template Engine (STE) is a lightweight template engine for PHP.',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Template-Engine',
 		github: 'https://github.com/STechBD/S-Template-Engine',
 	},
 	hero: {
-		title: 'S Template Engine',
+		title: 'S Template Engine (STE)',
 		description: <>
-			<strong>S Template Engine</strong> is a lightweight template engine for PHP.
+			<strong>S Template Engine (STE)</strong> is a lightweight template engine for PHP.
 		</>,
 		notice: <>
 			Current Version:
@@ -1126,11 +1131,11 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from Your Website',
-					description: 'To install S Template Engine from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Template Engine (STE) from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install S Template Engine from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Template Engine (STE) from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Template-Engine',
@@ -1138,7 +1143,7 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 				},
 				{
 					title: 'Install from Zip File',
-					description: 'To install S Template Engine from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Template Engine (STE) from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Template-Engine/releases',
@@ -1192,16 +1197,16 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is S Template Engine?',
-					description: 'S Template Engine is a lightweight template engine for PHP.',
+					title: 'What is S Template Engine (STE)?',
+					description: 'S Template Engine (STE) is a lightweight template engine for PHP.',
 					url: {
 						text: 'Learn More',
 						link: 'https://docs.stechbd.net/S-Template-Engine',
 					},
 				},
 				{
-					title: 'How to install S Template Engine?',
-					description: 'To install S Template Engine, run the following command:',
+					title: 'How to install S Template Engine (STE)?',
+					description: 'To install S Template Engine (STE), run the following command:',
 					code: {
 						text: 'npx s-template-engine@latest',
 						language: 'bash',
@@ -1222,7 +1227,7 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 
 
 /**
- * The product data for S Database Explorer.
+ * The product data for S Database Explorer (SDE).
  *
  * @constant S_Database_Explorer { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
@@ -1230,16 +1235,16 @@ const S_Template_Engine: { info: any, hero: Hero, section: Section[] } = {
 const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'S_Database_Explorer',
-		title: 'S Database Explorer',
-		description: 'S Database Explorer is a lightweight database explorer for MySQL.',
-		logo: '/image/S-Database-Explorer-Logo-Light.svg',
+		title: 'S Database Explorer (SDE)',
+		description: 'S Database Explorer (SDE) is a lightweight database explorer for MySQL.',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Database-Explorer',
 		github: 'https://github.com/STechBD/S-Database-Explorer',
 	},
 	hero: {
-		title: 'S Database Explorer',
+		title: 'S Database Explorer (SDE)',
 		description: <>
-			<strong>S Database Explorer</strong> is a lightweight database explorer for MySQL.
+			<strong>S Database Explorer (SDE)</strong> is a lightweight database explorer for MySQL.
 		</>,
 		notice: <>
 			Current Version:
@@ -1289,11 +1294,11 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from Your Website',
-					description: 'To install S Database Explorer from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Database Explorer (SDE) from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install S Database Explorer from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Database Explorer (SDE) from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Database-Explorer',
@@ -1301,7 +1306,7 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 				},
 				{
 					title: 'Install from Zip File',
-					description: 'To install S Database Explorer from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Database Explorer (SDE) from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Database-Explorer/releases',
@@ -1355,16 +1360,16 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is S Database Explorer?',
-					description: 'S Database Explorer is a lightweight database explorer for MySQL.',
+					title: 'What is S Database Explorer (SDE)?',
+					description: 'S Database Explorer (SDE) is a lightweight database explorer for MySQL.',
 					url: {
 						text: 'Learn More',
 						link: 'https://docs.stechbd.net/S-Database-Explorer',
 					},
 				},
 				{
-					title: 'How to install S Database Explorer?',
-					description: 'To install S Database Explorer, run the following command:',
+					title: 'How to install S Database Explorer (SDE)?',
+					description: 'To install S Database Explorer (SDE), run the following command:',
 					code: {
 						text: 'npx s-database-explorer@latest',
 						language: 'bash',
@@ -1385,7 +1390,7 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 
 
 /**
- * The product data for S Number Manager.
+ * The product data for S Number Manager (SNM).
  *
  * @constant S_Number_Manager { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
@@ -1393,16 +1398,16 @@ const S_Database_Explorer: { info: any, hero: Hero, section: Section[] } = {
 const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'S_Number_Manager',
-		title: 'S Number Manager',
-		description: 'S Number Manager is a lightweight number manager for PHP.',
-		logo: '/image/S-Number-Manager-Logo-Light.svg',
+		title: 'S Number Manager (SNM)',
+		description: 'S Number Manager (SNM) is a lightweight number manager for PHP.',
+		logo: false,
 		docs: 'https://docs.stechbd.net/S-Number-Manager',
 		github: 'https://github.com/STechBD/S-Number-Manager',
 	},
 	hero: {
-		title: 'S Number Manager',
+		title: 'S Number Manager (SNM)',
 		description: <>
-			<strong>S Number Manager</strong> is a lightweight number manager for PHP.
+			<strong>S Number Manager (SNM)</strong> is a lightweight number manager for PHP.
 		</>,
 		notice: <>
 			Current Version:
@@ -1452,11 +1457,11 @@ const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from Your Website',
-					description: 'To install S Number Manager from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Number Manager (SNM) from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install S Number Manager from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Number Manager (SNM) from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Number-Manager',
@@ -1464,7 +1469,7 @@ const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 				},
 				{
 					title: 'Install from Zip File',
-					description: 'To install S Number Manager from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
+					description: 'To install S Number Manager (SNM) from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
 						link: 'https://github.com/STechBD/S-Number-Manager/releases',
@@ -1518,16 +1523,16 @@ const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is S Number Manager?',
-					description: 'S Number Manager is a lightweight number manager for PHP.',
+					title: 'What is S Number Manager (SNM)?',
+					description: 'S Number Manager (SNM) is a lightweight number manager for PHP.',
 					url: {
 						text: 'Learn More',
 						link: 'https://docs.stechbd.net/S-Number-Manager',
 					},
 				},
 				{
-					title: 'How to install S Number Manager?',
-					description: 'To install S Number Manager, run the following command:',
+					title: 'How to install S Number Manager (SNM)?',
+					description: 'To install S Number Manager (SNM), run the following command:',
 					code: {
 						text: 'npx s-number-manager@latest',
 						language: 'bash',
@@ -1558,7 +1563,7 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 		id: 'PyWeb',
 		title: 'PyWeb',
 		description: 'PyWeb is a Python-based lightweight web browser for Windows',
-		logo: '/image/PyWeb-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/PyWeb',
 		github: 'https://github.com/STechBD/PyWeb',
 	},
@@ -1729,7 +1734,7 @@ const ViewMD: { info: any, hero: Hero, section: Section[] } = {
 		id: 'ViewMD',
 		title: 'ViewMD',
 		description: 'ViewMD is a Markdown viewer for Windows',
-		logo: '/image/ViewMD-Logo-Light.svg',
+		logo: false,
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 	},
