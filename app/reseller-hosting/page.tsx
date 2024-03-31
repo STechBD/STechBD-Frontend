@@ -90,7 +90,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Reseller hosting has many benefits. Here are some of the key features of reseller hosting:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>Good for starting a business</li>
 						<li>Low cost</li>
 						<li>Easy to use</li>
@@ -111,7 +111,7 @@ export default function Page(): JSX.Element {
 						business with a reliable and affordable web hosting provider. Get started with our reseller
 						hosting plans today. Here are some of the key features of our reseller hosting:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
 						<li>Reliability</li>
 						<li>Security</li>
@@ -138,7 +138,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 reseller hosting providers in Bangladesh:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
@@ -158,7 +158,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 reseller hosting providers in the world:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>

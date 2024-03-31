@@ -95,7 +95,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Shared hosting has many benefits. Here are some of the key features of shared hosting:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>Low cost</li>
 						<li>Easy to use</li>
 						<li>Customization</li>
@@ -114,7 +114,7 @@ export default function Page(): JSX.Element {
 						small businesses, personal websites, and blogs. We provide the following features with our
 						shared hosting plans:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
 						<li>Reliability</li>
 						<li>Security</li>
@@ -139,7 +139,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 shared hosting providers in Bangladesh:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
@@ -159,7 +159,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 shared hosting providers in the world:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>

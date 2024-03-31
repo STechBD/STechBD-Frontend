@@ -95,7 +95,7 @@ export default function Page(): JSX.Element {
 						small businesses, startups, and individuals. Here are some of the key features of readymade
 						website development:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Quality Design</li>
 						<li>Responsive Design</li>
 						<li>SEO Friendly</li>
@@ -124,7 +124,7 @@ export default function Page(): JSX.Element {
 						We provide 24/7 support and maintenance to ensure that your website is always up and running.
 						Here are some of the key reasons to choose S Technologies for readymade website development:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Quality Design</li>
 						<li>Responsive Design</li>
 						<li>SEO Friendly</li>
@@ -156,7 +156,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 readymade website development companies in Bangladesh:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
@@ -176,7 +176,7 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 readymade website development companies in the world:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>

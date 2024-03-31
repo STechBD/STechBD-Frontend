@@ -16,8 +16,8 @@ import ComparisonTable from '@/app/_component/comparisonTable'
  *
  * @since 3.0.0
  */
-const title: string = 'Shared Hosting'
-const description: string = 'Affordable shared hosting plans for your website. Get started with our shared hosting plans today.'
+const title: string = 'School Management System'
+const description: string = 'School Management System is a complete solution for managing school, college, university, and any other educational institution. It is a modern and fully responsive system that will help you to manage your institution easily.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 
 /**
- * The Shared Hosting page component.
+ * The School Management System page component.
  *
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
@@ -46,11 +46,12 @@ export default function Page(): JSX.Element {
 				<DefaultEffect/>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Pick a Plan
+						School Management System
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Choose the best shared hosting plan for your website.
-						We have a variety of shared hosting plans to meet your website needs.
+						School Management System is a complete solution for managing school, college, university, and
+						any other educational institution. It is a modern and fully responsive system that will help you
+						to manage your institution easily.
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
@@ -59,43 +60,49 @@ export default function Page(): JSX.Element {
 						Compare Plans
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Compare the best shared hosting plan for your website.
-						We have a variety of shared hosting plans to meet your website needs.
+						Compare the best school management system plans.
+						We have a variety of school management system plans to choose from.
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						What is Shared Hosting?
+						What is School Management System?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Shared hosting is a type of web hosting where a single physical server hosts multiple websites.
-						Many users utilize the resources on a single server, which keeps the costs low. Users each get a
-						section of a server in which they can host their website files.
-						Shared servers can host hundreds of users.
-						Each customer using the shared hosting platform’s server has access to features like databases,
-						monthly traffic, disk space, email accounts, FTP accounts, and other add-ons offered by the
-						host. System resources are shared on-demand by customers on the server, and each gets a
-						percentage of everything from RAM and CPU, and other elements such as the single MySQL server,
-						Apache server, and mail server.
+						School Management System is a complete solution for managing school, college, university, and
+						any other educational institution.
+						It is a modern and fully responsive system that will help you to manage your institution easily.
+						School Management System is designed to help you manage your institution's day-to-day operations
+						efficiently.
+						It is a powerful and user-friendly system that will help you to manage your institution's
+						academic, administrative, and financial activities.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Shared hosting is the most economical option for hosting, as many people share the overall cost
-						of server maintenance.
-						It is perfect for personal websites, small and medium businesses that do not require all the
-						resources of a server.
-						Shared hosting is also a popular option if you run a simple blog or forum.
-						If you are starting a new website, shared hosting is the most cost-effective way of doing so.
+						School Management System is a cloud-based system that can be accessed from anywhere at any time.
+						It is a secure and reliable system that will help you to manage your institution's data
+						effectively.
+						School Management System is designed to help you streamline your institution's operations and
+						improve productivity.
 					</p>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Features of Shared Hosting
+						Features of School Management System
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Shared hosting has many benefits. Here are some of the key features of shared hosting:
+						School management system has many benefits. Here are some of the key features of school management system:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
+						<li>Student Management</li>
+						<li>Teacher Management</li>
+						<li>Parent Management</li>
+						<li>Attendance Management</li>
+						<li>Exam Management</li>
+						<li>Library Management</li>
+						<li>Transport Management</li>
+						<li>Hall Management</li>
+						<li>Fee Management</li>
 						<li>Low cost</li>
 						<li>Easy to use</li>
 						<li>Customization</li>
@@ -107,19 +114,16 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Why S Technologies Shared Hosting?
+						Why S Technologies School Management System?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						We offer the best shared hosting plans in Bangladesh. Our shared hosting plans are perfect for
-						small businesses, personal websites, and blogs. We provide the following features with our
-						shared hosting plans:
+						We offer the best school management system in Bangladesh. Our school management system is designed to help you manage your institution's day-to-day operations efficiently. We have been providing school management system since 2015 with customer satisfaction. Our school management system is ideal for school, college, university, and any other educational institution. Here are some of the key features of our school management system:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
 						<li>Reliability</li>
 						<li>Security</li>
 						<li>Support</li>
-						<li>99.9% Uptime</li>
 						<li>Free SSL Certificate 🔥</li>
 						<li>Free Daily Backup</li>
 						<li>Latest PHP, MySQL, NodeJS, Python, Ruby, and Perl</li>
@@ -134,12 +138,12 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Shared Hosting Provider in Bangladesh
+						Top 10 School Management System Provider in Bangladesh
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 shared hosting providers in Bangladesh:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
@@ -154,12 +158,12 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Shared Hosting Provider in the World
+						Top 10 School Management System Provider in the World
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Here are the top 10 shared hosting providers in the world:
 					</p>
-					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text--gray-100">
+					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
