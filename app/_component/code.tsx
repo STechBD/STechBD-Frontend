@@ -8,10 +8,10 @@
 export default function Code({ code, language = 'bash' }: { code: string, language?: string }): JSX.Element {
 	return (
 		<pre
-			className="flex-grow text-sm font-mono text-gray-800 px-4 py-2 whitespace-pre line-numbers bg-gray-900 rounded-lg overflow-x-auto"
+			className="flex-grow text-sm font-mono text-gray-800 px-4 py-2 whitespace-pre line-numbers bg-gray-900 rounded-lg overflow-x-auto dark:bg-slate-800"
 		>
 			<code
-				className="language-bash text-sm font-mono text-gray-200 px-4 py-2 whitespace-pre line-numbers bg-gray-900 rounded-lg mb-4"
+				className="language-bash text-sm font-mono text-gray-200 px-4 py-2 whitespace-pre line-numbers rounded-lg mb-4 dark:text-white"
 			>
 				{ code }
 			</code>

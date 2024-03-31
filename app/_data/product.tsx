@@ -11,15 +11,16 @@ import type { Hero, Section } from '@/app/_data/type'
 export const productList: any[] = [
 	{
 		id: 'Britto',
-		title: 'Britto',
-		info: 'Britto is a deep learning AI model for conversational chatbot',
+		title: 'Britto AI',
+		info: 'Britto AI is a deep learning AI model for conversational chatbot',
 		description: <>
-			<strong>Britto</strong> is a deep learning AI model for conversational chatbot. It can also solve
+			<strong>Britto AI</strong> is a deep learning AI model for conversational chatbot. It can also solve
 			mathematical problems, answer general knowledge questions, and more.
 		</>,
 		logo: false,
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
+		rating: 5,
 	},
 	{
 		id: 'Install-Express',
@@ -34,6 +35,7 @@ export const productList: any[] = [
 		logo: '/image/Install-Express-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/Install-Express',
 		github: 'https://github.com/STechBD/Install-Express',
+		rating: 5,
 	},
 	{
 		id: 'CookieCons',
@@ -48,6 +50,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/CookieCons',
 		github: 'https://github.com/STechBD/CookieCons',
+		rating: 5,
 	},
 	{
 		id: 'ProjectPress',
@@ -60,6 +63,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/ProjectPress',
 		github: 'https://github.com/STechBD/ProjectPress',
+		rating: 5,
 	},
 	{
 		id: 'S-PHP-Engine',
@@ -73,6 +77,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/S-PHP-Engine',
 		github: 'https://github.com/STechBD/S-PHP-Engine',
+		rating: 5,
 	},
 	{
 		id: 'S-Template-Engine',
@@ -84,6 +89,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/S-Template-Engine',
 		github: 'https://github.com/STechBD/S-Template-Engine',
+		rating: 5,
 	},
 	{
 		id: 'S-Database-Explorer',
@@ -95,6 +101,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/S-Database-Explorer',
 		github: 'https://github.com/STechBD/S-Database-Explorer',
+		rating: 5,
 	},
 	{
 		id: 'S-Number-Manager',
@@ -106,6 +113,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/S-Number-Manager',
 		github: 'https://github.com/STechBD/S-Number-Manager',
+		rating: 5,
 	},
 	{
 		id: 'PyWeb',
@@ -117,6 +125,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/PyWeb',
 		github: 'https://github.com/STechBD/PyWeb',
+		rating: 5,
 	},
 	{
 		id: 'ViewMD',
@@ -128,6 +137,7 @@ export const productList: any[] = [
 		logo: false,
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
+		rating: 5,
 	},
 ]
 
@@ -182,7 +192,7 @@ function productListGenerator(skip: string): any {
 
 
 /**
- * The product data for Britto.
+ * The product data for Britto AI.
  *
  * @constant Britto { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
@@ -190,16 +200,16 @@ function productListGenerator(skip: string): any {
 export const Britto: { info: any, hero: Hero, section: Section[] } = {
 	info: {
 		id: 'Britto',
-		title: 'Britto',
-		description: 'Britto is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
+		title: 'Britto AI',
+		description: 'Britto AI is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
 		logo: false,
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
 	},
 	hero: {
-		title: 'Britto',
+		title: 'Britto AI',
 		description: <>
-			<strong>Britto</strong> is a deep learning AI model for conversational chatbot. It can also solve
+			<strong>Britto AI</strong> is a deep learning AI model for conversational chatbot. It can also solve
 			mathematical
 			problems, answer general knowledge questions, and more.
 		</>,
@@ -259,7 +269,7 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from PyPI',
-					description: 'To install Britto from PyPI, run the following command:',
+					description: 'To install Britto AI from PyPI, run the following command:',
 					code: {
 						text: 'pip install britto',
 						language: 'bash',
@@ -267,7 +277,7 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install Britto from GitHub, run the following command:',
+					description: 'To install Britto AI from GitHub, run the following command:',
 					code: {
 						text: 'pip install git+https://github.com/STechBD/Britto.git',
 						language: 'bash',
@@ -321,23 +331,23 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is Britto?',
-					description: 'Britto is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
+					title: 'What is Britto AI?',
+					description: 'Britto AI is a deep learning AI model for conversational chatbot. It can also solve mathematical problems, answer general knowledge questions, and more.',
 					url: {
 						text: 'Learn More',
 						link: 'https://docs.stechbd.net/Britto',
 					},
 				},
 				{
-					title: 'How to install Britto?',
-					description: 'To install Britto, run the following command:',
+					title: 'How to install Britto AI?',
+					description: 'To install Britto AI, run the following command:',
 					code: {
 						text: 'pip install britto',
 						language: 'bash',
 					},
 				},
 				{
-					title: 'How to train Britto?',
+					title: 'How to train Britto AI?',
 					description: 'To train Britto, run the following command:',
 					code: {
 						text: 'britto train',

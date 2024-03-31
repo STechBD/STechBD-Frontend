@@ -1,4 +1,5 @@
 import { usePathname } from 'next/navigation'
+import { productList } from '@/app/_data/product'
 
 
 /**
@@ -21,6 +22,8 @@ export function isPath(path: string[]): boolean {
  * @since 3.0.0
  */
 export function validatePath(path: string): boolean {
+	const productPath: string[] = productList.map((product) => `/product/${product.id}`)
+
 	const validPath: string[] = [
 		'/',
 		'/login',
@@ -44,16 +47,6 @@ export function validatePath(path: string): boolean {
 		'/service/windows-development',
 		'/service/ui-ux-design',
 		'/service/seo',
-		'/product',
-		'/product/Install-Express',
-		'/product/CookieCons',
-		'/product/ProjectPress',
-		'/product/S-PHP-Engine',
-		'/product/S-Template-Engine',
-		'/product/S-Database-Explorer',
-		'/product/S-Number-Manager',
-		'/product/PyWeb',
-		'/product/ViewMD',
 		'/about',
 		'/ai',
 		'/contact',
@@ -63,7 +56,8 @@ export function validatePath(path: string): boolean {
 		'/disclaimer',
 		'/refund',
 		'/blog',
-		'/blog/[slug]',
+		'/product',
+		...productPath,
 	]
 
 	return validPath.some((p: string): boolean => p === path)

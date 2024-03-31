@@ -105,6 +105,14 @@ export interface Pricing {
 		bdt: number
 		usd: number
 	}
+	renew?: {
+		bdt: number
+		usd: number
+	}
+	discount?: {
+		bdt: number
+		usd: number
+	}
 	period: number
 	description: string
 	features: JSX.Element[]
@@ -125,6 +133,14 @@ export interface Feature {
 export interface Comparison {
 	title: string
 	price: {
+		bdt: number
+		usd: number
+	}
+	renew?: {
+		bdt: number
+		usd: number
+	}
+	discount?: {
 		bdt: number
 		usd: number
 	}

@@ -21,21 +21,16 @@ import Theme from '@/app/_component/theme'
 export default function Header(): JSX.Element {
 	const path: string = usePathname()
 	const type: string = (path.startsWith('/product') && path !== '/product' && validatePath(path)) ? 'product' : 'default'
+	const productSlug: string = path.split('/')[2]
+	const productData: any = getProduct(productSlug) ?? false
 
 	const data = {
 		siteTitle: 'S Technologies',
 		siteLogo: <AnimatedLogo/>,
-		productSlug: false,
-		productTitle: false,
-		productLogo: false,
-		productGithub: false,
-	}
-
-	if (type === 'product') {
-		data.productSlug = getProduct(path.split('/')[2]).id
-		data.productTitle = getProduct(path.split('/')[2]).title
-		data.productLogo = getProduct(path.split('/')[2]).logo
-		data.productGithub = getProduct(path.split('/')[2]).github
+		productSlug: productData.id,
+		productTitle: productData.title,
+		productLogo: productData.logo,
+		productGithub: productData.github,
 	}
 
 	const [ showMenu, setShowMenu ] = useState<boolean>(false)
@@ -391,12 +386,13 @@ export default function Header(): JSX.Element {
 				process.env.NODE_ENV === 'production' && <ParticleAnimation/>
 			}
 			<header
-				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }>
+				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }
+			>
 				<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
 					<div className="flex lg:flex-1">
 						<Link
 							className="flex gap-5 -m-1.5 p-1.5"
-							href={ type === 'product' && data.productSlug ? data.productSlug : '/' }
+							href={ type === 'product' ? data.productSlug : '/' }
 						>
 							<span className="sr-only">
 								{
@@ -449,7 +445,7 @@ export default function Header(): JSX.Element {
 										return (
 											<div key={ index } className="relative">
 												<button className={ (isPath([
-													...item.submenu.items.map((item, index) => item.path),
+													...item.submenu.items.map((item) => item.path),
 												]) ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
 												        type="button" aria-expanded="false"
 												        onMouseEnter={ item.submenu.openCallback }
@@ -591,8 +587,10 @@ export default function Header(): JSX.Element {
 									>
 										GitHub
 									</a>
-									<a href="https://cpanel.stechbd.net/login" target="_blank"
-									   className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+									<a
+										href="https://cpanel.stechbd.net/login"
+										target="_blank"
+										className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
 									>
 										Login
 									</a>

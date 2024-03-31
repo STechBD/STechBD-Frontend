@@ -37,7 +37,8 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 				heroData.notice && (
 					<div className="hidden sm:mb-8 sm:flex sm:justify-center">
 						<div
-							className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+							className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-white"
+						>
 							{ heroData.notice }
 						</div>
 					</div>
@@ -45,7 +46,7 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 			}
 			{
 				heroData.title && (
-					<h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+					<h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-gray-100">
 						{ heroData.title }
 					</h1>
 				)
@@ -53,11 +54,12 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 			{
 				heroData.code && (
 					<div
-						className="flex items-center justify-center gap-5 bg-gray-100 border border-gray-300 rounded-lg p-4 mt-6">
+						className="flex items-center justify-center gap-5 bg-gray-100 border border-gray-300 rounded-lg p-4 mt-6 dark:bg-gray-900"
+					>
 						<Code code={ heroData.code.text } language={ heroData.code.language }/>
 						<button
 							onClick={ copyCode }
-							className="px-3 py-1 text-sm font-medium text-gray-700 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring focus:ring-gray-300 hover:bg-gray-200"
+							className="px-3 py-1 text-sm font-medium text-gray-700 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring focus:ring-gray-300 hover:bg-gray-200 dark:text-black"
 						>
 							<span className="flex items-center gap-2">
 							{
@@ -90,7 +92,7 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 			}
 			{
 				heroData.description && (
-					<p className="mt-6 text-lg leading-8 text-gray-600">
+					<p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
 						{ heroData.description }
 					</p>
 				)
@@ -109,7 +111,7 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 								{ heroData.button[0].text }
 							</Link>
 							<Link
-								href="/product/Install-Express/about"
+								href={ heroData.button[1].link }
 								target={ heroData.button[1].link.startsWith('http') ? '_blank' : '' }
 								className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-black bg-white hover:bg-gray-200 sm:px-8"
 							>

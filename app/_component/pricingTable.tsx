@@ -4,6 +4,7 @@ import { JSX, useState } from 'react'
 import Link from 'next/link'
 import { Pricing } from '@/app/_data/type'
 import Currency from '@/app/_component/currency'
+import Script from 'next/script';
 
 
 /**
@@ -52,6 +53,16 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 									<p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
 										Billed { item.period === 0 ? 'annually' : 'monthly' }
 									</p>
+									{
+										item.renew && (
+											<p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+												Renew at <strong>{ currency === 'bdt' ? '৳' : '$' }
+												{ currency === 'bdt' ? item.renew.bdt : item.renew.usd }
+												{ item.period === 0 ? ' / year' : ' / month' }</strong> for the
+												2nd { item.period === 0 ? 'year' : 'month' }
+											</p>
+										)
+									}
 								</div>
 								<div className="mt-8">
 									<ul className="space-y-2">
@@ -59,12 +70,15 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 											item.features.map((feature: any, index: number): JSX.Element => {
 												return (
 													<li key={ index } className="flex items-center">
-														<svg className="w-4 h-4 text-green-500 flex-shrink-0"
-														     fill="currentColor"
-														     viewBox="0 0 20 20"
-														     xmlns="http://www.w3.org/2000/svg">
+														<svg
+															className="w-4 h-4 text-green-500 flex-shrink-0"
+														    fill="currentColor"
+														    viewBox="0 0 20 20"
+														    xmlns="http://www.w3.org/2000/svg"
+														>
 															<path fillRule="evenodd" clipRule="evenodd"
-															      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"/>
+															      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"
+															/>
 														</svg>
 														<span className="ml-2 text-gray-700 dark:text-gray-300">
 															{ feature }
@@ -76,9 +90,10 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 									</ul>
 								</div>
 								<div className="mt-8">
-									<Link href={ item.button.link }
-									      target={ item.button.link.startsWith('http') ? '_blank' : '' }
-									      className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-secondary"
+									<Link
+										href={ item.button.link }
+										target={ item.button.link.startsWith('http') ? '_blank' : '' }
+										className="block w-full px-4 py-3 text-center font-medium text-white bg-primary rounded-md hover:bg-secondary"
 									>
 										{ item.button.text }
 									</Link>

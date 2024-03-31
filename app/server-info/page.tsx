@@ -1,6 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
+import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
 
 
@@ -162,61 +163,56 @@ export default async function Page(): Promise<JSX.Element> {
 	return (
 		<>
 			<Hero/>
-			<div className="bg-white">
-				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-					<div className="lg:grid lg:grid-cols-3 lg:gap-8">
-						<div>
-							<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
-								Server Location
-							</h2>
-							<div className="mt-3">
-								{
-									servers.map((server) => (
-										<div key={ server.id }>
-											<p className="mt-1 text-lg text-gray-900">
-												{ server.id }. { server.location }, { server.country }
-											</p>
-										</div>
-									))
-								}
-							</div>
+			<div className="relative isolate px-6 py-24 lg:px-8 max-w-7xl mx-auto lg:py-20">
+				<DefaultEffect/>
+				<div className="lg:grid lg:grid-cols-3 lg:gap-8">
+					<div>
+						<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+							Server Location
+						</h2>
+						<div className="mt-3">
+							{
+								servers.map((server) => (
+									<div key={ server.id } className="mt-1 text-lg text-gray-900 dark:text-gray-100">
+										{ server.id }. { server.location }, { server.country }
+									</div>
+								))
+							}
 						</div>
-						<div className="mt-12 lg:mt-0 lg:col-span-2">
-							<div className="mt-3">
-								<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
-									Servers of S Technologies
-								</h2>
-								<p className="text-lg text-gray-900">
-									Here you can find information about our servers and their status.
-								</p>
-							</div>
-							<div className="mt-12">
-								{
-									servers.map((server) => (
-										<div key={ server.id }>
-											<div
-												className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700">
-												<h3 className="text-lg text-primary">
-													<strong>
-														{ server.name }
-													</strong>
-												</h3>
-												<p className="mt-1 text-lg text-gray-900">
-													<strong>Location:</strong> { server.location }
-												</p>
-												<p className="mt-1 text-lg text-gray-900">
-													<strong>Country:</strong> { server.country }
-												</p>
-												<p className="mt-1 text-lg text-gray-900">
-													<strong>Status:</strong> { server.up ?
-													<span className="text-green-700">Up</span> :
-													<span className="text-red-700">Down</span> }
-												</p>
-											</div>
-										</div>
-									))
-								}
-							</div>
+					</div>
+					<div className="mt-12 lg:mt-0 lg:col-span-2">
+						<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+							Server Status of S Technologies
+						</h2>
+						<p className="mt-3 text-lg text-gray-900 dark:text-gray-100">
+							Here you can find information about our servers and their status.
+						</p>
+						<div className="mt-12">
+							{
+								servers.map((server) => (
+									<div
+										key={ server.id }
+									    className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:bg-opacity-70"
+									>
+										<h3 className="text-lg text-primary">
+											<strong>
+												{ server.name }
+											</strong>
+										</h3>
+										<p className="mt-1 text-lg text-gray-800 dark:text-gray-200">
+											<strong>Location:</strong> { server.location }
+										</p>
+										<p className="mt-1 text-lg text-gray-800 dark:text-gray-200">
+											<strong>Country:</strong> { server.country }
+										</p>
+										<p className="mt-1 text-lg text-gray-800 dark:text-gray-200">
+											<strong>Status:</strong> { server.up ?
+											<span className="text-green-700">Up</span> :
+											<span className="text-red-700">Down</span> }
+										</p>
+									</div>
+								))
+							}
 						</div>
 					</div>
 				</div>

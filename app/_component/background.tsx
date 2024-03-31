@@ -47,9 +47,9 @@ export function DefaultEffect(): JSX.Element {
 export function BasicHeroEffect(): JSX.Element {
 	return (
 		<div className="absolute inset-0">
-			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
-			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
-			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc]"/>
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] dark:from-[#7d1e4b] dark:to-[#352e73]"/>
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] dark:from-[#7d1e4b] dark:to-[#352e73]"/>
+			<div className="absolute inset-0 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] dark:from-[#7d1e4b] dark:to-[#352e73]"/>
 		</div>
 	)
 }
