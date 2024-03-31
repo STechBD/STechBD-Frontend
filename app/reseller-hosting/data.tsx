@@ -1,5 +1,15 @@
 import { Feature, Pricing } from '@/app/_data/type'
 
+
+/**
+ * Data for the Pricing and Comparison components.
+ *
+ * @constant { Pricing[] } pricingData The pricing data.
+ * @constant { Feature[] } featureData The feature data.
+ * @constant { Comparison[] } comparisonData The comparison data.
+ *
+ * @since 3.0.0
+ */
 export const pricingData: Pricing[] = [
 	{
 		title: '10GB',

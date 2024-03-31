@@ -16,13 +16,15 @@ import Script from 'next/script';
  */
 export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JSX.Element {
 	const [ currency, setCurrency ] = useState<string>(defaultCurrency)
+	const columnLg: string = data.length % 3 === 0 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
+	const columnMd: string = data.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-3'
 
 	return (
 		<div className="my-20">
 			<div className="flex justify-center items-center mb-10">
 				<Currency currency={ currency } callback={ setCurrency } defaultCurrency={ defaultCurrency }/>
 			</div>
-			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+			<div className={ `grid grid-cols-1 gap-4 ${ columnMd } ${ columnLg }` }>
 				{
 					data.map((item: Pricing, index: number): JSX.Element => {
 						return (
