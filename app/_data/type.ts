@@ -44,10 +44,20 @@ export interface User {
 	firstname?: string
 	lastname?: string
 	image?: string
-	role?: string
+	email?: string
+	phone?: string
+	role?: number
+	status?: number
 	company?: string
 	position?: string
 	about?: string
+	website?: string
+	address?: string
+	city?: string
+	state?: string
+	zip?: string
+	country?: string
+	birthday?: string
 }
 
 export interface Post {
