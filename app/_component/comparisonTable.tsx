@@ -2,6 +2,8 @@
 
 import { JSX, useState } from 'react'
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrency } from '@/app/_context/reduxStore'
 import { Data, Feature } from '@/app/_data/type'
 import Currency from '@/app/_component/currency'
 
@@ -13,8 +15,13 @@ import Currency from '@/app/_component/currency'
  * @since 3.0.0
  */
 export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt' }: any): JSX.Element {
-	const [ currency, setCurrency ] = useState<string>(defaultCurrency)
+	const currency = useSelector((state: any): string => state.currency)
+	const dispatch = useDispatch()
 	const column: number = data.length + 2
+
+	const changeCurrency = (currency: string): void => {
+		dispatch(setCurrency(currency))
+	}
 
 	return (
 		<>
@@ -24,7 +31,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 
 					{ /** Switch **/ }
 					<div className="flex justify-center items-center mb-10">
-						<Currency currency={ currency } callback={ setCurrency }/>
+						<Currency currency={ currency } callback={ changeCurrency }/>
 					</div>
 					{ /** End Switch **/ }
 					<div
@@ -46,10 +53,11 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 								{
 									data.map((item: Data, index: number): JSX.Element => {
 										return (
-											<div key={ index } className="col-span-1">
+											<div key={ index }>
 												{ /** Header **/ }
 												<div
-													className="h-full p-4 flex flex-col justify-between bg-white border border-gray-200 rounded-xl dark:bg-slate-900 dark:border-gray-700">
+													className="h-full p-4 flex flex-col justify-between bg-white border border-gray-200 rounded-xl dark:bg-slate-900 dark:border-gray-700"
+												>
 													<div className="text-center">
 										                <span
 											                className="font-semibold text-lg text-gray-800 dark:text-gray-200"
@@ -118,75 +126,84 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 										{
 											feature.features && Object.entries(feature.features).map(([ key, value ], index: number): JSX.Element => {
 												return (
-													<>
-														<ul key={ index }
-														    className={ 'grid lg:gap-6 lg:grid-cols-' + column }>
-															{ /** Item **/ }
-															<li className="lg:col-span-2 pb-1.5 lg:py-3">
-												            <span className="text-sm text-gray-800 dark:text-gray-200">
+													<ul
+														key={ index }
+														className={ 'grid lg:gap-6 lg:grid-cols-' + column }
+													>
+														{ /** Item **/ }
+														<li className="lg:col-span-2 pb-1.5 lg:py-3">
+												            <span
+													            className="text-sm text-gray-800 dark:text-gray-200"
+												            >
 													            { value }
 												            </span>
-															</li>
-															{ /** End Item **/ }
-															{
-																data.map((item: Data, index: number): JSX.Element => {
-																	return (
-																		<li key={ index }
-																		    className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]">
-																			<div className="grid grid-cols-6 lg:block">
-																				<span
-																					className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200"
-																				>
-																					{ item.title }
-																				</span>
-																				<span
-																					className="text-sm text-gray-800 dark:text-gray-200"
-																				>
-																				    {
-																					    item.features[key] === true ? (
-																						    <svg
-																							    className="flex-shrink-0 lg:mx-auto h-5 w-5 text-green-600 dark:text-green-500"
-																							    xmlns="http://www.w3.org/2000/svg"
-																							    width="24" height="24"
-																							    viewBox="0 0 24 24"
-																							    fill="none"
-																							    stroke="currentColor"
-																							    strokeWidth="2"
-																							    strokeLinecap="round"
-																							    strokeLinejoin="round"
-																						    >
-																							    <polyline
-																								    points="20 6 9 17 4 12"/>
-																						    </svg>
-																					    ) : item.features[key] === false ? (
-																						    <svg
-																							    className="flex-shrink-0 lg:mx-auto h-5 w-5 text-red-600 dark:text-red-500"
-																							    xmlns="http://www.w3.org/2000/svg"
-																							    width="24" height="24"
-																							    viewBox="0 0 24 24"
-																							    fill="none"
-																							    stroke="currentColor"
-																							    strokeWidth="2"
-																							    strokeLinecap="round"
-																							    strokeLinejoin="round"
-																						    >
-																							    <line x1="18" y1="6"
-																							          x2="6" y2="18"/>
-																							    <line x1="6" y1="6"
-																							          x2="18" y2="18"/>
-																						    </svg>
-																					    ) : (
-																						    item.features[key]
-																					    )
-																				    }
-																				</span>
-																			</div>
-																		</li>
-																	)
-																})
-															}
-														</ul>
-													</>
+														</li>
+														{ /** End Item **/ }
+														{
+															data.map((item: Data, index: number): JSX.Element => {
+																return (
+																	<li
+																		key={ index }
+																		className="col-span-1 py-1.5 lg:py-3 px-4 lg:px-0 lg:text-center bg-gray-100 dark:bg-white/[.05]"
+																	>
+																		<div className="grid grid-cols-6 lg:block">
+																			<span
+																				className="lg:hidden col-span-2 font-semibold text-sm text-gray-800 dark:text-gray-200"
+																			>
+																				{ item.title }
+																			</span>
+																			<span
+																				className="text-sm text-gray-800 dark:text-gray-200"
+																			>
+																			    {
+																				    item.features[key] === true ? (
+																					    <svg
+																						    className="flex-shrink-0 lg:mx-auto h-5 w-5 text-green-600 dark:text-green-500"
+																						    xmlns="http://www.w3.org/2000/svg"
+																						    width="24" height="24"
+																						    viewBox="0 0 24 24"
+																						    fill="none"
+																						    stroke="currentColor"
+																						    strokeWidth="2"
+																						    strokeLinecap="round"
+																						    strokeLinejoin="round"
+																					    >
+																						    <polyline
+																							    points="20 6 9 17 4 12"
+																						    />
+																					    </svg>
+																				    ) : item.features[key] === false ? (
+																					    <svg
+																						    className="flex-shrink-0 lg:mx-auto h-5 w-5 text-red-600 dark:text-red-500"
+																						    xmlns="http://www.w3.org/2000/svg"
+																						    width="24" height="24"
+																						    viewBox="0 0 24 24"
+																						    fill="none"
+																						    stroke="currentColor"
+																						    strokeWidth="2"
+																						    strokeLinecap="round"
+																						    strokeLinejoin="round"
+																					    >
+																						    <line
+																							    x1="18" y1="6"
+																							    x2="6" y2="18"
+																						    />
+																						    <line
+																							    x1="6" y1="6"
+																							    x2="18" y2="18"
+																						    />
+																					    </svg>
+																				    ) : (
+																					    item.features[key]
+																				    )
+																			    }
+																			</span>
+																		</div>
+																	</li>
+																)
+															})
+														}
+													</ul>
 												)
 											})
 										}
@@ -206,7 +223,8 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 											{ /** Item **/ }
 											<li className="lg:col-span-2 lg:py-3">
 									            <span
-										            className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+										            className="text-lg font-semibold text-gray-800 dark:text-gray-200"
+									            >
 										            Financial data
 									            </span>
 											</li>

@@ -8,7 +8,7 @@ import ComparisonTable from '@/app/_component/comparisonTable'
 
 
 /**
- * Metadata for the Shared Hosting page.
+ * Metadata for the School Management System page.
  *
  * @constant title { string } The title of the page.
  * @constant description { string } The description of the page.
@@ -73,16 +73,18 @@ export default function Page(): JSX.Element {
 						School Management System is a complete solution for managing school, college, university, and
 						any other educational institution.
 						It is a modern and fully responsive system that will help you to manage your institution easily.
-						School Management System is designed to help you manage your institution's day-to-day operations
+						School Management System is designed to help you manage your institution&apos;s day-to-day
+						operations
 						efficiently.
-						It is a powerful and user-friendly system that will help you to manage your institution's
+						It is a powerful and user-friendly system that will help you to manage your institution&apos;s
 						academic, administrative, and financial activities.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						School Management System is a cloud-based system that can be accessed from anywhere at any time.
-						It is a secure and reliable system that will help you to manage your institution's data
+						It is a secure and reliable system that will help you to manage your institution&apos;s data
 						effectively.
-						School Management System is designed to help you streamline your institution's operations and
+						School Management System is designed to help you streamline your institution&apos;s operations
+						and
 						improve productivity.
 					</p>
 				</div>
@@ -91,7 +93,8 @@ export default function Page(): JSX.Element {
 						Features of School Management System
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						School management system has many benefits. Here are some of the key features of school management system:
+						School management system has many benefits. Here are some of the key features of school
+						management system:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>Student Management</li>
@@ -117,7 +120,11 @@ export default function Page(): JSX.Element {
 						Why S Technologies School Management System?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						We offer the best school management system in Bangladesh. Our school management system is designed to help you manage your institution's day-to-day operations efficiently. We have been providing school management system since 2015 with customer satisfaction. Our school management system is ideal for school, college, university, and any other educational institution. Here are some of the key features of our school management system:
+						We offer the best school management system in Bangladesh. Our school management system is
+						designed to help you manage your institution&apos;s day-to-day operations efficiently. We have
+						been providing school management system since 2015 with customer satisfaction. Our school
+						management system is ideal for school, college, university, and any other educational
+						institution. Here are some of the key features of our school management system:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
@@ -141,19 +148,19 @@ export default function Page(): JSX.Element {
 						Top 10 School Management System Provider in Bangladesh
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 shared hosting providers in Bangladesh:
+						Here are the top 10 school management system provider in Bangladesh:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
 						<li>S Hosting Bangladesh</li>
-						<li>BDWebs</li>
-						<li>ExonHost</li>
-						<li>Code For Host</li>
-						<li>Host Might</li>
-						<li>Web Host BD</li>
-						<li>Host Clave</li>
+						<li>Shikkha Web</li>
+						<li>Ulkaa Campus</li>
+						<li>Edu Hub BD</li>
+						<li>Schoolify</li>
+						<li>Web Edu BD</li>
+						<li>EduHost</li>
 					</ol>
 				</div>
 				<div className="lg:px-20 py-10">
@@ -161,19 +168,19 @@ export default function Page(): JSX.Element {
 						Top 10 School Management System Provider in the World
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 shared hosting providers in the world:
+						Here are the top 10 school management system providers in the world:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
 						<li>STechBD.Net</li>
 						<li>SHostBD.Com</li>
 						<li>S Hosting Bangladesh</li>
-						<li>Namecheap</li>
-						<li>Bluehost</li>
-						<li>HostGator</li>
-						<li>SiteGround</li>
-						<li>GoDaddy</li>
-						<li>Hostinger</li>
+						<li>Shikkha Web</li>
+						<li>Ulkaa Campus</li>
+						<li>The Educate</li>
+						<li>EduSchool</li>
+						<li>Go School</li>
+						<li>College Pro</li>
 					</ol>
 				</div>
 			</div>

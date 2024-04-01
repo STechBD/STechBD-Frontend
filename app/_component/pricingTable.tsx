@@ -1,10 +1,11 @@
 'use client'
 
-import { JSX, useState } from 'react'
+import { JSX } from 'react'
 import Link from 'next/link'
 import { Pricing } from '@/app/_data/type'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrency } from '@/app/_context/reduxStore'
 import Currency from '@/app/_component/currency'
-import Script from 'next/script';
 
 
 /**
@@ -15,14 +16,19 @@ import Script from 'next/script';
  * @since 3.0.0
  */
 export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JSX.Element {
-	const [ currency, setCurrency ] = useState<string>(defaultCurrency)
-	const columnLg: string = data.length % 3 === 0 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
-	const columnMd: string = data.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-3'
+	const currency = useSelector((state: any): string => state.currency)
+	const dispatch = useDispatch()
+	const columnLg: string = data.length % 3 === 0 ? 'lg:grid-cols-3 lg:gap-16' : 'lg:grid-cols-4'
+	const columnMd: string = data.length % 2 === 0 ? 'md:grid-cols-2 lg:gap-8' : 'md:grid-cols-3'
+
+	const changeCurrency = (currency: string): void => {
+		dispatch(setCurrency(currency))
+	}
 
 	return (
 		<div className="my-20">
 			<div className="flex justify-center items-center mb-10">
-				<Currency currency={ currency } callback={ setCurrency } defaultCurrency={ defaultCurrency }/>
+				<Currency currency={ currency } callback={ changeCurrency } defaultCurrency={ defaultCurrency }/>
 			</div>
 			<div className={ `grid grid-cols-1 gap-4 ${ columnMd } ${ columnLg }` }>
 				{
@@ -74,12 +80,13 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 													<li key={ index } className="flex items-center">
 														<svg
 															className="w-4 h-4 text-green-500 flex-shrink-0"
-														    fill="currentColor"
-														    viewBox="0 0 20 20"
-														    xmlns="http://www.w3.org/2000/svg"
+															fill="currentColor"
+															viewBox="0 0 20 20"
+															xmlns="http://www.w3.org/2000/svg"
 														>
-															<path fillRule="evenodd" clipRule="evenodd"
-															      d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"
+															<path
+																fillRule="evenodd" clipRule="evenodd"
+																d="M10 18a8 8 0 100-16 8 8 0 000 16zm5-10a1 1 0 00-1.707-.707L10 11.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l5-5a1 1 0 00.293-.707z"
 															/>
 														</svg>
 														<span className="ml-2 text-gray-700 dark:text-gray-300">

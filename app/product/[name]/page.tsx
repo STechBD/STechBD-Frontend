@@ -68,6 +68,28 @@ export default function Page({ params }: { params: { name: string } }): JSX.Elem
 
 		const sections: Section[] = products[id].section
 
+		const jsonLd = {
+			'@context': 'https://schema.org',
+			'@type': 'Product',
+			name: products[id].title,
+			description: products[id].description,
+			brand: {
+				'@type': 'Brand',
+				name: 'S Technologies',
+			},
+			image: products[id].image ?? '/image/Banner.webp',
+			offers: {
+				'@type': 'Offer',
+				price: 0,
+				priceCurrency: 'USD',
+				priceValidUntil: Date.now() + 86400000,
+				itemCondition: 'https://schema.org/NewCondition',
+				availability: 'https://schema.org/InStock',
+			},
+			ratingValue: 5,
+			reviewCount: products[id].title.length,
+		}
+
 		return (
 			<>
 				<div className="relative isolate px-6 py-24 lg:px-8">
@@ -145,6 +167,10 @@ export default function Page({ params }: { params: { name: string } }): JSX.Elem
 						})
 					}
 				</div>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={ { __html: JSON.stringify(jsonLd) } }
+				/>
 			</>
 		)
 	}

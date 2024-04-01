@@ -15,7 +15,7 @@ import Index from '@/app/[blog]/index'
 
 
 /**
- * Metadata for the Blog Post page.
+ * Generate metadata for the Author page.
  *
  * @param { string } slug The post-slug.
  * @returns { Promise<{ title: string }> } The metadata.
@@ -53,34 +53,33 @@ export async function generateMetadata({ params }: { params: { blog: string } })
 }
 
 
-/**
- * Clean the HTML tags from the content.
- *
- * @param html The HTML content to clean.
- * @returns { string } The cleaned content.
- * @since 3.0.0
- */
 function cleanHtmlTags(html: string): string {
 	return html.replace(/<[^>]*>/g, '')
 }
 
 
 /**
- * The Blog Post page component.
+ * The Author page component.
  *
- * @param { string } params The parameters passed to the page.
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
-export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
-	const slug: string = params.blog
-	const post: Post = await postData(slug)
+export default async function Page({ params }: { params: { name: string } }): Promise<JSX.Element> {
+	const username: string = params.name
+	const user: User = await userData(username)
 
-	if (!post) {
+	if (!user) {
 		notFound()
 	}
 
-	const title: string = post.title ?? 'Default Title'
+	const id: string = user.id ?? '0'
+	const userUsername: string = user.username ?? 'username'
+	const userName: string = user.firstname + ' ' + user.lastname
+	const userImage: string = user.image ?? 'https://github.com/STechBD.png'
+	const userCompany: string = user.company ?? 'Default Company'
+	const userPosition: string | null = user.position ?? null
+	const userAbout: string = user.about ?? 'No Information'
+	
 	const thumbnail: string = '/image/Banner.webp'
 	const published: string = post.published ?? '2013-08-14'
 	const modified: string = post.modified ?? '2013-08-14'
@@ -113,12 +112,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 
 	const userID: string = post.author ?? '0'
 	const user: User = await userData(userID)
-	const userUsername: string = user.username ?? 'username'
-	const userName: string = user.firstname + ' ' + user.lastname
-	const userImage: string = user.image ?? 'https://github.com/STechBD.png'
-	const userCompany: string = user.company ?? 'Default Company'
-	const userPosition: string | null = user.position ?? null
-	const userAbout: string = user.about ?? 'No Information'
+
 
 	const categoryID: string = post.category ? post.category.split(',')[0] : '0'
 	const category: Category = await categoryData(categoryID)

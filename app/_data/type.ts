@@ -56,6 +56,7 @@ export interface Post {
 	slug?: string
 	author?: string
 	published?: string
+	modified?: string
 	image?: string
 	category?: string
 	view?: number

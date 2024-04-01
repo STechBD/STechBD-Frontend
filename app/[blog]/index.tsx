@@ -24,8 +24,6 @@ export default function Index({ content }: { content: JSX.Element }): JSX.Elemen
 		return headings
 	}
 
-	console.log('Headings:', headings(content))
-
 	return (
 		<ul>
 			{

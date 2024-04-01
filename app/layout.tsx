@@ -3,23 +3,23 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import '@/app/_css/globals.scss'
+import ReduxProvider from '@/app/_context/reduxProvider'
 import Cursor from '@/app/_component/cursor'
 import Header from '@/app/_component/header'
 import Footer from '@/app/_component/footer'
 
 
 /**
- * Font family for the whole app.
+ * The font family for the whole app.
  *
  * @see https://fonts.google.com/specimen/Inter
- *
  * @since 3.0.0
  */
 const inter: NextFont = Inter({ subsets: [ 'latin' ] })
 
 
 /**
- * Metadata setup for the SEO.
+ * The metadata setup for SEO.
  *
  * @returns { Metadata } Metadata setup for the SEO.
  * @since 3.0.0
@@ -43,6 +43,10 @@ export const metadata: Metadata = {
 		'S Tech',
 		'S Tech BD',
 		'Bangladesh',
+		'এস টেকনোলজিস',
+		'এস টেক',
+		'এস টেক বিডি',
+		'এস টেক বাংলাদেশ',
 		'Domain Name Registration',
 		'Dot BD Domain Name Registration',
 		'Web Hosting',
@@ -258,7 +262,7 @@ export const metadata: Metadata = {
 
 
 /**
- * Root layout for the whole website.
+ * The Root Layout for the whole website.
  *
  * @returns { JSX.Element } Root layout for the whole website.
  * @since 3.0.0
@@ -267,12 +271,14 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
 	return (
 		<html lang="en">
 		<body className={ inter.className + ' dark:bg-gray-900' }>
-		<Cursor/>
-		<Header/>
-		<main className="min-h-screen">
-			{ children }
-		</main>
-		<Footer/>
+		<ReduxProvider>
+			<Cursor/>
+			<Header/>
+			<main className="min-h-screen">
+				{ children }
+			</main>
+			<Footer/>
+		</ReduxProvider>
 		</body>
 		</html>
 	)

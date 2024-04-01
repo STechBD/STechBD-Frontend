@@ -15,8 +15,8 @@ const api: string = process.env.API ?? ''
  * @returns { Promise<Post> } The post-data.
  * @since 3.0.0
  */
-export async function postList(limit?: number | null): Promise<Post[]> {
-	const response: Response = await fetch(api + '/blog?order=latest' + (limit ? `&limit=${ limit }` : ''), {
+export async function postList(limit?: number | null, author?: number | null, category?: string | null, topic?: string | null): Promise<Post[]> {
+	const response: Response = await fetch(api + '/blog?order=latest' + (limit ? `&limit=${ limit }` : '' + (author ? `&author=${ author }` : '') + (category ? `&category=${ category }` : '') + (topic ? `&topic=${ topic }` : '')), {
 		next: {
 			revalidate: 300,
 		},
