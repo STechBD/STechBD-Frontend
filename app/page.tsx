@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import Link from 'next/link'
-import { Pricing } from '@/app/_data/type'
+import type { Pricing } from '@/app/_data/type'
 import Hero from './hero'
 import { DefaultEffect } from '@/app/_component/background'
 import AnimatedLogo from '@/app/_component/animatedLogo'

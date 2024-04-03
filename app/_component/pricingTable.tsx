@@ -2,7 +2,7 @@
 
 import { JSX } from 'react'
 import Link from 'next/link'
-import { Pricing } from '@/app/_data/type'
+import type { Pricing } from '@/app/_data/type'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrency } from '@/app/_context/reduxStore'
 import Currency from '@/app/_component/currency'

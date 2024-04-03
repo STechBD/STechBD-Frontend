@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Content, Section } from '@/app/_data/type'
+import type { Content, Section } from '@/app/_data/type'
 import { DefaultEffect } from '@/app/_component/background'
 import Code from '@/app/_component/code'
 import Hero from './hero'

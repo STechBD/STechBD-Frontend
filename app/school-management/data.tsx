@@ -1,4 +1,4 @@
-import { Comparison, Feature, Pricing } from '@/app/_data/type'
+import type { Comparison, Feature, Pricing } from '@/app/_data/type'
 
 
 /**

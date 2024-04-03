@@ -3,9 +3,8 @@
 import { JSX, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
-import { Hero } from '@/app/_data/type'
-import { isProduct, products } from '@/app/_data/product'
+import type { Hero } from '@/app/_data/type'
+import { products } from '@/app/_data/product'
 import Code from '@/app/_component/code'
 
 
@@ -18,9 +17,11 @@ import Code from '@/app/_component/code'
 export default function Hero({ product }: { product: string }): JSX.Element {
 	const id: string = product.replaceAll('-', '_')
 	const [ copied, setCopied ] = useState(false)
+	const heroData: Hero = products[id].hero
 
 	const copyCode = (): void => {
-		const code: string = 'npx install-express@latest'
+		const code: string | undefined = heroData.code?.text
+
 		if (code) {
 			navigator.clipboard.writeText(code).then((): void => {
 				setCopied(true)
@@ -28,8 +29,6 @@ export default function Hero({ product }: { product: string }): JSX.Element {
 			})
 		}
 	}
-
-	const heroData: Hero = products[id].hero
 
 	return (
 		<div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-32 text-center">
