@@ -29,6 +29,7 @@ export interface Menu {
 	} | false
 }
 
+
 /**
  * Interface definition for the metadata of API data.
  *
@@ -64,11 +65,12 @@ export interface Post {
 	id?: number
 	title?: string
 	slug?: string
-	author?: string
+	author?: number[]
 	published?: string
 	modified?: string
 	image?: string
-	category?: string
+	category?: number[]
+	tag?: number[]
 	view?: number
 	content?: string
 	excerpt?: string

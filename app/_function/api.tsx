@@ -49,7 +49,7 @@ export async function postData(slug: string): Promise<Post> {
  * @returns { Promise<User> } The user data.
  * @since 3.0.0
  */
-export async function userData(username: string): Promise<User> {
+export async function userData(username: string | number): Promise<User> {
 	const response: Response = await fetch(api + '/user/' + username, {
 		cache: 'force-cache',
 	})
@@ -65,7 +65,7 @@ export async function userData(username: string): Promise<User> {
  * @returns { Promise<Category> } The category data.
  * @since 3.0.0
  */
-export async function categoryData(id: string): Promise<Category> {
+export async function categoryData(id: number): Promise<Category> {
 	const response: Response = await fetch(api + '/blog/category/' + id, {
 		cache: 'force-cache',
 	})

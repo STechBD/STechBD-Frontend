@@ -20,13 +20,13 @@ export default async function PostList({ limit, author }: { limit?: number, auth
 				post.map(async (item: Post): Promise<JSX.Element> => {
 					const title: string = item.title ?? 'Default Title'
 					const image: string = (item.image === '' || item.image === undefined) ? '/image/Banner.webp' : item.image
-					const author: string = item.author ?? '0'
+					const author: number = item.author ? item.author[0] : 0
 					const authorInfo: User = await userData(author)
 					const authorName: string = authorInfo.firstname + ' ' + authorInfo.lastname
 					const authorUsername: string = authorInfo.username ?? 'default-username'
 					const authorImage: string = authorInfo.image ?? '/default.jpg'
 					const slug: string = item.slug ?? 'default-slug'
-					const category: string = item.category ?? '0'
+					const category: number = item.category ? item.category[0] : 0
 					const categoryInfo: Category = await categoryData(category)
 					const categoryName: string = categoryInfo.name ?? 'Default Category'
 					const published: string = item.published ? new Date(item.published).toLocaleDateString('en-us', {
@@ -34,11 +34,11 @@ export default async function PostList({ limit, author }: { limit?: number, auth
 						day: 'numeric',
 						year: 'numeric',
 					}) : 'Unknown'
-					const content: string = item.content === undefined ? 'Default Content' : item.content.split(/\s+/).slice(0, 24).join(' ')
 
 					return (
-						<article key={ item.id }
-						         className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
+						<article
+							key={ item.id }
+							className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl dark:bg-gray-800 dark:border-gray-700"
 						>
 							<div className="flex-shrink-0 w-full aspect-[1200/628] overflow-hidden relative">
 								<div className="absolute inset-0 flex items-center justify-center">
@@ -70,13 +70,11 @@ export default async function PostList({ limit, author }: { limit?: number, auth
 									</span>
 								</div>
 								<h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:text-secondary dark:text-gray-100 dark:hover:text-primary">
-									<Link href={ slug }>
+									<Link href={ '/' + slug }>
 										{ title?.split(/\s+/).slice(0, 14).join(' ') }
+										{ title?.split(/\s+/).length > 14 ? '...' : ''}
 									</Link>
 								</h2>
-								{/*<p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-									{ content }
-								</p>*/ }
 								<div className="flex justify-between items-center">
 									<div className="flex items-center space-x-4">
 										<Image className="w-7 h-7 rounded-full" height={ 7 } width={ 7 }

@@ -111,7 +111,9 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		<>No content</>
 	)
 
-	const userID: string = post.author ?? '0'
+	const users: number[] = post.author ?? [0]
+	const userCount: number = users.length
+	const userID: number = post.author ? post.author[0] : 0
 	const user: User = await userData(userID)
 	const userUsername: string = user.username ?? 'username'
 	const userName: string = user.firstname + ' ' + user.lastname
@@ -120,8 +122,8 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 	const userPosition: string | null = user.position ?? null
 	const userAbout: string = user.about ?? 'No Information'
 
-	const categoryID: string = post.category ? post.category.split(',')[0] : '0'
-	const category: Category = await categoryData(categoryID)
+	const categoryID: number[] = post.category ?? [1]
+	const category: Category = await categoryData(categoryID[0])
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -167,7 +169,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 					</div>
 				</div>
 			</div>
-			<div className="relative grid lg:grid-cols-4 mt-12 mb-24">
+			<div className="relative px-6 lg:px-24 grid lg:grid-cols-4 mt-12 mb-24">
 				<div className="order-2 lg:order-1 px-4 my-8 lg:my-0 lg:sticky lg:top-[6.5rem]">
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
@@ -184,7 +186,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							/>
 							<div>
 								<Link href={ '/author/' + userUsername } rel="author"
-								      className="text-xl font-bold text-gray-900 dark:text-gray-100"
+								      className="text-xl font-bold text-gray-900 hover:text-primary dark:text-gray-100"
 								>
 									{ userName }
 								</Link>
@@ -206,7 +208,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 							</h2>
 						</div>
 						{
-							(await postList(5, parseInt(userID))).map((post: Post, index: number) => {
+							(await postList(5, userID)).map((post: Post, index: number) => {
 								const date: Date = new Date(post.published ?? '')
 								const options: Intl.DateTimeFormatOptions = {
 									year: 'numeric',
@@ -256,43 +258,56 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 						<article
 							className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 						>
-							<header className="mb-4 lg:mb-6 not-format">
-								<address className="flex items-center mb-6 not-italic">
-									<div
-										className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"
-									>
-										<Image
-											className="mr-4 w-16 h-16 rounded-full"
-											src={ userImage }
-											alt={ userName }
-											height={ 100 }
-											width={ 100 }
-										/>
-										<div>
-											<Link
-												href={ '/author/' + userUsername }
-												rel="author"
-												className="text-xl font-bold text-gray-900 dark:text-white"
-											>
-												{ userName }
-											</Link>
-											<p className="text-base text-gray-500 dark:text-gray-400">
-												{ userPosition && (userPosition + ' at ') }{ userCompany }
-											</p>
-											<p className="text-base text-gray-500 dark:text-gray-400">
-												<time dateTime={ published } title={ publishedDate }>
-													{ publishedDate }
-												</time>
-											</p>
-										</div>
-									</div>
-								</address>
+							<div className="mb-4 lg:mb-6 not-format">
+								<div className="flex justify-between">
+									{
+										users && users.map(async (user, index) => {
+											const data: User = await userData(user)
+											const userName: string = data.firstname + ' ' + data.lastname
+											const userUsername: string = data.username ?? 'username'
+											const userImage: string = data.image ?? ''
+											const userCompany: string = data.company ?? 'Default Company'
+											const userPosition: string | null = data.position ?? null
+
+											return (
+												<address key={ index } className="flex items-center mb-6 not-italic">
+													<div
+														className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"
+													>
+														<Image
+															className="mr-4 w-16 h-16 rounded-full"
+															src={ userImage }
+															alt={ userName }
+															height={ 100 }
+															width={ 100 }
+														/>
+														<div>
+															<Link
+																href={ '/author/' + userUsername }
+																rel="author"
+																className="text-xl font-bold text-gray-900 hover:text-primary dark:text-white"
+															>
+																{ userName }
+															</Link>
+															<p className="text-base text-gray-500 dark:text-gray-400">
+																{ userPosition && (userPosition + ' at ') }{ userCompany }
+															</p>
+														</div>
+													</div>
+												</address>
+											)
+										})
+									}
+								</div>
 								<p className="mb-6 text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-									<Link href={ '/category/' + category.slug }>
-										{ category.name }
-									</Link>
+									<time dateTime={ published } title={ publishedDate }>
+										{ publishedDate }
+									</time>
+									• <Link href={ '/category/' + category.slug }>
+									{ category.name }
+								</Link>
 								</p>
-							</header>
+							</div>
 							<div className="mb-6 not-format dark:text-white">
 								<div className="post-content">
 									{ content }
