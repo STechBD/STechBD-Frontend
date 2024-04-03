@@ -1,5 +1,5 @@
 /**
- * Hero component for the open source page.
+ * The Hero component for the open source page.
  * This will have a word cloud of the open source projects.
  *
  * @returns { JSX.Element } Hero component for the open source page.

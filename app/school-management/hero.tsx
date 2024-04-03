@@ -3,7 +3,7 @@ import { BasicHeroEffect } from '@/app/_component/background'
 
 
 /**
- * Hero component for the School Management System page.
+ * The Hero component for the School Management System page.
  *
  * @returns { JSX.Element } The Hero component.
  * @since 3.0.0

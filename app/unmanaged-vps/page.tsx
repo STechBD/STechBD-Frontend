@@ -8,7 +8,7 @@ import ComparisonTable from '@/app/_component/comparisonTable'
 
 
 /**
- * Metadata for the Managed VPS page.
+ * Metadata for the Unmanaged VPS page.
  *
  * @constant title { string } The title of the page.
  * @constant description { string } The description of the page.
@@ -16,8 +16,8 @@ import ComparisonTable from '@/app/_component/comparisonTable'
  *
  * @since 3.0.0
  */
-const title: string = 'Managed VPS'
-const description: string = 'Affordable managed VPS plans for your website. Get started with our managed VPS plans today.'
+const title: string = 'Unmanaged VPS'
+const description: string = 'Affordable unmanaged VPS plans for your website. Get started with our unmanaged VPS plans today.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 
 /**
- * The Managed VPS page component.
+ * The Unmanaged VPS page component.
  *
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
@@ -49,8 +49,8 @@ export default function Page(): JSX.Element {
 						Pick a Plan
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Choose the best managed VPS plan for your website.
-						We have a variety of managed VPS plans to meet your website needs.
+						Choose the best unmanaged VPS plan for your website.
+						We have a variety of unmanaged VPS plans to meet your website needs.
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
@@ -59,41 +59,41 @@ export default function Page(): JSX.Element {
 						Compare Plans
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Compare the best managed VPS plan for your website.
-						We have a variety of managed VPS plans to meet your website needs.
+						Compare the best unmanaged VPS plan for your website.
+						We have a variety of unmanaged VPS plans to meet your website needs.
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						What is Managed VPS?
+						What is Unmanaged VPS?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS is a type of web hosting where the hosting provider manages the server for you. You
+						Unmanaged VPS is a type of web hosting where the hosting provider manages the server for you. You
 						do not have to worry about server maintenance, security, or updates. S Technologies will take
-						care of everything for you. You can focus on your website and your business. Managed VPS is
-						perfect for those who want to host their website on a server that is fully managed by us. We
+						care of everything for you. You can focus on your website and your business. Unmanaged VPS is
+						perfect for those who want to host their website on a server that is fully unmanaged by us. We
 						take care of everything from server setup to security updates, so you can focus on your
-						business. Managed VPS is the most economical option for hosting, as many people share the
+						business. Unmanaged VPS is the most economical option for hosting, as many people share the
 						overall cost of server maintenance.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS is the most economical option for hosting, as many people share the overall cost of
+						Unmanaged VPS is the most economical option for hosting, as many people share the overall cost of
 						server maintenance. It is perfect for personal websites, small and medium businesses that do not
-						require all the resources of a server. Managed VPS is also a popular option if you run a simple
-						blog or forum. If you are starting a new website, managed VPS is the most cost-effective way of
-						doing so. Managed VPS is the most economical option for hosting, as many people share the
+						require all the resources of a server. Unmanaged VPS is also a popular option if you run a simple
+						blog or forum. If you are starting a new website, unmanaged VPS is the most cost-effective way of
+						doing so. Unmanaged VPS is the most economical option for hosting, as many people share the
 						overall cost of server maintenance. It is perfect for personal websites, small and medium
-						businesses that do not require all the resources of a server. Managed VPS is also a popular
+						businesses that do not require all the resources of a server. Unmanaged VPS is also a popular
 						option if you run a simple blog or forum.
 					</p>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Features of Managed VPS
+						Features of Unmanaged VPS
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS has many benefits. Here are some of the key features of managed VPS:
+						Unmanaged VPS has many benefits. Here are some of the key features of unmanaged VPS:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
@@ -108,10 +108,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Why S Technologies Managed VPS?
+						Why S Technologies Unmanaged VPS?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						We offer the best managed VPS plans in Bangladesh. Our managed VPS plans are perfect for
+						We offer the best unmanaged VPS plans in Bangladesh. Our unmanaged VPS plans are perfect for
 						small businesses, personal websites, and blogs. We provide the following features with our
 						managed VPS plans:
 					</p>
@@ -135,10 +135,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Managed VPS Provider in Bangladesh
+						Top 10 Unmanaged VPS Provider in Bangladesh
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 managed VPS providers in Bangladesh:
+						Here are the top 10 unmanaged VPS providers in Bangladesh:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
@@ -155,10 +155,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Managed VPS Provider in the World
+						Top 10 Unmanaged VPS Provider in the World
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 managed VPS providers in the world:
+						Here are the top 10 unmanaged VPS providers in the world:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>

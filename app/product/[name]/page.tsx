@@ -71,13 +71,13 @@ export default function Page({ params }: { params: { name: string } }): JSX.Elem
 		const jsonLd = {
 			'@context': 'https://schema.org',
 			'@type': 'Product',
-			name: products[id].title,
-			description: products[id].description,
+			name: products[id].info.title,
+			description: products[id].info.description,
 			brand: {
 				'@type': 'Brand',
 				name: 'S Technologies',
 			},
-			image: products[id].image ?? '/image/Banner.webp',
+			image: products[id].info.image ?? '/image/Banner.webp',
 			offers: {
 				'@type': 'Offer',
 				price: 0,
@@ -87,7 +87,7 @@ export default function Page({ params }: { params: { name: string } }): JSX.Elem
 				availability: 'https://schema.org/InStock',
 			},
 			ratingValue: 5,
-			reviewCount: products[id].title.length,
+			reviewCount: products[id].info.title.length,
 		}
 
 		return (

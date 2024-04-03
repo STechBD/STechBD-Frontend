@@ -5,7 +5,7 @@ import { AdvancedHeroEffect } from '@/app/_component/background'
 
 
 /**
- * Hero component for the Blog Post page.
+ * The Hero component for the Blog Post page.
  *
  * @returns { JSX.Element } The hero component.
  * @since 3.0.0

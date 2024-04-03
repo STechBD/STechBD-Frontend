@@ -8,7 +8,7 @@ import ComparisonTable from '@/app/_component/comparisonTable'
 
 
 /**
- * Metadata for the Managed VPS page.
+ * Metadata for the Dedicated Server page.
  *
  * @constant title { string } The title of the page.
  * @constant description { string } The description of the page.
@@ -16,8 +16,8 @@ import ComparisonTable from '@/app/_component/comparisonTable'
  *
  * @since 3.0.0
  */
-const title: string = 'Managed VPS'
-const description: string = 'Affordable managed VPS plans for your website. Get started with our managed VPS plans today.'
+const title: string = 'Dedicated Server'
+const description: string = 'Affordable dedicated server plans for your website. Get started with our dedicated server plans today.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 
 /**
- * The Managed VPS page component.
+ * The Dedicated Server page component.
  *
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
@@ -49,8 +49,8 @@ export default function Page(): JSX.Element {
 						Pick a Plan
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Choose the best managed VPS plan for your website.
-						We have a variety of managed VPS plans to meet your website needs.
+						Choose the best dedicated server plan for your website.
+						We have a variety of dedicated server plans to meet your website needs.
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
@@ -59,41 +59,44 @@ export default function Page(): JSX.Element {
 						Compare Plans
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						Compare the best managed VPS plan for your website.
-						We have a variety of managed VPS plans to meet your website needs.
+						Compare the best dedicated server plan for your website.
+						We have a variety of dedicated server plans to meet your website needs.
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						What is Managed VPS?
+						What is Dedicated Server?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS is a type of web hosting where the hosting provider manages the server for you. You
-						do not have to worry about server maintenance, security, or updates. S Technologies will take
-						care of everything for you. You can focus on your website and your business. Managed VPS is
-						perfect for those who want to host their website on a server that is fully managed by us. We
-						take care of everything from server setup to security updates, so you can focus on your
-						business. Managed VPS is the most economical option for hosting, as many people share the
-						overall cost of server maintenance.
+						Dedicated Server is the most economical option for hosting, as many people share the overall
+						cost of server maintenance. It is perfect for personal websites, small and medium businesses
+						that do not require all the resources of a server. Dedicated Server is also a popular option if
+						you run a simple blog or forum. If you are starting a new website, dedicated server is the most
+						cost-effective way of doing so. Dedicated Server is the most economical option for hosting, as
+						many people share the overall cost of server maintenance. It is perfect for personal websites,
+						small and medium businesses that do not require all the resources of a server. Dedicated Server
+						is also a popular option if you run a simple blog or forum. If you are starting a new website,
+						dedicated server is the most cost-effective way of doing so.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS is the most economical option for hosting, as many people share the overall cost of
-						server maintenance. It is perfect for personal websites, small and medium businesses that do not
-						require all the resources of a server. Managed VPS is also a popular option if you run a simple
-						blog or forum. If you are starting a new website, managed VPS is the most cost-effective way of
-						doing so. Managed VPS is the most economical option for hosting, as many people share the
-						overall cost of server maintenance. It is perfect for personal websites, small and medium
-						businesses that do not require all the resources of a server. Managed VPS is also a popular
-						option if you run a simple blog or forum.
+						Dedicated Server is the most economical option for hosting, as many people share the overall
+						cost of server maintenance. It is perfect for personal websites, small and medium businesses
+						that do not require all the resources of a server. Dedicated Server is also a popular option if
+						you run a simple blog or forum. If you are starting a new website, dedicated server is the most
+						cost-effective way of doing so. Dedicated Server is the most economical option for hosting, as
+						many people share the overall cost of server maintenance. It is perfect for personal websites,
+						small and medium businesses that do not require all the resources of a server. Dedicated Server
+						is also a popular option if you run a simple blog or forum. If you are starting a new website,
+						dedicated server is the most cost-effective way of doing so.
 					</p>
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Features of Managed VPS
+						Features of Dedicated Server
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Managed VPS has many benefits. Here are some of the key features of managed VPS:
+						Dedicated Server has many benefits. Here are some of the key features of dedicated server:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>High Performance</li>
@@ -108,10 +111,11 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Why S Technologies Managed VPS?
+						Why S Technologies Dedicated Server?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						We offer the best managed VPS plans in Bangladesh. Our managed VPS plans are perfect for
+						We offer the best dedicated server plans in Bangladesh. Our dedicated server plans are perfect
+						for
 						small businesses, personal websites, and blogs. We provide the following features with our
 						managed VPS plans:
 					</p>
@@ -135,10 +139,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Managed VPS Provider in Bangladesh
+						Top 10 Dedicated Server Provider in Bangladesh
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 managed VPS providers in Bangladesh:
+						Here are the top 10 dedicated server providers in Bangladesh:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>
@@ -155,10 +159,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						Top 10 Managed VPS Provider in the World
+						Top 10 Dedicated Server Provider in the World
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Here are the top 10 managed VPS providers in the world:
+						Here are the top 10 dedicated server providers in the world:
 					</p>
 					<ol className="mt-4 text-xl text-gray-900 list-decimal list-inside dark:text-gray-100">
 						<li>S Technologies</li>

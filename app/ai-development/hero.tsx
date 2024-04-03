@@ -3,7 +3,7 @@ import { BasicHeroEffect } from '@/app/_component/background'
 
 
 /**
- * Hero component for the AI App Development page.
+ * The Hero component for the AI App Development page.
  *
  * @returns { JSX.Element } The hero component.
  * @since 3.0.0

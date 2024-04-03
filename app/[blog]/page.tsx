@@ -111,7 +111,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 		<>No content</>
 	)
 
-	const users: number[] = post.author ?? [0]
+	const users: number[] = post.author ?? [ 0 ]
 	const userCount: number = users.length
 	const userID: number = post.author ? post.author[0] : 0
 	const user: User = await userData(userID)
@@ -122,7 +122,7 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 	const userPosition: string | null = user.position ?? null
 	const userAbout: string = user.about ?? 'No Information'
 
-	const categoryID: number[] = post.category ?? [1]
+	const categoryID: number[] = post.category ?? [ 1 ]
 	const category: Category = await categoryData(categoryID[0])
 
 	const jsonLd = {
@@ -161,8 +161,12 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 								</span>
 							</h1>
 							<div className="mt-8">
-								<Image src={ thumbnail } alt={ title } height={ 628 } width={ 1200 }
-								       className="rounded-lg"
+								<Image
+									src={ thumbnail }
+									alt={ title }
+									height={ 628 }
+									width={ 1200 }
+									className="rounded-lg"
 								/>
 							</div>
 						</div>
@@ -596,8 +600,10 @@ export default async function Page({ params }: { params: { blog: string } }): Pr
 					<div
 						className="p-8 mx-auto w-full bg-white bg-opacity-50 rounded-lg format format-sm sm:format-base lg:format-lg format-blue dark:format-invert dark:bg-opacity-5"
 					>
-						<h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-100">
-							Table of Content
+						<h2 className="mb-4 text-xl text-gray-900 dark:text-gray-100">
+							<strong>
+								Table of Content
+							</strong>
 						</h2>
 						<Index content={ content }/>
 					</div>
