@@ -19,7 +19,7 @@ export const pricingData: Pricing[] = [
 			usd: 120,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: [
 			<><strong>480GB NVMe SSD</strong> Storage</>,
 			<><strong>1Gbit</strong> Unmetered Bandwidth</>,
@@ -42,7 +42,7 @@ export const pricingData: Pricing[] = [
 			usd: 135,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: [
 			<><strong>2x480GB (960GB) NVMe SSD</strong> Storage</>,
 			<><strong>1Gbit</strong> Unmetered Bandwidth</>,
@@ -65,7 +65,7 @@ export const pricingData: Pricing[] = [
 			usd: 160,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: [
 			<><strong>2x480GB (960GB) NVMe SSD</strong> Storage</>,
 			<><strong>1Gbit</strong> Unmetered Bandwidth</>,
@@ -121,7 +121,7 @@ export const comparisonData: Comparison[] = [
 			usd: 120,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: {
 			storage: '480GB NVMe SSD',
 			bandwidth: '1Gbit Unmetered',
@@ -150,7 +150,7 @@ export const comparisonData: Comparison[] = [
 			usd: 135,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: {
 			storage: '2x480GB (960GB) NVMe SSD',
 			bandwidth: '1Gbit Unmetered',
@@ -179,7 +179,7 @@ export const comparisonData: Comparison[] = [
 			usd: 160,
 		},
 		period: 1,
-		description: 'Ideal for corporate website',
+		description: 'Ideal for enterprise grade server',
 		features: {
 			storage: '2x480GB (960GB) NVMe SSD',
 			bandwidth: '1Gbit Unmetered',

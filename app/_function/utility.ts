@@ -5,12 +5,12 @@ import { productList } from '@/app/_data/product'
 /**
  * Check if the current path is one of the given paths.
  *
- * @param path string[]
+ * @param paths string[]
  * @returns boolean
  * @since 3.0.0
  */
-export function isPath(path: string[]): boolean {
-	return path.some((p) => usePathname() === p)
+export function isPath(paths: string[]): boolean {
+	return paths.some((path) => usePathname() === path)
 }
 
 

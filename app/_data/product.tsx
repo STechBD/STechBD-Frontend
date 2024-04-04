@@ -21,6 +21,23 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/Britto',
 		github: 'https://github.com/STechBD/Britto',
 		rating: 5,
+		platform: [
+			'Web',
+			'Windows',
+			'Linux',
+		],
+		language: [
+			'Python',
+		],
+		tool: [
+			'TensorFlow',
+			'Keras',
+		],
+		tag: [
+			'AI',
+			'Deep Learning',
+			'Chatbot',
+		],
 	},
 	{
 		id: 'Install-Express',
@@ -36,6 +53,21 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/Install-Express',
 		github: 'https://github.com/STechBD/Install-Express',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'JavaScript',
+			'TypeScript',
+		],
+		tool: [
+			'Express.js',
+		],
+		tag: [
+			'CLI',
+			'Node.js',
+			'Express.js',
+		],
 	},
 	{
 		id: 'CookieCons',
@@ -51,6 +83,21 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/CookieCons',
 		github: 'https://github.com/STechBD/CookieCons',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+		],
+		tool: [
+			'WordPress',
+			'Composer',
+		],
+		tag: [
+			'WordPress',
+			'GDPR',
+			'CCPA',
+		],
 	},
 	{
 		id: 'ProjectPress',
@@ -64,6 +111,20 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/ProjectPress',
 		github: 'https://github.com/STechBD/ProjectPress',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+		],
+		tool: [
+			'WordPress',
+			'Composer',
+		],
+		tag: [
+			'WordPress',
+			'Project Management',
+		],
 	},
 	{
 		id: 'S-PHP-Engine',
@@ -71,13 +132,27 @@ export const productList: any[] = [
 		info: 'S PHP Engine (SPE) is a lightweight MVC-based PHP framework for building powerful full stack web applications',
 		description: <>
 			<strong>S PHP Engine (SPE)</strong> is a lightweight MVC-based PHP framework for building powerful full
-			stack web
-			applications.
+			stack web applications.
 		</>,
 		logo: false,
 		docs: 'https://docs.stechbd.net/S-PHP-Engine',
 		github: 'https://github.com/STechBD/S-PHP-Engine',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+		],
+		tool: [
+			'S Database Explorer',
+			'Composer',
+		],
+		tag: [
+			'PHP',
+			'Framework',
+			'MVC',
+		],
 	},
 	{
 		id: 'S-Template-Engine',
@@ -90,6 +165,20 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/S-Template-Engine',
 		github: 'https://github.com/STechBD/S-Template-Engine',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+		],
+		tool: [
+			'S Database Explorer',
+			'Composer',
+		],
+		tag: [
+			'PHP',
+			'Template Engine',
+		],
 	},
 	{
 		id: 'S-Database-Explorer',
@@ -102,6 +191,22 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/S-Database-Explorer',
 		github: 'https://github.com/STechBD/S-Database-Explorer',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+			'MySQL',
+		],
+		tool: [
+			'PDO',
+			'Composer',
+		],
+		tag: [
+			'PHP',
+			'MySQL',
+			'Database Management',
+		],
 	},
 	{
 		id: 'S-Number-Manager',
@@ -114,6 +219,20 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/S-Number-Manager',
 		github: 'https://github.com/STechBD/S-Number-Manager',
 		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'PHP',
+		],
+		tool: [
+			'Composer',
+		],
+		tag: [
+			'PHP',
+			'Library',
+			'Number Converter',
+		],
 	},
 	{
 		id: 'PyWeb',
@@ -126,6 +245,19 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/PyWeb',
 		github: 'https://github.com/STechBD/PyWeb',
 		rating: 5,
+		platform: [
+			'Windows',
+		],
+		language: [
+			'Python',
+		],
+		tool: [
+			'PyQt6',
+		],
+		tag: [
+			'Python',
+			'Web Browser',
+		],
 	},
 	{
 		id: 'ViewMD',
@@ -138,6 +270,19 @@ export const productList: any[] = [
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 		rating: 5,
+		platform: [
+			'Windows',
+		],
+		language: [
+			'Python',
+		],
+		tool: [
+			'PyQt6',
+		],
+		tag: [
+			'Python',
+			'Markdown Viewer',
+		],
 	},
 ]
 

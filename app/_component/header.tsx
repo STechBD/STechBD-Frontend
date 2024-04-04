@@ -438,139 +438,138 @@ export default function Header(): JSX.Element {
 						</button>
 					</div>
 					<div className="hidden lg:flex lg:gap-x-4 2xl:gap-x-10">
-						{
-							menu.map((item: Menu, index) => {
-								if (item.submenu) {
-									if (item.submenu.type === 1) {
-										return (
-											<div key={ index } className="relative">
-												<button className={ (isPath([
-													...item.submenu.items.map((item) => item.path),
-												]) ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
-												        type="button" aria-expanded="false"
-												        onMouseEnter={ item.submenu.openCallback }
-												        onMouseLeave={ item.submenu.closeCallback }
-												>
-													{ item.title }
+						{ menu.map((item: Menu, index) => {
+							if (item.submenu) {
+								if (item.submenu.type === 1) {
+									const isCurrent: boolean = isPath([
+										item.submenu.path ?? '',
+										...item.submenu.items.map((item) => item.path),
+									])
 
-													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-													     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
-													>
-														<path fillRule="evenodd"
-														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-														      clipRule="evenodd">
-														</path>
-													</svg>
-												</button>
-												<div
-													onMouseEnter={ item.submenu.openCallback }
-													onMouseLeave={ item.submenu.closeCallback }
-													className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+									return (
+										<div key={ index } className="relative">
+											<button
+												className={ (isCurrent ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+												type="button"
+												aria-expanded="false"
+												onMouseEnter={ item.submenu.openCallback }
+												onMouseLeave={ item.submenu.closeCallback }
+											>
+												{ item.title }
+
+												<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+												     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
 												>
-													<div className="px-4 py-0">
-														{
-															item.submenu.items.map((item, index) => {
-																return (
-																	<Link key={ index } href={ item.path }
-																	      target={ item.path.startsWith('http') ? '_blank' : '' }
-																	      className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-																	>
-																		{ item.title }
-																	</Link>
-																)
-															})
-														}
-													</div>
+													<path
+														fillRule="evenodd" clipRule="evenodd"
+														d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+													/>
+												</svg>
+											</button>
+											<div
+												onMouseEnter={ item.submenu.openCallback }
+												onMouseLeave={ item.submenu.closeCallback }
+												className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+											>
+												<div className="px-4 py-0">
+													{ item.submenu.items.map((item, index) => {
+														return (
+															<Link
+																key={ index }
+																href={ item.path }
+																target={ item.path.startsWith('http') ? '_blank' : '' }
+																className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+															>
+																{ item.title }
+															</Link>
+														)
+													}) }
 												</div>
 											</div>
-										)
-									} else if (item.submenu.type === 2) {
-										return (
-											<div key={ index } className="relative">
-												<button
-													className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
-													type="button" aria-expanded="false"
-													onMouseEnter={ item.submenu.openCallback }
-													onMouseLeave={ item.submenu.closeCallback }
-												>
-													{ item.title }
+										</div>
+									)
+								} else if (item.submenu.type === 2) {
+									return (
+										<div key={ index } className="relative">
+											<button
+												className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+												type="button" aria-expanded="false"
+												onMouseEnter={ item.submenu.openCallback }
+												onMouseLeave={ item.submenu.closeCallback }
+											>
+												{ item.title }
 
-													<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-													     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
-													>
-														<path fillRule="evenodd"
-														      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-														      clipRule="evenodd">
-														</path>
-													</svg>
-												</button>
-												<div
-													onMouseEnter={ item.submenu.openCallback }
-													onMouseLeave={ item.submenu.closeCallback }
-													className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+												<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+												     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
 												>
-													<div className="grid grid-cols-2 px-4 py-0">
-														{
-															item.submenu.items.map((subitem, index) => {
-																return (
-																	<Link
-																		key={ index }
-																		href={ subitem.path }
-																		className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-																	>
-																		<div
-																			className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
-																		>
-																			<Image
-																				className="h-6 w-6 text-gray-600 group-hover:text-primary"
-																				src="/icon/app.svg" alt="App"
-																				height={ 100 }
-																				width={ 100 }
-																			/>
-																		</div>
-																		<div className="flex-auto">
+													<path fillRule="evenodd"
+													      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+													      clipRule="evenodd">
+													</path>
+												</svg>
+											</button>
+											<div
+												onMouseEnter={ item.submenu.openCallback }
+												onMouseLeave={ item.submenu.closeCallback }
+												className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+											>
+												<div className="grid grid-cols-2 px-4 py-0">
+													{ item.submenu.items.map((subitem, index) => {
+														return (
+															<Link
+																key={ index }
+																href={ subitem.path }
+																className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+															>
+																<div
+																	className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+																>
+																	<Image
+																		className="h-6 w-6 text-gray-600 group-hover:text-primary"
+																		src="/icon/app.svg" alt="App"
+																		height={ 100 }
+																		width={ 100 }
+																	/>
+																</div>
+																<div className="flex-auto">
 																			<span
 																				className="block font-semibold text-gray-900 dark:text-gray-100"
 																			>
 																				{ subitem.title }
 																			</span>
-																			<p className="mt-1 text-gray-600">
-																				{ subitem.description }
-																			</p>
-																		</div>
-																	</Link>
-																)
-															})
-														}
-													</div>
-													{
-														item.submenu.text && item.submenu.path && (
-															<Link href={ item.submenu.path }
-															      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-															>
-																{ item.submenu.text }
+																	<p className="mt-1 text-gray-600">
+																		{ subitem.description }
+																	</p>
+																</div>
 															</Link>
 														)
-													}
+													}) }
 												</div>
+												{ item.submenu.text && item.submenu.path && (
+													<Link href={ item.submenu.path }
+													      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+													>
+														{ item.submenu.text }
+													</Link>
+												) }
 											</div>
-										)
-									}
-								} else {
-									if (item.path) {
-										return (
-											<Link
-												key={ index }
-												href={ item.path }
-												className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
-											>
-												{ item.title }
-											</Link>
-										)
-									}
+										</div>
+									)
 								}
-							})
-						}
+							} else {
+								if (item.path) {
+									return (
+										<Link
+											key={ index }
+											href={ item.path }
+											className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
+										>
+											{ item.title }
+										</Link>
+									)
+								}
+							}
+						}) }
 						{
 							type === 'product' && (
 								<>

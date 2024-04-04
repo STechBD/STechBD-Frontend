@@ -42,7 +42,7 @@ export default function Page(): JSX.Element {
 			<Hero/>
 			<div className="relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
-				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
+				<h2 className="lg:px-16 md:px-20 mt-10 text-6xl font-bold tracking-tight text-primary lg:text-6xl">
 					Frequently Asked Questions (FAQ)
 				</h2>
 				<p className="lg:px-16 md:px-20 py-10 text-xl text-gray-800 dark:text-gray-200">

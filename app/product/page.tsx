@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { AwaitedReactNode, JSX, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react'
 import { DefaultEffect } from '@/app/_component/background'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -45,7 +45,7 @@ export default function Page(): JSX.Element {
 			<Hero/>
 			<div className="relative isolate px-6 py-24 lg:px-8">
 				<DefaultEffect/>
-				<h2 className="lg:px-16 md:px-20 py-10text-4xl font-bold tracking-tight text-primary sm:text-6xl">
+				<h2 className="lg:px-16 md:px-20 mt-10 text-6xl font-bold tracking-tight text-primary lg:text-6xl">
 					Product List of S Technologies
 				</h2>
 				<p className="lg:px-16 md:px-20 py-10 text-xl text-gray-800 dark:text-gray-200">
@@ -67,22 +67,28 @@ export default function Page(): JSX.Element {
 										<div
 											className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"
 										>
-											{
-												product.logo ? (
-													<Image
-														className="mr-4 w-16 h-16 rounded-full"
-														src={ product.logo }
-														alt={ product.title }
-														height={ 100 }
-														width={ 100 }
-													/>
-												) : (
-													<AnimatedLogo design="mr-4 w-16 h-16 rounded-full"/>
-												)
-											}
+											{ product.logo ? (
+												<Image
+													className="mr-4 w-16 h-16 rounded-full"
+													src={ product.logo }
+													alt={ product.title }
+													height={ 100 }
+													width={ 100 }
+												/>
+											) : (
+												<AnimatedLogo design="mr-4 w-16 h-16 rounded-full"/>
+											) }
 											<div>
 												<p className="mt-2 text-xl font-bold text-gray-900 dark:text-white">
 													{ product.title }
+												</p>
+												<p className="mt-2 text-gray-800 dark:text-gray-200">
+													{ product.platform.map((item: string, index: number) => (
+														<span key={ index } className="mr-2">
+															{ index !== 0 && (<span className="mr-1">•</span>)}
+															{ item }
+														</span>
+													)) }
 												</p>
 											</div>
 										</div>
