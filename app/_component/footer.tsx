@@ -14,6 +14,167 @@ import { Bounce } from '@/app/_component/animation'
  * @since 1.0.0
  */
 export default function Footer(): JSX.Element {
+	const website = [
+		{
+			title: 'Domain Name Registration',
+			link: '/domain',
+		},
+		{
+			title: 'Shared Hosting',
+			link: '/shared-hosting',
+		},
+		{
+			title: 'Reseller Hosting',
+			link: '/reseller-hosting',
+		},
+		{
+			title: 'Unmanaged VPS',
+			link: '/unmanaged-vps',
+		},
+		{
+			title: 'Managed VPS',
+			link: '/managed-vps',
+		},
+		{
+			title: 'Dedicated Server',
+			link: '/dedicated-server',
+		},
+		{
+			title: 'Server Information',
+			link: '/server-info',
+		},
+	]
+	const product = [
+		{
+			title: 'Britto AI 🎉',
+			link: 'https://britto.stechbd.net',
+		},
+		{
+			title: 'Install Express 🎉',
+			link: '/product/Install-Express',
+		},
+		{
+			title: 'CookieCons',
+			link: '/product/CookieCons',
+		},
+		{
+			title: 'ProjectPress',
+			link: '/product/ProjectPress',
+		},
+		{
+			title: 'S PHP Engine',
+			link: '/product/S-PHP-Engine',
+		},
+		{
+			title: 'S Template Engine',
+			link: '/product/S-Template-Engine',
+		},
+		{
+			title: 'S Database Explorer',
+			link: '/product/S-Database-Explorer',
+		},
+		{
+			title: 'S Number Manager',
+			link: '/product/S-Number-Manager',
+		},
+		{
+			title: 'PyWeb',
+			link: '/product/PyWeb',
+		},
+		{
+			title: 'ViewMD',
+			link: '/product/ViewMD',
+		},
+	]
+	const service = [
+		{
+			title: 'AI App Development 🎉',
+			link: '/ai-development',
+		},
+		{
+			title: 'Web Development',
+			link: '/web-development',
+		},
+		{
+			title: 'Readymade Website Development',
+			link: '/readymade-website',
+		},
+		{
+			title: 'School Management System',
+			link: '/school-management',
+		},
+		{
+			title: 'Android App Development',
+			link: '/mobile-app-development',
+		},
+		{
+			title: 'iOS App Development',
+			link: '/mobile-app-development',
+		},
+		{
+			title: 'Windows App Development',
+			link: '/mobile-app-development',
+		},
+		{
+			title: 'UI/UX Design',
+			link: '/ui-ux-development',
+		},
+		{
+			title: 'Search Engine Optimization',
+			link: '/seo',
+		},
+	]
+	const company = [
+		{
+			title: 'About S Technologies',
+			link: '/about',
+		},
+		{
+			title: 'Blog',
+			link: '/blog',
+		},
+		{
+			title: 'Research and Development Wing',
+			link: '/rnd',
+		},
+		{
+			title: 'S Technologies AI',
+			link: 'https://ai.stechbd.net',
+		},
+		{
+			title: 'Client Panel',
+			link: 'https://cpanel.stechbd.net',
+		},
+		{
+			title: 'Careers',
+			link: '/careers',
+		},
+		{
+			title: 'GitHub',
+			link: 'https://github.com/STechBD',
+		},
+		{
+			title: 'Contact Us',
+			link: '/contact',
+		},
+		{
+			title: 'Privacy Policy',
+			link: '/privacy',
+		},
+		{
+			title: 'Terms of Service',
+			link: '/terms',
+		},
+		{
+			title: 'Disclaimer',
+			link: '/disclaimer',
+		},
+		{
+			title: 'Refund Policy',
+			link: '/refund',
+		},
+	]
+
 	return (<>
 		<footer className="relative bg-gray-100 dark:bg-gray-900">
 			<div className="relative mx-auto px-2 lg:px-16 w-full">
@@ -94,41 +255,16 @@ export default function Footer(): JSX.Element {
 							</strong>
 						</h2>
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
-							<li className="mb-2">
-								<Link href="/domain">
-									Domain Name Registration
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/shared-hosting">
-									Shared Hosting
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/reseller-hosting">
-									Reseller Hosting
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/unmanaged-vps">
-									Unmanaged VPS
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/managed-vps">
-									Managed VPS
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/dedicated-server">
-									Dedicated Server
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/server-info">
-									Server Information
-								</Link>
-							</li>
+							{ website.map((item, index) => (
+								<li key={ index } className="mb-2">
+									<Link
+										href={ item.link }
+										target={ item.link.startsWith('http') ? '_blank' : '' }
+									>
+										{ item.title }
+									</Link>
+								</li>
+							)) }
 						</ul>
 					</div>
 					<div>
@@ -138,56 +274,16 @@ export default function Footer(): JSX.Element {
 							</strong>
 						</h2>
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
-							<li className="mb-2">
-								<a href="https://britto.stechbd.net" target="_blank">
-									Britto AI 🎉
-								</a>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/Install-Express">
-									Install Express 🎉
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/CookieCons">
-									CookieCons
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/ProjectPress">
-									ProjectPress
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/S-PHP-Engine">
-									S PHP Engine
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/S-Template-Engine">
-									S Template Engine
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/S-Database-Explorer">
-									S Database Explorer
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/S-Number-Manager">
-									S Number Manager
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/PyWeb">
-									PyWeb
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/product/ViewMD">
-									ViewMD
-								</Link>
-							</li>
+							{ product.map((item, index) => (
+								<li key={ index } className="mb-2">
+									<Link
+										href={ item.link }
+										target={ item.link.startsWith('http') ? '_blank' : '' }
+									>
+										{ item.title }
+									</Link>
+								</li>
+							)) }
 						</ul>
 					</div>
 					<div>
@@ -197,51 +293,16 @@ export default function Footer(): JSX.Element {
 							</strong>
 						</h2>
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
-							<li className="mb-2">
-								<Link href="/ai-development">
-									AI App Development 🎉
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/web-development">
-									Web Development
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/readymade-website">
-									Readymade Website Development
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/school-management">
-									School Management System
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/mobile-app-development">
-									Android App Development
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/mobile-app-development">
-									iOS App Development
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/mobile-app-development">
-									Windows App Development
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/ui-ux-development">
-									UI/UX Design
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/seo">
-									Search Engine Optimization
-								</Link>
-							</li>
+							{ service.map((item, index) => (
+								<li key={ index } className="mb-2">
+									<Link
+										href={ item.link }
+										target={ item.link.startsWith('http') ? '_blank' : '' }
+									>
+										{ item.title }
+									</Link>
+								</li>
+							)) }
 						</ul>
 					</div>
 					<div>
@@ -251,66 +312,16 @@ export default function Footer(): JSX.Element {
 							</strong>
 						</h2>
 						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
-							<li className="mb-2">
-								<Link href="/about">
-									About S Technologies
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/blog">
-									Blog
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/rnd">
-									Research and Development Wing
-								</Link>
-							</li>
-							<li className="mb-2">
-								<a href="https://ai.stechbd.net" target="_blank">
-									S Technologies AI
-								</a>
-							</li>
-							<li className="mb-2">
-								<a href="https://cpanel.stechbd.net" target="_blank">
-									Client Panel
-								</a>
-							</li>
-							<li className="mb-2">
-								<Link href="/careers">
-									Careers
-								</Link>
-							</li>
-							<li className="mb-2">
-								<a href="https://github.com/STechBD" target="_blank">
-									GitHub
-								</a>
-							</li>
-							<li className="mb-2">
-								<Link href="/contact">
-									Contact Us
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/privacy">
-									Privacy Policy
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/terms">
-									Terms of Service
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/disclaimer">
-									Disclaimer
-								</Link>
-							</li>
-							<li className="mb-2">
-								<Link href="/refund">
-									Refund Policy
-								</Link>
-							</li>
+							{ company.map((item, index) => (
+								<li key={ index } className="mb-2">
+									<Link
+										href={ item.link }
+										target={ item.link.startsWith('http') ? '_blank' : '' }
+									>
+										{ item.title }
+									</Link>
+								</li>
+							)) }
 						</ul>
 						<Image
 							src="https://images.dmca.com/Badges/dmca-badge-w200-2x1-03.png?ID=2b2a9269-d99b-4199-ad70-2e00c8556201"

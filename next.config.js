@@ -25,6 +25,35 @@ const nextConfig = {
 			},
 		],
 	},
+	async redirects() {
+		return [
+			{
+				source: '/shared-hosting-windows',
+				destination: '/shared-hosting',
+				permanent: true,
+			},
+			{
+				source: '/static-web-design',
+				destination: '/web-development',
+				permanent: true,
+			},
+			{
+				source: '/dynamic-web-design',
+				destination: '/web-development',
+				permanent: true,
+			},
+			{
+				source: '/readymade-web-application',
+				destination: '/readymade-website',
+				permanent: true,
+			},
+			{
+				source: '/project',
+				destination: '/product',
+				permanent: true,
+			},
+		];
+	},
 }
 
 

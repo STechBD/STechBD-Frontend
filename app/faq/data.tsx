@@ -169,9 +169,63 @@ export const data = [
 				ques: 'What is the refund policy of the shared hosting plans offered by S Technologies?',
 				ans: <>
 					The shared hosting plans offered by <span
-					className="text-white bg-primary"><strong>S Technologies</strong></span> come with a 30-day money-back
+					className="text-white bg-primary"><strong>S Technologies</strong></span> come with a 30-day
+					money-back
 					guarantee. If you are not satisfied with the service, you can get a full refund within 30 days of
 					signing up.
+				</>,
+			},
+		],
+	},
+	{
+		id: 5,
+		ques: 'Who is the CEO of S Technologies?',
+		ans: <>
+			The CEO of <span className="text-white bg-primary"><strong>S Technologies</strong></span> is <strong>Md.
+			Ashraful Alam Shemul</strong>. He is a technology enthusiast and entrepreneur with a passion for innovation
+			and technology. He founded <span className="text-white bg-primary"><strong>S Technologies</strong></span> in
+			2013.
+		</>,
+		sub: [
+			{
+				id: 5.1,
+				ques: 'What is the background of the CEO of S Technologies?',
+				ans: <>
+					The CEO of <span className="text-white bg-primary"><strong>S Technologies</strong></span> has a
+					background in marine fisheries. He is a technology enthusiast and entrepreneur with a passion for
+					innovation and technology. He founded <span
+					className="text-white bg-primary"><strong>S Technologies</strong></span> in 2013.
+				</>,
+			},
+			{
+				id: 5.2,
+				ques: 'What is the vision of the CEO of S Technologies?',
+				ans: <>
+					The vision of the CEO of <span
+					className="text-white bg-primary"><strong>S Technologies</strong></span> is to establish the company
+					as a leading technology company in Bangladesh. He is working to create a technology ecosystem in
+					Bangladesh that will help the country to become a technology-driven nation.
+				</>,
+			},
+			{
+				id: 5.3,
+				ques: 'What is the mission of the CEO of S Technologies?',
+				ans: <>
+					The mission of the CEO of <span
+					className="text-white bg-primary"><strong>S Technologies</strong></span> is to provide the best
+					technology services to the people of Bangladesh. He is committed to providing the best quality
+					services at the lowest possible cost.
+				</>,
+			},
+			{
+				id: 5.4,
+				ques: 'What are the future plans of the CEO of S Technologies?',
+				ans: <>
+					The future plans of the CEO of <span
+					className="text-white bg-primary"><strong>S Technologies</strong></span> are to establish the
+					company as a leading technology company in Bangladesh. He is working to create new job opportunities
+					in the field of technology and to establish the company as a leading technology company in
+					Bangladesh.
 				</>,
 			},
 		],
