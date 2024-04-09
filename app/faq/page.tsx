@@ -2,7 +2,8 @@ import { JSX } from 'react'
 import { Metadata } from 'next'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
-import Accordion from '@/app/faq/accordion'
+import { data } from './data'
+import Accordion from '@/app/_component/accordion'
 
 
 /**
@@ -49,7 +50,7 @@ export default function Page(): JSX.Element {
 					Our frequently asked questions page provides answers to common questions.
 				</p>
 				<div className="bg-white lg:px-16 md:px-20 py-10 rounded-xl dark:bg-gray-900">
-					<Accordion/>
+					<Accordion data={ data }/>
 				</div>
 			</div>
 		</>

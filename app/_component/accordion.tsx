@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import { data } from './data'
+import { Accordion, SubAccordion } from '@/app/_data/type'
 
 
 /**
@@ -10,11 +10,11 @@ import { data } from './data'
  * @returns { JSX.Element } The Accordion component.
  * @since 3.0.0
  */
-export default function Accordion(): JSX.Element {
+export default function Accordion({ data }: { data: Accordion[] }): JSX.Element {
 	const initialState: { [key: number]: boolean } = {}
-	data.map((item) => {
+	data.map((item: Accordion) => {
 		initialState[item.id] = false
-		item.sub && item.sub.map((subItem) => {
+		item.sub && item.sub.map((subItem: SubAccordion) => {
 			initialState[subItem.id] = false
 		})
 	})
@@ -29,8 +29,8 @@ export default function Accordion(): JSX.Element {
 
 	return (
 		<>
-			{ data.map((item, index) => (
-				<div key={ item.id } className="">
+			{ data.map((item: Accordion, index: number) => (
+				<div key={ item.id }>
 					<h2>
 						<button
 							type="button"
@@ -63,12 +63,12 @@ export default function Accordion(): JSX.Element {
 								{ item.ans }
 							</p>
 							{
-								item.sub && item.sub.map((subItem, index) => (
+								item.sub && item.sub.map((subItem: SubAccordion, index: number) => (
 									<div key={ index } className={ index === 0 ? 'mt-8' : '' }>
 										<h3>
 											<button
 												type="button"
-												className={ (index === 0 ? 'rounded-t-xl ' : (!show[subItem.id] && index === item.sub.length - 1 ? 'rounded-b-xl ' : '')) + 'flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3' }
+												className={ (index === 0 ? 'rounded-t-xl ' : (!show[subItem.id] && (index === item.sub.length - 1) ? 'rounded-b-xl ' : '')) + 'flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3' }
 												onClick={ () => handleShow(subItem.id) }
 											>
 													<span>

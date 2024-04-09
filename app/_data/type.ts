@@ -220,3 +220,25 @@ export interface Content {
 		link: string
 	}
 }
+
+
+/**
+ * Interface definition for the Accordion component.
+ *
+ * @interface Accordion
+ * @interface SubAccordion
+ *
+ * @since 3.0.0
+ */
+export interface Accordion {
+	id: number
+	ques: string
+	ans: JSX.Element
+	sub?: SubAccordion[]
+}
+
+export interface SubAccordion {
+	id: number
+	ques: string
+	ans: JSX.Element
+}

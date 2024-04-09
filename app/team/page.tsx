@@ -40,6 +40,45 @@ export default function Page(): JSX.Element {
 			linkedin: 'https://www.linkedin.com/in/AAShemul',
 			github: 'https://github.com/AAShemul',
 		},
+		work: [
+			{
+				company: 'S Technologies',
+				role: 'CEO',
+				start: 'August 14, 2013',
+				end: 'Present',
+				description: 'Founded the company in August 2013.',
+			},
+			{
+				company: 'S Hosting',
+				role: 'CEO',
+				start: 'June 8, 2015',
+				end: 'June 7, 2016',
+				description: 'Founded the company in June 2015.',
+			},
+			{
+				company: 'Ulkaa',
+				role: 'CEO',
+				start: 'August 14, 2015',
+				end: 'Present',
+				description: 'Founded the company in August 2015.',
+			},
+			{
+				company: 'Shikkha Web',
+				role: 'CEO',
+				start: 'August 14, 2017',
+				end: 'Present',
+				description: 'Founded the company in August 2015.',
+			},
+		],
+		education: [
+			{
+				institute: 'Bangabandhu Sheikh Mujibur Rahman Maritime University',
+				degree: 'Bachelor of Science',
+				major: 'Marine Fisheries',
+				start: 'January 10, 2020',
+				end: 'Present',
+			},
+		],
 		gallery: [
 			{
 				link: '/image/AAShemul-1.webp',
@@ -356,22 +395,13 @@ export default function Page(): JSX.Element {
 										<span className="tracking-wide">Experience</span>
 									</div>
 									<ul className="list-inside space-y-2">
-										<li>
-											<div className="text-primary">Owner at Her Company Inc.</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
-										<li>
-											<div className="text-primary">Owner at Her Company Inc.</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
-										<li>
-											<div className="text-primary">Owner at Her Company Inc.</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
-										<li>
-											<div className="text-primary">Owner at Her Company Inc.</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
+										{ data.work.map((item, index) => (
+											<li key={ index }>
+												<div className="text-primary">{ item.company }</div>
+												<div className="text-gray-500 text-xs">{ item.start } - { item.end }</div>
+												<div className="text-gray-700">{ item.description }</div>
+											</li>
+										)) }
 									</ul>
 								</div>
 								<div>
@@ -395,14 +425,13 @@ export default function Page(): JSX.Element {
 										<span className="tracking-wide">Education</span>
 									</div>
 									<ul className="list-inside space-y-2">
-										<li>
-											<div className="text-primary">Masters Degree in Oxford</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
-										<li>
-											<div className="text-primary">Bachelors Degreen in LPU</div>
-											<div className="text-gray-500 text-xs">March 2020 - Now</div>
-										</li>
+										{ data.education.map((item, index) => (
+											<li key={ index }>
+												<div className="text-primary">{ item.institute }</div>
+												<div className="text-gray-500 text-xs">{ item.start } - { item.end }</div>
+												<div className="text-gray-700">{ item.degree } in { item.major }</div>
+											</li>
+										)) }
 									</ul>
 								</div>
 							</div>
