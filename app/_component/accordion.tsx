@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import { Accordion, SubAccordion } from '@/app/_data/type'
+import type { Accordion, SubAccordion } from '@/app/_data/type'
 
 
 /**
@@ -68,7 +68,7 @@ export default function Accordion({ data }: { data: Accordion[] }): JSX.Element 
 										<h3>
 											<button
 												type="button"
-												className={ (index === 0 ? 'rounded-t-xl ' : (!show[subItem.id] && (index === item.sub.length - 1) ? 'rounded-b-xl ' : '')) + 'flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3' }
+												className={ (index === 0 ? 'rounded-t-xl ' : (!show[subItem.id] && (item.sub.length - 1 === index) ? 'rounded-b-xl ' : '')) + 'flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3' }
 												onClick={ () => handleShow(subItem.id) }
 											>
 													<span>
