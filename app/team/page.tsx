@@ -47,8 +47,8 @@ const team = [
 	{
 		name: 'Md. Musa',
 		slug: '',
-		position: 'Finance and Marketing Manager',
-		department: 'Management',
+		position: 'Designer',
+		department: 'Design',
 		photo: 'https://github.com/STechBD.png',
 		description: <>
 			<strong>Md. Musa</strong> is the finance and marketing manager at S Technologies. He is a technology enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2015.
