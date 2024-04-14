@@ -56,11 +56,12 @@ export default function Form(): JSX.Element {
 	}
 
 	return (
-		<form onSubmit={ (event) => formHandler(event) }
-		      className="grid grid-cols-1 gap-y-6"
+		<form
+			onSubmit={ (event) => formHandler(event) }
+			className="grid grid-cols-1 gap-y-6"
 		>
 			<div>
-				<label htmlFor="name" className="block text-lg font-medium text-gray-900">
+				<label htmlFor="name" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Full name
 				</label>
 				<div className="mt-1">
@@ -74,7 +75,7 @@ export default function Form(): JSX.Element {
 				</div>
 			</div>
 			<div>
-				<label htmlFor="email" className="block text-lg font-medium text-gray-900">
+				<label htmlFor="email" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Email
 				</label>
 				<div className="mt-1">
@@ -89,12 +90,12 @@ export default function Form(): JSX.Element {
 			</div>
 			<div className="w-full flex gap-5">
 				<div className="w-1/2">
-					<div className="flex justify-between">
-						<label htmlFor="department"
-						       className="block text-lg font-medium text-gray-900">
-							Department
-						</label>
-					</div>
+					<label
+						htmlFor="department"
+						className="block text-lg font-medium text-gray-900 dark:text-gray-100"
+					>
+						Department
+					</label>
 					<div className="mt-1">
 						<select
 							name="department"
@@ -117,9 +118,11 @@ export default function Form(): JSX.Element {
 					</div>
 				</div>
 				<div className="w-1/2">
-					<div className="mt-1">
-						<label htmlFor="priority"
-						       className="block text-lg font-medium text-gray-900">
+					<div className="">
+						<label
+							htmlFor="priority"
+							className="block text-lg font-medium text-gray-900 dark:text-gray-100"
+						>
 							Priority
 						</label>
 						<div className="mt-1">
@@ -143,7 +146,7 @@ export default function Form(): JSX.Element {
 				</div>
 			</div>
 			<div>
-				<label htmlFor="message" className="block text-lg font-medium text-gray-900">
+				<label htmlFor="message" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Message
 				</label>
 				<div className="mt-1">

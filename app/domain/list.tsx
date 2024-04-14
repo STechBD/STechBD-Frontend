@@ -43,21 +43,21 @@ export default function List(): JSX.Element {
 		<>
 			<div className="mt-10 flex">
 				<button
-					className={ (sortDomain.key === 'none' ? 'text-primary bg-gray-200' : 'text-white bg-primary') + ' text-center font-bold py-2 px-4 rounded focus:outline-none' }
+					className={ (sortDomain.key === 'none' ? 'text-white bg-primary' : 'text-primary bg-gray-200') + ' text-center font-bold py-2 px-4 rounded focus:outline-none' }
 					onClick={ (): void => requestSort('none', sortDomain.direction) }
 					disabled={ sortDomain.key === 'none' }
 				>
 					Sort by Default
 				</button>
 				<button
-					className={ (sortDomain.key === 'extension' ? 'text-primary bg-gray-200' : 'text-white bg-primary') + ' ml-4 text-center font-bold py-2 px-4 rounded focus:outline-none' }
+					className={ (sortDomain.key === 'extension' ? 'text-white bg-primary' : 'text-primary bg-gray-200') + ' ml-4 text-center font-bold py-2 px-4 rounded focus:outline-none' }
 					onClick={ (): void => requestSort('extension', sortDomain.direction) }
 					disabled={ sortDomain.key === 'extension' }
 				>
 					Sort by Name
 				</button>
 				<button
-					className={ (sortDomain.key === 'registration.bdt' ? 'text-primary bg-gray-200' : 'text-white bg-primary') + ' ml-4 text-center font-bold py-2 px-4 rounded focus:outline-none' }
+					className={ (sortDomain.key === 'registration.bdt' ? 'text-white bg-primary' : 'text-primary bg-gray-200') + ' ml-4 text-center font-bold py-2 px-4 rounded focus:outline-none' }
 					onClick={ (): void => requestSort('registration.bdt', sortDomain.direction) }
 					disabled={ sortDomain.key === 'registration.bdt' }
 				>

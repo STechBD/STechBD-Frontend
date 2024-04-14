@@ -40,6 +40,37 @@ export const productList: any[] = [
 		],
 	},
 	{
+		id: 'Fishtock',
+		title: 'Fishtock',
+		info: 'Fishtock is a fish stock analysis software to predict the future stock of fish.',
+		description: <>
+			<strong>Fishtock</strong> is a fish stock analysis software to predict the future stock of fish. It can be used to determine the estimated fish stock in a particular area or country. Currently, this model is trained for <strong>Hilsha</strong> fish in Bangladesh.
+		</>,
+		logo: false,
+		docs: 'https://docs.stechbd.net/Fishtock',
+		github: 'https://github.com/STechBD/Fishtock',
+		rating: 5,
+		platform: [
+			'Web',
+			'Windows',
+			'Linux',
+		],
+		language: [
+			'Python',
+		],
+		tool: [
+			'SKLearn',
+			'Pandas',
+			'Numpy',
+			'Matplotlib',
+		],
+		tag: [
+			'AI',
+			'Machine Learning',
+			'Fish Stock Analysis',
+		],
+	},
+	{
 		id: 'Install-Express',
 		title: 'Install-Express',
 		info: 'Install Express is a CLI tool that helps you to create a Express.js backend project in seconds',
@@ -496,6 +527,175 @@ export const Britto: { info: any, hero: Hero, section: Section[] } = {
 					description: 'To train Britto, run the following command:',
 					code: {
 						text: 'britto train',
+						language: 'bash',
+					},
+				},
+			],
+		},
+	],
+}
+
+
+/**
+ * The product data for Fishtock.
+ *
+ * @constant Fishtock { info: any, hero: Hero, section: Section[] } The product data
+ * @since 3.0.0
+ */
+export const Fishtock: { info: any, hero: Hero, section: Section[] } = {
+	info: {
+		id: 'Fishtock',
+		title: 'Fishtock',
+		description: 'Fishtock is a fish stock analysis software to predict the future stock of fish. It can be used to determine the estimated fish stock in a particular area or country. Currently, this model is trained for Hilsha fish in Bangladesh.',
+		logo: false,
+		docs: 'https://docs.stechbd.net/Fishtock',
+		github: 'https://github.com/STechBD/Fishtock',
+	},
+	hero: {
+		title: 'Fishtock',
+		description: <>
+			<strong>Fishtock</strong> is a fish stock analysis software to predict the future stock of fish. It can be
+			used to determine the estimated fish stock in a particular area or country. Currently, this model is trained
+			for <strong>Hilsha</strong> fish in Bangladesh.
+		</>,
+		notice: <>
+			Current Version:
+			<Link className="font-semibold text-primary"
+			      href="/product/Fishtock/releases"
+			>
+				<span className="absolute inset-0" aria-hidden="true"></span> v1.0.0 🎉
+			</Link>
+		</>,
+		button: [
+			{
+				text: 'Get Started',
+				link: 'https://docs.stechbd.net/Fishtock',
+			},
+			{
+				text: 'Learn More',
+				link: '/product/Fishtock/about',
+			}
+		],
+	},
+	section: [
+		{
+			id: 'features',
+			title: 'Features',
+			content: [
+				{
+					title: 'Machine Learning',
+					description: 'Machine learning is a method of data analysis that automates analytical model building. It is a branch of artificial intelligence based on the idea that systems can learn from data, identify patterns, and make decisions with minimal human intervention.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/Machine_learning',
+					},
+				},
+				{
+					title: 'Fish Stock Analysis',
+					description: 'Fish stock analysis is the process of analyzing the stock of fish in a particular area or country. It is used to determine the estimated fish stock in a particular area or country.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/Fish_stock',
+					},
+				},
+				{
+					title: 'Hilsha Fish',
+					description: 'Hilsha fish is a species of fish in the herring family. It is a very popular and tasty fish in Bangladesh.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/Hilsa_shad',
+					},
+				},
+			],
+		},
+		{
+			id: 'installation',
+			title: 'Installation',
+			content: [
+				{
+					title: 'Install from PyPI',
+					description: 'To install Fishtock from PyPI, run the following command:',
+					code: {
+						text: 'pip install fishtock',
+						language: 'bash',
+					},
+				},
+				{
+					title: 'Install from GitHub',
+					description: 'To install Fishtock from GitHub, run the following command:',
+					code: {
+						text: 'pip install git+https://github.com/STechBD/Fishtock.git',
+						language: 'bash',
+					},
+				},
+			],
+		},
+		{
+			id: 'support',
+			title: 'Support',
+			content: [
+				{
+					title: 'GitHub',
+					description: 'If you have any problems or suggestions, please open an issue on GitHub.',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.com/STechBD/Fishtock/issues',
+					},
+				},
+				{
+					title: 'Twitter',
+					description: 'If you have any problems or suggestions, please DM me on Twitter.',
+					url: {
+						text: 'Learn More',
+						link: '#',
+					},
+				},
+			],
+		},
+		{
+			id: 'contributors',
+			title: 'Contributors',
+			content: [
+				{
+					title: 'Md. Ashraful Alam Shemul',
+					description: 'Software Developer',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.cm/AAShemul',
+					},
+				},
+			],
+		},
+		{
+			id: 'product',
+			title: 'Product List',
+			content: productListGenerator('Fishtock'),
+		},
+		{
+			id: 'faq',
+			title: 'Frequently Asked Question (FAQ)',
+			content: [
+				{
+					title: 'What is Fishtock?',
+					description: 'Fishtock is a fish stock analysis software to predict the future stock of fish. It can be used to determine the estimated fish stock in a particular area or country. Currently, this model is trained for Hilsha fish in Bangladesh.',
+					url: {
+						text: 'Learn More',
+						link: 'https://docs.stechbd.net/Fishtock',
+					},
+				},
+				{
+					title: 'How to install Fishtock?',
+					description: 'To install Fishtock, run the following command:',
+					code: {
+						text: 'pip install fishtock',
+						language: 'bash',
+					},
+				},
+				{
+					title: 'How to train Fishtock?',
+					description: 'To train Fishtock, run the following command:',
+					code: {
+						text: 'fishtock train',
 						language: 'bash',
 					},
 				},
@@ -2057,6 +2257,7 @@ const ViewMD: { info: any, hero: Hero, section: Section[] } = {
  */
 export const products: any = {
 	Britto,
+	Fishtock,
 	Install_Express,
 	CookieCons,
 	ProjectPress,

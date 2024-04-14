@@ -50,6 +50,10 @@ export default function Footer(): JSX.Element {
 			link: 'https://britto.stechbd.net',
 		},
 		{
+			title: 'Fishtock 🎉',
+			link: 'https://fishtock.stechbd.net',
+		},
+		{
 			title: 'Install Express 🎉',
 			link: '/product/Install-Express',
 		},

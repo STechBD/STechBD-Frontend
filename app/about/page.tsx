@@ -36,8 +36,10 @@ export default function Page(): JSX.Element {
 	const companies = [
 		{
 			title: 'S Hosting (Closed)',
+			started: 'June 8, 2015',
+			closed: 'June 7, 2016',
 			description: <>
-				<strong>S Hosting</strong> is a domain, hosting, and server provider company. It is a product
+				<strong>S Hosting</strong> is a domain, hosting, and server provider company. It was a child company
 				of <strong>S Technologies</strong>.
 			</>,
 			button: {
@@ -47,8 +49,10 @@ export default function Page(): JSX.Element {
 		},
 		{
 			title: 'Ulkaa',
+			started: 'August 14, 2015',
+			closed: null,
 			description: <>
-				<strong>Ulkaa</strong> is a social media platform. It is a product of <strong>S Technologies</strong>.
+				<strong>Ulkaa</strong> is a social media platform. It is a child company of <strong>S Technologies</strong>.
 			</>,
 			button: {
 				title: 'Visit Ulkaa',
@@ -56,14 +60,40 @@ export default function Page(): JSX.Element {
 			},
 		},
 		{
-			title: 'Shikkha Web',
+			title: 'S Web Research Center',
+			started: 'June 16, 2016',
+			closed: null,
 			description: <>
-				<strong>Shikkha Web</strong> is an educational platform. It is a product of <strong>S
+				<strong>S Web Research Center</strong> is a research center for researching and developing web related technologies. It is a independent research center of <strong>S Technologies</strong>.
+			</>,
+			button: {
+				title: 'Visit S Web Research Center',
+				link: 'https://swrc.stechbd.net',
+			},
+		},
+		{
+			title: 'Shikkha Web',
+			started: 'August 14, 2017',
+			closed: null,
+			description: <>
+				<strong>Shikkha Web</strong> is an educational platform. It is a child company of <strong>S
 				Technologies</strong>.
 			</>,
 			button: {
 				title: 'Visit Shikkha Web',
 				link: 'https://shikkhaweb.com',
+			},
+		},
+		{
+			title: 'S AI Research Center',
+			started: 'August 14, 2019',
+			closed: null,
+			description: <>
+				<strong>S AI Research Center</strong> is a research center for researching and developing artificial intelligence (AI) related technologies. It is a independent research center of <strong>S Technologies</strong>.
+			</>,
+			button: {
+				title: 'Visit S AI Research Center',
+				link: 'https://sairc.stechbd.net',
 			},
 		},
 	]
@@ -110,6 +140,15 @@ export default function Page(): JSX.Element {
 			},
 		},
 		{
+			title: 'Launched S Web Research Center',
+			date: 'June 16, 2016',
+			description: 'S Technologies launched S Web Research Center as a research center for researching and developing web related technologies.',
+			button: {
+				title: 'Read more',
+				link: '/launched-swebrc',
+			},
+		},
+		{
 			title: 'Launched Shikkha Web',
 			date: 'August 14, 2017',
 			description: 'S Technologies launched Shikkha Web as an ed-tech company. Ulkaa is a social media website to connect people. It also provide other services like search engine, online shopping, online tool, etc.',
@@ -127,6 +166,15 @@ export default function Page(): JSX.Element {
 				link: '/10-years-of-stechbd',
 			},
 		},
+		{
+			title: 'Launched S AI Research Center',
+			date: 'August 14, 2019',
+			description: 'S Technologies launched S AI Research Center as a research center for researching and developing artificial intelligence (AI) related technologies.',
+			button: {
+				title: 'Read more',
+				link: '/launched-sairc',
+			},
+		},
 	]
 
 	return (
@@ -139,7 +187,7 @@ export default function Page(): JSX.Element {
 					<hr className="mt-4 border-t-2 border-primary"/>
 					<hr className="mt-4 border-t-2 border-primary"/>
 					<div className="mt-16">
-						<p className="text-6xl max-w-7xl mx-auto text-center text-primary">
+						<p className="text-4xl lg:text-6xl max-w-7xl mx-auto text-center text-primary">
 							<span className="text-white bg-primary">
 								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>)
 							</span> is a research-based technology company in Bangladesh that provides software
@@ -167,14 +215,18 @@ export default function Page(): JSX.Element {
 					<hr className="mt-16 border-t-2 border-primary"/>
 					<div className="md:px-20 py-10">
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-							Child Companies
+							Child Companies and Centers
 						</h2>
+						<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
+							<strong>S Technologies</strong> has several child companies and centers. Here are some of
+							them.
+						</p>
 						<div className="mx-auto max-w-6xl lg:grid lg:grid-cols-3 lg:gap-4 mt-10 justify-items-center">
 							{
 								companies.map((company, index) => (
 									<div
 										key={ index }
-										className="bg-white shadow-md rounded-lg px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
+										className="bg-white shadow-md rounded-lg mb-4 lg:mb-0 px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
 									>
 										<Bounce>
 											<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
@@ -204,8 +256,8 @@ export default function Page(): JSX.Element {
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 							Evolution of S Technologies
 						</h2>
-						<div className="lg:grid lg:grid-cols-3 lg:gap-8">
-							<section className="mt-16 col-span-2">
+						<div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+							<section className="order-last lg:order-first mt-16 col-span-2">
 								<ol className="relative border-s border-primary">
 									{
 										events.map((event, index) => (
@@ -229,11 +281,13 @@ export default function Page(): JSX.Element {
 														>
 															{ event.button.title }
 
-															<svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
-															     xmlns="http://www.w3.org/2000/svg" fill="none"
-															     viewBox="0 0 14 10"
+															<svg
+																className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
+																xmlns="http://www.w3.org/2000/svg" fill="none"
+																viewBox="0 0 14 10"
 															>
-																<path stroke="currentColor" strokeLinecap="round"
+																<path
+																	stroke="currentColor" strokeLinecap="round"
 																      strokeLinejoin="round" strokeWidth="2"
 																      d="M1 5h12m0 0L9 1m4 4L9 9"
 																/>
@@ -246,19 +300,39 @@ export default function Page(): JSX.Element {
 									}
 								</ol>
 							</section>
-							<section className="mt-16">
+							<section className="order-first lg:order-last mt-16 lg:ml-12 lg:my-auto">
 								<div className="p-4 bg-white bg-opacity-40">
 									<Image
 										src="/image/Rising.webp"
 										alt="Rising"
-										width={ 0 }
-										height={ 0 }
+										width={ 1000 }
+										height={ 1000 }
 									/>
 								</div>
 							</section>
 						</div>
 					</div>
 					<hr className="mt-16 border-t-2 border-primary"/>
+					<div className="md:px-20 mt-16 text-center">
+						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
+							Contact Us
+						</h2>
+						<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
+							You can contact us for any query, suggestion, or feedback. We are always ready to help you.
+						</p>
+						<div className="mt-10">
+							<Link href="/contact">
+								<button
+									className="button bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+								>
+									Contact Us
+								</button>
+							</Link>
+						</div>
+					</div>
+					<hr className="mt-16 border-t-2 border-primary"/>
+					<hr className="mt-4 border-t-2 border-primary"/>
+					<hr className="mt-4 border-t-2 border-primary"/>
 				</div>
 			</div>
 		</>

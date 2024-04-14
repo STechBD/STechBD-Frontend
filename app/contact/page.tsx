@@ -71,28 +71,36 @@ export default function Page(): JSX.Element {
 							<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
 								Contact Information
 							</h2>
-							<div className="mt-3">
-								<p className="text-lg text-gray-900">
+							<div className="mt-3 text-lg text-gray-900 dark:text-gray-100">
+								<p>
 									<strong>
 										S Technologies Headquarters
 									</strong>
 								</p>
-								<p className="mt-1 text-lg text-gray-900">
-									Dhaka
+								<p className="mt-1">
+									Dhaka City, Dhaka
 								</p>
-								<p className="mt-1 text-lg text-gray-900">
+								<p className="mt-1">
 									Bangladesh
 								</p>
-								<p className="mt-1 text-lg text-gray-900">
+								<p className="mt-1">
 									Phone: <a href="tel:+8801935446721">+(880) 1935-446721</a>
 								</p>
-								<p className="mt-1 text-lg text-gray-900">
+								<p className="mt-1">
 									Email: <a href="mailto:contact@stechbd.net">contact@stechbd.net</a>
 								</p>
 							</div>
 						</div>
 						<div className="mt-12 lg:mt-0 lg:col-span-2">
-							<ContactForm/>
+							<h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+								Contact with S Technologies
+							</h2>
+							<p className="mt-3 text-lg text-gray-900 dark:text-gray-100">
+								Fill out the form below and we will get back to you as soon as possible.
+							</p>
+							<div className="mt-12 p-8 bg-gray-100 rounded-lg dark:bg-gray-900">
+								<ContactForm/>
+							</div>
 						</div>
 					</div>
 				</div>
