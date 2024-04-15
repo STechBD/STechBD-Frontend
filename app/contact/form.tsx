@@ -56,13 +56,10 @@ export default function Form(): JSX.Element {
 	}
 
 	return (
-		<form
-			onSubmit={ (event) => formHandler(event) }
-			className="grid grid-cols-1 gap-y-6"
-		>
+		<form onSubmit={ (event) => formHandler(event) }>
 			<div>
 				<label htmlFor="name" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
-					Full name
+					Full Name
 				</label>
 				<div className="mt-1">
 					<input
@@ -74,7 +71,7 @@ export default function Form(): JSX.Element {
 					/>
 				</div>
 			</div>
-			<div>
+			<div className="mt-4">
 				<label htmlFor="email" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Email
 				</label>
@@ -88,7 +85,7 @@ export default function Form(): JSX.Element {
 					/>
 				</div>
 			</div>
-			<div className="w-full flex gap-5">
+			<div className="mt-4 w-full flex gap-5">
 				<div className="w-1/2">
 					<label
 						htmlFor="department"
@@ -129,7 +126,7 @@ export default function Form(): JSX.Element {
 							<select
 								name="priority"
 								onChange={ (event) => setPriority(event.target.value) }
-								className="block w-full h-8 border-b border-gray-100 rounded-md shadow-sm hover:border-secondary hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
+								className="block w-full h-8 border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 							>
 								<option value="Low">
 									Low
@@ -145,7 +142,7 @@ export default function Form(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="mt-4">
 				<label htmlFor="message" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Message
 				</label>
@@ -158,7 +155,7 @@ export default function Form(): JSX.Element {
 					/>
 				</div>
 			</div>
-			<div>
+			<div className="mt-4">
 				<button
 					type="submit"
 					className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm hover:border-secondary text-lg font-medium rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"

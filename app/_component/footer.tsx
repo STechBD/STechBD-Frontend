@@ -96,7 +96,7 @@ export default function Footer(): JSX.Element {
 			link: '/ai-development',
 		},
 		{
-			title: 'Web Development',
+			title: 'Web App Development',
 			link: '/web-development',
 		},
 		{
@@ -109,15 +109,15 @@ export default function Footer(): JSX.Element {
 		},
 		{
 			title: 'Android App Development',
-			link: '/mobile-app-development',
+			link: '/android-development',
 		},
 		{
 			title: 'iOS App Development',
-			link: '/mobile-app-development',
+			link: '/ios-development',
 		},
 		{
 			title: 'Windows App Development',
-			link: '/mobile-app-development',
+			link: '/windows-development',
 		},
 		{
 			title: 'UI/UX Design',

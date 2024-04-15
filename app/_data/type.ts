@@ -242,3 +242,23 @@ export interface SubAccordion {
 	ques: string
 	ans: JSX.Element
 }
+
+
+/**
+ * Interface definition for the Service Custom Field.
+ *
+ * @interface ServiceCustomField
+ *
+ * @since 3.0.0
+ */
+export interface ServiceCustomField {
+	name: string
+	type: 'text' | 'textarea' | 'select' | 'list' | 'radio' | 'checkbox' | 'number' | 'date' | 'time' | 'datetime' | 'file' | 'password' | 'email' | 'url' | 'tel' | 'color' | 'hidden' | 'slider' | 'range'
+	description: string
+	option?: string[] | { [key: string]: string[] }
+	optionCondition?: { [key: string]: string }
+	multiple?: boolean
+	min?: { [key: string]: { bdt: number, usd: number } }
+	max?: { [key: string]: { bdt: number, usd: number } }
+	step?: { [key: string]: { bdt: number, usd: number } }
+}
