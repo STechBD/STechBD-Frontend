@@ -1,7 +1,8 @@
 'use client'
 
-import { JSX, useState } from 'react'
+import { JSX, useEffect, useState } from 'react'
 import { themes } from '@/app/_function/theme'
+import Cookie from 'js-cookie'
 
 
 /**
@@ -20,17 +21,48 @@ export default function Theme(): JSX.Element {
 			setTheme(theme)
 			document.documentElement.classList.remove('theme-red', 'theme-green', 'theme-teal', 'theme-blue', 'theme-indigo', 'theme-purple')
 			document.documentElement.classList.add(`theme-${ theme }`)
+			Cookie.set('stechbd-theme', theme, {
+				expires: 365,
+				domain: process.env.MAIN_DOMAIN,
+			})
 		} else {
 			setTheme('indigo')
 			document.documentElement.classList.remove('theme-red', 'theme-green', 'theme-teal', 'theme-blue', 'theme-indigo', 'theme-purple')
 			document.documentElement.classList.add('theme-indigo')
+			Cookie.set('stechbd-theme', 'indigo', {
+				expires: 365,
+				domain: process.env.MAIN_DOMAIN,
+			})
 		}
 	}
 
 	function toggleDarkMode(): void {
 		setDarkMode(!darkMode)
 		document.documentElement.classList.toggle('dark')
+		Cookie.set('stechbd-mode', darkMode ? 'light' : 'dark', {
+			expires: 365,
+			domain: process.env.MAIN_DOMAIN,
+		})
 	}
+
+	useEffect((): void => {
+		if (Cookie.get('stechbd-mode') === 'dark') {
+			setDarkMode(false)
+			document.documentElement.classList.add('dark')
+		} else {
+			setDarkMode(true)
+			document.documentElement.classList.remove('dark')
+		}
+
+		if (Cookie.get('stechbd-theme')) {
+			const theme = Cookie.get('stechbd-theme') as string
+			setTheme(theme)
+			document.documentElement.classList.add(`theme-${ theme }`)
+		} else {
+			setTheme('indigo')
+			document.documentElement.classList.add('theme-indigo')
+		}
+	}, [])
 
 	if (themePanel) {
 		return (
