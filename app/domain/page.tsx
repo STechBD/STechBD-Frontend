@@ -41,7 +41,7 @@ export default function Page(): JSX.Element {
 			<Hero/>
 			<div className="relative isolate px-6 py-24 lg:px-8">
 				<DefaultEffect/>
-				<div className="md:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
 						Pricing Table
 					</h2>
@@ -51,7 +51,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<List/>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						What is Domain Name?
 					</h2>
@@ -69,7 +69,7 @@ export default function Page(): JSX.Element {
 						the domain name is <i>stechbd.net</i>.
 					</p>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Features of Domain Name
 					</h2>
@@ -89,7 +89,7 @@ export default function Page(): JSX.Element {
 						<li>Accessibility</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Why S Technologies Domain Name?
 					</h2>
@@ -116,7 +116,7 @@ export default function Page(): JSX.Element {
 						<li>Domain Reselling</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Domain Name Provider in Bangladesh
 					</h2>
@@ -136,7 +136,7 @@ export default function Page(): JSX.Element {
 						<li>Host Clave</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Domain Name Provider in the World
 					</h2>

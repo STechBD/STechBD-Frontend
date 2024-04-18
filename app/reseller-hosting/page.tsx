@@ -64,7 +64,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						What is Reseller Hosting?
 					</h2>
@@ -83,7 +83,7 @@ export default function Page(): JSX.Element {
 						with multiple websites who want to consolidate their hosting.
 					</p>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Features of Reseller Hosting
 					</h2>
@@ -101,7 +101,7 @@ export default function Page(): JSX.Element {
 						<li>Support</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Why S Technologies Reseller Hosting?
 					</h2>
@@ -131,7 +131,7 @@ export default function Page(): JSX.Element {
 						<li>WHM Hosting Control Panel</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Reseller Hosting Provider in Bangladesh
 					</h2>
@@ -151,7 +151,7 @@ export default function Page(): JSX.Element {
 						<li>Host Clave</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Reseller Hosting Provider in the World
 					</h2>

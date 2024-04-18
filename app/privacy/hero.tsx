@@ -23,7 +23,7 @@ export default function Hero(): JSX.Element {
 							We take your privacy seriously. Here&apos;s how we handle your data.
 						</p>
 					</div>
-					<nav className="flex" aria-label="Breadcrumb">
+					{/*<nav className="flex" aria-label="Breadcrumb">
 						<ol className="flex items-center space-x-4">
 							<li>
 								<div>
@@ -47,7 +47,7 @@ export default function Hero(): JSX.Element {
 								</div>
 							</li>
 						</ol>
-					</nav>
+					</nav>*/}
 				</div>
 			</div>
 		</>

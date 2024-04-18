@@ -64,7 +64,7 @@ export default function Page(): JSX.Element {
 					</p>
 					<ComparisonTable feature={ featureData } data={ comparisonData }/>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						What is Unmanaged VPS?
 					</h2>
@@ -88,7 +88,7 @@ export default function Page(): JSX.Element {
 						option if you run a simple blog or forum.
 					</p>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Features of Unmanaged VPS
 					</h2>
@@ -106,7 +106,7 @@ export default function Page(): JSX.Element {
 						<li>Support</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Why S Technologies Unmanaged VPS?
 					</h2>
@@ -133,7 +133,7 @@ export default function Page(): JSX.Element {
 						<li>cPanel Control Panel</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Unmanaged VPS Provider in Bangladesh
 					</h2>
@@ -153,7 +153,7 @@ export default function Page(): JSX.Element {
 						<li>Host Clave</li>
 					</ol>
 				</div>
-				<div className="lg:px-20 py-10">
+				<div className="max-w-7xl mx-auto lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Top 10 Unmanaged VPS Provider in the World
 					</h2>
