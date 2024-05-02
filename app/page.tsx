@@ -22,8 +22,8 @@ export default function Page(): JSX.Element {
 			title: 'Shared Hosting',
 			featured: true,
 			price: {
-				bdt: 1200,
-				usd: 12,
+				bdt: 3200,
+				usd: 32,
 			},
 			period: 0,
 			description: 'Ideal for low volume websites',
