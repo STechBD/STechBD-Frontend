@@ -177,6 +177,10 @@ export default function Footer(): JSX.Element {
 			title: 'Refund Policy',
 			link: '/refund',
 		},
+		{
+			title: 'Sitemap',
+			link: '/sitemap',
+		},
 	]
 
 	return (<>
