@@ -43,40 +43,52 @@ export default function Page(): JSX.Element {
 			link: '/',
 		},
 		{
+			title: 'About S Technologies',
+			link: '/about',
+		},
+		{
 			title: 'Blog',
 			link: '/blog',
 		},
 		{
-			title: 'About Us',
-			link: '/about',
+			title: 'Research and Development Wing',
+			link: '/rnd',
+		},
+		{
+			title: 'Careers',
+			link: '/careers',
 		},
 		{
 			title: 'Contact Us',
 			link: '/contact',
 		},
 		{
-			title: 'Disclaimer',
-			link: '/disclaimer',
-		},
-		{
 			title: 'Privacy Policy',
 			link: '/privacy',
-		},
-		{
-			title: 'Refund Policy',
-			link: '/refund',
 		},
 		{
 			title: 'Terms of Service',
 			link: '/terms',
 		},
 		{
-			title: 'Frequency Asked Questions (FAQ)',
-			link: '/faq',
+			title: 'Disclaimer',
+			link: '/disclaimer',
+		},
+		{
+			title: 'Refund Policy',
+			link: '/refund',
 		},
 		{
 			title: 'Sitemap',
 			link: '/sitemap',
+		},
+		{
+			title: 'Server',
+			link: '/server',
+		},
+		{
+			title: 'Server Information',
+			link: '/server-info',
 		},
 		{
 			title: 'Shared Hosting',
@@ -101,6 +113,46 @@ export default function Page(): JSX.Element {
 		{
 			title: 'Domain Name Registration',
 			link: '/domain',
+		},
+		{
+			title: 'Service',
+			link: '/service',
+		},
+		{
+			title: 'AI App Development',
+			link: '/ai-development',
+		},
+		{
+			title: 'Web App Development',
+			link: '/web-development',
+		},
+		{
+			title: 'Readymade Website Development',
+			link: '/readymade-website',
+		},
+		{
+			title: 'School Management System',
+			link: '/readymade-website',
+		},
+		{
+			title: 'Android App Development',
+			link: '/android-development',
+		},
+		{
+			title: 'iOS App Development',
+			link: '/ios-development',
+		},
+		{
+			title: 'Windows App Development',
+			link: '/windows-development',
+		},
+		{
+			title: 'UI/UX Development',
+			link: '/ui-ux-development',
+		},
+		{
+			title: 'Search Engine Optimization',
+			link: '/seo',
 		},
 	]
 

@@ -40,6 +40,10 @@ export default function Footer(): JSX.Element {
 			link: '/dedicated-server',
 		},
 		{
+			title: 'SSL Certificate',
+			link: '/ssl-certificate',
+		},
+		{
 			title: 'Server Information',
 			link: '/server-info',
 		},
