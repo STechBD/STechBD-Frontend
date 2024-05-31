@@ -132,7 +132,7 @@ export default function Page(): JSX.Element {
 		},
 		{
 			title: 'Closed S Hosting',
-			date: 'June 1, 2015',
+			date: 'June 1, 2016',
 			description: 'S Hosting was closed and merged all the services with S Technologies. Now S Technologies will also provide domain, hosting, server, etc.',
 			button: {
 				title: 'Read more',

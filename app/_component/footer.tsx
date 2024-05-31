@@ -50,6 +50,10 @@ export default function Footer(): JSX.Element {
 	]
 	const product = [
 		{
+			title: 'Shunno Programming Language 🎉',
+			link: 'https://shunno.stechbd.net',
+		},
+		{
 			title: 'Britto AI 🎉',
 			link: 'https://britto.stechbd.net',
 		},
