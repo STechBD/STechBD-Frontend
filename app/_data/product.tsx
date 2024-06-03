@@ -10,6 +10,33 @@ import type { Hero, Section } from '@/app/_data/type'
  */
 export const productList: any[] = [
 	{
+		id: 'Shunno',
+		title: 'Shunno Programming Language',
+		info: 'Shunno is a general purpose programming language in Bengali.',
+		description: <>
+			<strong>Shunno</strong> is a general-purpose programming language in Bengali. Shunno is a high-level and
+			statically typed language designed to develop basic software applications. Shunno aims at making programming
+			accessible to Bengali speakers.
+		</>,
+		logo: '/image/Shunno-Programming-Language-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/Shunno',
+		github: 'https://github.com/Shunno-Lang/Shunno-Docs',
+		rating: 5,
+		platform: [
+			'Web',
+			'Windows',
+			'Linux',
+		],
+		language: [
+			'Shunno',
+		],
+		tool: [],
+		tag: [
+			'Programming Language',
+			'Bengali',
+		],
+	},
+	{
 		id: 'Britto',
 		title: 'Britto AI',
 		info: 'Britto AI is a deep learning AI model for conversational chatbot',
@@ -44,7 +71,9 @@ export const productList: any[] = [
 		title: 'Fishtock',
 		info: 'Fishtock is a fish stock analysis software to predict the future stock of fish.',
 		description: <>
-			<strong>Fishtock</strong> is a fish stock analysis software to predict the future stock of fish. It can be used to determine the estimated fish stock in a particular area or country. Currently, this model is trained for <strong>Hilsha</strong> fish in Bangladesh.
+			<strong>Fishtock</strong> is a fish stock analysis software to predict the future stock of fish. It can be
+			used to determine the estimated fish stock in a particular area or country. Currently, this model is trained
+			for <strong>Hilsha</strong> fish in Bangladesh.
 		</>,
 		logo: false,
 		docs: 'https://docs.stechbd.net/Fishtock',
@@ -364,6 +393,175 @@ function productListGenerator(skip: string): any {
 		}
 	})
 	return list
+}
+
+
+/**
+ * The product data for Shunno Programming Language.
+ *
+ * @constant Shunno { info: any, hero: Hero, section: Section[] } The product data
+ * @since 3.0.0
+ */
+export const Shunno: { info: any, hero: Hero, section: Section[] } = {
+	info: {
+		id: 'Shunno',
+		title: 'Shunno Programming Language',
+		description: 'Shunno is a general purpose programming language in Bengali.',
+		logo: false,
+		docs: 'https://docs.stechbd.net/Shunno',
+		github: 'https://github.com/Shunno-Lang/Shunno-Docs',
+	},
+	hero: {
+		title: 'Shunno Programming Language',
+		description: <>
+			<strong>Shunno</strong> is a general-purpose programming language in Bengali. Shunno is a high-level,
+			statically typed language designed to develop basic software applications. Shunno aims at making programming
+			accessible to Bengali speakers.
+		</>,
+		notice: <>
+			Current Version:
+			<Link className="font-semibold text-primary"
+			      href="/product/Shunno/releases"
+			>
+				<span className="absolute inset-0" aria-hidden="true"></span> v1.0.0 🎉
+			</Link>
+		</>,
+		button: [
+			{
+				text: 'Get Started',
+				link: 'https://docs.stechbd.net/Shunno',
+			},
+			{
+				text: 'Install',
+				link: 'https://shunnno.stechbd.net/install',
+			}
+		],
+	},
+	section: [
+		{
+			id: 'features',
+			title: 'Features',
+			content: [
+				{
+					title: 'Bengali Programming Language',
+					description: 'Shunno is a general-purpose programming language in Bengali. Shunno is a high-level, statically typed language designed to develop basic software applications. Shunno aims at making programming accessible to Bengali speakers.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/Bengali_language',
+					},
+				},
+				{
+					title: 'Statically Typed',
+					description: 'Shunno is a statically typed language. This means that the type of a variable is known at compile time.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/Type_system',
+					},
+				},
+				{
+					title: 'High-Level Language',
+					description: 'Shunno is a high-level language. This means that it is closer to human language than machine language.',
+					url: {
+						text: 'Learn More',
+						link: 'https://en.wikipedia.org/wiki/High-level_programming_language',
+					},
+				},
+			],
+		},
+		{
+			id: 'installation',
+			title: 'Installation',
+			content: [
+				{
+					title: 'Download from official website',
+					description: 'To download Shunno from the official website, visit the following link:',
+					url: {
+						text: 'Download Now',
+						link: 'https://shunno.stechbd.net/install',
+					},
+				},
+				{
+					title: 'Download from GitHub',
+					description: 'To download Shunno from GitHub, visit the following link:',
+					url: {
+						text: 'Download Now',
+						link: 'https://github.com/Shunno-Lang/Shunno',
+					},
+				},
+			],
+		},
+		{
+			id: 'support',
+			title: 'Support',
+			content: [
+				{
+					title: 'GitHub',
+					description: 'If you have any problems or suggestions, please open an issue on GitHub.',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.com/Shunno-Lang/Shunno/issues',
+					},
+				},
+				{
+					title: 'Twitter',
+					description: 'If you have any problems or suggestions, please DM me on Twitter.',
+					url: {
+						text: 'Learn More',
+						link: '#',
+					},
+				},
+			],
+		},
+		{
+			id: 'contributors',
+			title: 'Contributors',
+			content: [
+				{
+					title: 'Md. Ashraful Alam Shemul',
+					description: 'Software Developer',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.cm/AAShemul',
+					},
+				},
+			],
+		},
+		{
+			id: 'product',
+			title: 'Product List',
+			content: productListGenerator('Shunno'),
+		},
+		{
+			id: 'faq',
+			title: 'Frequently Asked Question (FAQ)',
+			content: [
+				{
+					title: 'What is Shunno Programming Language?',
+					description: 'Shunno is a general-purpose programming language in Bengali. Shunno is a high-level, statically typed language designed to develop basic software applications. Shunno aims at making programming accessible to Bengali speakers.',
+					url: {
+						text: 'Learn More',
+						link: 'https://docs.stechbd.net/Shunno',
+					},
+				},
+				{
+					title: 'How to install Shunno Programming Language?',
+					description: 'To install Shunno, run the following command:',
+					code: {
+						text: 'shunno install',
+						language: 'bash',
+					},
+				},
+				{
+					title: 'How to run Shunno Programming Language?',
+					description: 'To run Shunno, run the following command:',
+					code: {
+						text: 'shunno run',
+						language: 'bash',
+					},
+				},
+			],
+		},
+	],
 }
 
 
@@ -2256,6 +2454,7 @@ const ViewMD: { info: any, hero: Hero, section: Section[] } = {
  * @since 3.0.0
  */
 export const products: any = {
+	Shunno,
 	Britto,
 	Fishtock,
 	Install_Express,
