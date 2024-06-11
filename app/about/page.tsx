@@ -177,6 +177,22 @@ export default function Page(): JSX.Element {
 		},
 	]
 
+	const tcTexts: string[] = [
+		'Web Development',
+		'AI App Development',
+		'Android App Development',
+		'IOS App Development',
+		'Windows App Development',
+		'UI/UX Design',
+		'SEO',
+		'Business Solution',
+		'Software Development',
+		'Domain Registration',
+		'Server',
+		'Hosting',
+		'SaaS',
+	]
+
 	return (
 		<>
 			<div className="relative min-h-screen overflow-hidden isolate -mt-24 px-6 pt-48 pb-24 lg:px-8">
