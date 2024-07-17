@@ -42,7 +42,7 @@ export default function Page(): JSX.Element {
 			<div className="relative isolate px-6 py-24 lg:px-8">
 				<DefaultEffect/>
 				<div className="lg:px-20 py-10">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Pricing Table
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">

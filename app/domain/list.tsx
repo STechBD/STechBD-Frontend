@@ -70,19 +70,22 @@ export default function List(): JSX.Element {
 						sortedDomain.map((domain: any, i: number = 0) => {
 							i++
 
-							let textClass: string = 'text-2xl font-bold text-center'
-							textClass += (i % 2 == 0) ? ' text-primary' : ' text-primary'
 							let buttonClass: string = 'block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none'
 							buttonClass += (i % 2 == 0) ? ' bg-primary hover:bg-secondary focus:bg-secondary' : ' bg-primary hover:bg-secondary focus:bg-secondary'
 							return (
-								<div key={ i } className="bg-white shadow-md rounded-lg px-10 py-6">
-									<h2 className={ textClass }>
+								<div key={ i }
+								     className="bg-white text-center shadow-md rounded-lg px-10 py-6 dark:bg-gray-800"
+								>
+									<h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
 										{ domain.extension }
 									</h2>
-									<p className="mt-4 text-center text-3xl font-bold text-gray-900">
+									<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
+										{ domain.title }
+									</p>
+									<p className="mt-4 text-5xl font-semibold text-gray-900 dark:text-gray-100">
 										{ domain.registration.bdt }
 									</p>
-									<p className="mt-4 text-center text-gray-500">
+									<p className="mt-4 text-center text-gray-600 dark:text-gray-400">
 										{
 											domain.title === 'Bangladeshi' ? 'Per 2 Year' : 'Per Year'
 										}
