@@ -20,10 +20,6 @@ const domain: any = [
 			bdt: 1200,
 			usd: 11,
 		},
-		promo: {
-			bdt: 1000,
-			usd: 11,
-		},
 	},
 	{
 		extension: '.net',

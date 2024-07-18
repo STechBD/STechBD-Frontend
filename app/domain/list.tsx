@@ -83,8 +83,6 @@ export default function List({ defaultCurrency = 'bdt' }: any): JSX.Element {
 						sortedDomain.map((domain: any, i: number = 0) => {
 							i++
 
-							let buttonClass: string = 'block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none'
-							buttonClass += (i % 2 == 0) ? ' bg-primary hover:bg-secondary focus:bg-secondary' : ' bg-primary hover:bg-secondary focus:bg-secondary'
 							return (
 								<div key={ i }
 								     className="bg-white text-center shadow-md rounded-lg px-10 py-6 dark:bg-gray-800"
@@ -96,11 +94,29 @@ export default function List({ defaultCurrency = 'bdt' }: any): JSX.Element {
 										{ domain.title }
 									</p>
 									<p className="mt-4 text-5xl font-semibold text-gray-900 dark:text-gray-100">
+										{
+											domain.promo && (
+												<span className="block text-2xl text-primary">
+													<del>
+														<span>
+															{ currency === 'bdt' ? '৳' : '$' }
+														</span>
+														<span>
+															{ currency === 'bdt' ? domain.registration.bdt : domain.registration.usd }
+														</span>
+													</del>
+												</span>
+											)
+										}
 										<span>
 											{ currency === 'bdt' ? '৳' : '$' }
 										</span>
 										<span>
-											{ currency === 'bdt' ? domain.registration.bdt : domain.registration.usd }
+											{ currency === 'bdt' ? (
+												domain.promo ? domain.promo.bdt : domain.registration.bdt
+											) : (
+												domain.promo ? domain.promo.usd : domain.registration.usd
+											) }
 										</span>
 									</p>
 									<p className="mt-4 text-center text-gray-600 dark:text-gray-400">
@@ -109,8 +125,9 @@ export default function List({ defaultCurrency = 'bdt' }: any): JSX.Element {
 										}
 									</p>
 									<div className="mt-6">
-										<a href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
-										   target="_blank" className={ buttonClass }
+										<a target="_blank"
+										   href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
+										   className="block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none bg-primary hover:bg-secondary focus:bg-secondary"
 										>
 											Buy Now
 										</a>
