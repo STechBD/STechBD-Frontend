@@ -58,15 +58,17 @@ export default function Page(): JSX.Element {
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						A domain name is the address of your website that people type in the browser URL bar to visit
 						your website. In simple terms, if your website was a house, then your domain name will be its
-						address. For example, S Technologies domain name is stechbd.com. To create a website, you need
-						both domain name and web hosting. However, it is important to remember that they are two
-						separate services, and you can buy them from different providers.
+						address. For example, <span className="text-white bg-primary"><strong>S Technologies</strong>
+						</span>&apos; domain name is stechbd.net. To create a website, you need both domain name and web
+						hosting. However, it is important to remember that they are two separate services, and you can
+						buy them from different providers.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
 						Domain names are used to identify one or more IP addresses. For example, the domain
-						name <i>stechbd.net</i> represents about a dozen IP addresses. Domain names are used in URLs to
-						identify particular Web pages. For example, in the URL <i>http://www.stechbd.net/index.html</i>,
-						the domain name is <i>stechbd.net</i>.
+						name <strong><i>stechbd.net</i></strong> represents about a dozen IP addresses. Domain names are
+						used in URLs to identify particular Web pages. For example, in the URL <strong><i>
+						https://www.stechbd.net/domain</i></strong>,the domain name is <strong><i>
+						stechbd.net</i></strong>.
 					</p>
 				</div>
 				<div className="max-w-7xl mx-auto lg:px-20 py-10">
