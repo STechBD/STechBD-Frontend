@@ -255,7 +255,7 @@ export interface ServiceCustomField {
 	name: string
 	type: 'text' | 'textarea' | 'select' | 'list' | 'radio' | 'checkbox' | 'number' | 'date' | 'time' | 'datetime' | 'file' | 'password' | 'email' | 'url' | 'tel' | 'color' | 'hidden' | 'slider' | 'range'
 	description: string
-	option?: string[] | { [key: string]: string[] }
+	option?: string[] | { id: string, title: string }[] | { [key: string]: string[] }
 	optionCondition?: { [key: string]: string }
 	multiple?: boolean
 	min?: { [key: string]: { bdt: number, usd: number } }

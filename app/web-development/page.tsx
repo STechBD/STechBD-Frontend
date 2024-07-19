@@ -63,10 +63,22 @@ export default function Page(): JSX.Element {
 			type: 'select',
 			description: 'Select the app type',
 			option: [
-				'Frontend',
-				'Backend',
-				'Fullstack (Separated)',
-				'Fullstack (Integrated)',
+				{
+					id: 'frontend',
+					title: 'Frontend',
+				},
+				{
+					id: 'backend',
+					title: 'Backend',
+				},
+				{
+					id: 'fullstackSeparated',
+					title: 'Fullstack (Separated)',
+				},
+				{
+					id: 'fullstackIntegrated',
+					title: 'Fullstack (Integrated)',
+				},
 			],
 			multiple: false,
 		},
