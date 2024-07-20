@@ -56,6 +56,7 @@ export default function Page(): JSX.Element {
 				'E-earning or Ed-tech',
 				'Other',
 			],
+			optionType: 1,
 			multiple: true,
 		},
 		{
@@ -80,6 +81,7 @@ export default function Page(): JSX.Element {
 					title: 'Fullstack (Integrated)',
 				},
 			],
+			optionType: 2,
 			multiple: false,
 		},
 		{
@@ -164,11 +166,13 @@ export default function Page(): JSX.Element {
 					'JavaScript (Vanilla) + Go (Gin)',
 				],
 			},
+			optionType: 3,
+			optionBase: 'Type',
 			optionCondition: {
-				frontend: 'Type === "Frontend"',
-				backend: 'Type === "Backend"',
-				fullstackSeparated: 'Type === "Fullstack (Separated)"',
-				fullstackIntegrated: 'Type === "Fullstack (Integrated)"',
+				frontend: 'Frontend',
+				backend: 'Backend',
+				fullstackSeparated: 'Fullstack (Separated)',
+				fullstackIntegrated: 'Fullstack (Integrated)',
 			},
 			multiple: false,
 		},

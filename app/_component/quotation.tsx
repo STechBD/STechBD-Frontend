@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, JSX, useState } from 'react'
+import { ChangeEvent, FormEvent, JSX, useState } from 'react'
 import { ServiceCustomField } from '@/app/_data/type';
 
 
@@ -21,6 +21,7 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 	const [ priority, setPriority ] = useState<string>('')
 	const [ message, setMessage ] = useState<string>('')
 	const [ customField, setCustomField ] = useState<any>(null)
+	const [ state, setState ] = useState<any>(null)
 
 	const formHandler = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
@@ -61,6 +62,14 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 		}
 
 		console.log({ name, email, department, priority, message })
+	}
+
+	const optionChange = (type: number | undefined, data: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: any): void => {
+		setCustomField(action)
+
+		if (type === 2) {
+
+		}
 	}
 
 	return (
@@ -106,33 +115,60 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 				className="hidden"
 			/>
 			{ custom.map((field: ServiceCustomField, index: number) => {
-				const options: string[] | { [key: string]: string[] } = field.option ?? []
+				const options: string[] | { id: string, title: string }[] | {
+					[key: string]: string[]
+				} = field.option ?? []
+				const condition: { [key: string]: string } = field.optionCondition ?? {}
 
 				if (field.type === 'select') {
+					if (field.optionType === 3) {
+						if (!state.find(field.name, name)) {
+							const stateValue = {
+								name: field.name,
+								base: field.optionBase,
+								current: Object.keys(condition).map((key: string, index: number) => (index === 0 && key))
+							}
+							setState(stateValue)
+						}
+					}
+
 					return (
 						<div key={ index } className="mt-4">
-							<label htmlFor={ field.name }
-							       className="block text-lg font-medium text-gray-900 dark:text-gray-100">
+							<label
+								htmlFor={ field.name }
+								className="block text-lg font-medium text-gray-900 dark:text-gray-100"
+							>
 								{ field.name }
 							</label>
 							<div className="mt-1">
 								<select
 									name={ field.name }
-									onChange={ (event) => setCustomField({
+									onChange={ (event) => optionChange(field.optionType, field, event, {
 										...customField,
 										[field.name]: event.target.value
 									}) }
 									className="block w-full h-8 border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 								>
-									<option value="">Select</option>
-									{ Array.isArray(options) ? (options.map((option: string, index: number) => (
-										<option key={ index } value={ option }>
-											{ option }
-										</option>))) : Object.keys(options).map((option: string, index: number) => (
-										<option key={ index } value={ option }>
-											{ option }
-										</option>
-									)) }
+									<option value="">
+										Select
+									</option>
+									{ field.optionType === 1 ? (
+										options.map((option: string, index: number) => (
+											<option key={ index } value={ option }>
+												{ option }
+											</option>))
+									) : field.optionType === 2 ? (
+										options.map((option: { id: string, title: string }, index: number) => (
+											<option key={ index } value={ option.title }>
+												{ option.title }
+											</option>))
+									) : (
+										Object.keys(options).map((option: string, index: number) => (
+											<option key={ index } value={ option }>
+												{ option }
+											</option>
+										))
+									) }
 								</select>
 							</div>
 						</div>
@@ -216,14 +252,14 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 										<div className="col-span-4">
 											<label
 												htmlFor={ option }
-											       className="block text-lg font-medium text-gray-900 dark:text-gray-100"
+												className="block text-lg font-medium text-gray-900 dark:text-gray-100"
 											>
 												{ option }
 											</label>
 										</div>
 										<div className="col-span-8">
 											<input
-												type="text"
+												type="checkbox"
 												name={ option }
 												onChange={ (event) => setCustomField({
 													...customField,
@@ -258,7 +294,7 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 						</div>
 					)
 				}
-			})}
+			}) }
 			<div className="mt-4">
 				<label htmlFor="message" className="block text-lg font-medium text-gray-900 dark:text-gray-100">
 					Requirements for the Project
