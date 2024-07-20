@@ -295,18 +295,21 @@ export const productList: any[] = [
 		],
 	},
 	{
-		id: 'PyWeb',
-		title: 'PyWeb',
-		info: 'PyWeb is a Python-based lightweight web browser for Windows',
+		id: 'Jaal',
+		title: 'Jaal Browser',
+		info: 'Jaal is a lightweight, free and opensource web browser for Windows and Linux.',
 		description: <>
-			<strong>PyWeb</strong> is a Python-based lightweight web browser for Windows.
+			<strong>Jaal</strong> is a lightweight, free and opensource web browser for Windows and Linux. Jaal does not
+			track you and gives you complete freedom of browsing. Also, you can synchronize your data by connecting your
+			Ulkaa account.
 		</>,
-		logo: false,
-		docs: 'https://docs.stechbd.net/PyWeb',
-		github: 'https://github.com/STechBD/PyWeb',
+		logo: '/image/Jaal-Browser-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/Jaal',
+		github: 'https://github.com/STechBD/Jaal',
 		rating: 5,
 		platform: [
 			'Windows',
+			'Linux',
 		],
 		language: [
 			'Python',
@@ -2106,41 +2109,41 @@ const S_Number_Manager: { info: any, hero: Hero, section: Section[] } = {
 
 
 /**
- * The product data for S String Manager.
+ * The product data for Jaal.
  *
- * @constant S_String_Manager { info: any, hero: Hero, section: Section[] } The product data
+ * @constant Jaal { info: any, hero: Hero, section: Section[] } The product data
  * @since 3.0.0
  */
-const PyWeb: { info: any, hero: Hero, section: Section[] } = {
+const Jaal: { info: any, hero: Hero, section: Section[] } = {
 	info: {
-		id: 'PyWeb',
-		title: 'PyWeb',
-		description: 'PyWeb is a Python-based lightweight web browser for Windows',
+		id: 'Jaal',
+		title: 'Jaal Browser',
+		description: 'Jaal is a lightweight, free and opensource web browser for Windows and Linux.',
 		logo: false,
-		docs: 'https://docs.stechbd.net/PyWeb',
-		github: 'https://github.com/STechBD/PyWeb',
+		docs: 'https://docs.stechbd.net/Jaal',
+		github: 'https://github.com/STechBD/Jaal',
 	},
 	hero: {
-		title: 'PyWeb',
+		title: 'Jaal Browser',
 		description: <>
-			<strong>PyWeb</strong> is a Python-based lightweight web browser for Windows.
+			<strong>Jaal</strong> is a lightweight, free and opensource web browser for Windows and Linux. Jaal does not
+			track you and gives you complete freedom of browsing. Also, you can synchronize your data by connecting your
+			Ulkaa account.
 		</>,
 		notice: <>
 			Current Version:
-			<Link className="font-semibold text-primary"
-			      href="/product/PyWeb/releases"
-			>
+			<Link className="font-semibold text-primary" href="/product/Jaal/releases">
 				<span className="absolute inset-0" aria-hidden="true"></span> v1.0.0 🎉
 			</Link>
 		</>,
 		button: [
 			{
 				text: 'Get Started',
-				link: 'https://docs.stechbd.net/PyWeb',
+				link: 'https://docs.stechbd.net/Jaal',
 			},
 			{
 				text: 'Learn More',
-				link: '/product/PyWeb/about',
+				link: '/product/Jaal/about',
 			}
 		],
 	},
@@ -2181,22 +2184,22 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 			content: [
 				{
 					title: 'Install from Your Website',
-					description: 'To install PyWeb from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install Jaal from your website, visit the GitHub repository of your website and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 				},
 				{
 					title: 'Install from GitHub',
-					description: 'To install PyWeb from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
+					description: 'To install Jaal from GitHub, visit the GitHub repository and download the zip file. Extract the zip file and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
-						link: 'https://github.com/STechBD/PyWeb',
+						link: 'https://github.com/STechBD/Jaal',
 					},
 				},
 				{
 					title: 'Install from Zip File',
-					description: 'To install PyWeb from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
+					description: 'To install Jaal from a zip file, download the zip file from GirHub and upload it to your website. Install and activate the plugin.',
 					url: {
 						text: 'GitHub',
-						link: 'https://github.com/STechBD/PyWeb/releases',
+						link: 'https://github.com/STechBD/Jaal/releases',
 					},
 				},
 			],
@@ -2210,7 +2213,7 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 					description: 'If you have any problems or suggestions, please open an issue on GitHub.',
 					url: {
 						text: 'GitHub Issues',
-						link: 'https://github.com/STechBD/PyWeb/issues',
+						link: 'https://github.com/STechBD/Jaal/issues',
 					},
 				},
 				{
@@ -2240,25 +2243,25 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 		{
 			id: 'product',
 			title: 'Product List',
-			content: productListGenerator('PyWeb'),
+			content: productListGenerator('Jaal'),
 		},
 		{
 			id: 'faq',
 			title: 'Frequently Asked Question (FAQ)',
 			content: [
 				{
-					title: 'What is PyWeb?',
-					description: 'PyWeb is a Python-based lightweight web browser for Windows.',
+					title: 'What is Jaal?',
+					description: 'Jaal is a lightweight, free and opensource web browser for Windows and Linux.',
 					url: {
 						text: 'Learn More',
-						link: 'https://docs.stechbd.net/PyWeb',
+						link: 'https://docs.stechbd.net/Jaal',
 					},
 				},
 				{
-					title: 'How to install PyWeb?',
-					description: 'To install PyWeb, run the following command:',
+					title: 'How to install Jaal?',
+					description: 'To install Jaal, run the following command:',
 					code: {
-						text: 'npx pyweb@latest',
+						text: 'npx Jaal@latest',
 						language: 'bash',
 					},
 				},
@@ -2266,7 +2269,7 @@ const PyWeb: { info: any, hero: Hero, section: Section[] } = {
 					title: 'How to create a new project?',
 					description: 'To create a new project, run the following command:',
 					code: {
-						text: 'npx pyweb@latest',
+						text: 'npx Jaal@latest',
 						language: 'bash',
 					},
 				},
@@ -2464,6 +2467,6 @@ export const products: any = {
 	S_Template_Engine,
 	S_Database_Explorer,
 	S_Number_Manager,
-	PyWeb,
+	Jaal,
 	ViewMD,
 }
