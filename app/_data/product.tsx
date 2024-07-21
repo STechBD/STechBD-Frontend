@@ -325,16 +325,17 @@ export const productList: any[] = [
 	{
 		id: 'ViewMD',
 		title: 'ViewMD',
-		info: 'ViewMD is a Markdown viewer for Windows',
+		info: 'ViewMD is a lightweight, free, and opensource Markdown viewer for Windows and Linux.',
 		description: <>
-			<strong>ViewMD</strong> is a Markdown viewer for Windows.
+			<strong>ViewMD</strong> is a lightweight, free, and opensource Markdown viewer for Windows and Linux.
 		</>,
-		logo: false,
+		logo: '/image/ViewMD-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 		rating: 5,
 		platform: [
 			'Windows',
+			'Linux',
 		],
 		language: [
 			'Python',
@@ -2119,7 +2120,7 @@ const Jaal: { info: any, hero: Hero, section: Section[] } = {
 		id: 'Jaal',
 		title: 'Jaal Browser',
 		description: 'Jaal is a lightweight, free and opensource web browser for Windows and Linux.',
-		logo: false,
+		logo: '/image/Jaal-Browser-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/Jaal',
 		github: 'https://github.com/STechBD/Jaal',
 	},
@@ -2290,7 +2291,7 @@ const ViewMD: { info: any, hero: Hero, section: Section[] } = {
 		id: 'ViewMD',
 		title: 'ViewMD',
 		description: 'ViewMD is a Markdown viewer for Windows',
-		logo: false,
+		logo: '/image/ViewMD-Logo-Light.svg',
 		docs: 'https://docs.stechbd.net/ViewMD',
 		github: 'https://github.com/STechBD/ViewMD',
 	},
