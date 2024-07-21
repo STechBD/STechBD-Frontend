@@ -39,7 +39,7 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8 text">
+			<div className="max-w-7xl mx-auto relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 mt-10 text-6xl font-bold tracking-tight text-primary lg:text-6xl">
 					Terms of Service

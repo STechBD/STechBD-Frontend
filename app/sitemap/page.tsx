@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
+import { productList } from '@/app/_data/product'
+import { Paragraph, Title } from '@/app/_component/template';
 
 
 /**
@@ -159,27 +161,34 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8 text">
+			<div className="max-w-7xl mx-auto relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
-				<h2 className="lg:px-16 md:px-20 pt-10 text-6xl tracking-tight text-primary sm:text-4xl">
-					<strong>
-						Sitemap of S Technologies
-					</strong>
-				</h2>
-				<div className="lg:px-16 md:px-20 py-10">
-					<ol className="mb-4 ml-8 text-xl text-gray-800 list-decimal list-inside dark:text-gray-200">
-						{ pages.map((page, index) => (
-							<li key={ index }>
-								<Link
-									href={ page.link }
-									className="text-primary hover:underline"
-								>
-									{ page.title }
-								</Link>
-							</li>
-						)) }
-					</ol>
-				</div>
+				<Title title="Sitemap of S Technologies"/>
+				<Paragraph>
+					Here is the list of pages:
+				</Paragraph>
+				<ol className="mb-4 ml-8 text-xl text-gray-800 list-decimal list-inside dark:text-gray-200">
+					{ pages.map((page, index) => (
+						<li key={ index }>
+							<Link
+								href={ page.link }
+								className="text-primary hover:underline"
+							>
+								{ page.title }
+							</Link>
+						</li>
+					)) }
+					{ productList.map((product, index) => (
+						<li key={ index }>
+							<Link
+								href={ `/product/${ product.id }` }
+								className="text-primary hover:underline"
+							>
+								{ product.title }
+							</Link>
+						</li>
+					)) }
+				</ol>
 			</div>
 		</>
 	)

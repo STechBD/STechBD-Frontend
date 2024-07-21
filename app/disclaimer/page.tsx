@@ -40,7 +40,7 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<div className="relative isolate px-6 py-24 lg:px-8 text">
+			<div className="max-w-7xl mx-auto relative isolate px-6 py-24 lg:px-8 text">
 				<DefaultEffect/>
 				<h2 className="lg:px-16 md:px-20 mt-10 text-6xl font-bold tracking-tight text-primary lg:text-6xl">
 					Disclaimer
@@ -59,14 +59,15 @@ export default function Page(): JSX.Element {
 						Disclaimers for S Technologies
 					</h3>
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
-						All the information on this website – https://www.stechbd.net as well as its subdomains – is
-						published in good faith and for general information purpose only. <span
-						className="text-white bg-primary"><strong>S Technologies</strong></span> does not make any
-						warranties about the completeness, reliability and accuracy of this information. Any action you
-						take upon the information you find on this website (<span
-						className="text-white bg-primary"><strong>S Technologies</strong></span>), is strictly at your
-						own risk. <span className="text-white bg-primary"><strong>S Technologies</strong></span> will
-						not be liable for any losses and/or damages in connection with the use of our website.
+						All the information on this website – <span className="text-white bg-primary"><strong>
+						https://www.stechbd.net</strong></span> as well as its subdomains – is published in good faith
+						and for general information purpose only. <span className="text-white bg-primary"><strong>S
+						Technologies</strong></span> does not make any warranties about the completeness, reliability
+						and accuracy of this information. Any action you take upon the information you find on this
+						website (<span className="text-white bg-primary"><strong>S Technologies</strong></span>), is
+						strictly at your own risk. <span className="text-white bg-primary"><strong>S
+						Technologies</strong></span> will not be liable for any losses and/or damages in connection with
+						the use of our website.
 					</p>
 					<p className="mb-4 text-xl text-gray-800 dark:text-gray-200">
 						From our website, you can visit other websites by following hyperlinks to such external sites.

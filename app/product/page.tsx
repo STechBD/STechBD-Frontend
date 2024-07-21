@@ -57,7 +57,7 @@ export default function Page(): JSX.Element {
 						{ productList.map((product, index) => (
 							<div
 								key={ index }
-								className="flex flex-col rounded-lg shadow-lg hover:shadow-xl overflow-hidden bg-white dark:bg-gray-800"
+								className="flex flex-col rounded-lg shadow-lg hover:shadow-xl overflow-hidden bg-gray-100 dark:bg-gray-800"
 							>
 								<Link
 									href={ `/product/${ product.id }` }
@@ -85,7 +85,7 @@ export default function Page(): JSX.Element {
 												<p className="mt-2 text-gray-800 dark:text-gray-200">
 													{ product.platform.map((item: string, index: number) => (
 														<span key={ index } className="mr-2">
-															{ index !== 0 && (<span className="mr-1">•</span>)}
+															{ index !== 0 && (<span className="mr-1">•</span>) }
 															{ item }
 														</span>
 													)) }
