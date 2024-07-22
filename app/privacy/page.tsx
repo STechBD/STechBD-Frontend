@@ -54,10 +54,10 @@ export default function Page(): JSX.Element {
 						className="text-white bg-primary"><strong>S Technologies</strong></span> uses and protects any
 						information that you give <span
 						className="text-white bg-primary"><strong>S Technologies</strong></span> when you use this
-						website.<span className="text-white bg-primary"><strong>S Technologies</strong></span> is
+						website. <span className="text-white bg-primary"><strong>S Technologies</strong></span> is
 						committed to ensuring that your privacy is protected. Should we ask you to provide certain
 						information by which you can be identified when using this website, then you can be assured that
-						it will only be used in accordance with this privacy statement.<span
+						it will only be used in accordance with this privacy statement. <span
 						className="text-white bg-primary"><strong>S Technologies</strong></span> may change this policy
 						from time to time by updating this page. You should check this page from time to time to ensure
 						that you are happy with any changes. This policy is effective from August 14, 2013.
