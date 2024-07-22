@@ -63,7 +63,9 @@ export function Section({ title, style, children, }: {
 			{ title && (
 				<H3 title={ title }/>
 			) }
-			{ children }
+			<section>
+				{ children }
+			</section>
 		</div>
 	</>)
 }

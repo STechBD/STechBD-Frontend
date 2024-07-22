@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Hero from './hero'
 import { AdvancedHeroEffect } from '@/app/_component/background'
 import { Bounce } from '@/app/_component/animation'
+import { UList } from '@/app/_component/template';
+import React, { JSX } from 'react';
 
 
 /**
@@ -52,7 +54,8 @@ export default function Page(): JSX.Element {
 			started: 'August 14, 2015',
 			closed: null,
 			description: <>
-				<strong>Ulkaa</strong> is a social media platform. It is a child company of <strong>S Technologies</strong>.
+				<strong>Ulkaa</strong> is a social media platform. It is a child company of <strong>S
+				Technologies</strong>.
 			</>,
 			button: {
 				title: 'Visit Ulkaa',
@@ -64,7 +67,8 @@ export default function Page(): JSX.Element {
 			started: 'June 16, 2016',
 			closed: null,
 			description: <>
-				<strong>S Web Research Center</strong> is a research center for researching and developing web related technologies. It is a independent research center of <strong>S Technologies</strong>.
+				<strong>S Web Research Center</strong> is a research center for researching and developing web related
+				technologies. It is a independent research center of <strong>S Technologies</strong>.
 			</>,
 			button: {
 				title: 'Visit S Web Research Center',
@@ -89,7 +93,9 @@ export default function Page(): JSX.Element {
 			started: 'August 14, 2019',
 			closed: null,
 			description: <>
-				<strong>S AI Research Center</strong> is a research center for researching and developing artificial intelligence (AI) related technologies. It is a independent research center of <strong>S Technologies</strong>.
+				<strong>S AI Research Center</strong> is a research center for researching and developing artificial
+				intelligence (AI) related technologies. It is a independent research center of <strong>S
+				Technologies</strong>.
 			</>,
 			button: {
 				title: 'Visit S AI Research Center',
@@ -193,6 +199,32 @@ export default function Page(): JSX.Element {
 		'SaaS',
 	]
 
+	const services: (JSX.Element | string)[] = [
+		<><Link href="/domain">Domain Name Registration</Link></>,
+		'Domain Name Reselling',
+		<><Link href="/shared-hosting">Shared Hosting</Link></>,
+		<><Link href="/reseller-hosting">Reseller Hosting</Link></>,
+		<><Link href="/unmanaged-vps">Unmanaged Virtual Private Server (VPS)</Link></>,
+		<><Link href="/managed-vps">Managed Virtual Private Server (VPS)</Link></>,
+		<><Link href="/dedicated-server">Dedicated Server</Link></>,
+		<><Link href="/web-development">Web App Development</Link></>,
+		<><Link href="/ai-development">AI App Development</Link></>,
+		'Machine Learning and Deep Learning AI Model Development',
+		'Windows App Development',
+		'Linux App Development',
+		'MacOS App Development',
+		'Android App Development',
+		'iOS App Development',
+		'Software as a Service (SaaS)',
+		<><Link href="/school-management">School Management App</Link></>,
+		<><Link href="/ui-ux-design">UI/UX Design</Link></>,
+		'Graphic Design',
+		<><Link href="/seo">Search Engine Optimization (SEO)</Link></>,
+		'Digital Marketing Solutions',
+		'Business Solutions',
+		'Research Solutions',
+	]
+
 	return (
 		<>
 			<div className="relative min-h-screen overflow-hidden isolate -mt-24 px-6 pt-48 pb-24 lg:px-8">
@@ -208,16 +240,16 @@ export default function Page(): JSX.Element {
 								<strong>S Technologies</strong> (<strong>STechBD.Net</strong>)
 							</span> is a research-based technology company in Bangladesh that provides software
 							development, domain registration, server and hosting, AI development, UI/UX design, and
-							other business solution.
+							other business solutions.
 						</p>
 					</div>
 					<hr className="mt-16 border-t-2 border-primary"/>
-					<div className="md:px-20 py-10">
+					<div className="max-w-7xl mx-auto md:px-20 py-10">
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 							What is S Technologies?
 						</h2>
-						<section className="mt-16">
-							<p className="text-2xl">
+						<section className="mt-4">
+							<p className="text-2xl text-gray-900 dark:text-gray-100">
 								<span className="text-white bg-primary"><strong>S Technologies</strong> (<strong>
 								STechBD.Net</strong>)</span> is a research-based technology company in Bangladesh. It
 								was founded in 2013. It provides services like domain registration, web hosting, web
@@ -229,12 +261,30 @@ export default function Page(): JSX.Element {
 						</section>
 					</div>
 					<hr className="mt-16 border-t-2 border-primary"/>
+					<div className="max-w-7xl mx-auto md:px-20 py-10">
+						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
+							What services does S Technologies offer?
+						</h2>
+						<section className="mt-4">
+							<p className="text-2xl text-gray-900 dark:text-gray-100">
+								<span className="text-white bg-primary"><strong>S Technologies</strong></span> offer a
+								lot of tech-related services. They are:
+							</p>
+							<ul className="mt-4 ml-8 text-2xl text-gray-800 list-disc list-inside text dark:text-gray-200">
+								{ services && (services.map((service: JSX.Element | string, index: number) => (
+									<li key={ index }>{ service }</li>
+								))) }
+							</ul>
+						</section>
+					</div>
+					<hr className="mt-16 border-t-2 border-primary"/>
 					<div className="md:px-20 py-10">
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 							Child Companies and Centers
 						</h2>
 						<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-							<strong>S Technologies</strong> has several child companies and centers. Here are some of
+							<span className="text-white bg-primary"><strong>S Technologies</strong></span> has several
+							child companies and centers. Here are some of
 							them.
 						</p>
 						<div className="mx-auto max-w-6xl lg:grid lg:grid-cols-3 lg:gap-4 mt-10 justify-items-center">
@@ -304,8 +354,8 @@ export default function Page(): JSX.Element {
 															>
 																<path
 																	stroke="currentColor" strokeLinecap="round"
-																      strokeLinejoin="round" strokeWidth="2"
-																      d="M1 5h12m0 0L9 1m4 4L9 9"
+																	strokeLinejoin="round" strokeWidth="2"
+																	d="M1 5h12m0 0L9 1m4 4L9 9"
 																/>
 															</svg>
 														</Link>
