@@ -270,7 +270,7 @@ export default function Footer(): JSX.Element {
 								Website
 							</strong>
 						</h2>
-						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
+						<ul className="text-gray-600 text-sm dark:text-gray-400 font-medium">
 							{ website.map((item, index) => (
 								<li key={ index } className="mb-2">
 									<Link
@@ -289,7 +289,7 @@ export default function Footer(): JSX.Element {
 								Product
 							</strong>
 						</h2>
-						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
+						<ul className="text-gray-600 text-sm dark:text-gray-400 font-medium">
 							{ product.map((item, index) => (
 								<li key={ index } className="mb-2">
 									<Link
@@ -308,7 +308,7 @@ export default function Footer(): JSX.Element {
 								Service
 							</strong>
 						</h2>
-						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
+						<ul className="text-gray-600 text-sm dark:text-gray-400 font-medium">
 							{ service.map((item, index) => (
 								<li key={ index } className="mb-2">
 									<Link
@@ -327,7 +327,7 @@ export default function Footer(): JSX.Element {
 								Company
 							</strong>
 						</h2>
-						<ul className="text-gray-500 text-sm dark:text-gray-400 font-medium">
+						<ul className="text-gray-600 text-sm dark:text-gray-400 font-medium">
 							{ company.map((item, index) => (
 								<li key={ index } className="mb-2">
 									<Link
@@ -350,16 +350,20 @@ export default function Footer(): JSX.Element {
 				</div>
 				<hr className="dark:border-t-gray-300"/>
 				<div className="px-4 py-6 md:flex md:items-center md:justify-between">
-			        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-				        © 2013-{ new Date().getFullYear().toString().slice(-2) } <Link href="https://www.stechbd.net">
-					        <strong>
-						        S Technologies
-							</strong>
-						</Link>. All Rights Reserved.
-			        </span>
-					<div className="social flex justify-end mt-4 space-x-5 sm:justify-center md:mt-0">
-						<Link href="https://www.facebook.com/STechBD.Net" target="_blank"
-						      className="text-gray-400 hover:text-themeBlue">
+					<div
+						className="flex mt-4 justify-center text-sm text-gray-700 lg:justify-start dark:text-gray-300"
+					>
+				        <span>
+					        © 2013-{ new Date().getFullYear().toString().slice(-2) } <Link
+					        href="https://www.stechbd.net">
+						        <strong>
+							        S Technologies
+								</strong>
+							</Link>. All Rights Reserved.
+						</span>
+					</div>
+					<div className="social flex mt-4 space-x-5 justify-center lg:mt-0 lg:justify-end">
+						<Link href="https://www.facebook.com/STechBD.Net" target="_blank" className="text-gray-700">
 							<svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 							     fill="currentColor" viewBox="0 0 8 20"
 							>
@@ -369,8 +373,7 @@ export default function Footer(): JSX.Element {
 							</svg>
 							<span className="sr-only">Facebook Page</span>
 						</Link>
-						<Link href="https://www.linkedin.com/in/STechBD" target="_blank"
-						      className="text-gray-400 hover:text-themeBlue">
+						<Link href="https://www.linkedin.com/in/STechBD" target="_blank" className="text-gray-700">
 							<svg fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16"
 							     xmlns="http://www.w3.org/2000/svg"
 							>
@@ -380,8 +383,7 @@ export default function Footer(): JSX.Element {
 							</svg>
 							<span className="sr-only">LinkedIn Company</span>
 						</Link>
-						<Link href="https://www.x.com/STechBD_Net" target="_blank"
-						      className="text-gray-400 hover:text-themeBlue">
+						<Link href="https://www.x.com/STechBD_Net" target="_blank" className="text-gray-700">
 							<svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
 							     viewBox="0 0 16 16"
 							>
@@ -391,8 +393,7 @@ export default function Footer(): JSX.Element {
 							</svg>
 							<span className="sr-only">X (Twitter) Profile</span>
 						</Link>
-						<Link href="https://www.instagram.com/STechBD" target="_blank"
-						      className="text-gray-400 hover:text-themeBlue">
+						<Link href="https://www.instagram.com/STechBD" target="_blank" className="text-gray-700">
 							<svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 							     fill="currentColor" viewBox="0 0 16 16"
 							>
@@ -402,8 +403,7 @@ export default function Footer(): JSX.Element {
 							</svg>
 							<span className="sr-only">Instagram Profile</span>
 						</Link>
-						<Link href="https://github.com/STechBD" target="_blank"
-						      className="text-gray-400 hover:text-themeBlue">
+						<Link href="https://github.com/STechBD" target="_blank" className="text-gray-700">
 							<svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 							     fill="currentColor" viewBox="0 0 20 20"
 							>

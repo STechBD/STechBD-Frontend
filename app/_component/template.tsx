@@ -178,7 +178,7 @@ export function Div({ style, children, }: { style?: string, children?: React.Rea
 
 
 /**
- * Component to show a paragraph in a section.
+ * Component to show an unordered list in a section.
  *
  * @param list {JSX.Element[] | string[]} Array of JSX or string for the list.
  * @param style { string } Custom class name for styling.
@@ -195,9 +195,39 @@ export function UList({ list, style, children, }: {
 	return (
 		<ul className={ 'mb-4 ml-8 text-xl text-gray-800 list-disc list-inside dark:text-gray-200' + (style ? (' ' + style) : '') }>
 			{ list && (list.map((item: JSX.Element | string, index: number) => (
-				<li key={ index }>{ item }</li>
+				<li key={ index }>
+					{ item }
+				</li>
 			))) }
 			{ children }
 		</ul>
+	)
+}
+
+
+/**
+ * Component to show an ordered list in a section.
+ *
+ * @param list {JSX.Element[] | string[]} Array of JSX or string for the list.
+ * @param style { string } Custom class name for styling.
+ * @param children { React.ReactNode } The children elements passed by React.
+ *
+ * @returns { JSX.Element } The OList component.
+ * @since 3.0.0
+ */
+export function OList({ list, style, children, }: {
+	list?: (JSX.Element | string)[],
+	style?: string,
+	children?: React.ReactNode
+}): JSX.Element {
+	return (
+		<ol className={ 'mb-4 ml-8 text-xl text-gray-800 list-decimal list-inside dark:text-gray-200' + (style ? (' ' + style) : '') }>
+			{ list && (list.map((item: JSX.Element | string, index: number) => (
+				<li key={ index }>
+					{ item }
+				</li>
+			))) }
+			{ children }
+		</ol>
 	)
 }
