@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 import Script from 'next/script'
 import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 
 /**
@@ -22,7 +22,8 @@ const team = [
 		department: 'Management',
 		photo: 'https://github.com/AAShemul.png',
 		description: <>
-			<strong>Md. Ashraful Alam Shemul</strong> is the founder and CEO of S Technologies. He is a technology enthusiast and entrepreneur with a passion for innovation and technology. He founded S Technologies in 2013.
+			<strong>Md. Ashraful Alam Shemul</strong> is the founder and CEO of S Technologies. He is a technology
+			enthusiast and entrepreneur with a passion for innovation and technology. He founded S Technologies in 2013.
 		</>,
 	},
 	{
@@ -31,7 +32,8 @@ const team = [
 		position: 'Chief Technology Officer',
 		photo: 'https://github.com/STechBD.png',
 		description: <>
-			<strong>Nusrat Jahan</strong> is the chief technology officer at S Technologies. She is a technology enthusiast and entrepreneur with a passion for innovation and technology. She joined S Technologies in 2014.
+			<strong>Nusrat Jahan</strong> is the chief technology officer at S Technologies. She is a technology
+			enthusiast and entrepreneur with a passion for innovation and technology. She joined S Technologies in 2014.
 		</>,
 	},
 	{
@@ -41,7 +43,8 @@ const team = [
 		department: 'Engineering',
 		photo: 'https://github.com/STechBD.png',
 		description: <>
-			<strong>Niyaz Ahmed</strong> is a software developer at S Technologies. He is a technology enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2017.
+			<strong>Niyaz Ahmed</strong> is a software developer at S Technologies. He is a technology enthusiast and
+			entrepreneur with a passion for innovation and technology. He joined S Technologies in 2017.
 		</>,
 	},
 	{
@@ -51,7 +54,8 @@ const team = [
 		department: 'Design',
 		photo: 'https://github.com/STechBD.png',
 		description: <>
-			<strong>Md. Musa</strong> is the finance and marketing manager at S Technologies. He is a technology enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2015.
+			<strong>Md. Musa</strong> is the finance and marketing manager at S Technologies. He is a technology
+			enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2015.
 		</>,
 	},
 ]
@@ -114,37 +118,38 @@ export default async function Page(): Promise<JSX.Element> {
 							Team Members of S Technologies
 						</h2>
 						<p className="mt-3 text-lg text-gray-900 dark:text-gray-100">
-							Meet the amazing team behind S Technologies who work hard to provide you with the best services. We are a team of dedicated professionals who are passionate about what we do.
+							Meet the amazing team behind S Technologies who work hard to provide you with the best
+							services. We are a team of dedicated professionals who are passionate about what we do.
 						</p>
 						<div className="mt-12">
 							<div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-							{ team.map((person, index) => (
-								<Link
-									key={ index }
-									className="mt-10 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-									href={ '/team/' + person.slug }>
-									<div className="flex items-center">
-										<Image
-											src={ person.photo }
-											alt={ person.name }
-											className="w-16 h-16 rounded-full object-cover object-center flex-shrink mr-4"
-											width={ 64 }
-											height={ 64 }
-										/>
-										<div>
-											<h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-												{ person.name }
-											</h3>
-											<p className="text-gray-500 dark:text-gray-400">
-												{ person.position }
-											</p>
+								{ team.map((person, index) => (
+									<Link
+										key={ index }
+										className="mt-10 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+										href={ '/team/' + person.slug }>
+										<div className="flex items-center">
+											<Image
+												src={ person.photo }
+												alt={ person.name }
+												className="w-16 h-16 rounded-full object-cover object-center flex-shrink mr-4"
+												width={ 64 }
+												height={ 64 }
+											/>
+											<div>
+												<h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+													{ person.name }
+												</h3>
+												<p className="text-gray-500 dark:text-gray-400">
+													{ person.position }
+												</p>
+											</div>
 										</div>
-									</div>
-									<div className="mt-4 text-gray-900 dark:text-gray-100">
-										{ person.description }
-									</div>
-								</Link>
-							)) }
+										<div className="mt-4 text-gray-900 dark:text-gray-100">
+											{ person.description }
+										</div>
+									</Link>
+								)) }
 							</div>
 						</div>
 					</div>

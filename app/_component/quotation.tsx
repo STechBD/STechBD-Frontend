@@ -1,7 +1,7 @@
 'use client'
 
-import { ChangeEvent, FormEvent, JSX, useState } from 'react'
-import { ServiceCustomField } from '@/app/_data/type';
+import { ChangeEvent, FormEvent, JSX, useEffect, useState } from 'react'
+import { ServiceCustomField } from '@/app/_data/type'
 
 
 /**
@@ -21,7 +21,7 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 	const [ priority, setPriority ] = useState<string>('')
 	const [ message, setMessage ] = useState<string>('')
 	const [ customField, setCustomField ] = useState<any>(null)
-	const [ state, setState ] = useState<any>(null)
+	const [ state, setState ] = useState<any[]>([])
 
 	const formHandler = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
@@ -64,11 +64,26 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 		console.log({ name, email, department, priority, message })
 	}
 
-	const optionChange = (type: number | undefined, data: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: any): void => {
+	useEffect(() => {
+
+	}, [])
+
+	const optionChange = (type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: any): void => {
 		setCustomField(action)
 
 		if (type === 2) {
+			// eg: name = 'frontend'
+			const base = field.optionBase
+			// eg: base = 'Stack'
+			const value: string = event.target.value
 
+			const data: string[] = custom.find((field: ServiceCustomField) => field.name === base).option[value]
+
+			const stateValue = {
+				name: base,
+				data,
+			}
+			setState([ ...state, stateValue ])
 		}
 	}
 
@@ -121,17 +136,6 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 				const condition: { [key: string]: string } = field.optionCondition ?? {}
 
 				if (field.type === 'select') {
-					if (field.optionType === 3) {
-						if (!state.find(field.name, name)) {
-							const stateValue = {
-								name: field.name,
-								base: field.optionBase,
-								current: Object.keys(condition).map((key: string, index: number) => (index === 0 && key))
-							}
-							setState(stateValue)
-						}
-					}
-
 					return (
 						<div key={ index } className="mt-4">
 							<label
@@ -159,11 +163,11 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 											</option>))
 									) : field.optionType === 2 ? (
 										options.map((option: { id: string, title: string }, index: number) => (
-											<option key={ index } value={ option.title }>
+											<option key={ index } value={ option.id }>
 												{ option.title }
 											</option>))
 									) : (
-										Object.keys(options).map((option: string, index: number) => (
+										state?.data.map((option: string, index: number) => (
 											<option key={ index } value={ option }>
 												{ option }
 											</option>

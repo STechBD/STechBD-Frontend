@@ -82,6 +82,7 @@ export default function Page(): JSX.Element {
 				},
 			],
 			optionType: 2,
+			optionBase: 'Stack',
 			multiple: false,
 		},
 		{

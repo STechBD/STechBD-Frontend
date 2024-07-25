@@ -1,11 +1,10 @@
+import React, { JSX } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Hero from './hero'
 import { AdvancedHeroEffect } from '@/app/_component/background'
 import { Bounce } from '@/app/_component/animation'
-import { UList } from '@/app/_component/template';
-import React, { JSX } from 'react';
 
 
 /**

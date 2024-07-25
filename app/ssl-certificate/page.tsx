@@ -44,7 +44,7 @@ export default function Page(): JSX.Element {
 			<Hero/>
 			<div className="relative isolate px-6 py-24 lg:px-8">
 				<DefaultEffect/>
-				<div className="max-w-7xl mx-auto lg:px-20 py-10">
+				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 						Pick a Plan
 					</h2>
