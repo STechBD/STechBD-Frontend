@@ -281,11 +281,12 @@ export default function Page(): JSX.Element {
 				'6-12 Months',
 				'1-2 Years',
 			],
+			optionType: 1,
 		},
 		{
 			name: 'Support',
 			type: 'select',
-			description: 'Describe the project',
+			description: 'Select the required time for support',
 			option: [
 				'1 Week',
 				'2 Weeks',
@@ -299,9 +300,10 @@ export default function Page(): JSX.Element {
 				'5 Years',
 				'10 Years',
 			],
+			optionType: 1,
 		},
 		{
-			name: 'Reference Website',
+			name: 'Reference Website(s)',
 			type: 'textarea',
 			description: 'Enter the reference website(s)',
 		},
