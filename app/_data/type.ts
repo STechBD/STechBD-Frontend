@@ -257,7 +257,7 @@ export interface ServiceCustomField {
 	description: string
 	option?: string[] | { id: string, title: string }[] | { [key: string]: string[] }
 	optionType?: number
-	optionBase?: string
+	optionBase?: string | string[]
 	optionCondition?: { [key: string]: string }
 	multiple?: boolean
 	min?: { [key: string]: { bdt: number, usd: number } }

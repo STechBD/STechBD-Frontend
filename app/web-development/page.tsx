@@ -82,7 +82,10 @@ export default function Page(): JSX.Element {
 				},
 			],
 			optionType: 2,
-			optionBase: 'Stack',
+			optionBase: [
+				'Stack',
+				'Budget',
+			],
 			multiple: false,
 		},
 		{
@@ -91,6 +94,7 @@ export default function Page(): JSX.Element {
 			description: 'Select the technology stack',
 			option: {
 				frontend: [
+					'No Preference',
 					'React.js (Next.js)',
 					'Vue.js (Nuxt.js)',
 					'Angular (Angular Universal)',
@@ -98,6 +102,7 @@ export default function Page(): JSX.Element {
 					'JavaScript (Vanilla)',
 				],
 				backend: [
+					'No Preference',
 					'TypeScript (Express.js)',
 					'Python (Django)',
 					'Python (Flask)',
@@ -109,6 +114,7 @@ export default function Page(): JSX.Element {
 					'Go (Gin)',
 				],
 				fullstackSeparated: [
+					'No Preference',
 					'React.js (Next.js) + TypeScript (Express.js)',
 					'Vue.js (Nuxt.js) + TypeScript (Express.js)',
 					'Angular (Angular Universal) + TypeScript (Express.js)',
@@ -156,6 +162,7 @@ export default function Page(): JSX.Element {
 					'JavaScript (Vanilla) + Go (Gin)',
 				],
 				fullstackIntegrated: [
+					'No Preference',
 					'TypeScript (Vanilla) + TypeScript (Express.js)',
 					'JavaScript (Vanilla) + Python (Django)',
 					'JavaScript (Vanilla) + Python (Flask)',
@@ -269,6 +276,7 @@ export default function Page(): JSX.Element {
 					usd: 10,
 				},
 			},
+			optionType: 3,
 		},
 		{
 			name: 'Deadline',

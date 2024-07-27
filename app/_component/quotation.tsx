@@ -1,7 +1,61 @@
 'use client'
 
-import { ChangeEvent, FormEvent, JSX, useState } from 'react'
+import React, { ChangeEvent, FormEvent, JSX, useState } from 'react'
 import { ServiceCustomField } from '@/app/_data/type'
+import 'react-markdown-editor-lite/lib/index.css'
+import MarkdownEditor from 'react-markdown-editor-lite'
+import MarkdownIt from 'markdown-it'
+import { useDispatch, useSelector } from 'react-redux'
+import Currency from '@/app/_component/currency';
+import { setCurrency } from '@/app/_context/reduxStore'
+
+
+interface SliderProps {
+	name: string;
+	min: number;
+	max: number;
+	step: number;
+	onChange: (value: number) => void;
+	labelFormatter?: (value: number) => string;
+}
+
+function Slider({ name, min, max, step, onChange, labelFormatter }: any): JSX.Element {
+	const [ value, setValue ] = useState<number>((min + max) / 2);
+
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const newValue = Number(event.target.value);
+		setValue(newValue);
+		onChange(newValue);
+	};
+
+	const formatLabel = (val: number) => {
+		return labelFormatter ? labelFormatter(val) : val;
+	};
+
+	return (
+		<div className="slider-container">
+			<label htmlFor={ name } className="block text-lg font-bold text-gray-900 dark:text-gray-100">
+				{ name }
+			</label>
+			<input
+				type="range"
+				id={ name }
+				name={ name }
+				min={ min }
+				max={ max }
+				step={ step }
+				value={ value }
+				onChange={ handleChange }
+				className="slider"
+			/>
+			<div className="flex justify-between mt-2">
+				<span>{ formatLabel(min) }</span>
+				<span>{ formatLabel(max) }</span>
+			</div>
+			<div className="text-center mt-1">{ formatLabel(value) }</div>
+		</div>
+	)
+}
 
 
 /**
@@ -10,10 +64,12 @@ import { ServiceCustomField } from '@/app/_data/type'
  * @returns { JSX.Element } The Price Quotation component.
  * @since 3.0.0
  */
-export default function Quotation({ custom }: { custom: ServiceCustomField[] }): JSX.Element {
+export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom: ServiceCustomField[], defaultCurrency?: string }): JSX.Element {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
+	const currency = useSelector((state: any): string => state.currency)
+	const dispatch = useDispatch()
 	const [ token, setToken ] = useState<string>('')
 	const [ name, setName ] = useState<string>('')
 	const [ email, setEmail ] = useState<string>('')
@@ -64,6 +120,14 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 		console.log({ name, email, department, priority, message })
 	}
 
+	const changeCurrency = (currency: string): void => {
+		dispatch(setCurrency(currency))
+	}
+
+	const changeDescription = ({ text }: { text: string }): void => {
+		setMessage(text)
+	}
+
 	const customFieldEditor = (action: { id: number, name: string, value: string }): void => {
 		console.log(customField)
 		const serial: number = customField.findIndex(list => list.id === action.id)
@@ -72,38 +136,50 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 		setCustomField(newCustomField)
 	}
 
-	const optionChange = (type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: { id: number, name: string, value: string | string[] }): void => {
-		console.log(customField)
+	const optionChangeProcess = (base: string, type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: { id: number, name: string, value: string | string[] }): boolean => {
 		const serial: number = customField.findIndex(list => list.id === action.id)
 		const newCustomField = customField
 		newCustomField[serial] = action
 		setCustomField(newCustomField)
 
+		// Get field's "data-value" attribute to get the value
+		const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
+		const data: string[] = field.type === 'select' ? (custom.find((field: ServiceCustomField) => field.name === base).option[value]) : field.type === 'slider' ? ([
+			custom.find((field: ServiceCustomField) => field.name === base).min[value][currency],
+			custom.find((field: ServiceCustomField) => field.name === base).max[value][currency],
+		]) : [ 'Error' ]
+
+		const stateValue = {
+			name: base, // eg: base = 'Stack'
+			data,
+		}
+
+		// check if already state with the base name exists then update the data else create new
+		const index: number = state.findIndex((s) => s.name === base)
+		if (index !== -1) {
+			const newState: any[] = state
+			newState[index] = stateValue
+			setState(newState)
+		} else {
+			setState([ ...state, stateValue ])
+		}
+
+		return true
+	}
+
+	const optionChange = (type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: { id: number, name: string, value: string | string[] }): void => {
 		if (type === 2) {
-			// eg: name = 'frontend'
-			const base = field.optionBase
-			// eg: base = 'Stack'
-
-			// Get field's "data-value" attribute to get the value
-			const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
-			const data: string[] = custom.find((field: ServiceCustomField) => field.name === base).option[value]
-
-			const stateValue = {
-				name: base,
-				data,
-			}
-
-			// check if already state with the base name exist then just update the data else create new
-			const index: number = state.findIndex((s) => s.name === base)
-			if (index !== -1) {
-				const newState: any[] = state
-				newState[index] = stateValue
-				setState(newState)
+			if (Array.isArray(field.optionBase)) {
+				field.optionBase.map((base: string) => {
+					optionChangeProcess(base, type, field, event, action)
+				})
 			} else {
-				setState([ ...state, stateValue ])
+				optionChangeProcess(field.optionBase as string, type, field, event, action)
 			}
 		}
 	}
+
+	const mdParser = new MarkdownIt()
 
 	return (
 		<form onSubmit={ (event) => formHandler(event) }>
@@ -118,6 +194,27 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 						</li>
 					)) }
 				</ol>
+			</div>
+			<div>
+				<h2 className="text-4xl text-primary">
+					States
+				</h2>
+				<ol className="text-xl">
+					{ state?.map(((s, i) => <li key={ i }>
+						{ s.name }: { s.data.join(', ') }
+					</li>)) }
+				</ol>
+			</div>
+			<div>
+				<h2 className="text-4xl text-primary">
+					Description
+				</h2>
+				<div>
+					{ message }
+				</div>
+			</div>
+			<div>
+				<Currency currency={ currency } callback={ changeCurrency } defaultCurrency={ defaultCurrency }/>
 			</div>
 			<div className="mt-4">
 				<label htmlFor="name" className="block text-lg font-bold text-gray-900 dark:text-gray-100">
@@ -222,12 +319,34 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 								<input
 									type="range"
 									name={ field.name }
-									onChange={ (event) => setCustomField({
-										...customField,
-										[field.name]: event.target.value
+									onChange={ (event) => optionChange(field.optionType ?? 1, field, event, {
+										id: index,
+										name: field.name,
+										value: event.target.value,
 									}) }
+									value={ customField[index].value }
 									className="block w-full border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 								/>
+							</div>
+							<div className="mt-1 flex space-between">
+								<span>
+									{ field.optionType === 3 && (
+										'Min: ' + state?.map((option, index: number) => (
+											option.data?.min
+										))
+									) }
+								</span>
+								<span>
+									Current: { customField[index].value }
+								</span>
+								<span>
+									{ field.optionType === 3 && (
+										'Max: ' + state?.map((option, index: number) => (
+											option.name === field.name && option.data[1]
+										))
+									) }
+								</span>
+
 							</div>
 						</div>
 					)
@@ -238,13 +357,13 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 								{ field.name }
 							</label>
 							<div className="mt-1">
-								{ options.map((option: string, index: number) => (
+								{ (options as string[]).map((option: string, index: number) => (
 									<label key={ index } className="inline-flex items-center">
 										<input
 											type={ field.type }
 											name={ field.name }
 											value={ option }
-											onChange={ (event) => optionChange({
+											onChange={ (event) => customFieldEditor({
 												id: index,
 												name: field.name,
 												value: event.target.value
@@ -271,9 +390,10 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 								<input
 									type={ field.type }
 									name={ field.name }
-									onChange={ (event) => setCustomField({
-										...customField,
-										[field.name]: event.target.value
+									onChange={ (event) => customFieldEditor({
+										id: index,
+										name: field.name,
+										value: event.target.value
 									}) }
 									className="block w-full border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 								/>
@@ -301,9 +421,10 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 											<input
 												type="text"
 												name={ option }
-												onChange={ (event) => setCustomField({
-													...customField,
-													[option]: event.target.value
+												onChange={ (event) => customFieldEditor({
+													id: index,
+													name: option,
+													value: event.target.value
 												}) }
 												className="block w-full border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 											/>
@@ -362,11 +483,11 @@ export default function Quotation({ custom }: { custom: ServiceCustomField[] }):
 					Requirements for the Project
 				</label>
 				<div className="mt-1">
-					<textarea
-						name="message"
-						rows={ 4 }
-						onChange={ (event) => setMessage(event.target.value) }
-						className="block w-full border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
+					<MarkdownEditor
+						value={ message }
+						style={ { height: '500px' } }
+						renderHTML={ (text: string) => mdParser.render(text) }
+						onChange={ changeDescription }
 					/>
 				</div>
 			</div>
