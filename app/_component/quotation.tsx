@@ -64,7 +64,10 @@ function Slider({ name, min, max, step, onChange, labelFormatter }: any): JSX.El
  * @returns { JSX.Element } The Price Quotation component.
  * @since 3.0.0
  */
-export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom: ServiceCustomField[], defaultCurrency?: string }): JSX.Element {
+export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
+	custom: ServiceCustomField[],
+	defaultCurrency?: string
+}): JSX.Element {
 	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
@@ -76,8 +79,15 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 	const [ department, setDepartment ] = useState<number>()
 	const [ priority, setPriority ] = useState<string>('')
 	const [ message, setMessage ] = useState<string>('')
-	const [ customField, setCustomField ] = useState<({ id: number, name: string, value: string } | any)[]>(custom.map((data: ServiceCustomField, index) => ({ id: index, name: data.name, value: '' })))
-	const [ state, setState ] = useState<({ name: string, data: string[] } | any)[]>([])
+	const [ customField, setCustomField ] = useState<({
+		id: number,
+		name: string,
+		value: string
+	} | any)[]>(custom.map((data: ServiceCustomField, index) => ({ id: index, name: data.name, value: '' })))
+	const [ state, setState ] = useState<({ name: string, data: (string | number)[] } | any)[]>([ {
+		name: 'Budget',
+		data: [ 15000, 50000, 5000 ]
+	} ])
 
 	const formHandler = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
@@ -136,7 +146,11 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 		setCustomField(newCustomField)
 	}
 
-	const optionChangeProcess = (base: string, type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: { id: number, name: string, value: string | string[] }): boolean => {
+	const optionChangeProcess = (base: string, type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: {
+		id: number,
+		name: string,
+		value: string | string[]
+	}): boolean => {
 		const serial: number = customField.findIndex(list => list.id === action.id)
 		const newCustomField = customField
 		newCustomField[serial] = action
@@ -144,9 +158,10 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 
 		// Get field's "data-value" attribute to get the value
 		const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
-		const data: string[] = field.type === 'select' ? (custom.find((field: ServiceCustomField) => field.name === base).option[value]) : field.type === 'slider' ? ([
+		const data: (string | number)[] = field.type === 'select' ? (custom.find((field: ServiceCustomField) => field.name === base).option[value]) : field.type === 'slider' ? ([
 			custom.find((field: ServiceCustomField) => field.name === base).min[value][currency],
 			custom.find((field: ServiceCustomField) => field.name === base).max[value][currency],
+			custom.find((field: ServiceCustomField) => field.name === base).step[value][currency],
 		]) : [ 'Error' ]
 
 		const stateValue = {
@@ -167,7 +182,11 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 		return true
 	}
 
-	const optionChange = (type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: { id: number, name: string, value: string | string[] }): void => {
+	const optionChange = (type: number, field: ServiceCustomField, event: ChangeEvent<any>, action: {
+		id: number,
+		name: string,
+		value: string | string[]
+	}): void => {
 		if (type === 2) {
 			if (Array.isArray(field.optionBase)) {
 				field.optionBase.map((base: string) => {
@@ -285,12 +304,15 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 										Select
 									</option>
 									{ field.optionType === 1 ? (
-										options.map((option: string, index: number) => (
+										(options as string[]).map((option: string, index: number) => (
 											<option key={ index } value={ option }>
 												{ option }
 											</option>))
 									) : field.optionType === 2 ? (
-										options.map((option: { id: string, title: string }, index: number) => (
+										(options as { id: string, title: string }[]).map((option: {
+											id: string,
+											title: string
+										}, index: number) => (
 											<option key={ index } value={ option.title } data-value={ option.id }>
 												{ option.title }
 											</option>))
@@ -308,6 +330,16 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 						</div>
 					)
 				} else if (field.type === 'slider') {
+					const min: number = field.optionType === 3 ? (state?.map((option, index: number) => (
+						option.name === field.name && option.data[0]
+					)))[0] : 0
+					const max: number = field.optionType === 3 ? (state?.map((option, index: number) => (
+						option.name === field.name && option.data[1]
+					)))[0] : 0
+					const step: number = field.optionType === 3 ? (state?.map((option, index: number) => (
+						option.name === field.name && option.data[2]
+					)))[0] : 0
+
 					return (
 						<div key={ index } className="mt-4">
 							<label htmlFor={ field.name }
@@ -325,15 +357,16 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 										value: event.target.value,
 									}) }
 									value={ customField[index].value }
+									min={ min }
+									max={ max }
+									step={ step }
 									className="block w-full border-b border-gray-100 rounded-md shadow-sm hover:border-secondary focus:ring-secondary focus:border-secondary sm:text-lg"
 								/>
 							</div>
-							<div className="mt-1 flex space-between">
+							<div className="mt-1 flex justify-between">
 								<span>
 									{ field.optionType === 3 && (
-										'Min: ' + state?.map((option, index: number) => (
-											option.data?.min
-										))
+										'Min: ' + min
 									) }
 								</span>
 								<span>
@@ -341,12 +374,9 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: { custom:
 								</span>
 								<span>
 									{ field.optionType === 3 && (
-										'Max: ' + state?.map((option, index: number) => (
-											option.name === field.name && option.data[1]
-										))
+										'Max: ' + max
 									) }
 								</span>
-
 							</div>
 						</div>
 					)
