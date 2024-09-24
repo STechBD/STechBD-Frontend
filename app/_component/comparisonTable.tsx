@@ -64,9 +64,15 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 										                >
 											                { item.title }
 										                </span>
-														<p className="text-xs text-gray-500">
-															{ currency === 'bdt' ? `৳${ item.price.bdt }` : `$${ item.price.usd }` } { item.period === 0 ? 'per year' : 'per month' }
-														</p>
+														{ item.price ? (
+															<p className="text-xs text-gray-500">
+																{ currency === 'bdt' ? `৳${ item.price.bdt }` : `$${ item.price.usd }` } { item.period === 0 ? 'per year' : 'per month' }
+															</p>
+														) : (
+															<p className="text-xs text-gray-500">
+																Contact for pricing
+															</p>
+														) }
 													</div>
 													<div className="mt-2">
 														<Link href={ item.button.link }

@@ -14,11 +14,6 @@ export const pricingData: Pricing[] = [
 	{
 		title: 'Basic',
 		featured: true,
-		price: {
-			bdt: 20,
-			usd: 0.2,
-		},
-		period: 1,
 		description: 'Ideal for starter',
 		features: [
 			<><strong>Free</strong> Front Website</>,
@@ -48,11 +43,6 @@ export const pricingData: Pricing[] = [
 	},
 	{
 		title: 'Professional',
-		price: {
-			bdt: 40,
-			usd: 0.4,
-		},
-		period: 1,
 		description: 'Ideal for large institution',
 		features: [
 			<><strong>Free</strong> Front Website</>,
@@ -83,11 +73,6 @@ export const pricingData: Pricing[] = [
 	},
 	{
 		title: 'Advanced',
-		price: {
-			bdt: 60,
-			usd: 0.6,
-		},
-		period: 1,
 		description: 'Ideal for large institution',
 		features: [
 			<><strong>Free</strong> Front Website</>,
@@ -264,11 +249,6 @@ export const featureData: Feature[] = [
 export const comparisonData: Comparison[] = [
 	{
 		title: 'Basic',
-		price: {
-			bdt: 10,
-			usd: 0.1,
-		},
-		period: 1,
 		description: 'Ideal for starter',
 		features: {
 			home: true,
@@ -355,11 +335,6 @@ export const comparisonData: Comparison[] = [
 	},
 	{
 		title: 'Professional',
-		price: {
-			bdt: 20,
-			usd: 0.2,
-		},
-		period: 1,
 		description: 'Ideal for large institution',
 		features: {
 			home: true,
@@ -446,11 +421,6 @@ export const comparisonData: Comparison[] = [
 	},
 	{
 		title: 'Advanced',
-		price: {
-			bdt: 30,
-			usd: 0.3,
-		},
-		period: 1,
 		description: 'Ideal for large institution',
 		features: {
 			home: true,

@@ -47,20 +47,39 @@ export default function PricingTable({ data, defaultCurrency = 'bdt' }: any): JS
 									</p>
 								</div>
 								<div className="mt-8">
-									<div className="flex items-center justify-center">
-										<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
-											{ currency === 'bdt' ? '৳' : '$' }
-										</span>
-										<span className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
-											{ currency === 'bdt' ? item.price.bdt : item.price.usd }
-										</span>
-										<span className="text-2xl font-medium text-gray-600 dark:text-gray-400">
-											&nbsp;/ { item.period === 0 ? 'year' : 'month' }
-										</span>
-									</div>
-									<p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-										Billed { item.period === 0 ? 'annually' : 'monthly' }
-									</p>
+									{ item.price ? (
+										<>
+											<div className="flex items-center justify-center">
+												<span
+													className="text-5xl font-semibold text-gray-900 dark:text-gray-100">
+													{ currency === 'bdt' ? '৳' : '$' }
+												</span>
+												<span
+													className="text-5xl font-semibold text-gray-900 dark:text-gray-100"
+												>
+													{ currency === 'bdt' ? item.price.bdt : item.price.usd }
+												</span>
+												<span className="text-2xl font-medium text-gray-600 dark:text-gray-400">
+													&nbsp;/ { item.period === 0 ? 'year' : 'month' }
+												</span>
+											</div>
+											<p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+												Billed { item.period === 0 ? 'annually' : 'monthly' }
+											</p>
+										</>
+									) : (
+										<>
+											<div className="flex items-center justify-center">
+												<span
+													className="text-3xl font-semibold text-gray-900 dark:text-gray-100">
+													Contact for pricing
+												</span>
+											</div>
+											<p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+												Contact us for price and information
+											</p>
+										</>
+									) }
 									{
 										item.renew && (
 											<p className="mt-2 text-sm text-gray-600 dark:text-gray-400">

@@ -114,7 +114,7 @@ export interface Data {
 export interface Pricing {
 	title: string
 	featured?: boolean
-	price: {
+	price?: {
 		bdt: number
 		usd: number
 	}
@@ -126,7 +126,7 @@ export interface Pricing {
 		bdt: number
 		usd: number
 	}
-	period: number
+	period?: number
 	description: string
 	features: JSX.Element[]
 	button: {
@@ -145,7 +145,7 @@ export interface Feature {
 
 export interface Comparison {
 	title: string
-	price: {
+	price?: {
 		bdt: number
 		usd: number
 	}
@@ -157,7 +157,7 @@ export interface Comparison {
 		bdt: number
 		usd: number
 	}
-	period: number
+	period?: number
 	description: string
 	features: {
 		[key: string]: string | number | boolean

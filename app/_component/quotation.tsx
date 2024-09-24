@@ -146,7 +146,7 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 		setCustomField(newCustomField)
 	}
 
-	const optionChangeProcess = (base: string, type: number, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: {
+	const optionChangeProcess = (base: string, field: ServiceCustomField, event: ChangeEvent<HTMLSelectElement>, action: {
 		id: number,
 		name: string,
 		value: string | string[]
@@ -159,10 +159,24 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 		// Get field's "data-value" attribute to get the value
 		const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
 		const data: (string | number)[] = field.type === 'select' ? (custom.find((field: ServiceCustomField) => field.name === base).option[value]) : field.type === 'slider' ? ([
-			custom.find((field: ServiceCustomField) => field.name === base).min[value][currency],
-			custom.find((field: ServiceCustomField) => field.name === base).max[value][currency],
-			custom.find((field: ServiceCustomField) => field.name === base).step[value][currency],
+			custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
+			custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
+			custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
 		]) : [ 'Error' ]
+
+		if (field.type === 'select') {
+			console.log('Type: Select')
+			console.log('Data:')
+			console.log(custom.find((field: ServiceCustomField) => field.name === base).option[value])
+		} else {
+			console.log('Type: Slider')
+			console.log('Data:')
+			console.log([
+				custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
+				custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
+				custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
+			])
+		}
 
 		const stateValue = {
 			name: base, // eg: base = 'Stack'
@@ -189,11 +203,14 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 	}): void => {
 		if (type === 2) {
 			if (Array.isArray(field.optionBase)) {
+				console.log('Array count: ' + field.optionBase.length)
+
 				field.optionBase.map((base: string) => {
-					optionChangeProcess(base, type, field, event, action)
+					optionChangeProcess(base, field, event, action)
 				})
 			} else {
-				optionChangeProcess(field.optionBase as string, type, field, event, action)
+				console.log('Not an array')
+				optionChangeProcess(field.optionBase as string, field, event, action)
 			}
 		}
 	}

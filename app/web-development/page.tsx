@@ -175,14 +175,6 @@ export default function Page(): JSX.Element {
 				],
 			},
 			optionType: 3,
-			optionBase: 'Type',
-			optionCondition: {
-				frontend: 'Frontend',
-				backend: 'Backend',
-				fullstackSeparated: 'Fullstack (Separated)',
-				fullstackIntegrated: 'Fullstack (Integrated)',
-			},
-			multiple: false,
 		},
 		{
 			name: 'Features',
