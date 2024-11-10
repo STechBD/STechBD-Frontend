@@ -5,6 +5,8 @@ import { DefaultEffect } from '@/app/_component/background'
 import Hero from './hero'
 import Image from 'next/image'
 import Link from 'next/link'
+import { team } from '@/app/_data/team'
+import { Team } from '@/app/_data/type';
 
 
 /**
@@ -14,6 +16,7 @@ import Link from 'next/link'
  *
  * @since 3.0.0
  */
+/*
 const team = [
 	{
 		name: 'Md. Ashraful Alam Shemul',
@@ -59,6 +62,7 @@ const team = [
 		</>,
 	},
 ]
+*/
 
 
 /**
@@ -104,13 +108,11 @@ export default async function Page(): Promise<JSX.Element> {
 							Team Members
 						</h2>
 						<div className="mt-3">
-							{
-								team.map((person, index) => (
-									<div key={ index } className="mt-1 text-lg text-gray-900 dark:text-gray-100">
-										{ index + 1 }. { person.name }
-									</div>
-								))
-							}
+							{ team.map((person: Team, index: number): JSX.Element => (
+								<div key={ index } className="mt-1 text-lg text-gray-900 dark:text-gray-100">
+									{ index + 1 }. { person.name.en }
+								</div>
+							)) }
 						</div>
 					</div>
 					<div className="mt-12 lg:mt-0 lg:col-span-2">
@@ -123,31 +125,33 @@ export default async function Page(): Promise<JSX.Element> {
 						</p>
 						<div className="mt-12">
 							<div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-								{ team.map((person, index) => (
+								{ team.map((person: Team, index: number): JSX.Element => (
 									<Link
 										key={ index }
 										className="mt-10 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out"
 										href={ '/team/' + person.slug }>
 										<div className="flex items-center">
 											<Image
-												src={ person.photo }
-												alt={ person.name }
+												src={ person.image }
+												alt={ person.name.en }
 												className="w-16 h-16 rounded-full object-cover object-center flex-shrink mr-4"
 												width={ 64 }
 												height={ 64 }
 											/>
 											<div>
 												<h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-													{ person.name }
+													{ person.name.en }
 												</h3>
 												<p className="text-gray-500 dark:text-gray-400">
-													{ person.position }
+													{ person.role }
 												</p>
 											</div>
 										</div>
-										<div className="mt-4 text-gray-900 dark:text-gray-100">
-											{ person.description }
-										</div>
+										{ person.description?.about && (
+											<div className="mt-4 text-gray-900 dark:text-gray-100">
+												{ person.description?.about ?? <></> }
+											</div>
+										) }
 									</Link>
 								)) }
 							</div>
@@ -215,20 +219,14 @@ export default async function Page(): Promise<JSX.Element> {
 						{
 						  "@type": "ListItem",
 						  "position": 1,
-						  "name": "Home",
+						  "name": "S Technologies",
 						  "item": "https://www.stechbd.net"
 						},
 						{
 						  "@type": "ListItem",
 						  "position": 2,
-						  "name": "Server",
-						  "item": "https://www.stechbd.net/server"
-						},
-						{
-						  "@type": "ListItem",
-						  "position": 3,
-						  "name": "Server Information",
-						  "item": "https://www.stechbd.net/server-information"
+						  "name": "Team",
+						  "item": "https://www.stechbd.net/team"
 						}
 					  ]
 					}

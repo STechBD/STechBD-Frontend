@@ -284,3 +284,71 @@ export interface ServiceCustomField {
 		}
 	}
 }
+
+
+/**
+ * Interface definition for the Team Member Profile.
+ *
+ * @interface Team
+ */
+export interface Team {
+	id: number
+	slug: string
+	name: {
+		en: string
+		bn: string
+	}
+	role: string
+	since: string
+	tagline?: string
+	image: string
+	cover?: string
+	gender: string
+	birthday?: string
+	buttons?: {
+		text: string
+		link: string
+		color: string
+	}[]
+	description?: {
+		about: JSX.Element
+		established?: string
+	}
+	contact?: {
+		address?: string
+		home?: string
+		email: string
+		phone?: string
+	}
+	website?: {
+		name: string
+		link: string
+	}[]
+	social?: {
+		name: string
+		link: string
+	}[]
+	work?: {
+		company: string
+		role?: string
+		start: string
+		end: string
+		description?: string
+	}[]
+	education?: {
+		institute: string
+		degree?: string
+		major?: string
+		start?: string
+		end?: string
+	}[]
+	gallery?: {
+		link: string
+		alt: string
+	}[]
+	faq?: {
+		id: number
+		ques: string
+		ans: JSX.Element
+	}[]
+}
