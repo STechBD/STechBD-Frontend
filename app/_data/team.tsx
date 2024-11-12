@@ -68,9 +68,9 @@ export const team: Team[] = [
 		role: 'CEO of S Technologies',
 		since: 'August 14, 2013',
 		tagline: 'Author | Teacher | Entrepreneur | Software Developer',
-		image: 'https://github.com/AAShemul.png',
+		image: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (St. Martin\'s Island - October 16, 2023).webp',
 		cover: '/image/AAShemul-Cover.webp',
-		gender: 'male',
+		gender: 'Male',
 		birthday: 'August 14',
 		buttons: [
 			{
@@ -85,6 +85,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Md. Ashraful Alam Shemul is a Bangladeshi Author, Teacher, Entrepreneur, and Software Developer. He is studying for his bachelor\'s in Fisheries at Bangladesh Maritime University.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Md. Ashraful Alam Shemul</strong></span> is a Bangladeshi
@@ -318,7 +319,7 @@ export const team: Team[] = [
 		tagline: 'Chief Human Resources Officer, S Technologies',
 		image: 'https://github.com/STechBD.png',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'female',
+		gender: 'Female',
 		birthday: 'June 13',
 		buttons: [
 			{
@@ -333,10 +334,11 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Nusrat Jahan Sifat is a Human Resources Officer. She is studying for her bachelor\'s in Accounting at National University (Siddheswari Girls\' College, Dhaka).',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Nusrat Jahan Sifat</strong></span> is a Human Resources
-					Officer. Nusrat is a <span className="text-primary"><strong>Muslim</strong></span>. She is studying
+					Officer. She is studying
 					for her bachelor&apos;s in Accounting at <span className="text-primary"><strong>National University (Siddheswari Girls&apos; College, Dhaka)</strong></span>.
 				</p>
 				<p className="my-2">
@@ -376,12 +378,12 @@ export const team: Team[] = [
 			en: 'Maria Sharker',
 			bn: 'মারিয়া সরকার',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Maria Sharker.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'female',
+		gender: 'Female',
 		birthday: 'March 6',
 		buttons: [
 			{
@@ -396,6 +398,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Maria Sharker is a marketing contributor at S Technologies. She is passionate about her field of study and is dedicated to gaining in-depth knowledge and skills that will contribute to the development of sustainable fisheries and aquaculture practices.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Maria Sharker</strong></span> strives to spread love and
@@ -444,12 +447,12 @@ export const team: Team[] = [
 			en: 'Ahmad AL Munir',
 			bn: 'আহমাদ আল মুনির',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Ahmad AL Munir.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'male',
+		gender: 'Male',
 		birthday: 'July 6',
 		buttons: [
 			{
@@ -464,6 +467,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Ahmad AL Munir is a marketing contributor at S Technologies. He is a motivated and versatile professional with a strong foundation in marketing, graphic design, social media management, and sales.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Ahmad AL Munir</strong></span> is a motivated and versatile
@@ -508,12 +512,12 @@ export const team: Team[] = [
 			en: 'Ashikur Rahman',
 			bn: 'আশিকুর রহমান',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Ashikur Rahman.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'male',
+		gender: 'Male',
 		birthday: 'April 9',
 		buttons: [
 			{
@@ -528,6 +532,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Ashikur Rahman is a marketing contributor at S Technologies.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Ashikur Rahman</strong></span> is a marketing contributor at
@@ -565,12 +570,12 @@ export const team: Team[] = [
 			en: 'Md Shamim Ahmed',
 			bn: 'মোঃ শামীম আহমেদ',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Md Shamim Ahmed.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'male',
+		gender: 'Male',
 		birthday: '',
 		buttons: [
 			{
@@ -585,6 +590,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Md Shamim Ahmed is a marketing contributor at S Technologies.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Shamim Ahmed</strong></span> is a student currently in his
@@ -624,12 +630,12 @@ export const team: Team[] = [
 			en: 'Md Shazib Hossain',
 			bn: 'মো সজিব হোসেন',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Md Shazib Hossain.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'male',
+		gender: 'Male',
 		birthday: '',
 		buttons: [
 			{
@@ -644,6 +650,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Md Shazib Hossain is a marketing contributor at S Technologies. He is a student at Dhaka University, where he is pursuing a degree in psychology.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Md Shazib Hossain</strong></span> is a student at Dhaka
@@ -687,12 +694,12 @@ export const team: Team[] = [
 			en: 'Angelica Mirza Aishwarja',
 			bn: 'এনজেলিকা মির্জা ঐশ্বর্য',
 		},
-		role: 'Contributor, Marketing of S Technologies',
+		role: 'Contributor, Marketing at S Technologies',
 		since: 'November 1, 2024',
-		tagline: 'Marketing Contributor, S Technologies',
-		image: 'https://github.com/STechBD.png',
+		tagline: 'Marketing Contributor of S Technologies',
+		image: 'https://cdn.stechbd.net/file/2024/11/Angelica Mirza Aishwarja.webp',
 		cover: '/image/STechBD-Cover.webp',
-		gender: 'female',
+		gender: 'Female',
 		birthday: 'January 21',
 		buttons: [
 			{
@@ -707,6 +714,7 @@ export const team: Team[] = [
 			},
 		],
 		description: {
+			intro: 'Angelica Mirza Aishwarja is an undergraduate student currently studying in the Department of Marine Fisheries and Aquaculture at Bangladesh Maritime University in Dhaka, Bangladesh.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Angelica Mirza Aishwarja</strong></span> is an undergraduate

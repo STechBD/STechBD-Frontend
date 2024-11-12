@@ -6,7 +6,7 @@ import Hero from './hero'
 import Image from 'next/image'
 import Link from 'next/link'
 import { team } from '@/app/_data/team'
-import { Team } from '@/app/_data/type';
+import { Team } from '@/app/_data/type'
 
 
 /**
@@ -147,9 +147,9 @@ export default async function Page(): Promise<JSX.Element> {
 												</p>
 											</div>
 										</div>
-										{ person.description?.about && (
+										{ person.description?.intro && (
 											<div className="mt-4 text-gray-900 dark:text-gray-100">
-												{ person.description?.about ?? <></> }
+												{ person.description.intro ?? '' }
 											</div>
 										) }
 									</Link>

@@ -311,7 +311,8 @@ export interface Team {
 		color: string
 	}[]
 	description?: {
-		about: JSX.Element
+		intro: string
+		about?: JSX.Element
 		established?: string
 	}
 	contact?: {

@@ -22,7 +22,7 @@ export function isPath(paths: string[]): boolean {
  * @since 3.0.0
  */
 export function validatePath(path: string): boolean {
-	const productPath: string[] = productList.map((product) => `/product/${product.id}`)
+	const productPath: string[] = productList.map((product) => `/product/${ product.id }`)
 
 	const validPath: string[] = [
 		'/',

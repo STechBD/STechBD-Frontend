@@ -382,42 +382,32 @@ export default function Header(): JSX.Element {
 
 	return (
 		<>
-			{
-				process.env.NODE_ENV === 'production' && <ParticleAnimation/>
-			}
+			{ process.env.NODE_ENV === 'production' && <ParticleAnimation/> }
 			<header
 				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }
 			>
-				<nav className="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+				<nav className="mx-auto flex items-center justify-between px-6 py-2 lg:px-8" aria-label="Global">
 					<div className="flex lg:flex-1">
 						<Link
 							className="flex gap-5 -m-1.5 p-1.5"
 							href={ type === 'product' ? data.productSlug : '/' }
 						>
 							<span className="sr-only">
-								{
-									type === 'product' ? data.productTitle : data.siteTitle
-								}
+								{ type === 'product' ? data.productTitle : data.siteTitle }
 							</span>
-							{
-								type === 'product' && data.productLogo ? (
-									<Image
-										className="h-8 w-auto sm:h-10"
-										src={ data.productLogo }
-										alt={ data.productTitle + ' Logo' }
-										height={ 100 }
-										width={ 100 }
-									/>
-								) : (
-									data.siteLogo
-								)
-							}
+							{ type === 'product' && data.productLogo ? (
+								<Image
+									className="h-8 w-auto sm:h-10"
+									src={ data.productLogo }
+									alt={ data.productTitle + ' Logo' }
+									height={ 100 }
+									width={ 100 }
+								/>
+							) : (data.siteLogo) }
 							<div
 								className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
 							>
-								{
-									type === 'product' ? data.productTitle : data.siteTitle
-								}
+								{ type === 'product' ? data.productTitle : data.siteTitle }
 							</div>
 						</Link>
 					</div>
@@ -691,28 +681,24 @@ export default function Header(): JSX.Element {
 														<div
 															className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
 														>
-															{
-																item.submenu.items.map((item, index) => {
-																	return (
-																		<Link key={ index } href={ item.path }
-																		      target={ item.path.startsWith('http') ? '_blank' : '' }
-																		      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
-																		>
-																			{ item.title }
-																		</Link>
-																	)
-																})
-															}
-															{
-																item.submenu.text && item.submenu.path && (
-																	<Link
-																		href={ item.submenu.path }
-																		className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
+															{ item.submenu.items.map((item, index) => {
+																return (
+																	<Link key={ index } href={ item.path }
+																	      target={ item.path.startsWith('http') ? '_blank' : '' }
+																	      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
 																	>
-																		{ item.submenu.text }
+																		{ item.title }
 																	</Link>
 																)
-															}
+															}) }
+															{ item.submenu.text && item.submenu.path && (
+																<Link
+																	href={ item.submenu.path }
+																	className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
+																>
+																	{ item.submenu.text }
+																</Link>
+															) }
 														</div>
 													</div>
 												</div>
@@ -721,8 +707,9 @@ export default function Header(): JSX.Element {
 											if (item.path) {
 												return (
 													<div key={ index } className="py-2">
-														<Link href={ item.path }
-														      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+														<Link
+															href={ item.path }
+															className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
 														>
 															{ item.title }
 														</Link>
@@ -732,28 +719,26 @@ export default function Header(): JSX.Element {
 										}
 									})
 								}
-								{
-									type === 'product' && (
-										<>
-											<div className="py-2">
-												<Link href={ data.productSlug + '/about' }
-												      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-												>
-													About
-												</Link>
-											</div>
-											<div className="py-2">
-												<a
-													href={ data.productGithub ?? 'https://github.com/STechBD' }
-													target="_blank"
-													className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-												>
-													GitHub
-												</a>
-											</div>
-										</>
-									)
-								}
+								{ type === 'product' && (
+									<>
+										<div className="py-2">
+											<Link href={ data.productSlug + '/about' }
+											      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+											>
+												About
+											</Link>
+										</div>
+										<div className="py-2">
+											<a
+												href={ data.productGithub ?? 'https://github.com/STechBD' }
+												target="_blank"
+												className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+											>
+												GitHub
+											</a>
+										</div>
+									</>
+								) }
 								<div className="py-2">
 									<a
 										href="https://cpanel.stechbd.net/login"
