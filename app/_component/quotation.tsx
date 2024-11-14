@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, FormEvent, JSX, useState } from 'react'
+import React, { ChangeEvent, DetailedHTMLProps, FormEvent, FormHTMLAttributes, JSX, useState } from 'react'
 import { ServiceCustomField } from '@/app/_data/type'
 import 'react-markdown-editor-lite/lib/index.css'
 import MarkdownEditor from 'react-markdown-editor-lite'
@@ -158,13 +158,15 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 
 		// Get field's "data-value" attribute to get the value
 		const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
-		const data: (string | number)[] = field.type === 'select' ? (custom.find((field: ServiceCustomField) => field.name === base).option[value]) : field.type === 'slider' ? ([
+
+		// eslint-disable-next-line
+		const data: (string | number)[] = field.type === 'select' ? (custom.find((data: ServiceCustomField) => data.name === base).option[value]) : field.type === 'slider' ? ([
 			custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
 			custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
 			custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
 		]) : [ 'Error' ]
 
-		if (field.type === 'select') {
+		/*if (field.type === 'select') {
 			console.log('Type: Select')
 			console.log('Data:')
 			console.log(custom.find((field: ServiceCustomField) => field.name === base).option[value])
@@ -176,7 +178,7 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 				custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
 				custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
 			])
-		}
+		}*/
 
 		const stateValue = {
 			name: base, // eg: base = 'Stack'
@@ -284,15 +286,17 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 				name="department"
 				value="1"
 				hidden={ true }
+				onChange={ (event) => setDepartment(Number(event.target.value)) }
 				className="hidden"
 			/>
 			<input
 				name="priority"
 				value="High"
 				hidden={ true }
+				onChange={ (event) => setPriority(event.target.value) }
 				className="hidden"
 			/>
-			{ custom.map((field: ServiceCustomField, index: number) => {
+			{ custom.map((field: ServiceCustomField, index: number): JSX.Element => {
 				const options: string[] | { id: string, title: string }[] | {
 					[key: string]: string[]
 				} = field.option ?? []
