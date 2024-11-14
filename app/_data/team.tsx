@@ -2,55 +2,6 @@ import Link from 'next/link'
 import { Team } from '@/app/_data/type'
 
 
-/*
-const team = [
-	{
-		name: 'Md. Ashraful Alam Shemul',
-		slug: 'AAShemul',
-		position: 'Founder and Chief Executive Officer',
-		department: 'Management',
-		photo: 'https://github.com/AAShemul.png',
-		description: <>
-			<strong>Md. Ashraful Alam Shemul</strong> is the founder and CEO of S Technologies. He is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. He founded S Technologies in 2013.
-		</>,
-	},
-	{
-		name: 'Nusrat Jahan Sifat',
-		slug: '',
-		position: 'Chief Technology Officer',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Nusrat Jahan</strong> is the chief technology officer at S Technologies. She is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. She joined S Technologies in 2014.
-		</>,
-	},
-	{
-		name: 'Niyaz Ahmed',
-		slug: '',
-		position: 'Software Developer',
-		department: 'Engineering',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Niyaz Ahmed</strong> is a software developer at S Technologies. He is a technology enthusiast and
-			entrepreneur with a passion for innovation and technology. He joined S Technologies in 2017.
-		</>,
-	},
-	{
-		name: 'Md. Musa',
-		slug: '',
-		position: 'Designer',
-		department: 'Design',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Md. Musa</strong> is the finance and marketing manager at S Technologies. He is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2015.
-		</>,
-	},
-]
-*/
-
-
 /**
  * Team data of S Technologies.
  *
@@ -318,7 +269,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Chief Human Resources Officer, S Technologies',
 		image: 'https://github.com/STechBD.png',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Female',
 		birthday: 'June 13',
 		buttons: [
@@ -372,6 +323,113 @@ export const team: Team[] = [
 		],
 	},
 	{
+		id: 108020101,
+		slug: 'Niyaz',
+		name: {
+			en: 'Niyaz Ahmed',
+			bn: 'নিয়াজ আহমেদ',
+		},
+		role: 'Software Engineer at S Technologies',
+		since: 'November 1, 2024',
+		tagline: 'Software Engineer of S Technologies',
+		image: 'https://github.com/STechBD.png',
+		cover: '/image/Profile-Cover.webp',
+		gender: 'Male',
+		birthday: 'July 24',
+		buttons: [
+			{
+				text: 'Contact',
+				link: '/contact',
+				color: 'primary',
+			},
+			{
+				text: 'Follow',
+				link: '/follow',
+				color: 'primary',
+			},
+		],
+		description: {
+			intro: 'Niyaz is a full-stack software engineer with a passion for building scalable and maintainable web applications. He is proficient in PHP, JavaScript, TypeScript, MySQL, and MongoDB.',
+			about: <>
+				<p className="my-2">
+					<span className="text-primary"><strong>Niyaz Ahmed</strong></span> is a full-stack software engineer
+					with a passion for building scalable and maintainable web applications. He is proficient in PHP,
+					JavaScript, TypeScript, MySQL, and MongoDB. He is also experienced in working with modern
+					frontend frameworks like Next.js (React.js) and Laravel.
+				</p>
+				<p className="my-2">
+					Niyaz is a graduate of Computer Science and Engineering. He has been working in the software
+					industry for over 5 years and has experience in developing web applications for various industries,
+					including e-commerce, education, and healthcare.
+				</p>
+			</>,
+		},
+		contact: {
+			address: 'Dhaka, Dhaka, Bangladesh',
+			email: 'niyaz@stechbd.net',
+		},
+		work: [
+			{
+				company: 'S Technologies',
+				role: 'Software Engineer',
+				start: 'March 1, 2020',
+				end: 'Present',
+				description: 'Joined the company on March 1, 2020.',
+			},
+		],
+	},
+	{
+		id: 109024101,
+		slug: 'Mahir',
+		name: {
+			en: 'Mahir Hasan',
+			bn: 'মাহির হাসান',
+		},
+		role: 'Designer at S Technologies',
+		since: 'November 1, 2024',
+		tagline: 'Graphic Designer of S Technologies',
+		image: 'https://github.com/STechBD.png',
+		cover: '/image/Profile-Cover.webp',
+		gender: 'Male',
+		birthday: 'January 27',
+		buttons: [
+			{
+				text: 'Contact',
+				link: '/contact',
+				color: 'primary',
+			},
+			{
+				text: 'Follow',
+				link: '/follow',
+				color: 'primary',
+			},
+		],
+		description: {
+			intro: 'Mahir Hasan is a graphic designer at S Technologies. He is passionate about creating visually appealing designs that communicate effectively with the audience.',
+			about: <>
+				<p className="my-2">
+					<span className="text-primary"><strong>Mahir Hasan</strong></span> is a graphic designer at S
+					Technologies. He is passionate about creating visually appealing designs that communicate
+					effectively with the audience. He has experience in creating logos, branding materials, social media
+					graphics, and web and app UI/UX designs.
+				</p>
+			</>,
+		},
+		contact: {
+			address: 'Dhaka, Dhaka, Bangladesh',
+			email: 'mahir@stechbd.net',
+		},
+		work: [
+			{
+				company: 'S Technologies',
+				role: 'Designer',
+				start: 'December 1, 2023',
+				end: 'Present',
+				description: 'Joined the company on December 1, 2023.',
+			},
+		],
+	},
+	{
 		id: 105024601,
 		slug: 'Maria',
 		name: {
@@ -382,7 +440,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Maria Sharker.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Female',
 		birthday: 'March 6',
 		buttons: [
@@ -451,7 +509,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Ahmad AL Munir.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Male',
 		birthday: 'July 6',
 		buttons: [
@@ -516,7 +574,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Ashikur Rahman.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Male',
 		birthday: 'April 9',
 		buttons: [
@@ -574,7 +632,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Md Shamim Ahmed.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Male',
 		birthday: '',
 		buttons: [
@@ -634,7 +692,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Md Shazib Hossain.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Male',
 		birthday: '',
 		buttons: [
@@ -698,7 +756,7 @@ export const team: Team[] = [
 		since: 'November 1, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Angelica Mirza Aishwarja.webp',
-		cover: '/image/STechBD-Cover.webp',
+		cover: '/image/Profile-Cover.webp',
 		gender: 'Female',
 		birthday: 'January 21',
 		buttons: [

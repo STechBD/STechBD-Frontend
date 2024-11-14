@@ -5,7 +5,49 @@ import { DefaultEffect } from '@/app/_component/background'
 import Accordion from '@/app/_component/accordion'
 import { team } from '@/app/_data/team'
 import { Team } from '@/app/_data/type'
-import E404 from '@/app/not-found';
+import { notFound } from 'next/navigation'
+
+
+/**
+ * Metadata for the Blog Post page.
+ *
+ * @param { string } slug The post-slug.
+ * @returns { Promise<{ title: string }> } The metadata.
+ * @since 3.0.0
+ */
+export async function generateMetadata({ params }: { params: { name: string } }): Promise<any> {
+	const slug: string = params.name.toLowerCase()
+	const person: Team | undefined = team.find((item: Team): boolean => item.slug.toLowerCase() === slug)
+
+	if (person) {
+		const title: string = person.name.en + ' | ' + person.name.bn
+		const description: string = (person.name.en + ' | ' + person.name.bn + ' | ') + (person.description?.intro?.slice(0, 160) ?? '')
+
+		return {
+			title,
+			description,
+			openGraph: {
+				title,
+				description,
+				type: 'article',
+				image: {
+					url: person.image ?? '/image/S-Technologies-Icon-Light.svg',
+					alt: person.name.en + ' | ' + person.name.bn,
+				},
+			},
+			twitter: {
+				title,
+				description,
+				image: {
+					url: person.image ?? '/image/S-Technologies-Icon-Light.svg',
+					alt: person.name.en + ' | ' + person.name.bn,
+				},
+			},
+		}
+	}
+
+	return {}
+}
 
 
 /**
@@ -17,10 +59,10 @@ import E404 from '@/app/not-found';
  */
 export default async function Page({ params }: { params: { name: string } }): Promise<JSX.Element> {
 	const slug: string = params.name.toLowerCase()
-	const data: Team | undefined = team.find((item: Team): boolean => item.slug.toLowerCase() === slug)
+	const person: Team | undefined = team.find((item: Team): boolean => item.slug.toLowerCase() === slug)
 
-	if (!data) {
-		return <E404/>
+	if (!person) {
+		notFound()
 	}
 
 	return (
@@ -29,8 +71,8 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 			<div className="relative max-w-7xl mx-auto">
 				<div className="relative isolate">
 					<Image
-						src={ data.cover ?? '/image/STechBD-Cover.webp' }
-						alt="Cover"
+						src={ person.cover ?? '/image/Profile-Cover.webp' }
+						alt={ 'Cover Photo of ' + person.name.en + ' | ' + person.name.bn }
 						height="300"
 						width="1920"
 						className="h-full w-full"
@@ -42,8 +84,8 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 						className="flex flex-col items-center lg:flex-row justify-center text-center lg:items-start lg:justify-start lg:text-left"
 					>
 						<Image
-							src={ data.image }
-							alt={ data.name.en }
+							src={ person.image }
+							alt={ 'Profile Picture of ' + person.name.en + ' | ' + person.name.bn }
 							height={ 500 }
 							width={ 500 }
 							className="h-48 w-48 lg:h-80 lg:w-80 rounded-full border-4 border-primary"
@@ -51,11 +93,11 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 						<div className="mt-8 lg:mt-40 lg:ml-12">
 							<h1 className="text-4xl text-gray-900">
 								<strong>
-									{ data.name.en } ({ data.name.bn })
+									{ person.name.en } ({ person.name.bn })
 								</strong>
 							</h1>
 							<h2 className="text-2xl font-semibold text-gray-700 mt-2">
-								{ data.role }
+								{ person.role }
 							</h2>
 						</div>
 					</div>
@@ -72,18 +114,18 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 						>
 							<h2 className="text-gray-900 text-4xl leading-8 my-4">
 								<strong>
-									{ data.name.en }
+									{ person.name.en }
 								</strong>
 							</h2>
 							<h3 className="text-gray-600 font-xl text-semibold leading-6 my-4">
-								{ data.tagline }
+								{ person.tagline }
 							</h3>
 							<h4 className="text-gray-700 font-semibold text-xl leading-6 my-4">
-								{ data.role }
+								{ person.role }
 							</h4>
-							{ data.description && (
+							{ person.description && (
 								<div className="text-gray-500 text-sm leading-6 my-2">
-									{ data.description.about }
+									{ person.description.about }
 								</div>
 							) }
 							<ul
@@ -94,12 +136,12 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 										Working Since
 									</span>
 									<span className="ml-auto">
-										{ data.since }
+										{ person.since }
 									</span>
 								</li>
 							</ul>
 						</div>
-						{ (data.website || data.social) && (
+						{ (person.website || person.social) && (
 							<div
 								className="mt-12 bg-white p-3 md:mx-2 shadow-sm rounded-lg border-t-4 border-primary"
 							>
@@ -115,7 +157,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 								</div>
 								<div className="mt-4">
 									<ul className="list-inside space-y-2">
-										{ data.website?.map((item, index) => (
+										{ person.website?.map((item, index) => (
 											<li key={ index }>
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 												     fill="currentColor" className="text-primary inline-block mr-4"
@@ -132,7 +174,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 												</Link>
 											</li>
 										)) }
-										{ data.social?.map((item, index) => (
+										{ person.social?.map((item, index) => (
 											<li key={ index }>
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 												     fill="currentColor" className="text-primary inline-block mr-4"
@@ -180,7 +222,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											Name
 										</div>
 										<div className="px-4 py-2">
-											{ data.name.en }
+											{ person.name.en }
 										</div>
 									</div>
 									<div className="grid grid-cols-2">
@@ -188,7 +230,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											Birthday
 										</div>
 										<div className="px-4 py-2">
-											{ data.birthday }
+											{ person.birthday }
 										</div>
 									</div>
 									<div className="grid grid-cols-2">
@@ -196,77 +238,72 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											Gender
 										</div>
 										<div className="px-4 py-2">
-											{ data.gender }
+											{ person.gender }
 										</div>
 									</div>
-									{ data.contact?.phone && (
+									{ person.contact?.phone && (
 										<div className="grid grid-cols-2">
 											<div className="px-4 py-2 font-semibold">
 												Contact No.
 											</div>
 											<div className="px-4 py-2 text-primary">
-												<a href={ 'tel:' + data.contact.phone }>
-													{ data.contact.phone }
+												<a href={ 'tel:' + person.contact.phone }>
+													{ person.contact.phone }
 												</a>
 											</div>
 										</div>
 									) }
-									{ data.contact?.address && (
+									{ person.contact?.address && (
 										<div className="grid grid-cols-2">
 											<div className="px-4 py-2 font-semibold">
 												Current Address
 											</div>
 											<div className="px-4 py-2">
-												{ data.contact.address }
+												{ person.contact.address }
 											</div>
 										</div>
 									) }
-									{ data.contact?.home && (
+									{ person.contact?.home && (
 										<div className="grid grid-cols-2">
 											<div className="px-4 py-2 font-semibold">
 												Permanant Address
 											</div>
 											<div className="px-4 py-2">
-												{ data.contact.home }
+												{ person.contact.home }
 											</div>
 										</div>
 									) }
-									{ data.contact?.email && (
+									{ person.contact?.email && (
 										<div className="grid grid-cols-2">
 											<div className="px-4 py-2 font-semibold">
 												Email
 											</div>
 											<div className="px-4 py-2">
-												<a className="text-primary" href={ 'mailto:' + data.contact.email }>
-													{ data.contact.email }
+												<a className="text-primary" href={ 'mailto:' + person.contact.email }>
+													{ person.contact.email }
 												</a>
 											</div>
 										</div>
 									) }
-									{ data.description?.established && (
+									{ person.description?.established && (
 										<div className="grid grid-cols-2">
 											<div className="px-4 py-2 font-semibold">
 												Established
 											</div>
 											<div className="px-4 py-2">
-												{ data.description.established }
+												{ person.description.established }
 											</div>
 										</div>
 									) }
 								</div>
 							</div>
-							<button
-								className="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
-							>
-								Show Full Information
-							</button>
 						</div>
 						{/* End of about section */ }
 						{/* Experience and education */ }
-						{ (data.work || data.education) && (
+						{ (person.work || person.education) && (
 							<div className="mt-12 bg-white p-3 shadow-sm rounded-lg border-t-4 border-primary">
 								<div className="grid grid-cols-2">
-									{ data.work && (
+									{ person.work && (
 										<div>
 											<div
 												className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3"
@@ -283,7 +320,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 												<span className="tracking-wide">Experience</span>
 											</div>
 											<ul className="list-inside space-y-2">
-												{ data.work?.map((item, index) => (
+												{ person.work?.map((item, index) => (
 													<li key={ index }>
 														<div className="text-primary">
 															{ item.company }
@@ -299,7 +336,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											</ul>
 										</div>
 									) }
-									{ data.education && (
+									{ person.education && (
 										<div>
 											<div
 												className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3"
@@ -319,10 +356,12 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 														d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
 													/>
 												</svg>
-												<span className="tracking-wide">Education</span>
+												<span className="tracking-wide">
+													Education
+												</span>
 											</div>
 											<ul className="list-inside space-y-2">
-												{ data.education.map((item, index) => (
+												{ person.education.map((item, index: number): JSX.Element => (
 													<li key={ index }>
 														<div className="text-primary">
 															{ item.institute }
@@ -345,7 +384,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 						) }
 						{/* End of profile tab */ }
 						{/* Photo Gallery */ }
-						{ data.gallery && data.gallery.length > 0 && (
+						{ person.gallery && person.gallery.length > 0 && (
 							<div className="mt-12 bg-white p-3 shadow-sm rounded-lg border-t-4 border-primary">
 								<div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
 									<svg
@@ -361,7 +400,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 								</span>
 								</div>
 								<div className="mt-4 grid lg:grid-cols-2 xl:grid-cols-4">
-									{ data.gallery?.map((item, index) => (
+									{ person.gallery?.map((item, index: number): JSX.Element => (
 										<div key={ index }>
 											<Image
 												src={ item.link }
@@ -378,7 +417,7 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 						) }
 						{/* End of photo gallery */ }
 						{/* FAQ */ }
-						{ data.faq && data.faq.length === 0 && (
+						{ person.faq && person.faq.length === 0 && (
 							<div className="mt-12 bg-white p-3 shadow-sm rounded-lg border-t-4 border-primary">
 								<div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
 									<svg
@@ -390,11 +429,11 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
 									</svg>
 									<span className="tracking-wide">
-									Frequently Asked Questions (FAQ) about { data.name.en }
+									Frequently Asked Questions (FAQ) about { person.name.en }
 								</span>
 								</div>
 								<div className="mt-4">
-									<Accordion data={ data.faq }/>
+									<Accordion data={ person.faq }/>
 								</div>
 							</div>
 						) }

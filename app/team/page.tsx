@@ -10,62 +10,6 @@ import { Team } from '@/app/_data/type'
 
 
 /**
- * The team information.
- *
- * @constant team
- *
- * @since 3.0.0
- */
-/*
-const team = [
-	{
-		name: 'Md. Ashraful Alam Shemul',
-		slug: 'AAShemul',
-		position: 'Founder and Chief Executive Officer',
-		department: 'Management',
-		photo: 'https://github.com/AAShemul.png',
-		description: <>
-			<strong>Md. Ashraful Alam Shemul</strong> is the founder and CEO of S Technologies. He is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. He founded S Technologies in 2013.
-		</>,
-	},
-	{
-		name: 'Nusrat Jahan Sifat',
-		slug: '',
-		position: 'Chief Technology Officer',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Nusrat Jahan</strong> is the chief technology officer at S Technologies. She is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. She joined S Technologies in 2014.
-		</>,
-	},
-	{
-		name: 'Niyaz Ahmed',
-		slug: '',
-		position: 'Software Developer',
-		department: 'Engineering',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Niyaz Ahmed</strong> is a software developer at S Technologies. He is a technology enthusiast and
-			entrepreneur with a passion for innovation and technology. He joined S Technologies in 2017.
-		</>,
-	},
-	{
-		name: 'Md. Musa',
-		slug: '',
-		position: 'Designer',
-		department: 'Design',
-		photo: 'https://github.com/STechBD.png',
-		description: <>
-			<strong>Md. Musa</strong> is the finance and marketing manager at S Technologies. He is a technology
-			enthusiast and entrepreneur with a passion for innovation and technology. He joined S Technologies in 2015.
-		</>,
-	},
-]
-*/
-
-
-/**
  * The metadata for the Team page.
  *
  * @constant title { string } The title of the page.
@@ -133,7 +77,7 @@ export default async function Page(): Promise<JSX.Element> {
 										<div className="flex items-center">
 											<Image
 												src={ person.image }
-												alt={ person.name.en }
+												alt={ 'Profile Picture of ' + person.name.en + ' | ' + person.name.bn }
 												className="w-16 h-16 rounded-full object-cover object-center flex-shrink mr-4"
 												width={ 64 }
 												height={ 64 }
