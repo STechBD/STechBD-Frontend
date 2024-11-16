@@ -18,32 +18,36 @@ import Index from '@/app/[blog]/index'
  * Metadata for the Blog Post page.
  *
  * @param { string } slug The post-slug.
- * @returns { Promise<{ title: string }> } The metadata.
+ * @returns { Promise<object> } The metadata.
  * @since 3.0.0
  */
-export async function generateMetadata({ params }: { params: { blog: string } }): Promise<any> {
-	const slug: string = params.blog
+export async function generateMetadata({ params, }: { params: Promise<{ blog: string }> }): Promise<object> {
+	const slug: string = (await params).blog
 	const post: Post = await postData(slug)
 
 	if (post) {
+		const title: string = post.title ?? 'No title'
+		const description: string = post.content?.slice(0, 160) ?? 'No content'
+		const url: string = post.image ?? '/image/Banner.webp'
+
 		return {
-			title: post.title,
-			description: post.content?.slice(0, 160) ?? 'No content',
+			title,
+			description,
 			openGraph: {
-				title: post.title,
-				description: post.content?.slice(0, 160) ?? 'No content',
+				title,
+				description,
 				type: 'article',
 				image: {
-					url: post.image ?? '/image/Banner.webp',
-					alt: post.title,
+					url,
+					alt: title,
 				},
 			},
 			twitter: {
-				title: post.title,
-				description: post.content?.slice(0, 160) ?? 'No content',
+				title,
+				description,
 				image: {
-					url: post.image ?? '/image/Banner.webp',
-					alt: post.title,
+					url,
+					alt: title,
 				},
 			},
 		}
@@ -72,8 +76,8 @@ function cleanHtmlTags(html: string): string {
  * @returns { JSX.Element } The Page component.
  * @since 3.0.0
  */
-export default async function Page({ params }: { params: { blog: string } }): Promise<JSX.Element> {
-	const slug: string = params.blog
+export default async function Page({ params, }: { params: Promise<{ blog: string }> }): Promise<JSX.Element> {
+	const slug: string = (await params).blog
 	const post: Post = await postData(slug)
 
 	if (!post) {

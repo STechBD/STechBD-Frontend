@@ -142,28 +142,128 @@ export const team: Team[] = [
 		],
 		gallery: [
 			{
-				link: '/image/AAShemul-1.webp',
-				alt: 'Image 1',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (10 Minute School Headquarters - February 16, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (10 Minute School Headquarters - February 16, 2023)'
 			},
 			{
-				link: '/image/AAShemul-2.webp',
-				alt: 'Image 2',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (10 Minute School Headquarters - January 25, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (10 Minute School Headquarters - January 25, 2023)'
 			},
 			{
-				link: '/image/AAShemul-3.webp',
-				alt: 'Image 3',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (10 Minute School Headquarters - May 29, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (10 Minute School Headquarters - May 29, 2023)'
 			},
 			{
-				link: '/image/AAShemul-4.webp',
-				alt: 'Image 4',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BNS Sheikh Mujib - May 27, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (BNS Sheikh Mujib - May 27, 2023)'
 			},
 			{
-				link: '/image/AAShemul-5.webp',
-				alt: 'Image 5',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - December 31, 2021).webp',
+				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - December 31, 2021)'
 			},
 			{
-				link: '/image/AAShemul-6.webp',
-				alt: 'Image 6',
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - May 18, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - May 18, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - October 30, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - October 30, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - September 18, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - September 18, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Bangladesh Marine Academy, Chattogram - December, 2021).webp',
+				alt: 'Md. Ashraful Alam Shemul (Bangladesh Marine Academy, Chattogram - December, 2021)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Boat - St. Martin\'s Island - October 16, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Boat - St. Martin\'s Island - October 16, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Bridge, Jahangirnagar University - May 28, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Bridge, Jahangirnagar University - May 28, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Chera Dwip, St. Martin\'s Island - October 15, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Chera Dwip, St. Martin\'s Island - October 15, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Guitar - St. Martin\'s Island - October 16, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Guitar - St. Martin\'s Island - October 16, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Hirankandi, Gopalganj - December 11, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Hirankandi, Gopalganj - December 11, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Independent University, Bangladesh - December 4, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Independent University, Bangladesh - December 4, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Jahangirnagar University - July 13, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Jahangirnagar University - July 13, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Jahangirnagar University - May 28, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Jahangirnagar University - May 28, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Karamjal, Sundarbans - December 14, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Karamjal, Sundarbans - December 14, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Krishibid Institute Complex - November 17, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (Krishibid Institute Complex - November 17, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (MF Lab, BSMR Maritime University - June 12, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (MF Lab, BSMR Maritime University - June 12, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Mirpur 12, Dhaka - September 19, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Mirpur 12, Dhaka - September 19, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Pool, Le M%C3%A9ridien Dhaka - March 22, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Pool, Le Méridien Dhaka - March 22, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Rayerbagh, Dhaka - March 30, 2024).webp',
+				alt: 'Md. Ashraful Alam Shemul (Rayerbagh, Dhaka - March 30, 2024)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Rooftop, Le M%C3%A9ridien Dhaka - March 22, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Rooftop, Le Méridien Dhaka - March 22, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (St. Martin\'s Island - October 14, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (St. Martin\'s Island - October 14, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (St. Martin\'s Island - October 16, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (St. Martin\'s Island - October 16, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (TSC, University of Dhaka - September 6, 2022).webp',
+				alt: 'Md. Ashraful Alam Shemul (TSC, University of Dhaka - September 6, 2022)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Trawler - Shwarupkathi - December 20, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (Trawler - Shwarupkathi - December 20, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (University of Dhaka - July 3, 2023).webp',
+				alt: 'Md. Ashraful Alam Shemul (University of Dhaka - July 3, 2023)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Uttara - March 1, 2024).webp',
+				alt: 'Md. Ashraful Alam Shemul (Uttara - March 1, 2024)'
+			},
+			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (Uttara, Dhaka - December, 2020).webp',
+				alt: 'Md. Ashraful Alam Shemul (Uttara, Dhaka - December, 2020)'
 			},
 		],
 		faq: [
@@ -195,10 +295,8 @@ export const team: Team[] = [
 				ques: 'What is the background of Md. Ashraful Alam Shemul?',
 				ans: <>
 					Md. Ashraful Alam Shemul has a background in marine fisheries. He is a technology enthusiast and
-					entrepreneur
-					with a passion for innovation and technology. He founded <span
-					className="text-white bg-primary"><strong>S Technologies</strong></span> in
-					2013.
+					entrepreneur with a passion for innovation and technology. He founded <span
+					className="text-white bg-primary"><strong>S Technologies</strong></span> in 2013.
 				</>,
 			},
 			{
@@ -266,7 +364,7 @@ export const team: Team[] = [
 			bn: 'নুসরাত জাহান সিফাত',
 		},
 		role: 'CHRO of S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Chief Human Resources Officer, S Technologies',
 		image: 'https://github.com/STechBD.png',
 		cover: '/image/Profile-Cover.webp',
@@ -295,7 +393,7 @@ export const team: Team[] = [
 				<p className="my-2">
 					She is the Chief Human Resources Officer of <span className="text-primary"><Link
 					href="/"><strong>S Technologies</strong></Link></span>. She is managing the department since
-					November 1, 2024.
+					November 17, 2024.
 				</p>
 			</>,
 		},
@@ -307,9 +405,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'CHRO',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -330,7 +428,7 @@ export const team: Team[] = [
 			bn: 'নিয়াজ আহমেদ',
 		},
 		role: 'Software Engineer at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Software Engineer of S Technologies',
 		image: 'https://github.com/STechBD.png',
 		cover: '/image/Profile-Cover.webp',
@@ -386,7 +484,7 @@ export const team: Team[] = [
 			bn: 'মাহির হাসান',
 		},
 		role: 'Designer at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Graphic Designer of S Technologies',
 		image: 'https://github.com/STechBD.png',
 		cover: '/image/Profile-Cover.webp',
@@ -437,7 +535,7 @@ export const team: Team[] = [
 			bn: 'মারিয়া সরকার',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Maria Sharker.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -483,9 +581,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -506,7 +604,7 @@ export const team: Team[] = [
 			bn: 'আহমাদ আল মুনির',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Ahmad AL Munir.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -548,9 +646,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -571,7 +669,7 @@ export const team: Team[] = [
 			bn: 'আশিকুর রহমান',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Ashikur Rahman.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -606,9 +704,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -629,7 +727,7 @@ export const team: Team[] = [
 			bn: 'মোঃ শামীম আহমেদ',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Md Shamim Ahmed.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -666,9 +764,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -689,7 +787,7 @@ export const team: Team[] = [
 			bn: 'মো সজিব হোসেন',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Md Shazib Hossain.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -730,9 +828,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [
@@ -753,7 +851,7 @@ export const team: Team[] = [
 			bn: 'এনজেলিকা মির্জা ঐশ্বর্য',
 		},
 		role: 'Contributor, Marketing at S Technologies',
-		since: 'November 1, 2024',
+		since: 'November 17, 2024',
 		tagline: 'Marketing Contributor of S Technologies',
 		image: 'https://cdn.stechbd.net/file/2024/11/Angelica Mirza Aishwarja.webp',
 		cover: '/image/Profile-Cover.webp',
@@ -803,9 +901,9 @@ export const team: Team[] = [
 			{
 				company: 'S Technologies',
 				role: 'Contributor, Marketing',
-				start: 'November 1, 2024',
+				start: 'November 17, 2024',
 				end: 'Present',
-				description: 'Joined the company on November 1, 2024.',
+				description: 'Joined the company on November 17, 2024.',
 			},
 		],
 		education: [

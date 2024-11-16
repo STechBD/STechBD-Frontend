@@ -4,12 +4,14 @@ import Domain from '@/app/_data/domain'
 /**
  * Check if the domain name is available from API.
  *
+ * @param request The incoming request.
+ * @param params The domain name.
  * @returns { json } - Returns a JSON response with the domain name availability.
  * @since 3.0.0
  */
-export async function GET(request: Request, { params }: { params: { name: string } }): Promise<Response> {
+export async function GET(request: Request, { params }: { params: Promise<{ name: string }> }): Promise<Response> {
 	const extensionList: string[] = []
-	const domain: string = params.name
+	const domain: string = (await params).name
 	const name: string = domain.split('.').shift() || ''
 	const extension: string = domain.split('.').slice(1).join('.')
 
@@ -20,6 +22,8 @@ export async function GET(request: Request, { params }: { params: { name: string
 
 	/**
 	 * Validate the domain name.
+	 *
+	 * @since 3.0.0
 	 */
 	if (!domain) {
 		return Response.json({

@@ -9,19 +9,20 @@ import { notFound } from 'next/navigation'
 
 
 /**
- * Metadata for the Blog Post page.
+ * Metadata for the Team Profile page.
  *
- * @param { string } slug The post-slug.
+ * @param params The Name-slug.
  * @returns { Promise<{ title: string }> } The metadata.
  * @since 3.0.0
  */
-export async function generateMetadata({ params }: { params: { name: string } }): Promise<any> {
-	const slug: string = params.name.toLowerCase()
+export async function generateMetadata({ params, }: { params: Promise<{ name: string }> }): Promise<object> {
+	const slug: string = (await params).name.toLowerCase()
 	const person: Team | undefined = team.find((item: Team): boolean => item.slug.toLowerCase() === slug)
 
 	if (person) {
 		const title: string = person.name.en + ' | ' + person.name.bn
 		const description: string = (person.name.en + ' | ' + person.name.bn + ' | ') + (person.description?.intro?.slice(0, 160) ?? '')
+		const url: string = person.image ?? '/image/S-Technologies-Icon-Light.svg'
 
 		return {
 			title,
@@ -31,16 +32,16 @@ export async function generateMetadata({ params }: { params: { name: string } })
 				description,
 				type: 'article',
 				image: {
-					url: person.image ?? '/image/S-Technologies-Icon-Light.svg',
-					alt: person.name.en + ' | ' + person.name.bn,
+					url,
+					alt: title,
 				},
 			},
 			twitter: {
 				title,
 				description,
 				image: {
-					url: person.image ?? '/image/S-Technologies-Icon-Light.svg',
-					alt: person.name.en + ' | ' + person.name.bn,
+					url,
+					alt: title,
 				},
 			},
 		}
@@ -51,14 +52,14 @@ export async function generateMetadata({ params }: { params: { name: string } })
 
 
 /**
- * Team Page component.
+ * Team Profile Page component.
  *
  * @param params The parameters of the page.
  * @returns { JSX.Element } The Team Page component.
  * @since 3.0.0
  */
-export default async function Page({ params }: { params: { name: string } }): Promise<JSX.Element> {
-	const slug: string = params.name.toLowerCase()
+export default async function Page({ params }: { params: Promise<{ name: string }> }): Promise<JSX.Element> {
+	const slug: string = (await params).name.toLowerCase()
 	const person: Team | undefined = team.find((item: Team): boolean => item.slug.toLowerCase() === slug)
 
 	if (!person) {
@@ -402,13 +403,15 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 								<div className="mt-4 grid lg:grid-cols-2 xl:grid-cols-4">
 									{ person.gallery?.map((item, index: number): JSX.Element => (
 										<div key={ index }>
-											<Image
-												src={ item.link }
-												alt={ item.alt }
-												height={ 200 }
-												width={ 200 }
-												className="h-48 w-full m-2 object-cover rounded-lg shadow-sm"
-											/>
+											<Link href={ item.link } target="_blank">
+												<Image
+													src={ item.link }
+													alt={ item.alt }
+													height={ 150 }
+													width={ 150 }
+													className="h-48 w-48 m-2 object-cover rounded-lg shadow-sm"
+												/>
+											</Link>
 										</div>
 									)) }
 								</div>
@@ -429,8 +432,8 @@ export default async function Page({ params }: { params: { name: string } }): Pr
 											d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
 									</svg>
 									<span className="tracking-wide">
-									Frequently Asked Questions (FAQ) about { person.name.en }
-								</span>
+										Frequently Asked Questions (FAQ) about { person.name.en }
+									</span>
 								</div>
 								<div className="mt-4">
 									<Accordion data={ person.faq }/>

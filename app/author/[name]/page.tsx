@@ -8,14 +8,14 @@ import PostList from '@/app/_component/postList'
 
 
 /**
- * Generate metadata for the Author page.
+ * Metadata for the Author page.
  *
- * @param { string } slug The post-slug.
- * @returns { Promise<{ title: string }> } The metadata.
+ * @param params The Name-slug.
+ * @returns { Promise<object> } The metadata.
  * @since 3.0.0
  */
-export async function generateMetadata({ params }: { params: { name: string } }): Promise<any> {
-	const username: string = params.name
+export async function generateMetadata({ params, }: { params: Promise<{ name: string }> }): Promise<object> {
+	const username: string = (await params).name
 	const user: User = await userData(username)
 
 	if (user) {
@@ -56,13 +56,14 @@ function cleanHtmlTags(html: string): string {
 
 
 /**
- * The Author page component.
+ * The Author Page component.
  *
- * @returns { JSX.Element } The Page component.
+ * @param params The parameters of the page.
+ * @returns { JSX.Element } The Author Page component.
  * @since 3.0.0
  */
-export default async function Page({ params }: { params: { name: string } }): Promise<JSX.Element> {
-	const username: string = params.name
+export default async function Page({ params }: { params: Promise<{ name: string }> }): Promise<JSX.Element> {
+	const username: string = (await params).name
 	const user: User = await userData(username)
 
 	if (!user) {
