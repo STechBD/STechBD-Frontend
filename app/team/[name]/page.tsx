@@ -420,7 +420,7 @@ export default async function Page({ params }: { params: Promise<{ name: string 
 						) }
 						{/* End of photo gallery */ }
 						{/* FAQ */ }
-						{ person.faq && person.faq.length === 0 && (
+						{ person.faq && person.faq.length > 0 && (
 							<div className="mt-12 bg-white p-3 shadow-sm rounded-lg border-t-4 border-primary">
 								<div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
 									<svg

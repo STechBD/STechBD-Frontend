@@ -7,9 +7,10 @@ import { motion } from 'framer-motion'
 /**
  * Function to trigger an animation when user scrolls to the component.
  *
- * @param ref - The reference of the component.
- * @param threshold - The threshold of the component.
- * @returns { boolean } - Whether the component is visible or not.
+ * @param { React.MutableRefObject<any> } ref The reference of the component.
+ * @param { number } threshold The threshold of the component.
+ *
+ * @returns { boolean } Whether the component is visible or not.
  * @since 3.0.0
  */
 export function useIntersectionObserver(ref: React.MutableRefObject<any>, threshold: number = 0.5): boolean {
@@ -30,6 +31,7 @@ export function useIntersectionObserver(ref: React.MutableRefObject<any>, thresh
 
 		return (): void => {
 			if (ref.current) {
+				// eslint-disable-next-line react-hooks/exhaustive-deps
 				observer.unobserve(ref.current)
 			}
 		}
@@ -43,7 +45,6 @@ export function useIntersectionObserver(ref: React.MutableRefObject<any>, thresh
  * Bounce Animation Component.
  *
  * @param { boolean } repeat - Whether the animation should repeat or not when user scrolls to the component.
- * @param { string } style - The style of the component.
  * @param { React.ReactNode } children - The children of the component received.
  * @returns { JSX.Element } - The animated component.
  * @since 3.0.0

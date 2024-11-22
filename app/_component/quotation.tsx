@@ -89,6 +89,14 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 		data: [ 15000, 50000, 5000 ]
 	} ])
 
+
+	/**
+	 * Form Handler function to handle the form submission.
+	 *
+	 * @param { FormEvent<HTMLFormElement> } event The form event.
+	 * @returns { void } Nothing.
+	 * @since 3.0.0
+	 */
 	const formHandler = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
 
@@ -159,25 +167,36 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 		// Get field's "data-value" attribute to get the value
 		const value: string = event.target.selectedOptions[0].getAttribute('data-value') || ''
 
-		// eslint-disable-next-line
-		const data: (string | number)[] = field.type === 'select' ? (custom.find((data: ServiceCustomField) => data.name === base).option[value]) : field.type === 'slider' ? ([
-			custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
-			custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
-			custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
-		]) : [ 'Error' ]
+		const selectedField = custom.find((data: ServiceCustomField) => data.name === base)
 
-		/*if (field.type === 'select') {
-			console.log('Type: Select')
-			console.log('Data:')
-			console.log(custom.find((field: ServiceCustomField) => field.name === base).option[value])
-		} else {
-			console.log('Type: Slider')
-			console.log('Data:')
-			console.log([
-				custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
-				custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
-				custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
-			])
+		const data: (string | number)[] =
+			field.type === 'select' && selectedField?.option && value in selectedField.option
+				? (selectedField.option as Record<string, string[]>)[value]
+				: field.type === 'slider' && selectedField?.min && selectedField?.max && selectedField?.step
+					? [
+						selectedField.min?.[value as string]?.[currency as keyof (typeof selectedField.min)[string]] ?? 0,
+						selectedField.max?.[value as string]?.[currency as keyof (typeof selectedField.max)[string]] ?? 0,
+						selectedField.step?.[value as string]?.[currency as keyof (typeof selectedField.step)[string]] ?? 1,
+					]
+					: [ 'Error' ]
+
+		/*if (process.env.NODE_ENV === 'development') {
+		console.log('selectedField:')
+		console.log(selectedField)
+
+			if (field.type === 'select') {
+				console.log('Type: Select')
+				console.log('Data:')
+				console.log(custom.find((field: ServiceCustomField) => field.name === base).option[value])
+			} else {
+				console.log('Type: Slider')
+				console.log('Data:')
+				console.log([
+					custom.find((field: ServiceCustomField) => field.name === base)[0].min[value][currency],
+					custom.find((field: ServiceCustomField) => field.name === base)[0].max[value][currency],
+					custom.find((field: ServiceCustomField) => field.name === base)[0].step[value][currency],
+				])
+			}
 		}*/
 
 		const stateValue = {
@@ -221,36 +240,38 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 
 	return (
 		<form onSubmit={ (event) => formHandler(event) }>
-			<div>
-				<h2 className="text-4xl text-primary">
-					Custom Fields
-				</h2>
-				<ol className="text-xl">
-					{ customField.map((cf, index) => (
-						<li key={ index }>
-							{ cf.name }: { cf.value }
-						</li>
-					)) }
-				</ol>
-			</div>
-			<div>
-				<h2 className="text-4xl text-primary">
-					States
-				</h2>
-				<ol className="text-xl">
-					{ state?.map(((s, i) => <li key={ i }>
-						{ s.name }: { s.data.join(', ') }
-					</li>)) }
-				</ol>
-			</div>
-			<div>
-				<h2 className="text-4xl text-primary">
-					Description
-				</h2>
+			{ process.env.NODE_ENV === 'development' && (<>
 				<div>
-					{ message }
+					<h2 className="text-4xl text-primary">
+						Custom Fields
+					</h2>
+					<ol className="text-xl">
+						{ customField.map((cf, index) => (
+							<li key={ index }>
+								{ cf.name }: { cf.value }
+							</li>
+						)) }
+					</ol>
 				</div>
-			</div>
+				<div>
+					<h2 className="text-4xl text-primary">
+						States
+					</h2>
+					<ol className="text-xl">
+						{ state?.map(((s, i) => <li key={ i }>
+							{ s.name }: { s.data.join(', ') }
+						</li>)) }
+					</ol>
+				</div>
+				<div>
+					<h2 className="text-4xl text-primary">
+						Description
+					</h2>
+					<div>
+						{ message }
+					</div>
+				</div>
+			</>) }
 			<div>
 				<Currency currency={ currency } callback={ changeCurrency } defaultCurrency={ defaultCurrency }/>
 			</div>

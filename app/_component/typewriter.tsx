@@ -6,14 +6,14 @@ import { JSX, useEffect, useState } from 'react'
 /**
  * Typewriter component.
  *
- * @param content
- * @param speed
+ * @param { string } content The content to display.
+ * @param { number } speed The speed of the typewriter.
  *
- * @returns JSX.Element
+ * @returns JSX.Element The Typewriter component.
  *
  * @since 3.0.0
  */
-export function Typewriter({ content, speed = 100 }: any): JSX.Element {
+export function Typewriter({ content, speed = 100 }: { content: string, speed: number }): JSX.Element {
 	const [ text, setText ] = useState<string>('')
 	const [ index, setIndex ] = useState<number>(0)
 
@@ -26,13 +26,13 @@ export function Typewriter({ content, speed = 100 }: any): JSX.Element {
 		}, speed)
 
 		return () => clearTimeout(timer)
+
+		// eslint-disable-next-line
 	}, [ index, content ])
 
-	return (
-		<>
-			{ text }
-		</>
-	)
+	return (<>
+		{ text }
+	</>)
 }
 
 
@@ -42,23 +42,24 @@ export function Typewriter({ content, speed = 100 }: any): JSX.Element {
  * If loop is true, it will change the content randomly after every change millisecond.
  * If loop is false, it will change the content randomly after every change millisecond only once.
  *
- * @param content
- * @param speed
- * @param change
+ * @param { string } content The content to display.
+ * @param { number } speed The speed of the typewriter.
+ * @param { number } change The time to change the content.
+ * @param { boolean } random Whether to change the content randomly or not.
+ * @param { boolean } loop Whether to loop the content or not.
  *
- * @param random
- * @param loop
- * @returns JSX.Element
+ * @returns JSX.Element The Random Typewriter component.
  *
  * @since 3.0.0
  */
-export function RandomTypewriter({
-	                                 content = [],
-	                                 speed = 100,
-	                                 change = 3000,
-	                                 random = true,
-	                                 loop = true
-                                 }: any): JSX.Element {
+export function RandomTypewriter(
+	{
+		content = [],
+		speed = 100,
+		change = 3000,
+		random = true,
+		loop = true
+	}: { content: string[], speed?: number, change?: number, random?: boolean, loop?: boolean }): JSX.Element {
 	const [ index, setIndex ] = useState<number>(random ? Math.floor(Math.random() * content.length) : 0)
 
 	useEffect(() => {
@@ -83,6 +84,8 @@ export function RandomTypewriter({
 
 			return () => clearTimeout(timer)
 		}
+
+		// eslint-disable-next-line
 	}, [])
 
 	return (
