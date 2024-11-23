@@ -6,31 +6,31 @@ import 'react-markdown-editor-lite/lib/index.css'
 import MarkdownEditor from 'react-markdown-editor-lite'
 import MarkdownIt from 'markdown-it'
 import { useDispatch, useSelector } from 'react-redux'
-import Currency from '@/app/_component/currency';
+import Currency from '@/app/_component/currency'
 import { setCurrency } from '@/app/_context/reduxStore'
 
 
 interface SliderProps {
-	name: string;
-	min: number;
-	max: number;
-	step: number;
-	onChange: (value: number) => void;
-	labelFormatter?: (value: number) => string;
+	name: string
+	min: number
+	max: number
+	step: number
+	onChange: (value: number) => void
+	labelFormatter?: (value: number) => string
 }
 
 function Slider({ name, min, max, step, onChange, labelFormatter }: any): JSX.Element {
-	const [ value, setValue ] = useState<number>((min + max) / 2);
+	const [ value, setValue ] = useState<number>((min + max) / 2)
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-		const newValue = Number(event.target.value);
-		setValue(newValue);
-		onChange(newValue);
-	};
+		const newValue = Number(event.target.value)
+		setValue(newValue)
+		onChange(newValue)
+	}
 
 	const formatLabel = (val: number) => {
-		return labelFormatter ? labelFormatter(val) : val;
-	};
+		return labelFormatter ? labelFormatter(val) : val
+	}
 
 	return (
 		<div className="slider-container">
@@ -49,10 +49,16 @@ function Slider({ name, min, max, step, onChange, labelFormatter }: any): JSX.El
 				className="slider"
 			/>
 			<div className="flex justify-between mt-2">
-				<span>{ formatLabel(min) }</span>
-				<span>{ formatLabel(max) }</span>
+				<span>
+					{ formatLabel(min) }
+				</span>
+				<span>
+					{ formatLabel(max) }
+				</span>
 			</div>
-			<div className="text-center mt-1">{ formatLabel(value) }</div>
+			<div className="text-center mt-1">
+				{ formatLabel(value) }
+			</div>
 		</div>
 	)
 }

@@ -9,16 +9,16 @@ const domain: any = [
 		title: 'Popular',
 		promoStatus: false,
 		registration: {
-			bdt: 1200,
-			usd: 11,
+			bdt: 1300,
+			usd: 12,
 		},
 		renewal: {
-			bdt: 1200,
-			usd: 11,
+			bdt: 1300,
+			usd: 12,
 		},
 		transfer: {
-			bdt: 1200,
-			usd: 11,
+			bdt: 1300,
+			usd: 12,
 		},
 	},
 	{

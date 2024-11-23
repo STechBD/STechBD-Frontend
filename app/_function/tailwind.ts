@@ -14,7 +14,7 @@ const array: number[] = [ ...Array(amount) ]
 array.map((_, index: number) => {
 	list.push(`grid-cols-${ index }`)
 	list.push(`lg:grid-cols-${ index }`)
-});
+})
 
 
 export const safeList: string[] = list

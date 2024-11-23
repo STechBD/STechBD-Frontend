@@ -13,7 +13,7 @@ import { JSX, useEffect, useState } from 'react'
  *
  * @since 3.0.0
  */
-export function Typewriter({ content, speed = 100 }: { content: string, speed: number }): JSX.Element {
+export function Typewriter({ content, speed = 100 }: { content: string, speed?: number }): JSX.Element {
 	const [ text, setText ] = useState<string>('')
 	const [ index, setIndex ] = useState<number>(0)
 
