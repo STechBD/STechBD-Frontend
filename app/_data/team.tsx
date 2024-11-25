@@ -166,6 +166,10 @@ export const team: Team[] = [
 				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - May 18, 2023)'
 			},
 			{
+				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - November 17, 2024).webp',
+				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - November 17, 2024)'
+			},
+			{
 				link: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (BSMR Maritime University - October 30, 2023).webp',
 				alt: 'Md. Ashraful Alam Shemul (BSMR Maritime University - October 30, 2023)'
 			},
