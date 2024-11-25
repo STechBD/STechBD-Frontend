@@ -139,6 +139,20 @@ export const team: Team[] = [
 				start: 'January 10, 2020',
 				end: 'Present',
 			},
+			{
+				institute: 'Kabi Nazrul Govt. College, Dhaka',
+				degree: 'HSC',
+				major: 'Science',
+				start: '2016',
+				end: '2018',
+			},
+			{
+				institute: 'Hajee Shariat Ullah Adarsha High School, Dhaka',
+				degree: 'SSC',
+				major: 'Science',
+				start: '2014',
+				end: '2016',
+			},
 		],
 		gallery: [
 			{
