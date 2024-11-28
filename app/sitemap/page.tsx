@@ -156,6 +156,34 @@ export default function Page(): JSX.Element {
 			title: 'Search Engine Optimization',
 			link: '/seo',
 		},
+		{
+			title: 'Md. Ashraful Alam Shemul | মু. আশরাফুল আলম শিমুল',
+			link: '/team/AAShemul',
+		},
+		{
+			title: 'Maria Sharker | মারিয়া সরকার',
+			link: '/team/Maria',
+		},
+		{
+			title: 'Ahmad AL Munir | আহমাদ আল মুনির',
+			link: '/team/Munir',
+		},
+		{
+			title: 'Ashikur Rahman | আশিকুর রহমান',
+			link: '/team/Ashik',
+		},
+		{
+			title: 'Md Shamim Ahmed | মোঃ শামীম আহমেদ',
+			link: '/team/Shamim',
+		},
+		{
+			title: 'Md Shazib Hossain | মো সজিব হোসেন',
+			link: '/team/Shazib',
+		},
+		{
+			title: 'Angelica Mirza Aishwarja | এনজেলিকা মির্জা ঐশ্বর্য',
+			link: '/team/Angelica',
+		},
 	]
 
 	return (
