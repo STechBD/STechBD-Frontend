@@ -38,7 +38,7 @@ export default function ComparisonTable({ feature, data, defaultCurrency = 'bdt'
 						className="relative after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:w-full after:h-48 after:bg-gradient-to-t after:from-white after:via-white/70 dark:after:from-slate-900 dark:after:via-slate-900/95">
 
 						{ /** Header **/ }
-						<div className="hidden lg:block sticky top-[5.5rem] start-0 py-2 bg-white dark:bg-slate-900">
+						<div className="hidden lg:block sticky top-[3.5rem] start-0 py-2 bg-white dark:bg-slate-900">
 							{ /** Grid **/ }
 							<div className={ 'grid gap-6 grid-cols-' + column }>
 								<div className="col-span-2">
