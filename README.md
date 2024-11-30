@@ -166,3 +166,51 @@ Here is the project structure.
 │   ├── [blog]
 ...
 ```
+
+## Project Roadmap
+
+To be updated soon.
+
+## Technologies
+
+The project is created with various technologies.
+
+### Language
+
+- JavaScript
+- TypeScript
+- SCSS
+- JSON
+
+### Framework and Library
+
+- Next.js
+- React.js
+- Redux
+- Tailwind CSS
+
+## Dependencies
+
+The project uses the following dependencies.
+
+- [Next.js](https://nextjs.org)
+- [React.js](https://reactjs.org)
+- [Redux](https://redux.js.org)
+
+## License
+
+The project is licensed under the [S Technologies License](LICENSE).
+
+## Acknowledgements
+
+To be updated soon.
+
+## Contact
+
+To be updated soon.
+
+## Support
+
+To be updated soon.
+
+[Back to Top](#s-technologies-frontend)
