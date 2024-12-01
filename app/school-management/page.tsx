@@ -16,8 +16,8 @@ import ComparisonTable from '@/app/_component/comparisonTable'
  *
  * @since 3.0.0
  */
-const title: string = 'School Management System'
-const description: string = 'School Management System is a complete solution for managing school, college, university, and any other educational institution. It is a modern and fully responsive system that will help you to manage your institution easily.'
+const title: string = 'Smart Campus - School Management System'
+const description: string = 'Smart Campus - School Management System is a complete solution for managing school, college, university, and any other educational institution. It is a modern and fully responsive system that will help you to manage your institution easily.'
 export const metadata: Metadata = {
 	title,
 	description,
@@ -46,12 +46,12 @@ export default function Page(): JSX.Element {
 				<DefaultEffect/>
 				<div className="lg:px-20 py-10">
 					<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-						School Management System
+						Smart Campus - School Management System
 					</h2>
 					<p className="mt-4 text-xl text-gray-500">
-						School Management System is a complete solution for managing school, college, university, and
-						any other educational institution. It is a modern and fully responsive system that will help you
-						to manage your institution easily.
+						<strong>Smart Campus</strong>, a school management system, is a complete solution for managing
+						school, college, university, and any other educational institution. It is a modern and fully
+						responsive system that will help you to manage your institution easily.
 					</p>
 					<PricingTable data={ pricingData }/>
 				</div>
