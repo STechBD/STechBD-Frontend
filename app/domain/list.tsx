@@ -79,63 +79,57 @@ export default function List({ defaultCurrency = 'bdt' }: any): JSX.Element {
 					<Currency currency={ currency } callback={ changeCurrency } defaultCurrency={ defaultCurrency }/>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-10">
-					{
-						sortedDomain.map((domain: any, i: number = 0) => {
-							i++
+					{ sortedDomain.map((domain: any, i: number = 0): JSX.Element => {
+						i++
 
-							return (
-								<div key={ i }
-								     className="bg-white text-center shadow-md rounded-lg px-10 py-6 dark:bg-gray-800"
-								>
-									<h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
-										{ domain.extension }
-									</h2>
-									<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
-										{ domain.title }
-									</p>
-									<p className="mt-4 text-5xl font-semibold text-gray-900 dark:text-gray-100">
-										{
-											domain.promo && (
-												<span className="block text-2xl text-primary">
-													<del>
-														<span>
-															{ currency === 'bdt' ? '৳' : '$' }
-														</span>
-														<span>
-															{ currency === 'bdt' ? domain.registration.bdt : domain.registration.usd }
-														</span>
-													</del>
+						return (
+							<div key={ i }
+							     className="bg-white text-center shadow-md rounded-lg px-10 py-6 dark:bg-gray-800"
+							>
+								<h2 className="text-4xl font-semibold text-gray-900 dark:text-gray-100">
+									{ domain.extension }
+								</h2>
+								<p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
+									{ domain.title }
+								</p>
+								<p className="mt-4 text-3xl font-semibold text-gray-800 dark:text-gray-200">
+									{ domain.promo && (
+										<span className="block text-2xl text-primary">
+											<del>
+												<span>
+													{ currency === 'bdt' ? '৳' : '$' }
 												</span>
-											)
-										}
-										<span>
-											{ currency === 'bdt' ? '৳' : '$' }
+												<span>
+													{ currency === 'bdt' ? domain.registration.bdt : domain.registration.usd }
+												</span>
+											</del>
 										</span>
-										<span>
-											{ currency === 'bdt' ? (
-												domain.promo ? domain.promo.bdt : domain.registration.bdt
-											) : (
-												domain.promo ? domain.promo.usd : domain.registration.usd
-											) }
-										</span>
-									</p>
-									<p className="mt-4 text-center text-gray-600 dark:text-gray-400">
-										{
-											domain.title === 'Bangladeshi' ? 'Per 2 Year' : 'Per Year'
-										}
-									</p>
-									<div className="mt-6">
-										<a target="_blank"
-										   href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
-										   className="block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none bg-primary hover:bg-secondary focus:bg-secondary"
-										>
-											Buy Now
-										</a>
-									</div>
+									) }
+									<span>
+										{ currency === 'bdt' ? '৳' : '$' }
+									</span>
+									<span>
+										{ currency === 'bdt' ? (
+											domain.promo ? domain.promo.bdt : domain.registration.bdt
+										) : (
+											domain.promo ? domain.promo.usd : domain.registration.usd
+										) }
+									</span>
+								</p>
+								<p className="mt-4 text-center text-gray-600 dark:text-gray-400">
+									{ domain.title === 'Bangladeshi' ? 'Per 2 Year' : 'Per Year' }
+								</p>
+								<div className="mt-6">
+									<a target="_blank"
+									   href="https://cpanel.stechbd.net/cart.php?a=add&domain=register"
+									   className="block w-full text-white text-center font-bold py-2 px-4 rounded focus:outline-none bg-primary hover:bg-secondary focus:bg-secondary"
+									>
+										Buy Now
+									</a>
 								</div>
-							)
-						})
-					}
+							</div>
+						)
+					}) }
 				</div>
 			</div>
 		</>
