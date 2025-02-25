@@ -66,6 +66,10 @@ export default function Footer(): JSX.Element {
 			link: '/product/Install-Express',
 		},
 		{
+			title: 'WP-Next 🎉',
+			link: '/product/WP-Next',
+		},
+		{
 			title: 'CookieCons',
 			link: '/product/CookieCons',
 		},
@@ -418,20 +422,21 @@ export default function Footer(): JSX.Element {
 				</div>
 			</div>
 		</footer>
-		{
-			process.env.NODE_ENV === 'production' ? (<>
-				<Script src="https://www.googletagmanager.com/gtag/js?id=G-XWQG24GEHS" async
-				        strategy="lazyOnload"></Script>
-				<Script id="google-analytics">
-					{
-						`window.dataLayer = window.dataLayer || [];
+		{ process.env.NODE_ENV === 'production' && process.env.GA === 'True' ? (<>
+			<Script
+				src={ `https://www.googletagmanager.com/gtag/js?id=${ process.env.GA_TRACKING_ID }` }
+				async
+				strategy="lazyOnload"
+			/>
+			<Script id="google-analytics">
+				{
+					`window.dataLayer = window.dataLayer || [];
 						function gtag(){ dataLayer.push(arguments); }
 						gtag('js', new Date());
 
-						gtag('config', 'G-XWQG24GEHS');`
-					}
-				</Script>
-			</>) : <></>
-		}
+						gtag('config', '${ process.env.GA_TRACKING_ID }');`
+				}
+			</Script>
+		</>) : <></> }
 	</>)
 }
