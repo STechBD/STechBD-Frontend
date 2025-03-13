@@ -2,7 +2,7 @@
 
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import Error from '@/app/_component/error'
+import Error from '@/component/error'
 
 
 /**

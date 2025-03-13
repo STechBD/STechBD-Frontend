@@ -1,10 +1,10 @@
 import { JSX } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { DefaultEffect } from '@/app/_component/background'
-import Accordion from '@/app/_component/accordion'
-import { team } from '@/app/_data/team'
-import { Team } from '@/app/_data/type'
+import { DefaultEffect } from '@/component/background'
+import Accordion from '@/component/accordion'
+import { team } from '@/data/team'
+import { Team } from '@/data/type'
 import { notFound } from 'next/navigation'
 
 

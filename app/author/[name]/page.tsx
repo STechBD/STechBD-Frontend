@@ -1,10 +1,10 @@
 import { JSX } from 'react'
 import { notFound } from 'next/navigation'
-import type { User } from '@/app/_data/type'
-import { userData } from '@/app/_function/api'
+import type { User } from '@/data/type'
+import { userData } from '@/function/api'
 import Hero from './hero'
-import { DefaultEffect } from '@/app/_component/background'
-import PostList from '@/app/_component/postList'
+import { DefaultEffect } from '@/component/background'
+import PostList from '@/component/postList'
 
 
 /**

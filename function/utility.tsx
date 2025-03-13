@@ -1,5 +1,5 @@
 import { usePathname } from 'next/navigation'
-import { productList } from '@/app/_data/product'
+import { productList } from '@/data/product'
 
 
 /**

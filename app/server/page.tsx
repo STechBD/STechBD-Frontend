@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from './hero'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 
 
 /**

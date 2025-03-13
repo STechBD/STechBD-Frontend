@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Hero, Section } from '@/app/_data/type'
+import type { Hero, Section } from '@/data/type'
 
 
 /**

@@ -1,13 +1,13 @@
 import { JSX } from 'react'
 import Link from 'next/link'
-import type { Pricing } from '@/app/_data/type'
+import type { Pricing } from '@/data/type'
 import Hero from './hero'
-import { DefaultEffect } from '@/app/_component/background'
-import AnimatedLogo from '@/app/_component/animatedLogo'
-import { Bounce } from '@/app/_component/animation'
-import PricingTable from '@/app/_component/pricingTable'
-import Testimonial from '@/app/_component/testimonial'
-import PostList from '@/app/_component/postList'
+import { DefaultEffect } from '@/component/background'
+import AnimatedLogo from '@/component/animatedLogo'
+import { Bounce } from '@/component/animation'
+import PricingTable from '@/component/pricingTable'
+import Testimonial from '@/component/testimonial'
+import PostList from '@/component/postList'
 
 
 /**

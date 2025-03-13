@@ -2,11 +2,11 @@ import React, { JSX } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
-import '@/app/_style/globals.scss'
-import ReduxProvider from '@/app/_context/reduxProvider'
-import Cursor from '@/app/_component/cursor'
-import Header from '@/app/_component/header'
-import Footer from '@/app/_component/footer'
+import '@/style/globals.scss'
+import ReduxProvider from '@/context/reduxProvider'
+import Cursor from '@/component/cursor'
+import Header from '@/component/header'
+import Footer from '@/component/footer'
 
 
 /**

@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
 
 
@@ -192,7 +192,7 @@ export default async function Page(): Promise<JSX.Element> {
 								servers.map((server) => (
 									<div
 										key={ server.id }
-									    className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:bg-opacity-70"
+										className="mb-8 p-8 rounded-lg border border-gray-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:bg-opacity-70"
 									>
 										<h3 className="text-lg text-primary">
 											<strong>

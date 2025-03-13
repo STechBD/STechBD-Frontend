@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Hero from './hero'
-import { Main, Paragraph, Div, Section, UList } from '@/app/_component/template'
+import { Main, Paragraph, Div, Section, UList } from '@/component/template'
 
 
 /**

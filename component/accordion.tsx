@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import type { Accordion, SubAccordion } from '@/app/_data/type'
+import type { Accordion, SubAccordion } from '@/data/type'
 
 
 /**

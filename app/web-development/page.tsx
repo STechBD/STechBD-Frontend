@@ -1,9 +1,9 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
-import Quotation from '@/app/_component/quotation'
-import { ServiceCustomField } from '@/app/_data/type'
+import Quotation from '@/component/quotation'
+import { ServiceCustomField } from '@/data/type'
 
 
 /**

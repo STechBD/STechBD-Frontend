@@ -1,11 +1,11 @@
 import type { Config } from 'tailwindcss'
-import { safeList } from './app/_function/tailwind'
+import { safeList } from './function/tailwind'
 
 
 const config: Config = {
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./component/**/*.{js,ts,jsx,tsx,mdx}',
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {

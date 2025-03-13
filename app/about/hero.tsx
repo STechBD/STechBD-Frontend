@@ -1,8 +1,8 @@
 'use client'
 
 import { Metadata } from 'next'
-import AnimatedLogo from '@/app/_component/animatedLogo'
-import { Bounce } from '@/app/_component/animation'
+import AnimatedLogo from '@/component/animatedLogo'
+import { Bounce } from '@/component/animation'
 
 
 export const metadata: Metadata = {

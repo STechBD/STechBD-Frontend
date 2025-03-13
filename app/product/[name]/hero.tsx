@@ -3,9 +3,9 @@
 import { JSX, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Hero } from '@/app/_data/type'
-import { products } from '@/app/_data/product'
-import Code from '@/app/_component/code'
+import type { Hero } from '@/data/type'
+import { products } from '@/data/product'
+import Code from '@/component/code'
 
 
 /**

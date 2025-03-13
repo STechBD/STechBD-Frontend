@@ -1,10 +1,10 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
-import { productList } from '@/app/_data/product'
-import { Main, Section, Paragraph, OList } from '@/app/_component/template'
+import { productList } from '@/data/product'
+import { Main, Section, Paragraph, OList } from '@/component/template'
 
 
 /**

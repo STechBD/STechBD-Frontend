@@ -1,11 +1,11 @@
 import { JSX } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Content, Section } from '@/app/_data/type'
-import { DefaultEffect } from '@/app/_component/background'
-import Code from '@/app/_component/code'
+import type { Content, Section } from '@/data/type'
+import { DefaultEffect } from '@/component/background'
+import Code from '@/component/code'
 import Hero from './hero'
-import { getProduct, isProduct, products } from '@/app/_data/product'
+import { getProduct, isProduct, products } from '@/data/product'
 import { notFound } from 'next/navigation'
 
 

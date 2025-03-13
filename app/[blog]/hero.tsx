@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX } from 'react'
-import { AdvancedHeroEffect } from '@/app/_component/background'
+import { AdvancedHeroEffect } from '@/component/background'
 
 
 /**

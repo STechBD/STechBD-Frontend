@@ -1,10 +1,10 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import { comparisonData, featureData, pricingData } from './data'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
-import PricingTable from '@/app/_component/pricingTable'
-import ComparisonTable from '@/app/_component/comparisonTable'
+import PricingTable from '@/component/pricingTable'
+import ComparisonTable from '@/component/comparisonTable'
 
 
 /**

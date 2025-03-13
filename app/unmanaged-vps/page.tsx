@@ -1,10 +1,10 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import { comparisonData, featureData, pricingData } from './data'
 import Hero from './hero'
-import PricingTable from '@/app/_component/pricingTable'
-import ComparisonTable from '@/app/_component/comparisonTable'
+import PricingTable from '@/component/pricingTable'
+import ComparisonTable from '@/component/comparisonTable'
 
 
 /**
@@ -69,7 +69,8 @@ export default function Page(): JSX.Element {
 						What is Unmanaged VPS?
 					</h2>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Unmanaged VPS is a type of web hosting where the hosting provider manages the server for you. You
+						Unmanaged VPS is a type of web hosting where the hosting provider manages the server for you.
+						You
 						do not have to worry about server maintenance, security, or updates. S Technologies will take
 						care of everything for you. You can focus on your website and your business. Unmanaged VPS is
 						perfect for those who want to host their website on a server that is fully unmanaged by us. We
@@ -78,10 +79,13 @@ export default function Page(): JSX.Element {
 						overall cost of server maintenance.
 					</p>
 					<p className="mt-4 text-xl text-gray-900 dark:text-gray-100">
-						Unmanaged VPS is the most economical option for hosting, as many people share the overall cost of
+						Unmanaged VPS is the most economical option for hosting, as many people share the overall cost
+						of
 						server maintenance. It is perfect for personal websites, small and medium businesses that do not
-						require all the resources of a server. Unmanaged VPS is also a popular option if you run a simple
-						blog or forum. If you are starting a new website, unmanaged VPS is the most cost-effective way of
+						require all the resources of a server. Unmanaged VPS is also a popular option if you run a
+						simple
+						blog or forum. If you are starting a new website, unmanaged VPS is the most cost-effective way
+						of
 						doing so. Unmanaged VPS is the most economical option for hosting, as many people share the
 						overall cost of server maintenance. It is perfect for personal websites, small and medium
 						businesses that do not require all the resources of a server. Unmanaged VPS is also a popular

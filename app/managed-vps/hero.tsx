@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import { BasicHeroEffect } from '@/app/_component/background'
+import { BasicHeroEffect } from '@/component/background'
 
 
 /**

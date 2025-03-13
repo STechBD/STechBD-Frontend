@@ -3,9 +3,9 @@
 import { JSX, useState } from 'react'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrency } from '@/app/_context/reduxStore'
-import type { Data, Feature } from '@/app/_data/type'
-import Currency from '@/app/_component/currency'
+import { setCurrency } from '@/context/reduxStore'
+import type { Data, Feature } from '@/data/type'
+import Currency from '@/component/currency'
 
 
 /**

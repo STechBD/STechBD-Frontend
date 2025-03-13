@@ -1,11 +1,11 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import { AdvancedHeroEffect } from '@/app/_component/background'
-import { Bounce } from '@/app/_component/animation'
-import { Typewriter } from '@/app/_component/typewriter'
-import Domain from '@/app/_data/domain'
-import DomainChecker from '@/app/_component/domainChecker'
+import { AdvancedHeroEffect } from '@/component/background'
+import { Bounce } from '@/component/animation'
+import { Typewriter } from '@/component/typewriter'
+import Domain from '@/data/domain'
+import DomainChecker from '@/component/domainChecker'
 
 
 /**

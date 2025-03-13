@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX } from 'react'
-import { BasicHeroEffect } from '@/app/_component/background'
+import { BasicHeroEffect } from '@/component/background'
 import Image from 'next/image'
 import Markdown from 'react-markdown'
 import remarkEmoji from 'remark-emoji'

@@ -1,12 +1,12 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
 import Image from 'next/image'
 import Link from 'next/link'
-import { team } from '@/app/_data/team'
-import { Team } from '@/app/_data/type'
+import { team } from '@/data/team'
+import { Team } from '@/data/type'
 
 
 /**

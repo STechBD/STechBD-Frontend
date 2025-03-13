@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, useEffect, useState } from 'react'
-import { themes } from '@/app/_function/theme'
+import config from '@/stech.config'
 import Cookie from 'js-cookie'
 
 
@@ -17,7 +17,7 @@ export default function Theme(): JSX.Element {
 	const [ themePanel, setThemePanel ] = useState<boolean>(false)
 
 	function toggleTheme(theme: string): void {
-		if (themes.find(t => t === theme)) {
+		if (config.themes.find(t => t === theme)) {
 			setTheme(theme)
 			document.documentElement.classList.remove('theme-red', 'theme-green', 'theme-teal', 'theme-blue', 'theme-indigo', 'theme-purple')
 			document.documentElement.classList.add(`theme-${ theme }`)
@@ -87,7 +87,7 @@ export default function Theme(): JSX.Element {
 					<div className="grid grid-cols-4">
 						{/* It doesn't work. Doesn't show the color in the circle. */ }
 						{
-							themes.map(theme => (
+							config.themes.map(theme => (
 								<div key={ theme } className="flex flex-col items-center">
 									<button
 										onClick={ () => toggleTheme(theme) }

@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Hero from './hero'
-import { AdvancedHeroEffect } from '@/app/_component/background'
-import { Bounce } from '@/app/_component/animation'
+import { AdvancedHeroEffect } from '@/component/background'
+import { Bounce } from '@/component/animation'
 
 
 /**

@@ -1,9 +1,9 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
-import { Main, Paragraph, Section, UList } from '@/app/_component/template'
+import { Main, Paragraph, Section, UList } from '@/component/template'
 
 
 /**

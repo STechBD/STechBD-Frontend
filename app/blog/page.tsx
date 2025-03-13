@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import { DefaultEffect } from '@/app/_component/background'
-import PostList from '@/app/_component/postList'
+import { DefaultEffect } from '@/component/background'
+import PostList from '@/component/postList'
 import Hero from './hero'
 
 

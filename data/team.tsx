@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Team } from '@/app/_data/type'
+import { Team } from '@/data/type'
 
 
 /**
@@ -46,7 +46,7 @@ export const team: Team[] = [
 				</p>
 				<p className="my-2">
 					He is the founder of <span className="text-primary"><Link
-					href="/"><strong>S Technologies</strong></Link></span>, <span className="text-primary"><a
+					href="/public"><strong>S Technologies</strong></Link></span>, <span className="text-primary"><a
 					href="https://www.ulkaa.com" target="_blank"><strong>Ulkaa</strong></a></span>, and <span
 					className="text-primary"><a href="https://shikkhaweb.com"
 					                            target="_blank"><strong>Shikkha Web</strong></a></span>. He is the
@@ -410,7 +410,7 @@ export const team: Team[] = [
 				</p>
 				<p className="my-2">
 					She is the Chief Human Resources Officer of <span className="text-primary"><Link
-					href="/"><strong>S Technologies</strong></Link></span>. She is managing the department since
+					href="/public"><strong>S Technologies</strong></Link></span>. She is managing the department since
 					November 17, 2024.
 				</p>
 			</>,

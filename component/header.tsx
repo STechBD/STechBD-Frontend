@@ -4,12 +4,12 @@ import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import type { Menu } from '@/app/_data/type'
-import { isPath, validatePath } from '@/app/_function/utility'
-import { getProduct } from '@/app/_data/product'
-import ParticleAnimation from '@/app/_component/particleAnimation'
-import AnimatedLogo from '@/app/_component/animatedLogo'
-import Theme from '@/app/_component/theme'
+import type { Menu } from '@/data/type'
+import { isPath, validatePath } from '@/function/utility'
+import { getProduct } from '@/data/product'
+import ParticleAnimation from '@/component/particleAnimation'
+import AnimatedLogo from '@/component/animatedLogo'
+import Theme from '@/component/theme'
 
 
 /**

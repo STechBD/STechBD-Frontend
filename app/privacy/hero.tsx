@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import Link from 'next/link'
-import { BasicHeroEffect } from '@/app/_component/background'
+import { BasicHeroEffect } from '@/component/background'
 
 
 /**
@@ -47,7 +47,7 @@ export default function Hero(): JSX.Element {
 								</div>
 							</li>
 						</ol>
-					</nav>*/}
+					</nav>*/ }
 				</div>
 			</div>
 		</>

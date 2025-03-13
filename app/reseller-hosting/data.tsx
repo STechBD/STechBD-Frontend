@@ -1,4 +1,4 @@
-import type { Feature, Pricing } from '@/app/_data/type'
+import type { Feature, Pricing } from '@/data/type'
 
 
 /**

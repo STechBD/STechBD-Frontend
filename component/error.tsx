@@ -2,10 +2,10 @@
 
 import { JSX } from 'react'
 import Link from 'next/link'
-import { Typewriter } from '@/app/_component/typewriter'
-import { AdvancedHeroEffect } from '@/app/_component/background'
-import { Bounce } from '@/app/_component/animation'
-import DomainChecker from '@/app/_component/domainChecker'
+import { Typewriter } from '@/component/typewriter'
+import { AdvancedHeroEffect } from '@/component/background'
+import { Bounce } from '@/component/animation'
+import DomainChecker from '@/component/domainChecker'
 
 
 /**

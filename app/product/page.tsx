@@ -1,10 +1,10 @@
 import { AwaitedReactNode, JSX, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { productList } from '@/app/_data/product'
-import AnimatedLogo from '@/app/_component/animatedLogo'
+import { productList } from '@/data/product'
+import AnimatedLogo from '@/component/animatedLogo'
 import Hero from './hero'
 
 

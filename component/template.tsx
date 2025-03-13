@@ -1,5 +1,5 @@
 import React, { JSX } from 'react'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 
 
 /**

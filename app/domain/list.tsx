@@ -1,10 +1,10 @@
 'use client'
 
 import { JSX, useState } from 'react'
-import data from '@/app/_data/domain'
+import data from '@/data/domain'
 import { useDispatch, useSelector } from 'react-redux'
-import Currency from '@/app/_component/currency'
-import { setCurrency } from '@/app/_context/reduxStore'
+import Currency from '@/component/currency'
+import { setCurrency } from '@/context/reduxStore'
 
 
 /**

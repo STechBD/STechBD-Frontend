@@ -1,4 +1,4 @@
-import Domain from '@/app/_data/domain'
+import Domain from '@/data/domain'
 
 
 /**

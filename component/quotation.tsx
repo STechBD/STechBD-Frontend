@@ -1,13 +1,13 @@
 'use client'
 
 import React, { ChangeEvent, DetailedHTMLProps, FormEvent, FormHTMLAttributes, JSX, useState } from 'react'
-import { ServiceCustomField } from '@/app/_data/type'
+import { ServiceCustomField } from '@/data/type'
 import 'react-markdown-editor-lite/lib/index.css'
 import MarkdownEditor from 'react-markdown-editor-lite'
 import MarkdownIt from 'markdown-it'
 import { useDispatch, useSelector } from 'react-redux'
-import Currency from '@/app/_component/currency'
-import { setCurrency } from '@/app/_context/reduxStore'
+import Currency from '@/component/currency'
+import { setCurrency } from '@/context/reduxStore'
 
 
 interface SliderProps {

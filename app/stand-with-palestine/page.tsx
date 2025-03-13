@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
-import { DefaultEffect } from '@/app/_component/background'
+import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
 
 
