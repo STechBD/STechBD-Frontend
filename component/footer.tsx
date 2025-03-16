@@ -11,7 +11,7 @@ import { Bounce } from '@/component/animation'
  * Footer component.
  *
  * @returns { JSX.Element } Footer component.
- * @since 1.0.0
+ * @since 3.0.0
  */
 export default function Footer(): JSX.Element {
 	const website = [
@@ -191,7 +191,7 @@ export default function Footer(): JSX.Element {
 		},
 		{
 			title: 'Sitemap',
-			link: '/sitemap',
+			link: '/index',
 		},
 	]
 

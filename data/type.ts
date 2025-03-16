@@ -170,6 +170,29 @@ export interface Comparison {
 
 
 /**
+ * Interface definition for the Products.
+ *
+ * @interface Product
+ *
+ * @since 3.1.0
+ */
+export interface Product {
+	id: string
+	title: string
+	info: string
+	description: JSX.Element
+	logo: string | false
+	docs: string
+	github: string
+	rating: number
+	platform: string[]
+	language: string[]
+	tool: string[]
+	tag: string[]
+}
+
+
+/**
  * Interface definition for the section of the Product page.
  *
  * @interface Hero
@@ -352,4 +375,17 @@ export interface Team {
 		ques: string
 		ans: JSX.Element
 	}[]
+}
+
+
+/**
+ * Interface definition for the sitemap page list.
+ *
+ * @interface SitemapPage
+ */
+export interface SitemapPage {
+	title: string
+	link: string
+	priority?: number
+	frequency?: 'weekly' | 'monthly' | 'yearly' | 'always' | 'hourly' | 'daily' | 'never'
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Hero, Section } from '@/data/type'
+import type { Hero, Product, Section } from '@/data/type'
 
 
 /**
@@ -8,7 +8,7 @@ import type { Hero, Section } from '@/data/type'
  * @constant productList { any[] } The list of products.
  * @since 3.0.0
  */
-export const productList: any[] = [
+export const productList: Product[] = [
 	{
 		id: 'Shunno',
 		title: 'Shunno Programming Language',
@@ -127,6 +127,38 @@ export const productList: any[] = [
 			'CLI',
 			'Node.js',
 			'Express.js',
+		],
+	},
+	{
+		id: 'WP-Next',
+		title: 'WP-Next',
+		info: 'WP-Next (Wordpress-Next) is a WordPress-backed simple and beautiful blog frontend using Next.js. It is a fully responsive blog frontend that is easy to customize and use.',
+		description: <>
+			<strong>WP-Next (Wordpress-Next)</strong> is a WordPress-backed simple and beautiful blog frontend using
+			Next.js developed by S Technologies. It is a fully responsive blog frontend that is easy to customize and
+			use. It is built with Next.js and Tailwind CSS by using WordPress REST API.
+		</>,
+		logo: '/image/WP-Next-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/WP-Next',
+		github: 'https://github.com/STechBD/WP-Next',
+		rating: 5,
+		platform: [
+			'Web',
+		],
+		language: [
+			'JavaScript',
+			'TypeScript',
+		],
+		tool: [
+			'Next.js',
+			'React.js',
+			'TailwindCSS',
+		],
+		tag: [
+			'Node.js',
+			'Next.js',
+			'React.js',
+			'TailwindCSS',
 		],
 	},
 	{
@@ -1080,6 +1112,178 @@ export const Install_Express: { info: any, hero: Hero, section: Section[] } = {
 					description: 'To create a new project, run the following command:',
 					code: {
 						text: 'npx install-express@latest',
+						language: 'bash',
+					},
+				},
+			],
+		},
+	],
+}
+
+/**
+ * The product data for WP-Next (Wordpress-Next).
+ *
+ * @constant WP_Next { info: any, hero: Hero, section: Section[] } The product data
+ * @since 3.0.0
+ */
+export const WP_Next: { info: any, hero: Hero, section: Section[] } = {
+	info: {
+		id: 'WP_Next',
+		title: 'WP-Next',
+		description: 'WP-Next (Wordpress-Next) is a WordPress-backed simple and beautiful blog frontend using Next.js. It is a fully responsive blog frontend that is easy to customize and use.',
+		logo: '/image/WP-Next-Logo-Light.svg',
+		docs: 'https://docs.stechbd.net/WP-Next',
+		github: 'https://github.com/STechBD/WP-Next',
+	},
+	hero: {
+		title: 'Start your Next.js and WordPress-backed project in seconds!',
+		description: <>
+			<strong>WP-Next (Wordpress-Next)</strong> is a WordPress-backed simple and beautiful blog frontend using
+			Next.js developed by S Technologies. It is a fully responsive blog frontend that is easy to customize and
+			use. It is built with Next.js and Tailwind CSS by using WordPress REST API.
+		</>,
+		notice: <>
+			Current Version:
+			<Link className="font-semibold text-primary"
+			      href="/product/WP-Next/releases"
+			>
+				<span className="absolute inset-0" aria-hidden="true"></span> v1.0.0 🎉
+			</Link>
+		</>,
+		code: {
+			text: 'git clone https://github.com/STechBD/WP-Next.git',
+			language: 'bash',
+		},
+		button: [
+			{
+				text: 'Get Started',
+				link: 'https://docs.stechbd.net/WP-Next',
+			},
+			{
+				text: 'Learn More',
+				link: '/product/WP-Next/about',
+			}
+		],
+	},
+	section: [
+		{
+			id: 'features',
+			title: 'Features',
+			content: [
+				{
+					title: 'TypeScript',
+					description: 'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It is pure object-oriented with classes, interfaces, and statically typed like C# or Java.',
+					url: {
+						text: 'Learn More',
+						link: 'https://www.typescriptlang.org/',
+					},
+				},
+				{
+					title: 'Next.js',
+					description: 'Next.js is the React framework for the web used by some of the world\'s largest companies. Next.js enables you to create high-quality web applications with the power of React components.',
+					url: {
+						text: 'Learn More',
+						link: 'https://nextjs.org/docs',
+					},
+				},
+				{
+					title: 'React.js',
+					description: 'React.js is the most popular and high efficient frontend library for JavaScript and TypeScript.',
+					url: {
+						text: 'Learn More',
+						link: 'https://react.dev/learn',
+					},
+				},
+				{
+					title: 'TailwindCSS',
+					description: 'TailwindCSS is A utility-first CSS framework for rapidly building custom user interfaces.',
+					url: {
+						text: 'Learn More',
+						link: 'https://tailwindcss.com/docs/styling-with-utility-classes',
+					},
+				},
+			],
+		},
+		{
+			id: 'installation',
+			title: 'Installation',
+			content: [
+				{
+					title: 'Create a new project',
+					description: 'To create a new project, run the following command:',
+					code: {
+						text: 'git clone https://github.com/STechBD/WP-Next.git',
+						language: 'bash',
+					},
+				},
+			],
+		},
+		{
+			id: 'support',
+			title: 'Support',
+			content: [
+				{
+					title: 'GitHub',
+					description: 'If you have any problems or suggestions, please open an issue on GitHub.',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.com/STechBD/WP-Next/issues',
+					},
+				},
+				{
+					title: 'Contact Form',
+					description: 'If you have any problems or suggestions, please contact us.',
+					url: {
+						text: 'Contact',
+						link: '/contact',
+					},
+				},
+			],
+		},
+		{
+			id: 'contributors',
+			title: 'Contributors',
+			content: [
+				{
+					title: 'Md. Ashraful Alam Shemul',
+					description: 'Software Developer',
+					url: {
+						text: 'Learn More',
+						link: 'https://github.cm/AAShemul',
+					},
+				},
+			],
+		},
+		{
+			id: 'product',
+			title: 'Product List',
+			content: productListGenerator('WP-Next'),
+		},
+		{
+			id: 'faq',
+			title: 'Frequently Asked Question (FAQ)',
+			content: [
+				{
+					title: 'What is WP-Next?',
+					description: 'WP-Next (Wordpress-Next) is a WordPress-backed simple and beautiful blog frontend using Next.js. It is a fully responsive blog frontend that is easy to customize and use.',
+					url: {
+						text: 'Learn More',
+						link: 'https://docs.stechbd.net/WP-Next',
+					},
+				},
+				{
+					title: 'How to install WP-Next?',
+					description: 'To install Install-Express, run the following command:',
+					code: {
+						text: 'git clone https://github.com/STechBD/WP-Next.git',
+						language: 'bash',
+					},
+				},
+				{
+					title: 'How to create a new WP-Next project?',
+					description: 'To create a new project, run the following command:',
+					code: {
+						text: 'git clone https://github.com/STechBD/WP-Next.git',
 						language: 'bash',
 					},
 				},
@@ -2462,6 +2666,7 @@ export const products: any = {
 	Britto,
 	Fishtock,
 	Install_Express,
+	WP_Next,
 	CookieCons,
 	ProjectPress,
 	S_PHP_Engine,

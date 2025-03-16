@@ -1,10 +1,11 @@
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { DefaultEffect } from '@/component/background'
 import Hero from './hero'
 import { productList } from '@/data/product'
 import { Main, Section, Paragraph, OList } from '@/component/template'
+import type { Post } from '@/data/type'
+import { postList } from '@/function/api'
 
 
 /**
@@ -33,16 +34,19 @@ export const metadata: Metadata = {
 
 
 /**
- * The Stand with Palestine page component.
+ * The Sitemap page component.
  *
- * @returns { JSX.Element } The Page component.
+ * @returns { Promise<JSX.Element> } The Page component.
  * @since 3.0.0
  */
-export default function Page(): JSX.Element {
+export default async function Page(): Promise<JSX.Element> {
+	const post: Post[] = await postList(100)
 	const pages = [
 		{
 			title: 'Homepage',
 			link: '/',
+			priority: 1,
+			frequency: 'weekly',
 		},
 		{
 			title: 'About S Technologies',
@@ -189,9 +193,10 @@ export default function Page(): JSX.Element {
 	return (
 		<>
 			<Hero/>
-			<Main full={ false }
-			      title="Sitemap of S Technologies"
-			      description="All the pages of the website."
+			<Main
+				full={ false }
+				title="Sitemap of S Technologies"
+				description="All the pages of the website."
 			>
 				<Section>
 					<Paragraph>
@@ -218,6 +223,19 @@ export default function Page(): JSX.Element {
 								</Link>
 							</li>
 						)) }
+						{ post.map(async (post: Post, index: number): Promise<JSX.Element> => {
+							const title: string = post.title ?? 'Default Title'
+							const slug: string = post.slug ?? 'default-slug'
+
+							return <li key={ index }>
+								<Link
+									href={ `/${ slug }` }
+									className="text-primary hover:underline"
+								>
+									{ title }
+								</Link>
+							</li>
+						}) }
 					</OList>
 				</Section>
 			</Main>
