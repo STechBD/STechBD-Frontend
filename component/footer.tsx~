@@ -87,7 +87,7 @@ export default function Footer(): JSX.Element {
 						if (index > 3) return null
 
 						return (
-							<div key={ section.title }>
+							<div key={ index }>
 								<h2 className="mb-6 font-semibold text-gray-900 uppercase dark:text-white">
 									<strong>
 										{ section.title }
@@ -95,7 +95,7 @@ export default function Footer(): JSX.Element {
 								</h2>
 								<ul className="text-gray-600 text-sm dark:text-gray-400 font-medium">
 									{ section.items.map((item, index: number): JSX.Element => (
-										<li key={ item.link } className="mb-2">
+										<li key={ index } className="mb-2">
 											<Link
 												href={ item.link }
 												target={ item.link.startsWith('http') ? '_blank' : '' }

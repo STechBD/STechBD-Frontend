@@ -1,8 +1,9 @@
+import Hero from './hero'
 import { JSX } from 'react'
 import { Metadata } from 'next'
 import Script from 'next/script'
+import config from '@/stech.config'
 import { DefaultEffect } from '@/component/background'
-import Hero from './hero'
 
 
 /**
@@ -126,7 +127,7 @@ export const metadata: Metadata = {
  * @since 3.0.0
  */
 async function info(): Promise<any> {
-	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
+	const url: string = process.env.WHMCS_API_URL || `${ config.info.cp }/includes/api.php`
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 	const key: string = process.env.WHMCS_API_KEY || 'stechbd'

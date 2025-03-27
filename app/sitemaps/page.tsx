@@ -4,16 +4,16 @@ import Link from 'next/link'
 import Hero from './hero'
 import { productList } from '@/data/product'
 import { Main, Section, Paragraph, OList } from '@/component/template'
-import type { Post } from '@/data/type'
+import type { Post, Product } from '@/data/type'
 import { postList } from '@/function/api'
 
 
 /**
  * The metadata for the Sitemap page.
  *
- * @constant title { string } The title of the page.
- * @constant description { string } The description of the page.
- * @constant metadata { Metadata } The exported metadata of the page.
+ * @constant { string } title The title of the page.
+ * @constant { string } description The description of the page.
+ * @constant { Metadata } metadata The exported metadata of the page.
  *
  * @since 3.0.0
  */
@@ -45,8 +45,6 @@ export default async function Page(): Promise<JSX.Element> {
 		{
 			title: 'Homepage',
 			link: '/',
-			priority: 1,
-			frequency: 'weekly',
 		},
 		{
 			title: 'About S Technologies',
@@ -190,44 +188,44 @@ export default async function Page(): Promise<JSX.Element> {
 		},
 	]
 
-	return (
-		<>
-			<Hero/>
-			<Main
-				full={ false }
-				title="Sitemap of S Technologies"
-				description="All the pages of the website."
-			>
-				<Section>
-					<Paragraph>
-						Here is the list of pages and products of the website.
-					</Paragraph>
-					<OList>
-						{ pages.map((page, index) => (
-							<li key={ index }>
-								<Link
-									href={ page.link }
-									className="text-primary hover:underline"
-								>
-									{ page.title }
-								</Link>
-							</li>
-						)) }
-						{ productList.map((product, index) => (
-							<li key={ index }>
-								<Link
-									href={ `/product/${ product.id }` }
-									className="text-primary hover:underline"
-								>
-									{ product.title }
-								</Link>
-							</li>
-						)) }
-						{ post.map(async (post: Post, index: number): Promise<JSX.Element> => {
-							const title: string = post.title ?? 'Default Title'
-							const slug: string = post.slug ?? 'default-slug'
+	return (<>
+		<Hero/>
+		<Main
+			full={ false }
+			title="Sitemap of S Technologies"
+			description="All the pages of the website."
+		>
+			<Section>
+				<Paragraph>
+					Here is the list of pages and products of the website.
+				</Paragraph>
+				<OList>
+					{ pages.map((page): JSX.Element => (
+						<li key={ page.link }>
+							<Link
+								href={ page.link }
+								className="text-primary hover:underline"
+							>
+								{ page.title }
+							</Link>
+						</li>
+					)) }
+					{ productList.map((product: Product): JSX.Element => (
+						<li key={ product.id }>
+							<Link
+								href={ `/product/${ product.id }` }
+								className="text-primary hover:underline"
+							>
+								{ product.title }
+							</Link>
+						</li>
+					)) }
+					{ post.map(async (post: Post): Promise<JSX.Element> => {
+						const title: string = post.title ?? 'Default Title'
+						const slug: string = post.slug ?? 'default-slug'
 
-							return <li key={ index }>
+						return (
+							<li key={ slug }>
 								<Link
 									href={ `/${ slug }` }
 									className="text-primary hover:underline"
@@ -235,10 +233,10 @@ export default async function Page(): Promise<JSX.Element> {
 									{ title }
 								</Link>
 							</li>
-						}) }
-					</OList>
-				</Section>
-			</Main>
-		</>
-	)
+						)
+					}) }
+				</OList>
+			</Section>
+		</Main>
+	</>)
 }

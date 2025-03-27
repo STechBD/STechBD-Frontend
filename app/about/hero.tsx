@@ -24,7 +24,7 @@ export default function Hero(): JSX.Element {
 				<div className="lg:grid lg:grid-cols-5">
 					<div className="p-8 col-span-2 flex justify-center items-center">
 						<Bounce hover={ true }>
-							<AnimatedLogo design="h-72 w-72 lg:h-96 lg:w-96"/>
+							<AnimatedLogo className="h-72 w-72 lg:h-96 lg:w-96"/>
 						</Bounce>
 					</div>
 					<div className="col-span-3 mt-12 sm:mt-16 md:mt-0">

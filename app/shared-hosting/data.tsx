@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -33,7 +34,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/3gb',
+			link: `${ config.info.cp }/store/shared-hosting/3gb`,
 		},
 	},
 	{
@@ -57,7 +58,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/5gb',
+			link: `${ config.info.cp }/store/shared-hosting/5gb`,
 		},
 	},
 	{
@@ -81,7 +82,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/10gb',
+			link: `${ config.info.cp }/store/shared-hosting/10gb`,
 		},
 	},
 	{
@@ -105,7 +106,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/15gb',
+			link: `${ config.info.cp }/store/shared-hosting/15gb`,
 		},
 	},
 	{
@@ -129,7 +130,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/20gb',
+			link: `${ config.info.cp }/store/shared-hosting/20gb`,
 		},
 	},
 	{
@@ -153,7 +154,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/25gb'
+			link: `${ config.info.cp }/store/shared-hosting/25gb`
 		},
 	},
 	{
@@ -177,7 +178,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/ua',
+			link: `${ config.info.cp }/store/shared-hosting/ua`,
 		},
 	},
 	{
@@ -201,7 +202,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/ub',
+			link: `${ config.info.cp }/store/shared-hosting/ub`,
 		},
 	},
 ]
@@ -332,7 +333,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/3gb',
+			link: `${ config.info.cp }/store/shared-hosting/3gb`,
 		},
 	},
 	{
@@ -388,7 +389,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/5gb',
+			link: `${ config.info.cp }/store/shared-hosting/5gb`,
 		},
 	},
 	{
@@ -444,7 +445,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/10gb',
+			link: `${ config.info.cp }/store/shared-hosting/10gb`,
 		},
 	},
 	{
@@ -500,7 +501,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/15gb',
+			link: `${ config.info.cp }/store/shared-hosting/15gb`,
 		},
 	},
 	{
@@ -556,7 +557,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/20gb',
+			link: `${ config.info.cp }/store/shared-hosting/20gb`,
 		},
 	},
 	{
@@ -612,7 +613,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/25gb',
+			link: `${ config.info.cp }/store/shared-hosting/25gb`,
 		},
 	},
 	{
@@ -668,7 +669,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/ua',
+			link: `${ config.info.cp }/store/shared-hosting/ua`,
 		},
 	},
 	{
@@ -724,7 +725,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/shared-hosting/ub',
+			link: `${ config.info.cp }/store/shared-hosting/ub`,
 		},
 	},
 ]

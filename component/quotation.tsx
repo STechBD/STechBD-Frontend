@@ -1,13 +1,14 @@
 'use client'
 
-import React, { ChangeEvent, DetailedHTMLProps, FormEvent, FormHTMLAttributes, JSX, useState } from 'react'
+import config from '@/stech.config'
+import MarkdownIt from 'markdown-it'
+import Currency from '@/component/currency'
 import { ServiceCustomField } from '@/data/type'
 import 'react-markdown-editor-lite/lib/index.css'
-import MarkdownEditor from 'react-markdown-editor-lite'
-import MarkdownIt from 'markdown-it'
-import { useDispatch, useSelector } from 'react-redux'
-import Currency from '@/component/currency'
 import { setCurrency } from '@/context/reduxStore'
+import { useDispatch, useSelector } from 'react-redux'
+import MarkdownEditor from 'react-markdown-editor-lite'
+import React, { JSX, useState, ChangeEvent, FormEvent } from 'react'
 
 
 interface SliderProps {
@@ -70,11 +71,8 @@ function Slider({ name, min, max, step, onChange, labelFormatter }: any): JSX.El
  * @returns { JSX.Element } The Price Quotation component.
  * @since 3.0.0
  */
-export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
-	custom: ServiceCustomField[],
-	defaultCurrency?: string
-}): JSX.Element {
-	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
+export default function Quotation({ custom }: { custom: ServiceCustomField[] }): JSX.Element {
+	const url: string = process.env.WHMCS_API_URL || `${ config.info.cp }/includes/api.php`
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 	const currency = useSelector((state: any): string => state.currency)
@@ -279,7 +277,7 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 				</div>
 			</>) }
 			<div>
-				<Currency currency={ currency } callback={ changeCurrency } defaultCurrency={ defaultCurrency }/>
+				<Currency currency={ currency } callback={ changeCurrency }/>
 			</div>
 			<div className="mt-4">
 				<label htmlFor="name" className="block text-lg font-bold text-gray-900 dark:text-gray-100">
@@ -330,7 +328,7 @@ export default function Quotation({ custom, defaultCurrency = 'bdt' }: {
 
 				if (field.type === 'select') {
 					return (
-						<div key={ index } className="mt-4">
+						<div key={ field.name } className="mt-4">
 							<label
 								htmlFor={ field.name }
 								className="block text-lg font-bold text-gray-900 dark:text-gray-100"

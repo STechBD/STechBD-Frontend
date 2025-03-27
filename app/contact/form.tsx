@@ -1,10 +1,11 @@
 'use client'
 
+import config from '@/stech.config'
 import { FormEvent, JSX, useState } from 'react'
 
 
 export default function Form(): JSX.Element {
-	const url: string = process.env.WHMCS_API_URL || 'https://cpanel.stechbd.net/includes/api.php'
+	const url: string = process.env.WHMCS_API_URL || `${ config.info.cp }/includes/api.php`
 	const identifier: string = process.env.WHMCS_API_IDENTIFIER || 'stechbd'
 	const secret: string = process.env.WHMCS_API_SECRET || 'stechbd'
 	const [ token, setToken ] = useState<string>('')

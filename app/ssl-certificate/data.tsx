@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -28,7 +29,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/positive',
+			link: `${ config.info.cp }/store/ssl/positive`,
 		},
 	},
 	{
@@ -48,7 +49,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/multi-domain',
+			link: `${ config.info.cp }/store/ssl/multi-domain`,
 		},
 	},
 	{
@@ -68,7 +69,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/wildcard',
+			link: `${ config.info.cp }/store/ssl/wildcard`,
 		},
 	},
 	{
@@ -88,7 +89,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/ov-wildcard',
+			link: `${ config.info.cp }/store/ssl/ov-wildcard`,
 		},
 	},
 ]
@@ -118,7 +119,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/positive',
+			link: `${ config.info.cp }/store/ssl/positive`,
 		},
 	},
 	{
@@ -136,7 +137,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/multi-domain',
+			link: `${ config.info.cp }/store/ssl/multi-domain`,
 		},
 	},
 	{
@@ -154,7 +155,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/wildcard',
+			link: `${ config.info.cp }/store/ssl/wildcard`,
 		},
 	},
 	{
@@ -172,7 +173,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/ssl/ov-wildcard',
+			link: `${ config.info.cp }/store/ssl/ov-wildcard`,
 		},
 	},
 ]

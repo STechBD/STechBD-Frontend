@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -35,7 +36,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/25gb',
+			link: `${ config.info.cp }/store/managed-vps/25gb`,
 		},
 	},
 	{
@@ -64,7 +65,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/40gb',
+			link: `${ config.info.cp }/store/managed-vps/40gb`,
 		},
 	},
 	{
@@ -93,7 +94,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/60gb',
+			link: `${ config.info.cp }/store/managed-vps/60gb`,
 		},
 	},
 	{
@@ -122,7 +123,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/100gb',
+			link: `${ config.info.cp }/store/managed-vps/100gb`,
 		},
 	},
 ]
@@ -255,7 +256,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/25gb',
+			link: `${ config.info.cp }/store/managed-vps/25gb`,
 		},
 	},
 	{
@@ -312,7 +313,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/40gb',
+			link: `${ config.info.cp }/store/managed-vps/40gb`,
 		},
 	},
 	{
@@ -369,7 +370,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/60gb',
+			link: `${ config.info.cp }/store/managed-vps/60gb`,
 		},
 	},
 	{
@@ -426,7 +427,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/managed-vps/100gb',
+			link: `${ config.info.cp }/store/managed-vps/100gb`,
 		},
 	},
 ]

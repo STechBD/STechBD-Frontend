@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -38,7 +39,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/basic',
+			link: `${ config.info.cp }/store/school-management/basic`,
 		},
 	},
 	{
@@ -68,7 +69,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/professional',
+			link: `${ config.info.cp }/store/school-management/professional`,
 		},
 	},
 	{
@@ -99,7 +100,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/advanced',
+			link: `${ config.info.cp }/store/school-management/advanced`,
 		},
 	},
 ]
@@ -330,7 +331,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/basic',
+			link: `${ config.info.cp }/store/school-management/basic`,
 		},
 	},
 	{
@@ -416,7 +417,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/professional',
+			link: `${ config.info.cp }/store/school-management/professional`,
 		},
 	},
 	{
@@ -502,7 +503,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/school-management/advanced',
+			link: `${ config.info.cp }/store/school-management/advanced`,
 		},
 	},
 ]

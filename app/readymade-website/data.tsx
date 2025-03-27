@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -38,7 +39,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-static',
+			link: `${ config.info.cp }/store/readymade-website/personal-static`,
 		},
 	},
 	{
@@ -68,7 +69,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-blog',
+			link: `${ config.info.cp }/store/readymade-website/personal-blog`,
 		},
 	},
 	{
@@ -98,7 +99,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-blog',
+			link: `${ config.info.cp }/store/readymade-website/personal-blog`,
 		},
 	},
 	{
@@ -128,7 +129,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/organization',
+			link: `${ config.info.cp }/store/readymade-website/organization`,
 		},
 	},
 	{
@@ -158,7 +159,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/newspaper',
+			link: `${ config.info.cp }/store/readymade-website/newspaper`,
 		},
 	},
 	{
@@ -190,7 +191,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/ecommerce',
+			link: `${ config.info.cp }/store/readymade-website/ecommerce`,
 		},
 	},
 	{
@@ -221,7 +222,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/school',
+			link: `${ config.info.cp }/store/readymade-website/school`,
 		},
 	},
 ]
@@ -377,7 +378,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-static',
+			link: `${ config.info.cp }/store/readymade-website/personal-static`,
 		},
 	},
 	{
@@ -445,7 +446,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-blog',
+			link: `${ config.info.cp }/store/readymade-website/personal-blog`,
 		},
 	},
 	{
@@ -513,7 +514,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/personal-blog',
+			link: `${ config.info.cp }/store/readymade-website/personal-blog`,
 		},
 	},
 	{
@@ -581,7 +582,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/organization',
+			link: `${ config.info.cp }/store/readymade-website/organization`,
 		},
 	},
 	{
@@ -649,7 +650,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/newspaper',
+			link: `${ config.info.cp }/store/readymade-website/newspaper`,
 		},
 	},
 	{
@@ -717,7 +718,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/ecommerce',
+			link: `${ config.info.cp }/store/readymade-website/ecommerce`,
 		},
 	},
 	{
@@ -785,7 +786,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/readymade-website/school',
+			link: `${ config.info.cp }/store/readymade-website/school`,
 		},
 	},
 ]

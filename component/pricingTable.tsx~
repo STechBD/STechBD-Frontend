@@ -3,10 +3,10 @@
 import { JSX } from 'react'
 import Link from 'next/link'
 import config from '@/stech.config'
+import type { Currency, Pricing, State } from '@/data/type'
 import CurrencyButton from '@/component/currency'
 import { setCurrency } from '@/context/reduxStore'
 import { useDispatch, useSelector } from 'react-redux'
-import type { Currency, Pricing, State } from '@/data/type'
 
 
 /**

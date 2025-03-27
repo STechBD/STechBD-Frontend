@@ -129,7 +129,7 @@ export default function Page(): JSX.Element {
 					<div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
 						<div className="flex items-center justify-center mt-3">
 							<Bounce hover={ true }>
-								<AnimatedLogo design="h-96 w-96"/>
+								<AnimatedLogo className="h-96 w-96"/>
 							</Bounce>
 						</div>
 						<div className="mt-12 sm:mt-16 md:mt-0">

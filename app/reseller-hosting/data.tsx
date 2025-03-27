@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Feature, Pricing } from '@/data/type'
 
 
@@ -30,7 +31,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/10gb',
+			link: `${ config.info.cp }/store/reseller-hosting/10gb`,
 		},
 	},
 	{
@@ -52,7 +53,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/20gb',
+			link: `${ config.info.cp }/store/reseller-hosting/20gb`,
 		},
 	},
 	{
@@ -74,7 +75,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/25gb',
+			link: `${ config.info.cp }/store/reseller-hosting/25gb`,
 		},
 	},
 	{
@@ -96,7 +97,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/30gb',
+			link: `${ config.info.cp }/store/reseller-hosting/30gb`,
 		},
 	},
 	{
@@ -118,7 +119,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/50gb',
+			link: `${ config.info.cp }/store/reseller-hosting/50gb`,
 		},
 	},
 	{
@@ -140,7 +141,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/100gb',
+			link: `${ config.info.cp }/store/reseller-hosting/100gb`,
 		},
 	},
 ]
@@ -282,7 +283,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/10gb',
+			link: `${ config.info.cp }/store/reseller-hosting/10gb`,
 		},
 	},
 	{
@@ -341,7 +342,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/20gb',
+			link: `${ config.info.cp }/store/reseller-hosting/20gb`,
 		},
 	},
 	{
@@ -400,7 +401,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/25gb',
+			link: `${ config.info.cp }/store/reseller-hosting/25gb`,
 		},
 	},
 	{
@@ -459,7 +460,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/30gb',
+			link: `${ config.info.cp }/store/reseller-hosting/30gb`,
 		},
 	},
 	{
@@ -518,7 +519,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/50gb',
+			link: `${ config.info.cp }/store/reseller-hosting/50gb`,
 		},
 	},
 	{
@@ -577,7 +578,7 @@ export const comparisonData = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/reseller-hosting/100gb',
+			link: `${ config.info.cp }/store/reseller-hosting/100gb`,
 		},
 	},
 ]

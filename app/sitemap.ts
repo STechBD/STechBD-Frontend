@@ -78,7 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		},
 		{
 			title: 'Sitemap',
-			link: '/index',
+			link: '/sitemaps',
 			priority: 0.7,
 			frequency: 'weekly'
 		},

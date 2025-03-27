@@ -76,7 +76,7 @@ export default function Page(): JSX.Element {
 													width={ 100 }
 												/>
 											) : (
-												<AnimatedLogo design="mr-4 w-16 h-16 rounded-full"/>
+												<AnimatedLogo className="mr-4 w-16 h-16 rounded-full"/>
 											) }
 											<div>
 												<p className="mt-2 text-xl font-bold text-gray-900 dark:text-white">

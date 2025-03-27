@@ -2,6 +2,56 @@ import { JSX } from 'react'
 
 
 /**
+ * Interface definition for the Redux Store state.
+ *
+ * @interface State
+ *
+ * @since 3.0.0
+ */
+export interface State {
+	lightMode: boolean
+	theme: string
+	currency: string
+	loader: boolean
+	header: boolean
+	footer: boolean
+	sidebar: boolean
+	modal: boolean
+	component: JSX.Element | null | undefined
+	app: boolean
+}
+
+
+/**
+ * Interface definition for the metadata of the currency.
+ *
+ * @interface Currency
+ *
+ * @since 3.0.0
+ */
+export interface Currency {
+	name: string
+	symbol: string
+}
+
+
+interface PriceCurrency {
+	[key: string]: number
+}
+
+export interface DomainPrice {
+	extension: string
+	title: string
+	period: number
+	promoStatus?: boolean
+	registration: PriceCurrency
+	renewal: PriceCurrency
+	transfer: PriceCurrency
+	promo?: PriceCurrency
+}
+
+
+/**
  * Interface definition for the metadata of the menu.
  *
  * @interface Menu
@@ -95,10 +145,7 @@ export interface Category {
  */
 export interface Data {
 	title: string
-	price: {
-		bdt: number
-		usd: number
-	}
+	price: PriceCurrency
 	period: number
 	description: string
 	features: {
@@ -114,18 +161,9 @@ export interface Data {
 export interface Pricing {
 	title: string
 	featured?: boolean
-	price?: {
-		bdt: number
-		usd: number
-	}
-	renew?: {
-		bdt: number
-		usd: number
-	}
-	discount?: {
-		bdt: number
-		usd: number
-	}
+	price?: PriceCurrency
+	renew?: PriceCurrency
+	discount?: PriceCurrency
 	period?: number
 	description: string
 	features: JSX.Element[]
@@ -145,18 +183,9 @@ export interface Feature {
 
 export interface Comparison {
 	title: string
-	price?: {
-		bdt: number
-		usd: number
-	}
-	renew?: {
-		bdt: number
-		usd: number
-	}
-	discount?: {
-		bdt: number
-		usd: number
-	}
+	price?: PriceCurrency
+	renew?: PriceCurrency
+	discount?: PriceCurrency
 	period?: number
 	description: string
 	features: {
@@ -289,22 +318,13 @@ export interface ServiceCustomField {
 	optionCondition?: { [key: string]: string }
 	multiple?: boolean
 	min?: {
-		[key: string]: {
-			bdt: number
-			usd: number
-		}
+		[key: string]: PriceCurrency
 	}
 	max?: {
-		[key: string]: {
-			bdt: number
-			usd: number
-		}
+		[key: string]: PriceCurrency
 	}
 	step?: {
-		[key: string]: {
-			bdt: number
-			usd: number
-		}
+		[key: string]: PriceCurrency
 	}
 }
 

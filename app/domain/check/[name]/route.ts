@@ -6,7 +6,7 @@ import Domain from '@/data/domain'
  *
  * @param request The incoming request.
  * @param params The domain name.
- * @returns { json } - Returns a JSON response with the domain name availability.
+ * @returns { json } Returns a JSON response with the domain name availability.
  * @since 3.0.0
  */
 export async function GET(request: Request, { params }: { params: Promise<{ name: string }> }): Promise<Response> {

@@ -7,7 +7,7 @@ const themes: string[] = config.themes
 /**
  * Safe color list for Tailwind CSS.
  *
- * @type { string[] } Safe color list for Tailwind CSS.
+ * @type { string[] } Safe color list for TailwindCSS.
  * @since 3.0.0
  */
 const safeColorList: string[] = []
@@ -26,7 +26,7 @@ safeColorList.push('grid-cols-10')
 /**
  * Safe color list for Tailwind CSS.
  *
- * @type { string[] } Safe color list for Tailwind CSS.
+ * @type { string[] } Safe color list for TailwindCSS.
  * @since 3.0.0
  */
 const amount: number = 20

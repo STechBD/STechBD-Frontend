@@ -1,3 +1,4 @@
+import config from '@/stech.config'
 import type { Comparison, Feature, Pricing } from '@/data/type'
 
 
@@ -31,7 +32,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/480gb-32gb',
+			link: `${ config.info.cp }/store/dedicated-server/480gb-32gb`,
 		},
 	},
 	{
@@ -54,7 +55,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/960gb-64gb',
+			link: `${ config.info.cp }/store/dedicated-server/960gb-64gb`,
 		},
 	},
 	{
@@ -77,7 +78,7 @@ export const pricingData: Pricing[] = [
 		],
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/960gb-96gb',
+			link: `${ config.info.cp }/store/dedicated-server/960gb-96gb`,
 		},
 	},
 ]
@@ -140,7 +141,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/480gb-32gb',
+			link: `${ config.info.cp }/store/dedicated-server/480gb-32gb`,
 		},
 	},
 	{
@@ -169,7 +170,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/960gb-64gb',
+			link: `${ config.info.cp }/store/dedicated-server/960gb-64gb`,
 		},
 	},
 	{
@@ -198,7 +199,7 @@ export const comparisonData: Comparison[] = [
 		},
 		button: {
 			text: 'Order Now',
-			link: 'https://cpanel.stechbd.net/store/dedicated-server/960gb-96gb',
+			link: `${ config.info.cp }/store/dedicated-server/960gb-96gb`,
 		},
 	},
 ]

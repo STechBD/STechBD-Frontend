@@ -61,9 +61,9 @@ const domain: DomainPrice[] = [
 	},
 	{
 		extension: '.xyz',
-		title: 'Popular',
+		title: 'Promo',
 		period: 1,
-		promoStatus: false,
+		promoStatus: true,
 		registration: {
 			bdt: 1650,
 			usd: 14,

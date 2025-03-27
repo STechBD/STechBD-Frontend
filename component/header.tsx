@@ -1,15 +1,16 @@
 'use client'
 
-import { JSX, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import type { Menu } from '@/data/type'
-import { isPath, validatePath } from '@/function/utility'
-import { getProduct } from '@/data/product'
-import ParticleAnimation from '@/component/particleAnimation'
-import AnimatedLogo from '@/component/animatedLogo'
+import config from '@/stech.config'
 import Theme from '@/component/theme'
+import type { Menu } from '@/data/type'
+import { getProduct } from '@/data/product'
+import { usePathname } from 'next/navigation'
+import { JSX, useEffect, useState } from 'react'
+import AnimatedLogo from '@/component/animatedLogo'
+import { isPath, validatePath } from '@/function/utility'
+import ParticleAnimation from '@/component/particleAnimation'
 
 
 /**
@@ -428,7 +429,7 @@ export default function Header(): JSX.Element {
 						</button>
 					</div>
 					<div className="hidden lg:flex lg:gap-x-4 2xl:gap-x-10">
-						{ menu.map((item: Menu, index) => {
+						{ menu.map((item: Menu, index): JSX.Element => {
 							if (item.submenu) {
 								if (item.submenu.type === 1) {
 									const isCurrent: boolean = isPath([
@@ -437,7 +438,7 @@ export default function Header(): JSX.Element {
 									])
 
 									return (
-										<div key={ index } className="relative">
+										<div key={ item.title } className="relative">
 											<button
 												className={ (isCurrent ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
 												type="button"
@@ -465,7 +466,7 @@ export default function Header(): JSX.Element {
 													{ item.submenu.items.map((item, index) => {
 														return (
 															<Link
-																key={ index }
+																key={ item.path }
 																href={ item.path }
 																target={ item.path.startsWith('http') ? '_blank' : '' }
 																className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -480,7 +481,7 @@ export default function Header(): JSX.Element {
 									)
 								} else if (item.submenu.type === 2) {
 									return (
-										<div key={ index } className="relative">
+										<div key={ item.title } className="relative">
 											<button
 												className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
 												type="button" aria-expanded="false"
@@ -507,7 +508,7 @@ export default function Header(): JSX.Element {
 													{ item.submenu.items.map((subitem, index) => {
 														return (
 															<Link
-																key={ index }
+																key={ subitem.path }
 																href={ subitem.path }
 																className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
 															>
@@ -522,11 +523,11 @@ export default function Header(): JSX.Element {
 																	/>
 																</div>
 																<div className="flex-auto">
-																			<span
-																				className="block font-semibold text-gray-900 dark:text-gray-100"
-																			>
-																				{ subitem.title }
-																			</span>
+																	<span
+																		className="block font-semibold text-gray-900 dark:text-gray-100"
+																	>
+																		{ subitem.title }
+																	</span>
 																	<p className="mt-1 text-gray-600">
 																		{ subitem.description }
 																	</p>
@@ -536,8 +537,9 @@ export default function Header(): JSX.Element {
 													}) }
 												</div>
 												{ item.submenu.text && item.submenu.path && (
-													<Link href={ item.submenu.path }
-													      className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+													<Link
+														href={ item.submenu.path }
+														className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
 													>
 														{ item.submenu.text }
 													</Link>
@@ -545,75 +547,75 @@ export default function Header(): JSX.Element {
 											</div>
 										</div>
 									)
+								} else {
+									return <></>
 								}
 							} else {
 								if (item.path) {
 									return (
 										<Link
-											key={ index }
+											key={ item.path }
 											href={ item.path }
 											className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
 										>
 											{ item.title }
 										</Link>
 									)
+								} else {
+									return <></>
 								}
 							}
 						}) }
-						{
-							type === 'product' && (
-								<>
-									<Link
-										href={ data.productSlug && data.productSlug + '/about' }
-										className={ (path === data.productSlug + '/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
-									>
-										About
-									</Link>
-									<a
-										href={ data.productGithub ?? 'https://github.com/STechBD' }
-										target="_blank"
-										className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
-									>
-										GitHub
-									</a>
-									<a
-										href="https://cpanel.stechbd.net/login"
-										target="_blank"
-										className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
-									>
-										Login
-									</a>
-								</>
-							)
-						}
-					</div>
-					{
-						type === 'product' ? (
-							<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-								<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
-									<span className="sr-only">
-										S Technologies
-									</span>
-									<div
-										className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100"
-									>
-										S Technologies
-									</div>
-									<AnimatedLogo/>
+						{ type === 'product' && (
+							<>
+								<Link
+									href={ data.productSlug && data.productSlug + '/about' }
+									className={ (path === data.productSlug + '/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
+								>
+									About
 								</Link>
-							</div>
-						) : (
-							<div className="hidden xl:flex xl:flex-1 xl:justify-end">
 								<a
-									href="https://cpanel.stechbd.net/login"
+									href={ data.productGithub ?? 'https://github.com/STechBD' }
 									target="_blank"
-									className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+									className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+								>
+									GitHub
+								</a>
+								<a
+									href={ `${ config.info.cp }/login` }
+									target="_blank"
+									className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
 								>
 									Login
 								</a>
-							</div>
-						)
-					}
+							</>
+						) }
+					</div>
+					{ type === 'product' ? (
+						<div className="hidden lg:flex lg:flex-1 lg:justify-end">
+							<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
+									<span className="sr-only">
+										S Technologies
+									</span>
+								<div
+									className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100"
+								>
+									S Technologies
+								</div>
+								<AnimatedLogo/>
+							</Link>
+						</div>
+					) : (
+						<div className="hidden xl:flex xl:flex-1 xl:justify-end">
+							<a
+								href={ `${ config.info.cp }/login` }
+								target="_blank"
+								className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+							>
+								Login
+							</a>
+						</div>
+					) }
 				</nav>
 
 				{ /** Mobile Menu **/ }
@@ -655,69 +657,72 @@ export default function Header(): JSX.Element {
 						<div className="mt-6 flow-root">
 							<div className="-my-6 divide-y divide-gray-500/10">
 								<div className="pt-6 pb-3"></div>
-								{
-									menu.map((item, index) => {
-										if (item.submenu) {
-											return (
-												<div key={ index } className="space-y-2 py-2">
-													<div className="-mx-3">
-														<button
-															onClick={ item.mobileToggle } type="button"
-															aria-controls="disclosure-1"
-															aria-expanded="false"
-															className={ (isPath([
-																item.submenu.path ?? '',
-																...item.submenu.items.map((item) => item.path),
-															]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
-														>
-															{ item.title }
+								{ menu.map((item: Menu, index): JSX.Element => {
+									if (item.submenu) {
+										return (
+											<div key={ item.title } className="space-y-2 py-2">
+												<div className="-mx-3">
+													<button
+														onClick={ item.mobileToggle } type="button"
+														aria-controls="disclosure-1"
+														aria-expanded="false"
+														className={ (isPath([
+															item.submenu.path ?? '',
+															...item.submenu.items.map((item) => item.path),
+														]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+													>
+														{ item.title }
 
-															<svg className="h-5 w-5 flex-none">
-																<path fillRule="evenodd" clipRule="evenodd"
-																      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-																</path>
-															</svg>
-														</button>
-														<div
-															className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
-														>
-															{ item.submenu.items.map((item, index) => {
-																return (
-																	<Link key={ index } href={ item.path }
-																	      target={ item.path.startsWith('http') ? '_blank' : '' }
-																	      className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
-																	>
-																		{ item.title }
-																	</Link>
-																)
-															}) }
-															{ item.submenu.text && item.submenu.path && (
+														<svg className="h-5 w-5 flex-none">
+															<path fillRule="evenodd" clipRule="evenodd"
+															      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
+															</path>
+														</svg>
+													</button>
+													<div
+														className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
+													>
+														{ item.submenu.items.map((item, index): JSX.Element => {
+															return (
 																<Link
-																	href={ item.submenu.path }
-																	className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
+																	key={ item.path }
+																	href={ item.path }
+																	target={ item.path.startsWith('http') ? '_blank' : '' }
+																	className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
 																>
-																	{ item.submenu.text }
+																	{ item.title }
 																</Link>
-															) }
-														</div>
+															)
+														}) }
+														{ item.submenu.text && item.submenu.path && (
+															<Link
+																href={ item.submenu.path }
+																className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
+															>
+																{ item.submenu.text }
+															</Link>
+														) }
 													</div>
+												</div>
+											</div>
+										)
+									} else {
+										if (item.path) {
+											return (
+												<div key={ item.path } className="py-2">
+													<Link
+														href={ item.path }
+														className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
+													>
+														{ item.title }
+													</Link>
 												</div>
 											)
 										} else {
-											if (item.path) {
-												return (
-													<div key={ index } className="py-2">
-														<Link
-															href={ item.path }
-															className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
-														>
-															{ item.title }
-														</Link>
-													</div>
-												)
-											}
+											return <></>
 										}
-									})
+									}
+								})
 								}
 								{ type === 'product' && (
 									<>
@@ -741,7 +746,7 @@ export default function Header(): JSX.Element {
 								) }
 								<div className="py-2">
 									<a
-										href="https://cpanel.stechbd.net/login"
+										href={ `${ config.info.cp }/login` }
 										target="_blank"
 										className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
 									>
