@@ -270,8 +270,10 @@ export default function Page(): JSX.Element {
 								lot of tech-related services. They are:
 							</p>
 							<ul className="mt-4 ml-8 text-2xl text-gray-800 list-disc list-inside text dark:text-gray-200">
-								{ services && (services.map((service: JSX.Element | string, index: number) => (
-									<li key={ index }>{ service }</li>
+								{ services && (services.map((service: JSX.Element | string): JSX.Element => (
+									<li key={ service.toString() }>
+										{ service }
+									</li>
 								))) }
 							</ul>
 						</section>
@@ -287,85 +289,81 @@ export default function Page(): JSX.Element {
 							them.
 						</p>
 						<div className="mx-auto max-w-6xl lg:grid lg:grid-cols-3 lg:gap-4 mt-10 justify-items-center">
-							{
-								companies.map((company, index) => (
-									<div
-										key={ index }
-										className="bg-white shadow-md rounded-lg mb-4 lg:mb-0 px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
-									>
-										<Bounce>
-											<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
-												{ company.title }
-											</h2>
-											<div className="flex flex-col justify-between h-full">
-												<p id="description"
-												   className="flex-shrink-0 mt-4 text-center text-gray-800 dark:text-gray-200">
-													{ company.description }
-												</p>
-												<div id="bottom" className="mt-6">
-													<a href={ company.button.link } target="_blank"
-													   className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
-													>
-														{ company.button.title }
-													</a>
-												</div>
+							{ companies.map((company): JSX.Element => (
+								<div
+									key={ company.title }
+									className="bg-white shadow-md rounded-lg mb-4 lg:mb-0 px-10 py-6 bg-opacity-30 hover:bg-opacity-100 dark:hover:bg-opacity-0"
+								>
+									<Bounce>
+										<h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200">
+											{ company.title }
+										</h2>
+										<div className="flex flex-col justify-between h-full">
+											<p
+												className="flex-shrink-0 mt-4 text-center text-gray-800 dark:text-gray-200"
+											>
+												{ company.description }
+											</p>
+											<div className="mt-6">
+												<a
+													href={ company.button.link }
+													target="_blank"
+													className="block button w-full bg-primary text-white text-center font-bold py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:bg-secondary"
+												>
+													{ company.button.title }
+												</a>
 											</div>
-										</Bounce>
-									</div>
-								))
-							}
+										</div>
+									</Bounce>
+								</div>
+							)) }
 						</div>
 					</div>
 					<hr className="mt-16 border-t-2 border-primary"/>
-					<div className="md:px-20 py-10">
+					<div className="md:px-20 py-10 max-w-7xl mx-auto">
 						<h2 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
 							Evolution of S Technologies
 						</h2>
-						<div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
-							<section className="order-last lg:order-first mt-16 col-span-2">
+						<div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-8">
+							<section className="order-last lg:order-first mt-16 col-span-3">
 								<ol className="relative border-s border-primary">
-									{
-										events.map((event, index) => (
-											<li key={ index } className="mb-10 ms-4">
-												<div
-													className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -start-1.5 border border-primary"></div>
-												<time className="mb-1 text-lg font-normal leading-none text-primary">
-													{ event.date }
-												</time>
-												<h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-													{ event.title }
-												</h3>
-												<p className="text-lg font-normal text-gray-800 dark:text-gray-200">
-													{ event.description }
-												</p>
-												{
-													event.button && (
-														<Link
-															href={ event.button.link }
-															className="inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-														>
-															{ event.button.title }
-
-															<svg
-																className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
-																xmlns="http://www.w3.org/2000/svg" fill="none"
-																viewBox="0 0 14 10"
-															>
-																<path
-																	stroke="currentColor" strokeLinecap="round"
-																	strokeLinejoin="round" strokeWidth="2"
-																	d="M1 5h12m0 0L9 1m4 4L9 9"
-																/>
-															</svg>
-														</Link>
-													)
-												}
-											</li>
-										))
-									}
+									{ events.map((event): JSX.Element => (
+										<li key={ event.title } className="mb-10 ms-4">
+											<div
+												className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -start-1.5 border border-primary"></div>
+											<time className="mb-1 text-lg font-normal leading-none text-primary">
+												{ event.date }
+											</time>
+											<h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+												{ event.title }
+											</h3>
+											<p className="text-lg font-normal text-gray-800 dark:text-gray-200">
+												{ event.description }
+											</p>
+											{ event.button && (
+												<Link
+													href={ event.button.link }
+													className="inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+												>
+													{ event.button.title }
+													<svg
+														className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true"
+														xmlns="http://www.w3.org/2000/svg" fill="none"
+														viewBox="0 0 14 10"
+													>
+														<path
+															stroke="currentColor" strokeLinecap="round"
+															strokeLinejoin="round" strokeWidth="2"
+															d="M1 5h12m0 0L9 1m4 4L9 9"
+														/>
+													</svg>
+												</Link>
+											) }
+										</li>
+									)) }
 								</ol>
 							</section>
-							<section className="order-first lg:order-last mt-16 lg:ml-12 lg:my-auto">
+							<section className="order-first lg:order-last mt-16 lg:ml-12 lg:my-auto col-span-2">
 								<div className="p-4 bg-white bg-opacity-40">
 									<Image
 										src="/image/Rising.webp"

@@ -134,30 +134,10 @@ export interface Category {
 
 
 /**
- * Interface definition for the metadata of server.
+ * Interface definition for the metadata of the pricing.
  *
- * @interface Data
  * @interface Pricing
- * @interface Feature
- * @interface Comparison
- *
- * @since 3.0.0
  */
-export interface Data {
-	title: string
-	price: PriceCurrency
-	period: number
-	description: string
-	features: {
-		[key: string]: string | number | boolean
-	}
-	button: {
-		text: string
-		link: string
-	}
-}
-
-
 export interface Pricing {
 	title: string
 	featured?: boolean
@@ -395,6 +375,26 @@ export interface Team {
 		ques: string
 		ans: JSX.Element
 	}[]
+}
+
+
+/**
+ * Interface definition for the Server.
+ *
+ * @interface Server
+ */
+export interface Server {
+	id: number
+	name: string
+	location: string
+	zip: number
+	country: string
+	host: string
+	ip: string
+	isp: string
+	organization: string
+	active: boolean
+	up: boolean
 }
 
 

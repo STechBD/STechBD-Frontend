@@ -5,7 +5,7 @@ import { Team } from '@/data/type'
 /**
  * Team data of S Technologies.
  *
- * @type {Array<Object>}
+ * @constant { Team[] } team The team data.
  * @since 3.0.0
  */
 export const team: Team[] = [
@@ -18,7 +18,7 @@ export const team: Team[] = [
 		},
 		role: 'CEO of S Technologies',
 		since: 'August 14, 2013',
-		tagline: 'Author | Teacher | Entrepreneur | Software Developer',
+		tagline: 'Author | Researcher | Educator | Entrepreneur | Software Developer',
 		image: 'https://cdn.stechbd.net/file/2024/11/Md. Ashraful Alam Shemul (St. Martin\'s Island - October 16, 2023).webp',
 		cover: '/image/AAShemul-Cover.webp',
 		gender: 'Male',
@@ -36,29 +36,31 @@ export const team: Team[] = [
 			},
 		],
 		description: {
-			intro: 'Md. Ashraful Alam Shemul is a Bangladeshi Author, Teacher, Entrepreneur, and Software Developer. He is studying for his bachelor\'s in Fisheries at Bangladesh Maritime University.',
+			intro: 'Md. Ashraful Alam Shemul is a Bangladeshi Muslim author, researcher, educator, entrepreneur, and software developer. He earned his Bachelor\'s degree in Fisheries from Bangladesh Maritime University. Shemul is the founder of S Technologies, Ulkaa, and Shikkha Web.',
 			about: <>
 				<p className="my-2">
 					<span className="text-primary"><strong>Md. Ashraful Alam Shemul</strong></span> is a Bangladeshi
-					Author, Teacher, Entrepreneur, and Software Developer. Shemul is a <span
-					className="text-primary"><strong>Muslim</strong></span>. He is studying for his bachelor&apos;s in
-					Fisheries at <span className="text-primary"><strong>Bangladesh Maritime University</strong></span>.
+					Muslim <strong>author</strong>, <strong>researcher</strong>, <strong>educator</strong>,
+					<strong>entrepreneur</strong>, and <strong>software developer</strong>. He earned his
+					Bachelor&apos;s degree in Fisheries from <span
+					className="text-primary"><strong>Bangladesh Maritime University</strong></span>.
 				</p>
 				<p className="my-2">
 					He is the founder of <span className="text-primary"><Link
-					href="/public"><strong>S Technologies</strong></Link></span>, <span className="text-primary"><a
+					href="/"><strong>S Technologies</strong></Link></span>, <span className="text-primary"><a
 					href="https://www.ulkaa.com" target="_blank"><strong>Ulkaa</strong></a></span>, and <span
-					className="text-primary"><a href="https://shikkhaweb.com"
-					                            target="_blank"><strong>Shikkha Web</strong></a></span>. He is the
+					className="text-primary"><a
+					href="https://shikkhaweb.com" target="_blank"><strong>Shikkha Web</strong></a></span>. He is the
 					author of <span className="text-primary"><strong>Aspect Physics</strong></span>, <span
 					className="text-primary"><strong>Aspect ICT</strong></span>, and <span
 					className="text-primary"><strong>MaritimeKnowledge</strong></span> books.
 				</p>
 				<p className="my-2">
-					Besides these, he is an amateur story writer. He loves thriller, suspense, mystery, horror, comedy,
-					and science fiction genres. His favorite color is <span
-					className="text-blue-600"><strong>Blue</strong></span>. His favorite topics of interest are Physics,
-					Mathematics, Astronomy, Economics, Politics, and Theology.
+					In addition to his professional work, Shemul is an amateur story writer with a passion for
+					thrillers, suspense, mystery, horror, comedy, and science fiction genres. His favorite color is
+					<span className="text-blue-600"><strong>blue</strong></span>, and he enjoys studying a variety of
+					subjects, including physics, mathematics, astronomy, economics, politics, and theology. He loves
+					travelling, photography, music, and movies.
 				</p>
 			</>,
 			established: 'Founded S Technologies in 2013.',
@@ -137,7 +139,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Fisheries',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 			{
 				institute: 'Kabi Nazrul Govt. College, Dhaka',
@@ -302,9 +304,9 @@ export const team: Team[] = [
 				id: 2,
 				ques: 'Who is Md. Ashraful Alam Shemul?',
 				ans: <>
-					Md. Ashraful Alam Shemul is the CEO of <span className="text-white bg-primary"><strong>S Technologies</strong></span>.
-					He is a technology enthusiast and entrepreneur with a passion for innovation and technology. He
-					founded <span
+					Md. Ashraful Alam Shemul is the CEO of <span className="text-white bg-primary"><strong>S
+					Technologies</strong></span>. He is a technology enthusiast and entrepreneur with a passion for
+					innovation and technology. He founded <span
 					className="text-white bg-primary"><strong>S Technologies</strong></span> in 2013.
 				</>,
 			},
@@ -610,7 +612,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Fisheries',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 		],
 	},
@@ -675,7 +677,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Oceanography',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 		],
 	},
@@ -733,7 +735,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Fisheries',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 		],
 	},
@@ -793,7 +795,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Fisheries',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 		],
 	},
@@ -930,7 +932,7 @@ export const team: Team[] = [
 				degree: 'Bachelor of Science',
 				major: 'Fisheries',
 				start: 'January 10, 2020',
-				end: 'Present',
+				end: 'January 30, 2025',
 			},
 		],
 	},

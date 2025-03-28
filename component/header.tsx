@@ -381,76 +381,299 @@ export default function Header(): JSX.Element {
 		},
 	]
 
-	return (
-		<>
-			{ process.env.NODE_ENV === 'production' && <ParticleAnimation/> }
-			<header
-				className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }
-			>
-				<nav className="mx-auto flex items-center justify-between px-6 py-2 lg:px-8" aria-label="Global">
-					<div className="flex lg:flex-1">
-						<Link
-							className="flex gap-5 -m-1.5 p-1.5"
-							href={ type === 'product' ? data.productSlug : '/' }
+	return (<>
+		{ process.env.NODE_ENV === 'production' && <ParticleAnimation/> }
+		<header
+			className={ (scrolled ? 'bg-white border-b border-gray-200 shadow-2xl bg-opacity-90 dark:bg-slate-900 dark:border-gray-800 ' : '') + 'sticky top-0 z-50' }
+		>
+			<nav className="mx-auto flex items-center justify-between px-6 py-2 lg:px-8" aria-label="Global">
+				<div className="flex lg:flex-1">
+					<Link
+						href={ type === 'product' ? data.productSlug : '/' }
+						className="flex gap-5 -m-1.5 p-1.5"
+					>
+						<span className="sr-only">
+							{ type === 'product' ? data.productTitle : data.siteTitle }
+						</span>
+						{ type === 'product' && data.productLogo ? (
+							<Image
+								className="h-8 w-auto sm:h-10"
+								src={ data.productLogo }
+								alt={ data.productTitle + ' Logo' }
+								height={ 100 }
+								width={ 100 }
+							/>
+						) : (data.siteLogo) }
+						<div
+							className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
 						>
+							{ type === 'product' ? data.productTitle : data.siteTitle }
+						</div>
+					</Link>
+				</div>
+				<div className="flex lg:hidden">
+					<button
+						onClick={ toggleMenu }
+						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900 dark:text-gray-100"
+					>
+						<span className="sr-only">
+							Open main menu
+						</span>
+						<svg
+							className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+							stroke="currentColor" aria-hidden="true"
+						>
+							<path
+								strokeLinecap="round" strokeLinejoin="round"
+								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div className="hidden lg:flex lg:gap-x-4 2xl:gap-x-10">
+					{ menu.map((item: Menu): JSX.Element => {
+						if (item.submenu) {
+							if (item.submenu.type === 1) {
+								const isCurrent: boolean = isPath([
+									item.submenu.path ?? '',
+									...item.submenu.items.map((item) => item.path),
+								])
+
+								return (
+									<div key={ item.title } className="relative">
+										<button
+											className={ (isCurrent ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+											type="button"
+											aria-expanded="false"
+											onMouseEnter={ item.submenu.openCallback }
+											onMouseLeave={ item.submenu.closeCallback }
+										>
+											{ item.title }
+
+											<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+											     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+											>
+												<path
+													fillRule="evenodd" clipRule="evenodd"
+													d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+												/>
+											</svg>
+										</button>
+										<div
+											onMouseEnter={ item.submenu.openCallback }
+											onMouseLeave={ item.submenu.closeCallback }
+											className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+										>
+											<div className="px-4 py-0">
+												{ item.submenu.items.map((item): JSX.Element => {
+													return (
+														<Link
+															key={ item.path }
+															href={ item.path }
+															target={ item.path.startsWith('http') ? '_blank' : '' }
+															className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-100 dark:hover:bg-gray-950"
+														>
+															{ item.title }
+														</Link>
+													)
+												}) }
+											</div>
+										</div>
+									</div>
+								)
+							} else if (item.submenu.type === 2) {
+								return (
+									<div key={ item.title } className="relative">
+										<button
+											className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
+											type="button" aria-expanded="false"
+											onMouseEnter={ item.submenu.openCallback }
+											onMouseLeave={ item.submenu.closeCallback }
+										>
+											{ item.title }
+
+											<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
+											     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+											>
+												<path fillRule="evenodd"
+												      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+												      clipRule="evenodd">
+												</path>
+											</svg>
+										</button>
+										<div
+											onMouseEnter={ item.submenu.openCallback }
+											onMouseLeave={ item.submenu.closeCallback }
+											className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+										>
+											<div className="grid grid-cols-2 px-4 py-0">
+												{ item.submenu.items.map((subitem): JSX.Element => {
+													return (
+														<Link
+															key={ subitem.path }
+															href={ subitem.path }
+															className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-100 dark:hover:bg-gray-950"
+														>
+															<div
+																className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-400 group-hover:bg-white dark:group-hover:bg-gray-500"
+															>
+																<Image
+																	className="h-6 w-6 text-gray-600 dark:text-gray-400 group-hover:text-primary"
+																	src="/icon/app.svg" alt="App"
+																	height={ 100 }
+																	width={ 100 }
+																/>
+															</div>
+															<div className="flex-auto">
+																	<span
+																		className="block font-semibold text-gray-900 dark:text-gray-100"
+																	>
+																		{ subitem.title }
+																	</span>
+																<p className="mt-1 text-gray-600">
+																	{ subitem.description }
+																</p>
+															</div>
+														</Link>
+													)
+												}) }
+											</div>
+											{ item.submenu.text && item.submenu.path && (
+												<Link
+													href={ item.submenu.path }
+													className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-950"
+												>
+													{ item.submenu.text }
+												</Link>
+											) }
+										</div>
+									</div>
+								)
+							} else {
+								return <></>
+							}
+						} else {
+							if (item.path) {
+								return (
+									<Link
+										key={ item.path }
+										href={ item.path }
+										className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
+									>
+										{ item.title }
+									</Link>
+								)
+							} else {
+								return <></>
+							}
+						}
+					}) }
+					{ type === 'product' && (<>
+						<Link
+							href={ data.productSlug && data.productSlug + '/about' }
+							className={ (path === data.productSlug + '/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
+						>
+							About
+						</Link>
+						<a
+							href={ data.productGithub ?? 'https://github.com/STechBD' }
+							target="_blank"
+							className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+						>
+							GitHub
+						</a>
+						<a
+							href={ `${ config.info.cp }/login` }
+							target="_blank"
+							className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+						>
+							Login
+						</a>
+					</>) }
+				</div>
+				{ type === 'product' ? (
+					<div className="hidden lg:flex lg:flex-1 lg:justify-end">
+						<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
 							<span className="sr-only">
-								{ type === 'product' ? data.productTitle : data.siteTitle }
+								S Technologies
 							</span>
-							{ type === 'product' && data.productLogo ? (
-								<Image
-									className="h-8 w-auto sm:h-10"
-									src={ data.productLogo }
-									alt={ data.productTitle + ' Logo' }
-									height={ 100 }
-									width={ 100 }
-								/>
-							) : (data.siteLogo) }
 							<div
-								className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100 whitespace-nowrap"
+								className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100"
 							>
-								{ type === 'product' ? data.productTitle : data.siteTitle }
+								S Technologies
 							</div>
+							<AnimatedLogo/>
 						</Link>
 					</div>
-					<div className="flex lg:hidden">
-						<button type="button" onClick={ toggleMenu }
-						        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900 dark:text-gray-100"
+				) : (
+					<div className="hidden xl:flex xl:flex-1 xl:justify-end">
+						<a
+							href={ `${ config.info.cp }/login` }
+							target="_blank"
+							className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
 						>
-							<span className="sr-only">
-								Open main menu
-							</span>
-							<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-							     stroke="currentColor" aria-hidden="true"
-							>
-								<path strokeLinecap="round" strokeLinejoin="round"
-								      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
-								</path>
-							</svg>
-						</button>
+							Login
+						</a>
 					</div>
-					<div className="hidden lg:flex lg:gap-x-4 2xl:gap-x-10">
-						{ menu.map((item: Menu, index): JSX.Element => {
-							if (item.submenu) {
-								if (item.submenu.type === 1) {
-									const isCurrent: boolean = isPath([
-										item.submenu.path ?? '',
-										...item.submenu.items.map((item) => item.path),
-									])
+				) }
+			</nav>
 
-									return (
-										<div key={ item.title } className="relative">
+			{ /** Mobile Menu **/ }
+			<div
+				className={ `${ showMenu ? 'fixed' : 'hidden' } top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 bg-black bg-opacity-50 overflow-hidden z-[101] cursor-pointer` }
+				onClick={ () => setShowMenu(false) }
+				aria-modal="true"
+				role="dialog"
+			/>
+			<div
+				className={ `fixed inset-y-0 right-0 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20 z-[102] transition-all duration-500 transform ${ showMenu ? 'translate-x-0' : 'translate-x-full' }` }
+			>
+				<div className="flex items-center justify-between">
+					<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
+						<span className="sr-only">
+							{ data.siteTitle }
+						</span>
+						<AnimatedLogo/>
+						<span className="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
+							{ data.siteTitle }
+						</span>
+					</Link>
+					<button
+						onClick={ toggleMenu }
+						type="button"
+						className="-m-2.5 rounded-md p-2.5 text-gray-700"
+					>
+						<span className="sr-only">
+							Close menu
+						</span>
+						<svg
+							className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+							stroke="currentColor" aria-hidden="true"
+						>
+							<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+						</svg>
+					</button>
+				</div>
+				<div className="mt-6 flow-root">
+					<div className="-my-6 divide-y divide-gray-500/10">
+						<div className="pt-6 pb-3"></div>
+						{ menu.map((item: Menu): JSX.Element => {
+							if (item.submenu) {
+								return (
+									<div key={ item.title } className="space-y-2 py-2">
+										<div className="-mx-3">
 											<button
-												className={ (isCurrent ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
-												type="button"
+												onClick={ item.mobileToggle } type="button"
+												aria-controls="disclosure-1"
 												aria-expanded="false"
-												onMouseEnter={ item.submenu.openCallback }
-												onMouseLeave={ item.submenu.closeCallback }
+												className={ (isPath([
+													item.submenu.path ?? '',
+													...item.submenu.items.map((item) => item.path),
+												]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-100 dark:hover:bg-gray-950' }
 											>
 												{ item.title }
 
-												<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-												     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
-												>
+												<svg className="h-5 w-5 flex-none">
 													<path
 														fillRule="evenodd" clipRule="evenodd"
 														d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -458,307 +681,78 @@ export default function Header(): JSX.Element {
 												</svg>
 											</button>
 											<div
-												onMouseEnter={ item.submenu.openCallback }
-												onMouseLeave={ item.submenu.closeCallback }
-												className={ item.submenu.state ? 'absolute left-24 top-full z-10 mt-3 -ml-56 w-screen max-w-sm overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
+												className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
 											>
-												<div className="px-4 py-0">
-													{ item.submenu.items.map((item, index) => {
-														return (
-															<Link
-																key={ item.path }
-																href={ item.path }
-																target={ item.path.startsWith('http') ? '_blank' : '' }
-																className="block px-3 py-4 font-semibold text-gray-900 dark:text-gray-100 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-															>
-																{ item.title }
-															</Link>
-														)
-													}) }
-												</div>
-											</div>
-										</div>
-									)
-								} else if (item.submenu.type === 2) {
-									return (
-										<div key={ item.title } className="relative">
-											<button
-												className={ (path === '/product' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' flex items-center gap-x-1 font-semibold leading-6' }
-												type="button" aria-expanded="false"
-												onMouseEnter={ item.submenu.openCallback }
-												onMouseLeave={ item.submenu.closeCallback }
-											>
-												{ item.title }
-
-												<svg className="h-5 w-5 flex-none text-gray-900 dark:text-gray-100"
-												     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
-												>
-													<path fillRule="evenodd"
-													      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-													      clipRule="evenodd">
-													</path>
-												</svg>
-											</button>
-											<div
-												onMouseEnter={ item.submenu.openCallback }
-												onMouseLeave={ item.submenu.closeCallback }
-												className={ item.submenu.state ? 'absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' : 'hidden absolute -left-8 top-full z-10 mt-3 -ml-56 w-screen max-w-4xl overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg ring-1 ring-gray-900/5' }
-											>
-												<div className="grid grid-cols-2 px-4 py-0">
-													{ item.submenu.items.map((subitem, index) => {
-														return (
-															<Link
-																key={ subitem.path }
-																href={ subitem.path }
-																className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-															>
-																<div
-																	className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
-																>
-																	<Image
-																		className="h-6 w-6 text-gray-600 group-hover:text-primary"
-																		src="/icon/app.svg" alt="App"
-																		height={ 100 }
-																		width={ 100 }
-																	/>
-																</div>
-																<div className="flex-auto">
-																	<span
-																		className="block font-semibold text-gray-900 dark:text-gray-100"
-																	>
-																		{ subitem.title }
-																	</span>
-																	<p className="mt-1 text-gray-600">
-																		{ subitem.description }
-																	</p>
-																</div>
-															</Link>
-														)
-													}) }
-												</div>
+												{ item.submenu.items.map((item): JSX.Element => (
+													<Link
+														key={ item.path }
+														href={ item.path }
+														target={ item.path.startsWith('http') ? '_blank' : '' }
+														className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-100 dark:hover:bg-gray-950' }
+													>
+														{ item.title }
+													</Link>
+												)) }
 												{ item.submenu.text && item.submenu.path && (
 													<Link
 														href={ item.submenu.path }
-														className="block rounded-lg py-2 pl-6 pr-3 text-sm text-center font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
+														className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900"
 													>
 														{ item.submenu.text }
 													</Link>
 												) }
 											</div>
 										</div>
-									)
-								} else {
-									return <></>
-								}
+									</div>
+								)
 							} else {
 								if (item.path) {
 									return (
-										<Link
-											key={ item.path }
-											href={ item.path }
-											className={ (path === item.path ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6' }
-										>
-											{ item.title }
-										</Link>
+										<div key={ item.path } className="py-2">
+											<Link
+												href={ item.path }
+												className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-100 dark:hover:bg-gray-950' }
+											>
+												{ item.title }
+											</Link>
+										</div>
 									)
 								} else {
 									return <></>
 								}
 							}
 						}) }
-						{ type === 'product' && (
-							<>
-								<Link
-									href={ data.productSlug && data.productSlug + '/about' }
-									className={ (path === data.productSlug + '/about' ? 'text-primary' : 'text-gray-900 dark:text-gray-100') + ' font-semibold leading-6 hidden 2xl:block' }
+						{ type === 'product' && (<>
+							<div className="py-2">
+								<Link href={ data.productSlug + '/about' }
+								      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-950"
 								>
 									About
 								</Link>
+							</div>
+							<div className="py-2">
 								<a
 									href={ data.productGithub ?? 'https://github.com/STechBD' }
 									target="_blank"
-									className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
+									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-950"
 								>
 									GitHub
 								</a>
-								<a
-									href={ `${ config.info.cp }/login` }
-									target="_blank"
-									className="font-semibold leading-6 text-gray-900 dark:text-gray-100 hidden 2xl:block"
-								>
-									Login
-								</a>
-							</>
-						) }
-					</div>
-					{ type === 'product' ? (
-						<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-							<Link className="flex gap-5 -m-1.5 p-1.5" href="/">
-									<span className="sr-only">
-										S Technologies
-									</span>
-								<div
-									className="flex items-center gap-x-1 text-3xl lg:text-lg 2xl:text-3xl font-semibold leading-6 text-gray-900 dark:text-gray-100"
-								>
-									S Technologies
-								</div>
-								<AnimatedLogo/>
-							</Link>
-						</div>
-					) : (
-						<div className="hidden xl:flex xl:flex-1 xl:justify-end">
+							</div>
+						</>) }
+						<div className="py-2">
 							<a
 								href={ `${ config.info.cp }/login` }
 								target="_blank"
-								className="flex gap-5 -m-1.5 justify-center py-2 px-3.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary cursor-pointer hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+								className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-950"
 							>
 								Login
 							</a>
 						</div>
-					) }
-				</nav>
-
-				{ /** Mobile Menu **/ }
-				<div
-					onClick={ () => toggleMenu() }
-					aria-modal="true"
-					role="dialog"
-					className={ showMenu ? 'block absolute top-0 left-0 h-screen w-screen backdrop-blur backdrop-opacity-100 overflow-hidden' : 'hidden' }
-				>
-					<div
-						onClick={ (event) => event.stopPropagation() }
-						className="block fixed h-screen inset-y-0 right-0 z-100 w-[85%] overflow-x-hidden overflow-y-auto bg-white dark:bg-slate-900 bg-opacity-100 px-6 pt-6 pb-20"
-					>
-						<div className="flex items-center justify-between">
-							<Link className="flex items-center gap-5 -m-1.5 p-1.5" href="/">
-								<span className="sr-only">
-									{ data.siteTitle }
-								</span>
-								<AnimatedLogo/>
-								<span className="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
-									{ data.siteTitle }
-								</span>
-							</Link>
-							<button
-								onClick={ () => toggleMenu() }
-								type="button"
-								className="-m-2.5 rounded-md p-2.5 text-gray-700"
-							>
-								<span className="sr-only">
-									Close menu
-								</span>
-								<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-								     stroke="currentColor" aria-hidden="true"
-								>
-									<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-								</svg>
-							</button>
-						</div>
-						<div className="mt-6 flow-root">
-							<div className="-my-6 divide-y divide-gray-500/10">
-								<div className="pt-6 pb-3"></div>
-								{ menu.map((item: Menu, index): JSX.Element => {
-									if (item.submenu) {
-										return (
-											<div key={ item.title } className="space-y-2 py-2">
-												<div className="-mx-3">
-													<button
-														onClick={ item.mobileToggle } type="button"
-														aria-controls="disclosure-1"
-														aria-expanded="false"
-														className={ (isPath([
-															item.submenu.path ?? '',
-															...item.submenu.items.map((item) => item.path),
-														]) ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50' }
-													>
-														{ item.title }
-
-														<svg className="h-5 w-5 flex-none">
-															<path fillRule="evenodd" clipRule="evenodd"
-															      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z">
-															</path>
-														</svg>
-													</button>
-													<div
-														className={ item.mobileState ? 'mt-2 space-y-2' : 'hidden' }
-													>
-														{ item.submenu.items.map((item, index): JSX.Element => {
-															return (
-																<Link
-																	key={ item.path }
-																	href={ item.path }
-																	target={ item.path.startsWith('http') ? '_blank' : '' }
-																	className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + 'block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50' }
-																>
-																	{ item.title }
-																</Link>
-															)
-														}) }
-														{ item.submenu.text && item.submenu.path && (
-															<Link
-																href={ item.submenu.path }
-																className="block text-gray-900 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 dark:text-gray-100 hover:bg-gray-50"
-															>
-																{ item.submenu.text }
-															</Link>
-														) }
-													</div>
-												</div>
-											</div>
-										)
-									} else {
-										if (item.path) {
-											return (
-												<div key={ item.path } className="py-2">
-													<Link
-														href={ item.path }
-														className={ (path === item.path ? 'text-primary ' : 'text-gray-900 dark:text-gray-100 ') + '-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50' }
-													>
-														{ item.title }
-													</Link>
-												</div>
-											)
-										} else {
-											return <></>
-										}
-									}
-								})
-								}
-								{ type === 'product' && (
-									<>
-										<div className="py-2">
-											<Link href={ data.productSlug + '/about' }
-											      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-											>
-												About
-											</Link>
-										</div>
-										<div className="py-2">
-											<a
-												href={ data.productGithub ?? 'https://github.com/STechBD' }
-												target="_blank"
-												className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-											>
-												GitHub
-											</a>
-										</div>
-									</>
-								) }
-								<div className="py-2">
-									<a
-										href={ `${ config.info.cp }/login` }
-										target="_blank"
-										className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50"
-									>
-										Login
-									</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
-			</header>
-			<Theme/>
-		</>
-	)
+			</div>
+		</header>
+		<Theme/>
+	</>)
 }
